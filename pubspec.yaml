@@ -38,6 +38,7 @@ dependencies:
   # This Library used to support multiple languages
   flutter_localizations:
     sdk: flutter
+  flutter_native_splash: ^2.4.4
     
 dev_dependencies:
   flutter_test:
