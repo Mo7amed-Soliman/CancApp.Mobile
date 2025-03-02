@@ -1,0 +1,17 @@
+#? default or recommended lint rules for flutter
+ 
+include: package:flutter_lints/flutter.yaml
+
+#? custom rules can be added  
+
+linter:
+  rules:           
+    prefer_const_constructors: true  
+    valid_regexps: true
+    prefer_single_quotes: true
+    always_declare_return_types: true 
+ 
+
+analyzer:
+  errors:
+    avoid_print: error
