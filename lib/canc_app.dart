@@ -18,7 +18,7 @@ class CancApp extends StatelessWidget {
       height: context.screenHeight,
       child: MaterialApp(
         title: appName,
-        theme: lightTheme,
+        theme: appLightTheme,
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
