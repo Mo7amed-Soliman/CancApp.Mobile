@@ -5,12 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
+  // Initialize the Flutter framework
   WidgetsFlutterBinding.ensureInitialized();
+
   // Set app orientation to portrait mode only
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
   // Run the app
   runApp(
     DevicePreview(

@@ -1,5 +1,10 @@
+import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/helpers/responsive_helpers/size_provider.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
+
 import 'package:flutter/material.dart';
 import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/core/theming/app_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class CancApp extends StatelessWidget {
@@ -7,20 +12,22 @@ class CancApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CancApp',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return SizeProvider(
+      baseSize: const Size(375, 812),
+      width: context.screenWidth,
+      height: context.screenHeight,
+      child: MaterialApp(
+        title: appName,
+        theme: lightTheme,
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        home: const Scaffold(),
       ),
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      home: const Scaffold(),
     );
   }
 }
