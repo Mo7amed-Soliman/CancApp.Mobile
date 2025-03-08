@@ -42,6 +42,8 @@ dependencies:
   flutter_native_splash: ^2.4.4
   # device_preview for responsive design testing
   device_preview: ^1.2.0
+  # go_router for navigation management
+  go_router: ^14.8.0
     
 dev_dependencies:
   flutter_test:
