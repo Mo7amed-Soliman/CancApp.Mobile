@@ -44,7 +44,13 @@ dependencies:
   device_preview: ^1.2.0
   # go_router for navigation management
   go_router: ^14.8.0
-    
+  # state management
+  flutter_bloc: ^9.1.0
+  # dependency injection
+  get_it: ^8.0.3
+  # persistent key-value storage for simple data
+  shared_preferences: ^2.5.2
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,8 +75,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets\images\on_boarding\
-    - assets\icons\
+    - assets/images/on_boarding/
+    - assets/icons/
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
@@ -86,10 +92,16 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700  
-               
+
+    - family: Almarai
+      fonts:
+        - asset: assets/fonts/Almarai-Regular.ttf
+        - asset: assets/fonts/Almarai-Bold.ttf
+          weight: 700
+
     - family: Righteous
       fonts:
         - asset: assets/fonts/Righteous-Regular.ttf
  
-flutter_intl:
+flutter_intl: 
   enabled: true
