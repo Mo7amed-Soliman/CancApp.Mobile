@@ -8,4 +8,5 @@ const appName = 'CancApp';
 
 abstract class CacheKeys {
   static const language = 'language';
+  static const onBoarding = 'onBoarding';
 }

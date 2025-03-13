@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: Routes.whoAreYou,
+  initialLocation: _getFirstView(),
   debugLogDiagnostics: true,
   routes: [
     GoRoute(

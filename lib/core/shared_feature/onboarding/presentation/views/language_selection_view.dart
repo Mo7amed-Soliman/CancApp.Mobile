@@ -4,6 +4,7 @@ import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/widgets/language_option_widget.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -11,6 +12,7 @@ import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class LanguageSelectionView extends StatelessWidget {
   const LanguageSelectionView({super.key});
@@ -56,7 +58,12 @@ class LanguageSelectionView extends StatelessWidget {
             ),
             const Spacer(),
             AppButtonWidget(
-              onPressed: () {},
+              onPressed: () {
+                // save to shared preferences
+                getIt<CacheHelper>()
+                    .saveData(key: CacheKeys.onBoarding, value: true);
+                context.push(Routes.onBoardingView);
+              },
               text: S.of(context).next,
             ),
           ],

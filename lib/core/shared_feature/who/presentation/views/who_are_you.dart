@@ -1,3 +1,4 @@
+import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/widgets/user_role_selection_widget.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
@@ -31,7 +32,10 @@ class _WhoAreYouState extends State<WhoAreYou> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(
+              horizontal: context.screenWidth * 0.06,
+              vertical: context.screenHeight * 0.04,
+            ),
             child: AppButtonWidget(
               onPressed: () {},
               text: S.of(context).next,
