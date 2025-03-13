@@ -79,6 +79,136 @@ class S {
   String get next {
     return Intl.message('Next', name: 'next', desc: '', args: []);
   }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message('Back', name: 'back', desc: '', args: []);
+  }
+
+  /// `Connect with support`
+  String get onboarding_title1 {
+    return Intl.message(
+      'Connect with support',
+      name: 'onboarding_title1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chat with doctors, psychiatrists, pharmacists, and volunteers anytime`
+  String get onboarding_description1 {
+    return Intl.message(
+      'Chat with doctors, psychiatrists, pharmacists, and volunteers anytime',
+      name: 'onboarding_description1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Join the community`
+  String get onboarding_title2 {
+    return Intl.message(
+      'Join the community',
+      name: 'onboarding_title2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect with patients and doctors and share your experiences, and get support just like on social media`
+  String get onboarding_description2 {
+    return Intl.message(
+      'Connect with patients and doctors and share your experiences, and get support just like on social media',
+      name: 'onboarding_description2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep your records Handy`
+  String get onboarding_title3 {
+    return Intl.message(
+      'Keep your records Handy',
+      name: 'onboarding_title3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Easily upload lab results, prescriptions scans and medical documents in one place`
+  String get onboarding_description3 {
+    return Intl.message(
+      'Easily upload lab results, prescriptions scans and medical documents in one place',
+      name: 'onboarding_description3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Never miss a remainder`
+  String get onboarding_title4 {
+    return Intl.message(
+      'Never miss a remainder',
+      name: 'onboarding_title4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get notified about your medication and doctor appointments`
+  String get onboarding_description4 {
+    return Intl.message(
+      'Get notified about your medication and doctor appointments',
+      name: 'onboarding_description4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select who are you`
+  String get selectWhoAreYou {
+    return Intl.message(
+      'Select who are you',
+      name: 'selectWhoAreYou',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor`
+  String get doctor {
+    return Intl.message('Doctor', name: 'doctor', desc: '', args: []);
+  }
+
+  /// `Pharmacist`
+  String get pharmacist {
+    return Intl.message('Pharmacist', name: 'pharmacist', desc: '', args: []);
+  }
+
+  /// `Volunteer`
+  String get volunteer {
+    return Intl.message('Volunteer', name: 'volunteer', desc: '', args: []);
+  }
+
+  /// `Psychiatrist`
+  String get psychiatrist {
+    return Intl.message(
+      'Psychiatrist',
+      name: 'psychiatrist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Patient`
+  String get patient {
+    return Intl.message('Patient', name: 'patient', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

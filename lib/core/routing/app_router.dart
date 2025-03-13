@@ -1,12 +1,17 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/language_selection_view.dart';
+import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
+import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: Routes.languageSelectionView,
+  initialLocation: Routes.whoAreYou,
   debugLogDiagnostics: true,
   routes: [
     GoRoute(
@@ -33,6 +38,30 @@ final appRouter = GoRouter(
         transitionsBuilder: _transitionsBuilder,
       ),
     ),
+    GoRoute(
+      path: Routes.onBoardingView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const OnBoardingView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.loginView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const Scaffold(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.whoAreYou,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const WhoAreYou(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
   ],
 );
 
@@ -49,4 +78,12 @@ Widget _transitionsBuilder(context, animation, secondaryAnimation, child) {
     position: offsetAnimation,
     child: child,
   );
+}
+
+String _getFirstView() {
+  bool? isFirstTime = getIt<CacheHelper>().getData(key: CacheKeys.onBoarding);
+  if (isFirstTime == null || !isFirstTime) {
+    return Routes.languageSelectionView;
+  }
+  return Routes.loginView;
 }

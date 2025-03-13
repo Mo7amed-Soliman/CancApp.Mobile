@@ -4,5 +4,10 @@ class AppAssets {
   static const String onboarding1 = 'assets/images/on_boarding/onboarding1.svg',
       onboarding2 = 'assets/images/on_boarding/onboarding2.svg',
       onboarding3 = 'assets/images/on_boarding/onboarding3.svg',
-      onboarding4 = 'assets/images/on_boarding/onboarding4.svg';
+      onboarding4 = 'assets/images/on_boarding/onboarding4.svg',
+      doctorIcon = 'assets/icons/doctor_icon.svg',
+      pharmacistIcon = 'assets/icons/pharmacist_icon.svg',
+      psychiatristIcon = 'assets/icons/psychiatrist_icon.svg',
+      patientIcon = 'assets/icons/patient_icon.svg',
+      volunteerIcon = 'assets/icons/volunteer_icon.svg';
 }

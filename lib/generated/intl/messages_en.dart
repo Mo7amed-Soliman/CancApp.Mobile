@@ -23,8 +23,42 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "back": MessageLookupByLibrary.simpleMessage("Back"),
+    "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "onboarding_description1": MessageLookupByLibrary.simpleMessage(
+      "Chat with doctors, psychiatrists, pharmacists, and volunteers anytime",
+    ),
+    "onboarding_description2": MessageLookupByLibrary.simpleMessage(
+      "Connect with patients and doctors and share your experiences, and get support just like on social media",
+    ),
+    "onboarding_description3": MessageLookupByLibrary.simpleMessage(
+      "Easily upload lab results, prescriptions scans and medical documents in one place",
+    ),
+    "onboarding_description4": MessageLookupByLibrary.simpleMessage(
+      "Get notified about your medication and doctor appointments",
+    ),
+    "onboarding_title1": MessageLookupByLibrary.simpleMessage(
+      "Connect with support",
+    ),
+    "onboarding_title2": MessageLookupByLibrary.simpleMessage(
+      "Join the community",
+    ),
+    "onboarding_title3": MessageLookupByLibrary.simpleMessage(
+      "Keep your records Handy",
+    ),
+    "onboarding_title4": MessageLookupByLibrary.simpleMessage(
+      "Never miss a remainder",
+    ),
+    "patient": MessageLookupByLibrary.simpleMessage("Patient"),
+    "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
+    "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
+    "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(
+      "Select who are you",
+    ),
+    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
   };
 }

@@ -50,7 +50,9 @@ dependencies:
   get_it: ^8.0.3
   # persistent key-value storage for simple data
   shared_preferences: ^2.5.2
-  
+  # flutter_svg for svg images
+  flutter_svg: ^2.0.17
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
