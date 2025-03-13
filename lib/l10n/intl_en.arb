@@ -1,1 +1,29 @@
-{}
+{
+    "selectLanguage" :"Select Language",
+     "arabic": "Arabic",
+     "english": "English",
+ 
+     "next": "Next",
+     "skip": "Skip",
+     "back": "Back",
+ 
+     "onboarding_title1": "Connect with support",
+     "onboarding_description1": "Chat with doctors, psychiatrists, pharmacists, and volunteers anytime",
+    
+     "onboarding_title2": "Join the community",
+     "onboarding_description2": "Connect with patients and doctors and share your experiences, and get support just like on social media",
+     
+     "onboarding_title3": "Keep your records Handy",
+     "onboarding_description3": "Easily upload lab results, prescriptions scans and medical documents in one place",
+     
+     "onboarding_title4": "Never miss a remainder",
+     "onboarding_description4": "Get notified about your medication and doctor appointments",
+ 
+     "selectWhoAreYou":"Select who are you",
+     "doctor":"Doctor",
+     "pharmacist":"Pharmacist",
+     "volunteer":"Volunteer",
+     "psychiatrist":"Psychiatrist",
+     "patient":"Patient"
+      
+ }

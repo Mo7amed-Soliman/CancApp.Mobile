@@ -21,5 +21,42 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
+    "back": MessageLookupByLibrary.simpleMessage("عودة"),
+    "doctor": MessageLookupByLibrary.simpleMessage("طبيب"),
+    "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "onboarding_description1": MessageLookupByLibrary.simpleMessage(
+      "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
+    ),
+    "onboarding_description2": MessageLookupByLibrary.simpleMessage(
+      "انضم إلى مجتمع يضم مرضى وأطباء، تبادل الخبرات، وكن جزءًا من الدعم المتبادل",
+    ),
+    "onboarding_description3": MessageLookupByLibrary.simpleMessage(
+      "قم برفع التحاليل، التقارير الطبية، الأشعة، والمستندات الطبية بسهولة",
+    ),
+    "onboarding_description4": MessageLookupByLibrary.simpleMessage(
+      "تلقَّ إشعارات بمواعيد الأدوية والزيارات الطبية",
+    ),
+    "onboarding_title1": MessageLookupByLibrary.simpleMessage(
+      "نحن هنا لمساعدتك",
+    ),
+    "onboarding_title2": MessageLookupByLibrary.simpleMessage(
+      "ادعم وتلقى الدعم",
+    ),
+    "onboarding_title3": MessageLookupByLibrary.simpleMessage(
+      "كل سجلاتك في مكان واحد",
+    ),
+    "onboarding_title4": MessageLookupByLibrary.simpleMessage(
+      "تذكيرات طبية في وقتها",
+    ),
+    "patient": MessageLookupByLibrary.simpleMessage("مريض"),
+    "pharmacist": MessageLookupByLibrary.simpleMessage("صيدالية"),
+    "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
+    "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+    "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),
+  };
 }

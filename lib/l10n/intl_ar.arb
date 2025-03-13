@@ -1,1 +1,29 @@
-{}
+{
+
+    "selectLanguage" :"اختر اللغة",
+    "arabic": "عربي",
+    "english": "إنجليزي",
+
+    "next": "التالي",
+    "skip": "تخطي",
+    "back": "عودة",
+    
+    "onboarding_title1": "نحن هنا لمساعدتك",
+    "onboarding_description1": "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
+   
+    "onboarding_title2": "ادعم وتلقى الدعم",
+    "onboarding_description2": "انضم إلى مجتمع يضم مرضى وأطباء، تبادل الخبرات، وكن جزءًا من الدعم المتبادل",
+    
+    "onboarding_title3": "كل سجلاتك في مكان واحد",
+    "onboarding_description3": "قم برفع التحاليل، التقارير الطبية، الأشعة، والمستندات الطبية بسهولة",
+    
+    "onboarding_title4": "تذكيرات طبية في وقتها",
+    "onboarding_description4": "تلقَّ إشعارات بمواعيد الأدوية والزيارات الطبية",
+
+    "selectWhoAreYou":"حدد من أنت",
+    "doctor":"طبيب",
+    "pharmacist":"صيدالية",
+    "volunteer":"متطوع",
+    "psychiatrist":"طبيب نفسي",
+    "patient":"مريض"
+}

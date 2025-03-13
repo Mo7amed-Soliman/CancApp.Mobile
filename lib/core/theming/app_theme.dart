@@ -1,4 +1,3 @@
-import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -11,5 +10,4 @@ var appLightTheme = ThemeData(
     foregroundColor: Colors.white,
   ),
   useMaterial3: true,
-  fontFamily: FontFamily.poppins,
 );
