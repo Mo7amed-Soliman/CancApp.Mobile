@@ -22,7 +22,8 @@ class AppColors {
 
   // background
   static const Color offWhite = Color(0xFFFCFCFC);
-
+  static const Color lightTealBackground = Color(0xFFE3FAF7);
+  static const Color paleTealTransparent = Color(0x1A97D5D1);
   // for specific users
   static const Color deepBlue = Color(0xFF074799);
   static const Color purple = Color(0xFF7E5CAD);

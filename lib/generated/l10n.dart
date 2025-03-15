@@ -209,6 +209,61 @@ class S {
   String get patient {
     return Intl.message('Patient', name: 'patient', desc: '', args: []);
   }
+
+  /// `CancApp`
+  String get cancApp {
+    return Intl.message('CancApp', name: 'cancApp', desc: '', args: []);
+  }
+
+  /// `Welcome back`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome back',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Don't have an account?`
+  String get notHaveAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'notHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

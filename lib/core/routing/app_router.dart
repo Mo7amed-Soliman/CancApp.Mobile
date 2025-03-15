@@ -3,9 +3,12 @@ import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/forgot_password_view.dart';
+import 'package:canc_app/core/shared_feature/login/presentation/views/login_view.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/language_selection_view.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
+import 'package:canc_app/users/patient/sign_up/presentation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -47,18 +50,34 @@ final appRouter = GoRouter(
       ),
     ),
     GoRoute(
-      path: Routes.loginView,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: const Scaffold(),
-        transitionsBuilder: _transitionsBuilder,
-      ),
-    ),
-    GoRoute(
       path: Routes.whoAreYou,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const WhoAreYou(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.loginView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const LoginView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.signUpView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const SignUpView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.forgotPasswordView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const ForgotPasswordView(),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),
@@ -85,5 +104,5 @@ String _getFirstView() {
   if (isFirstTime == null || !isFirstTime) {
     return Routes.languageSelectionView;
   }
-  return Routes.loginView;
+  return Routes.whoAreYou;
 }

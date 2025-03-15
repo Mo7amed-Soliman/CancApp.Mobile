@@ -24,9 +24,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
+    "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
     "doctor": MessageLookupByLibrary.simpleMessage("طبيب"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage(
+      "هل نسيت كلمة المرور؟",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "notHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
       "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
     ),
@@ -51,12 +58,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboarding_title4": MessageLookupByLibrary.simpleMessage(
       "تذكيرات طبية في وقتها",
     ),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "patient": MessageLookupByLibrary.simpleMessage("مريض"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدالية"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
+    "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),
+    "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
   };
 }

@@ -24,9 +24,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
+    "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
     "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "notHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
       "Chat with doctors, psychiatrists, pharmacists, and volunteers anytime",
     ),
@@ -51,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboarding_title4": MessageLookupByLibrary.simpleMessage(
       "Never miss a remainder",
     ),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
     "patient": MessageLookupByLibrary.simpleMessage("Patient"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
@@ -58,7 +66,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(
       "Select who are you",
     ),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
+    "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
   };
 }

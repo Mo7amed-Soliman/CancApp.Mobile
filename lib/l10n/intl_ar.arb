@@ -25,5 +25,15 @@
     "pharmacist":"صيدالية",
     "volunteer":"متطوع",
     "psychiatrist":"طبيب نفسي",
-    "patient":"مريض"
+    "patient":"مريض",
+
+    "cancApp": "كانك آب",
+    "welcomeBack": "مرحبًا بعودتك",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "login": "تسجيل الدخول",
+    "signUp": "إنشاء حساب" ,
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "notHaveAccount": "ليس لديك حساب؟"  
+ 
 }

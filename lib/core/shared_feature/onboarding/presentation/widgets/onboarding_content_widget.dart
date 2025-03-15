@@ -1,5 +1,6 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -40,7 +41,7 @@ class OnboardingContent extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppTextStyle.font24SemiBoldDarkGray(context),
           ),
-          SizedBox(height: context.setHeight(5)),
+          const VerticalSpacer(5),
           Text(
             description,
             textAlign: TextAlign.center,

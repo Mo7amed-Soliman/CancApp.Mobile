@@ -1,3 +1,4 @@
+import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -24,10 +25,12 @@ class LanguageOptionWidget extends StatelessWidget {
         duration: const Duration(milliseconds: 300),
         alignment: alignment,
         width: double.infinity,
-        padding: const EdgeInsets.all(17),
+        padding: EdgeInsets.all(context.setMinSize(17)),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primaryColor : const Color(0xFFE3FAF7),
-          borderRadius: BorderRadius.circular(10),
+          color: isSelected
+              ? AppColors.primaryColor
+              : AppColors.paleTealTransparent,
+          borderRadius: BorderRadius.circular(context.setMinSize(10)),
         ),
         child: Text(
           language,

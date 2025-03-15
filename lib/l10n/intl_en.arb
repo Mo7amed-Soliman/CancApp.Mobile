@@ -24,6 +24,15 @@
      "pharmacist":"Pharmacist",
      "volunteer":"Volunteer",
      "psychiatrist":"Psychiatrist",
-     "patient":"Patient"
+     "patient":"Patient",
+    
+    "cancApp":"CancApp",
+     "welcomeBack":"Welcome back",
+     "forgotPassword":"Forgot Password?",
+     "login":"Login",
+     "signUp":"Sign Up",
+     "email":"Email",
+     "password":"Password",
+     "notHaveAccount":"Don't have an account?"
       
  }
