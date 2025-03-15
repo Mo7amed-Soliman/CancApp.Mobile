@@ -28,15 +28,17 @@ class LoginForm extends StatelessWidget {
           );
         }
       },
-      child: Form(
-        key: loginCubit.formKey,
-        autovalidateMode: loginCubit.validationMode,
-        child: const Expanded(
-          child: Column(
-            children: [
-              Expanded(child: _LoginFields()),
-              _LoginButton(),
-            ],
+      child: AutofillGroup(
+        child: Form(
+          key: loginCubit.formKey,
+          autovalidateMode: loginCubit.validationMode,
+          child: const Expanded(
+            child: Column(
+              children: [
+                Expanded(child: _LoginFields()),
+                _LoginButton(),
+              ],
+            ),
           ),
         ),
       ),
@@ -81,6 +83,7 @@ class _LoginFields extends StatelessWidget {
           AppTextFormField(
             label: S.of(context).email,
             onSaved: (email) => loginCubit.emailInput = email,
+            autofillHints: [AutofillHints.email],
           ),
           const VerticalSpacer(12),
           const _PasswordInput(),
@@ -109,6 +112,7 @@ class _PasswordInput extends StatelessWidget {
       builder: (context, state) {
         return AppTextFormField(
           label: S.of(context).password,
+          autofillHints: [AutofillHints.password],
           obscureText: loginCubit.isPasswordObscured,
           suffixIcon: loginCubit.buildVisibilityToggleIcon(),
           onSaved: (password) => loginCubit.passwordInput = password,

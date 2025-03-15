@@ -19,6 +19,7 @@ class AppTextFormField extends StatelessWidget {
     this.validator,
     this.onSaved,
     this.keyboardType,
+    this.autofillHints,
   });
 
   final TextEditingController? controller;
@@ -31,6 +32,7 @@ class AppTextFormField extends StatelessWidget {
   final bool obscureText;
   final ValueChanged<String?>? onSaved;
   final TextInputType? keyboardType;
+  final Iterable<String>? autofillHints;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class AppTextFormField extends StatelessWidget {
         const SizedBox(height: 5),
         TextFormField(
           controller: controller,
+          autofillHints: autofillHints,
           obscureText: obscureText,
           onSaved: onSaved,
           onChanged: onChanged,
@@ -82,7 +85,7 @@ class AppTextFormField extends StatelessWidget {
   }
 
   /// Returns the border style
-  static OutlineInputBorder _borderStyle({
+  OutlineInputBorder _borderStyle({
     Color color = AppColors.primaryColor,
   }) {
     return OutlineInputBorder(
@@ -95,7 +98,7 @@ class AppTextFormField extends StatelessWidget {
   }
 
   /// Returns the keyboard type based on the label
-  static TextInputType _getKeyboardType(String label) {
+  TextInputType _getKeyboardType(String label) {
     final lowerLabel = label.toLowerCase();
 
     if (lowerLabel.contains('email')) {
