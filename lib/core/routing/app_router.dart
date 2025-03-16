@@ -4,6 +4,7 @@ import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/forgot_password_view.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/otp_view.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/login_view.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/language_selection_view.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
@@ -78,6 +79,16 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const ForgotPasswordView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.otpView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: OTPView(
+          email: state.extra as String,
+        ),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

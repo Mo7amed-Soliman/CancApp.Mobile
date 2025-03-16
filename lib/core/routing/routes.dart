@@ -5,5 +5,6 @@ class Routes {
   static const String whoAreYou = '/whoAreYou';
   static const String loginView = '/login';
   static const String forgotPasswordView = '/forgotPasswordView';
+  static const String otpView = '/otpView';
   static const String signUpView = '/signUpView';
 }
