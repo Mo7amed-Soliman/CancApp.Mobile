@@ -25,10 +25,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
+    "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
+      "لم أستلم الرمز,",
+    ),
     "doctor": MessageLookupByLibrary.simpleMessage("طبيب"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
-    "forgotPassword": MessageLookupByLibrary.simpleMessage(
+    "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
+      "أدخل رمز التحقق الذي أرسلناه إلى بريدك الإلكتروني",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+    "forgotPasswordIntr": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -62,10 +69,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "patient": MessageLookupByLibrary.simpleMessage("مريض"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدالية"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
+    "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
+      "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
+    ),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
+    "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
+    "sendCode": MessageLookupByLibrary.simpleMessage("ارسل الكود"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
+    "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
     "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
   };

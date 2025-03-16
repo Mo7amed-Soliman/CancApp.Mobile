@@ -225,14 +225,79 @@ class S {
     );
   }
 
-  /// `Forgot Password?`
+  /// `Forgot Password`
   String get forgotPassword {
     return Intl.message(
-      'Forgot Password?',
+      'Forgot Password',
       name: 'forgotPassword',
       desc: '',
       args: [],
     );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPasswordIntr {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPasswordIntr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email address and we will send you a code to reset your password`
+  String get resetPasswordInstructions {
+    return Intl.message(
+      'Enter your email address and we will send you a code to reset your password',
+      name: 'resetPasswordInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Code`
+  String get sendCode {
+    return Intl.message('Send Code', name: 'sendCode', desc: '', args: []);
+  }
+
+  /// `Verification Code`
+  String get verificationCode {
+    return Intl.message(
+      'Verification Code',
+      name: 'verificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the verification code we just sent to your email address`
+  String get enterVerificationCode {
+    return Intl.message(
+      'Enter the verification code we just sent to your email address',
+      name: 'enterVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send again`
+  String get sendAgain {
+    return Intl.message('Send again', name: 'sendAgain', desc: '', args: []);
+  }
+
+  /// `I didn’t receive the code,`
+  String get didNotReceiveCode {
+    return Intl.message(
+      'I didn’t receive the code,',
+      name: 'didNotReceiveCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message('Verify', name: 'verify', desc: '', args: []);
   }
 
   /// `Login`

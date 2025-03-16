@@ -20,6 +20,7 @@ class AppTextFormField extends StatelessWidget {
     this.onSaved,
     this.keyboardType,
     this.autofillHints,
+    this.autofocus = false,
   });
 
   final TextEditingController? controller;
@@ -32,7 +33,8 @@ class AppTextFormField extends StatelessWidget {
   final bool obscureText;
   final ValueChanged<String?>? onSaved;
   final TextInputType? keyboardType;
-  final Iterable<String>? autofillHints;
+  final List<String>? autofillHints;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class AppTextFormField extends StatelessWidget {
         TextFormField(
           controller: controller,
           autofillHints: autofillHints,
+          autofocus: autofocus,
           obscureText: obscureText,
           onSaved: onSaved,
           onChanged: onChanged,

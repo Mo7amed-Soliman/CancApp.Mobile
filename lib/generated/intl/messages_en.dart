@@ -25,10 +25,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
+    "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
+      "I didn’t receive the code,",
+    ),
     "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
-    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
+      "Enter the verification code we just sent to your email address",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
+    "forgotPasswordIntr": MessageLookupByLibrary.simpleMessage(
+      "Forgot Password?",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage(
@@ -62,12 +71,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "patient": MessageLookupByLibrary.simpleMessage("Patient"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
+    "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
+      "Enter your email address and we will send you a code to reset your password",
+    ),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(
       "Select who are you",
     ),
+    "sendAgain": MessageLookupByLibrary.simpleMessage("Send again"),
+    "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "verificationCode": MessageLookupByLibrary.simpleMessage(
+      "Verification Code",
+    ),
+    "verify": MessageLookupByLibrary.simpleMessage("Verify"),
     "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
   };

@@ -19,7 +19,7 @@ class ForgotPasswordButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         child: Text(
-          S.of(context).forgotPassword,
+          S.of(context).forgotPasswordIntr,
           style: AppTextStyle.font14RegularDarkGray(context).copyWith(
             fontWeight: FontWeight.w500,
             color: AppColors.primaryColor,

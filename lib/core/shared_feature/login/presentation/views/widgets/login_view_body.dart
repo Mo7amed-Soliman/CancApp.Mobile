@@ -31,6 +31,9 @@ class LoginViewBody extends StatelessWidget {
             promptText: S.of(context).notHaveAccount,
             actionText: S.of(context).signUp,
             onPressed: () {
+              // Dismiss the keyboard
+              FocusManager.instance.primaryFocus?.unfocus();
+              // Go to sign up
               context.push(Routes.signUpView);
             },
           ),

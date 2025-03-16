@@ -90,6 +90,9 @@ class _LoginFields extends StatelessWidget {
           const VerticalSpacer(10),
           ForgotPasswordButton(
             onPressed: () {
+              // Dismiss the keyboard
+              FocusManager.instance.primaryFocus?.unfocus();
+              // Go to forgot password
               context.push(Routes.forgotPasswordView);
             },
           ),
