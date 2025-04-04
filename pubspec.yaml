@@ -52,6 +52,8 @@ dependencies:
   shared_preferences: ^2.5.2
   # flutter_svg for svg images
   flutter_svg: ^2.0.17
+  # Pin code input (OTP) text field  
+  pinput: ^5.0.1
 
 dev_dependencies:
   flutter_test:

@@ -12,11 +12,12 @@ class AppTextStyle {
       isArabic() ? FontFamily.almarai : FontFamily.poppins;
 
   //! Righteous
-  static TextStyle font24RighteousPrimary(BuildContext context) {
+  static TextStyle font28RighteousPrimary(BuildContext context) {
     return TextStyle(
-      fontSize: context.setSp(24),
-      fontWeight: FontWeightHelper.semiBold,
-      fontFamily: FontFamily.righteous,
+      fontSize: context.setSp(28),
+      fontWeight:
+          isArabic() ? FontWeightHelper.semiBold : FontWeightHelper.regular,
+      fontFamily: isArabic() ? FontFamily.almarai : FontFamily.righteous,
       color: AppColors.primaryColor,
     );
   }
@@ -25,6 +26,15 @@ class AppTextStyle {
   static TextStyle font14RegularDarkGray(BuildContext context) {
     return TextStyle(
       fontSize: context.setSp(14),
+      fontWeight: FontWeightHelper.regular,
+      color: AppColors.darkGray,
+      fontFamily: fontFamily,
+    );
+  }
+
+  static TextStyle font16RegularDarkGray(BuildContext context) {
+    return TextStyle(
+      fontSize: context.setSp(16),
       fontWeight: FontWeightHelper.regular,
       color: AppColors.darkGray,
       fontFamily: fontFamily,
@@ -63,6 +73,15 @@ class AppTextStyle {
   static TextStyle font24SemiBoldDarkGray(BuildContext context) {
     return TextStyle(
       fontSize: context.setSp(24),
+      fontWeight: FontWeightHelper.semiBold,
+      color: AppColors.darkGray,
+      fontFamily: fontFamily,
+    );
+  }
+
+  static TextStyle font18SemiBoldDarkGray(BuildContext context) {
+    return TextStyle(
+      fontSize: context.setSp(18),
       fontWeight: FontWeightHelper.semiBold,
       color: AppColors.darkGray,
       fontFamily: fontFamily,

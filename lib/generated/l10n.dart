@@ -209,6 +209,256 @@ class S {
   String get patient {
     return Intl.message('Patient', name: 'patient', desc: '', args: []);
   }
+
+  /// `CancApp`
+  String get cancApp {
+    return Intl.message('CancApp', name: 'cancApp', desc: '', args: []);
+  }
+
+  /// `Welcome back`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome back',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPasswordIntr {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPasswordIntr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email address and we will send you a code to reset your password`
+  String get resetPasswordInstructions {
+    return Intl.message(
+      'Enter your email address and we will send you a code to reset your password',
+      name: 'resetPasswordInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Code`
+  String get sendCode {
+    return Intl.message('Send Code', name: 'sendCode', desc: '', args: []);
+  }
+
+  /// `Verification Code`
+  String get verificationCode {
+    return Intl.message(
+      'Verification Code',
+      name: 'verificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the verification code we just sent to your email address`
+  String get enterVerificationCode {
+    return Intl.message(
+      'Enter the verification code we just sent to your email address',
+      name: 'enterVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send again`
+  String get sendAgain {
+    return Intl.message('Send again', name: 'sendAgain', desc: '', args: []);
+  }
+
+  /// `I didn’t receive the code,`
+  String get didNotReceiveCode {
+    return Intl.message(
+      'I didn’t receive the code,',
+      name: 'didNotReceiveCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message('Verify', name: 'verify', desc: '', args: []);
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get notHaveAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'notHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create your Account`
+  String get createYourAccount {
+    return Intl.message(
+      'Create your Account',
+      name: 'createYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get fullName {
+    return Intl.message('Full Name', name: 'fullName', desc: '', args: []);
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message('Address', name: 'address', desc: '', args: []);
+  }
+
+  /// `Confirm password is required`
+  String get confirmPasswordIsRequired {
+    return Intl.message(
+      'Confirm password is required',
+      name: 'confirmPasswordIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwordsDonotMatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordsDonotMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is required`
+  String get passwordIsRequired {
+    return Intl.message(
+      'Password is required',
+      name: 'passwordIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a strong password`
+  String get pleaseEnteraStrongPassword {
+    return Intl.message(
+      'Please enter a strong password',
+      name: 'pleaseEnteraStrongPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 1 lowercase letter`
+  String get lowercaseValidation {
+    return Intl.message(
+      'At least 1 lowercase letter',
+      name: 'lowercaseValidation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 1 uppercase letter`
+  String get uppercaseValidation {
+    return Intl.message(
+      'At least 1 uppercase letter',
+      name: 'uppercaseValidation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 1 special character`
+  String get specialCharacterValidation {
+    return Intl.message(
+      'At least 1 special character',
+      name: 'specialCharacterValidation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 1 number`
+  String get numberValidation {
+    return Intl.message(
+      'At least 1 number',
+      name: 'numberValidation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 8 characters long`
+  String get minLengthValidation {
+    return Intl.message(
+      'At least 8 characters long',
+      name: 'minLengthValidation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

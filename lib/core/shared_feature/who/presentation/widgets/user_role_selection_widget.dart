@@ -4,6 +4,7 @@ import 'package:canc_app/core/shared_feature/onboarding/data/models/user_role_mo
 import 'package:canc_app/core/shared_feature/who/presentation/widgets/user_role_buttom.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -33,12 +34,12 @@ class UserRoleSelectionWidget extends StatelessWidget {
               color: AppColors.primaryColor,
             ),
           ),
-          SizedBox(height: context.setHeight(24)),
+          const VerticalSpacer(24),
           Expanded(
             child: ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               itemCount: roles.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 20),
+              separatorBuilder: (_, __) => const VerticalSpacer(20),
               itemBuilder: (context, index) {
                 final role = roles[index];
                 return UserRoleButton(
@@ -57,31 +58,31 @@ class UserRoleSelectionWidget extends StatelessWidget {
   List<UserRoleModel> _initializeRoles(BuildContext context) {
     return [
       UserRoleModel(
-        key: 'doctor',
+        key: 'Doctor',
         title: S.of(context).doctor,
         imagePath: AppAssets.doctorIcon,
         color: AppColors.deepBlue,
       ),
       UserRoleModel(
-        key: 'pharmacist',
+        key: 'Pharmacist',
         title: S.of(context).pharmacist,
         imagePath: AppAssets.pharmacistIcon,
         color: AppColors.mintGreen,
       ),
       UserRoleModel(
-        key: 'psychiatrist',
+        key: 'Psychiatrist',
         title: S.of(context).psychiatrist,
         imagePath: AppAssets.psychiatristIcon,
         color: AppColors.orange,
       ),
       UserRoleModel(
-        key: 'volunteer',
+        key: 'Volunteer',
         title: S.of(context).volunteer,
         imagePath: AppAssets.volunteerIcon,
         color: AppColors.red,
       ),
       UserRoleModel(
-        key: 'patient',
+        key: 'Patient',
         title: S.of(context).patient,
         imagePath: AppAssets.patientIcon,
         color: AppColors.purple,

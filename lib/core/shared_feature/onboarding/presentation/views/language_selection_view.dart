@@ -9,6 +9,7 @@ import 'package:canc_app/core/shared_feature/onboarding/presentation/widgets/lan
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
+import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,14 +43,14 @@ class LanguageSelectionView extends StatelessWidget {
                     .copyWith(color: AppColors.primaryColor),
               ),
             ),
-            SizedBox(height: context.setHeight(24)),
+            const VerticalSpacer(24),
             LanguageOptionWidget(
               language: S.of(context).english,
               isSelected: !isArabic(),
               alignment: alignment,
               onTap: () => _handleLanguageSelection(context, 'en'),
             ),
-            SizedBox(height: context.setHeight(24)),
+            const VerticalSpacer(24),
             LanguageOptionWidget(
               language: S.of(context).arabic,
               isSelected: isArabic(),

@@ -10,7 +10,7 @@ class UserRoleButton extends StatelessWidget {
   final VoidCallback onTap;
 
   static const double horizontalPadding = 12;
-  static const double verticalPadding = 16;
+  static const double verticalPadding = 14;
   static const double iconSpacing = 56;
   static const double textSpacing = 24;
   static const double borderRadius = 10;
