@@ -22,9 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "لديك حساب بالفعل",
+    ),
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage(
+      "تاكيد كلمة المرور",
+    ),
+    "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
+      "تاكيد كلمة المرور مطلوب",
+    ),
+    "createYourAccount": MessageLookupByLibrary.simpleMessage("انشئ حسابك"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
       "لم أستلم الرمز,",
     ),
@@ -38,9 +49,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgotPasswordIntr": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
+    "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
+      "على الأقل حرف صغير واحد",
+    ),
+    "minLengthValidation": MessageLookupByLibrary.simpleMessage(
+      "يجب أن يكون على الأقل 8 أحرف",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "numberValidation": MessageLookupByLibrary.simpleMessage(
+      "على الأقل رقم واحد",
+    ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
       "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
     ),
@@ -66,8 +87,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "تذكيرات طبية في وقتها",
     ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور مطلوبة",
+    ),
+    "passwordsDonotMatch": MessageLookupByLibrary.simpleMessage(
+      "كلمات المرور لا تتطابق",
+    ),
     "patient": MessageLookupByLibrary.simpleMessage("مريض"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدالية"),
+    "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال كلمة مرور قوية",
+    ),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
@@ -78,6 +108,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسل الكود"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
+      "على الأقل رمز خاص واحد",
+    ),
+    "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
+      "على الأقل حرف كبير واحد",
+    ),
     "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
     "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
     "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),

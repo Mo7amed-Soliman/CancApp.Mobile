@@ -21,6 +21,7 @@ class AppTextFormField extends StatelessWidget {
     this.keyboardType,
     this.autofillHints,
     this.autofocus = false,
+    this.textInputAction = TextInputAction.next,
   });
 
   final TextEditingController? controller;
@@ -35,6 +36,7 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final List<String>? autofillHints;
   final bool autofocus;
+  final TextInputAction textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,7 @@ class AppTextFormField extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         TextFormField(
+          textInputAction: textInputAction,
           controller: controller,
           autofillHints: autofillHints,
           autofocus: autofocus,

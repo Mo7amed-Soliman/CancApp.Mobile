@@ -9,7 +9,7 @@ import 'package:canc_app/core/shared_feature/login/presentation/views/login_view
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/language_selection_view.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
-import 'package:canc_app/users/patient/sign_up/presentation/views/sign_up_view.dart';
+import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

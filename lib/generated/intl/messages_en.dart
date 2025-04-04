@@ -22,9 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "address": MessageLookupByLibrary.simpleMessage("Address"),
+    "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
+    "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
+      "Confirm password is required",
+    ),
+    "createYourAccount": MessageLookupByLibrary.simpleMessage(
+      "Create your Account",
+    ),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
       "I didn’t receive the code,",
     ),
@@ -38,10 +49,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgotPasswordIntr": MessageLookupByLibrary.simpleMessage(
       "Forgot Password?",
     ),
+    "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
+      "At least 1 lowercase letter",
+    ),
+    "minLengthValidation": MessageLookupByLibrary.simpleMessage(
+      "At least 8 characters long",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
+    ),
+    "numberValidation": MessageLookupByLibrary.simpleMessage(
+      "At least 1 number",
     ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
       "Chat with doctors, psychiatrists, pharmacists, and volunteers anytime",
@@ -68,8 +89,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "Never miss a remainder",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
+      "Password is required",
+    ),
+    "passwordsDonotMatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
     "patient": MessageLookupByLibrary.simpleMessage("Patient"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
+    "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
+      "Please enter a strong password",
+    ),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
@@ -82,6 +112,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
+      "At least 1 special character",
+    ),
+    "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
+      "At least 1 uppercase letter",
+    ),
     "verificationCode": MessageLookupByLibrary.simpleMessage(
       "Verification Code",
     ),

@@ -2,7 +2,6 @@ import 'package:canc_app/canc_app.dart';
 import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,7 +24,7 @@ void main() async {
   /// Run the app
   runApp(
     DevicePreview(
-      enabled: kDebugMode,
+      enabled: false,
       builder: (context) => const CancApp(),
     ),
   );

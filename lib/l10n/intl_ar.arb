@@ -42,6 +42,21 @@
     "signUp": "إنشاء حساب" ,
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
-    "notHaveAccount": "ليس لديك حساب؟"  
- 
+    "confirmPassword": "تاكيد كلمة المرور",
+    "notHaveAccount": "ليس لديك حساب؟"  ,
+    "alreadyHaveAccount": "لديك حساب بالفعل",
+    "createYourAccount": "انشئ حسابك",
+    "fullName":"الاسم الكامل",
+    "address":"العنوان"   ,
+    "confirmPasswordIsRequired":"تاكيد كلمة المرور مطلوب",
+    "passwordsDonotMatch":"كلمات المرور لا تتطابق",
+    "passwordIsRequired":"كلمة المرور مطلوبة",
+    "pleaseEnteraStrongPassword":"يرجى ادخال كلمة مرور قوية" ,
+    "lowercaseValidation": "على الأقل حرف صغير واحد",
+    "uppercaseValidation": "على الأقل حرف كبير واحد",
+    "specialCharacterValidation": "على الأقل رمز خاص واحد",
+    "numberValidation": "على الأقل رقم واحد",
+    "minLengthValidation": "يجب أن يكون على الأقل 8 أحرف"
+
+
 }
