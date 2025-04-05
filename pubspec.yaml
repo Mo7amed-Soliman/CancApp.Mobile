@@ -54,6 +54,8 @@ dependencies:
   flutter_svg: ^2.0.17
   # Pin code input (OTP) text field  
   pinput: ^5.0.1
+  # iconly for icons management   
+  iconly: ^1.0.1
 
 dev_dependencies:
   flutter_test:
