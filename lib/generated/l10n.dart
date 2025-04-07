@@ -285,10 +285,10 @@ class S {
     return Intl.message('Send again', name: 'sendAgain', desc: '', args: []);
   }
 
-  /// `I didn’t receive the code,`
+  /// `I didn't receive the code,`
   String get didNotReceiveCode {
     return Intl.message(
-      'I didn’t receive the code,',
+      'I didn\'t receive the code,',
       name: 'didNotReceiveCode',
       desc: '',
       args: [],
@@ -458,6 +458,111 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Chats`
+  String get chats {
+    return Intl.message('Chats', name: 'chats', desc: '', args: []);
+  }
+
+  /// `Community`
+  String get community {
+    return Intl.message('Community', name: 'community', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
+  }
+
+  /// `Hello, Welcome`
+  String get helloWelcome {
+    return Intl.message(
+      'Hello, Welcome',
+      name: 'helloWelcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available to chat`
+  String get chatCategories {
+    return Intl.message(
+      'Available to chat',
+      name: 'chatCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctors`
+  String get doctors {
+    return Intl.message('Doctors', name: 'doctors', desc: '', args: []);
+  }
+
+  /// `Pharmacists`
+  String get pharmacists {
+    return Intl.message('Pharmacists', name: 'pharmacists', desc: '', args: []);
+  }
+
+  /// `Psychiatrists`
+  String get psychiatrists {
+    return Intl.message(
+      'Psychiatrists',
+      name: 'psychiatrists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volunteers`
+  String get volunteers {
+    return Intl.message('Volunteers', name: 'volunteers', desc: '', args: []);
+  }
+
+  /// `Patients`
+  String get patients {
+    return Intl.message('Patients', name: 'patients', desc: '', args: []);
+  }
+
+  /// `See All`
+  String get seeAll {
+    return Intl.message('See All', name: 'seeAll', desc: '', args: []);
+  }
+
+  /// `Nearest Pharmacy`
+  String get nearestPharmacy {
+    return Intl.message(
+      'Nearest Pharmacy',
+      name: 'nearestPharmacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quick actions`
+  String get quickActions {
+    return Intl.message(
+      'Quick actions',
+      name: 'quickActions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder`
+  String get reminder {
+    return Intl.message('Reminder', name: 'reminder', desc: '', args: []);
+  }
+
+  /// `Record`
+  String get record {
+    return Intl.message('Record', name: 'record', desc: '', args: []);
   }
 }
 

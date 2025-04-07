@@ -33,7 +33,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         indicatorAbove: true,
         finishButtonText: S.of(context).next,
         backButtonText: S.of(context).back,
-        finishButtonTextStyle: AppTextStyle.font20MediumDarkGray(context),
+        finishButtonTextStyle: AppTextStyle.font20MediumWhite(context),
         onFinish: () {
           context.push(Routes.loginView);
           getIt<CacheHelper>()

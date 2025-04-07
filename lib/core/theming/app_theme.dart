@@ -11,7 +11,7 @@ var appLightTheme = ThemeData(
     foregroundColor: Colors.white,
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: AppColors.offWhite,
+    backgroundColor: Colors.white,
     selectedItemColor: AppColors.primaryColor,
     unselectedItemColor: Colors.grey,
     selectedIconTheme: IconThemeData(color: AppColors.primaryColor),

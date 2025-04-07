@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:canc_app/core/cubits/current_locale/current_locale_cubit.dart';
 import 'package:canc_app/core/cubits/current_locale/current_locale_state.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
@@ -49,6 +50,7 @@ class CustomMaterialApp extends StatelessWidget {
           supportedLocales: S.delegate.supportedLocales,
           locale: context.read<CurrentLocaleCubit>().locale,
           debugShowCheckedModeBanner: false,
+          builder: BotToastInit(),
           routerConfig: appRouter,
         ),
       ),

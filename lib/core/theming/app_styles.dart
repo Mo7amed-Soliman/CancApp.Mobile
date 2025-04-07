@@ -60,7 +60,16 @@ class AppTextStyle {
     );
   }
 
-  static TextStyle font20MediumDarkGray(BuildContext context) {
+  static TextStyle font12MediumDarkGray(BuildContext context) {
+    return TextStyle(
+      fontSize: context.setSp(12),
+      fontWeight: FontWeightHelper.medium,
+      color: AppColors.darkGray,
+      fontFamily: fontFamily,
+    );
+  }
+
+  static TextStyle font20MediumWhite(BuildContext context) {
     return TextStyle(
       fontSize: context.setSp(20),
       fontWeight: FontWeightHelper.medium,
@@ -88,10 +97,47 @@ class AppTextStyle {
     );
   }
 
+  static TextStyle font19MediumDarkGray(BuildContext context) {
+    return TextStyle(
+      fontSize: context.setSp(19),
+      fontWeight: FontWeightHelper.medium,
+      color: AppColors.darkGray,
+      fontFamily: fontFamily,
+    );
+  }
+
   static TextStyle font20SemiBold(BuildContext context) {
     return TextStyle(
       fontSize: context.setSp(20),
       fontWeight: FontWeightHelper.semiBold,
+      fontFamily: fontFamily,
+    );
+  }
+
+  static TextStyle font16SemiBoldWhite(BuildContext context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: context.setSp(16),
+      fontWeight: FontWeightHelper.semiBold,
+      height: 17.0 / 16.0,
+      fontFamily: fontFamily,
+    );
+  }
+
+  static TextStyle font15Bold(BuildContext context) {
+    return TextStyle(
+      fontSize: context.setSp(15),
+      fontWeight: FontWeightHelper.bold,
+      fontFamily: fontFamily,
+    );
+  }
+
+  static TextStyle font14SemiBoldWhite(BuildContext context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: context.setSp(14),
+      fontWeight: FontWeightHelper.light,
+      height: 17.0 / 14.0,
       fontFamily: fontFamily,
     );
   }

@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
+    "chatCategories": MessageLookupByLibrary.simpleMessage("Available to chat"),
+    "chats": MessageLookupByLibrary.simpleMessage("Chats"),
+    "community": MessageLookupByLibrary.simpleMessage("Community"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Confirm password is required",
@@ -37,9 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Create your Account",
     ),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
-      "I didn’t receive the code,",
+      "I didn\'t receive the code,",
     ),
     "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
+    "doctors": MessageLookupByLibrary.simpleMessage("Doctors"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
@@ -50,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Forgot Password?",
     ),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "helloWelcome": MessageLookupByLibrary.simpleMessage("Hello, Welcome"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
@@ -57,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "At least 8 characters long",
     ),
+    "nearestPharmacy": MessageLookupByLibrary.simpleMessage("Nearest Pharmacy"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
@@ -96,14 +103,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "Passwords do not match",
     ),
     "patient": MessageLookupByLibrary.simpleMessage("Patient"),
+    "patients": MessageLookupByLibrary.simpleMessage("Patients"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
+    "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter a strong password",
     ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
+    "psychiatrists": MessageLookupByLibrary.simpleMessage("Psychiatrists"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("Quick actions"),
+    "record": MessageLookupByLibrary.simpleMessage("Record"),
+    "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
+    "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(
       "Select who are you",
@@ -123,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "verify": MessageLookupByLibrary.simpleMessage("Verify"),
     "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
+    "volunteers": MessageLookupByLibrary.simpleMessage("Volunteers"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
   };
 }

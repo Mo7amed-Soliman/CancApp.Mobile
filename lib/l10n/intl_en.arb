@@ -35,7 +35,7 @@
      "verificationCode": "Verification Code",
      "enterVerificationCode":"Enter the verification code we just sent to your email address",
     "sendAgain": "Send again",
-    "didNotReceiveCode": "I didn’t receive the code,",
+    "didNotReceiveCode": "I didn't receive the code,",
     "verify": "Verify",
      "login":"Login",
      "signUp":"Sign Up",
@@ -55,6 +55,26 @@
       "uppercaseValidation": "At least 1 uppercase letter",
       "specialCharacterValidation": "At least 1 special character",
       "numberValidation": "At least 1 number",
-        "minLengthValidation": "At least 8 characters long"
+      "minLengthValidation": "At least 8 characters long",
 
- }
+      "home": "Home",
+      "chats": "Chats",
+      "community": "Community",
+      "profile": "Profile",
+
+      "helloWelcome": "Hello, Welcome",
+      
+      "chatCategories": "Available to chat",
+      "doctors": "Doctors",
+      "pharmacists": "Pharmacists",
+      "psychiatrists": "Psychiatrists",
+      "volunteers": "Volunteers",
+      "patients": "Patients",
+      "seeAll": "See All",
+      
+      "nearestPharmacy": "Nearest Pharmacy",
+      "quickActions": "Quick actions",
+
+      "reminder": "Reminder",
+      "record": "Record"
+}

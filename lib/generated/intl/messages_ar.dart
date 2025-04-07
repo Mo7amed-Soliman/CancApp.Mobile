@@ -29,17 +29,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
+    "chatCategories": MessageLookupByLibrary.simpleMessage("متاح للدردشة"),
+    "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
+    "community": MessageLookupByLibrary.simpleMessage("المجتمع"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
-      "تاكيد كلمة المرور",
+      "تأكيد كلمة المرور",
     ),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
-      "تاكيد كلمة المرور مطلوب",
+      "تأكيد كلمة المرور مطلوب",
     ),
-    "createYourAccount": MessageLookupByLibrary.simpleMessage("انشئ حسابك"),
+    "createYourAccount": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
       "لم أستلم الرمز,",
     ),
     "doctor": MessageLookupByLibrary.simpleMessage("طبيب"),
+    "doctors": MessageLookupByLibrary.simpleMessage("الأطباء"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
@@ -50,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل نسيت كلمة المرور؟",
     ),
     "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+    "helloWelcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف صغير واحد",
@@ -57,22 +63,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "يجب أن يكون على الأقل 8 أحرف",
     ),
+    "nearestPharmacy": MessageLookupByLibrary.simpleMessage("أقرب صيدلية"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "numberValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل رقم واحد",
     ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
-      "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
+      "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
     ),
     "onboarding_description2": MessageLookupByLibrary.simpleMessage(
-      "انضم إلى مجتمع يضم مرضى وأطباء، تبادل الخبرات، وكن جزءًا من الدعم المتبادل",
+      "انضم إلى مجتمع يضم مرضى وأطباء، تبادل الخبرات، وكن جزءًا من الدعم المتبادل",
     ),
     "onboarding_description3": MessageLookupByLibrary.simpleMessage(
-      "قم برفع التحاليل، التقارير الطبية، الأشعة، والمستندات الطبية بسهولة",
+      "قم برفع التحاليل، التقارير الطبية، الأشعة، والمستندات الطبية بسهولة",
     ),
     "onboarding_description4": MessageLookupByLibrary.simpleMessage(
-      "تلقَّ إشعارات بمواعيد الأدوية والزيارات الطبية",
+      "تلقَّ إشعارات بمواعيد الأدوية والزيارات الطبية",
     ),
     "onboarding_title1": MessageLookupByLibrary.simpleMessage(
       "نحن هنا لمساعدتك",
@@ -94,14 +101,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "كلمات المرور لا تتطابق",
     ),
     "patient": MessageLookupByLibrary.simpleMessage("مريض"),
-    "pharmacist": MessageLookupByLibrary.simpleMessage("صيدالية"),
+    "patients": MessageLookupByLibrary.simpleMessage("المرضى"),
+    "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
+    "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
-      "يرجى ادخال كلمة مرور قوية",
+      "يرجى إدخال كلمة مرور قوية",
     ),
+    "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
+    "psychiatrists": MessageLookupByLibrary.simpleMessage("الأطباء النفسيين"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("إجراءات سريعة"),
+    "record": MessageLookupByLibrary.simpleMessage("سجل"),
+    "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
     ),
+    "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
     "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
@@ -117,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
     "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
     "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),
+    "volunteers": MessageLookupByLibrary.simpleMessage("المتطوعين"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
   };
 }

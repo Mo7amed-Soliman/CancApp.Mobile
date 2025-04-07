@@ -32,7 +32,7 @@ class AppButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final effectiveTextStyle =
-        textStyle ?? AppTextStyle.font20MediumDarkGray(context);
+        textStyle ?? AppTextStyle.font20MediumWhite(context);
 
     return SizedBox(
       width: width,
