@@ -56,6 +56,8 @@ dependencies:
   pinput: ^5.0.1
   # iconly for icons management   
   iconly: ^1.0.1
+  # bot_toast for toast messages
+  bot_toast: ^4.1.3
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +85,7 @@ flutter:
   assets:
     - assets/images/on_boarding/
     - assets/icons/
+    - assets/images/dummy_image/
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
