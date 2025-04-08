@@ -1,7 +1,9 @@
+import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/users/patient/chat/presentation/views/chats_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -26,7 +28,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar>
 
   final _pages = [
     const HomeView(),
-    const ChatsPage(),
+    const ChatsView(),
     const CommunityPage(),
     const ProfilePage(),
   ];
@@ -95,7 +97,11 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar>
     if (newIndex == _currentIndex) return;
 
     final direction = newIndex > _currentIndex ? 1.0 : -1.0;
-    _setupPageAnimation(newIndex, Offset(direction, 0.0), Offset.zero);
+    if (isArabic()) {
+      _setupPageAnimation(newIndex, Offset(-direction, 0.0), Offset.zero);
+    } else {
+      _setupPageAnimation(newIndex, Offset(direction, 0.0), Offset.zero);
+    }
     _executePageTransition(newIndex);
   }
 
@@ -164,17 +170,6 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar>
 }
 
 // Pages content
-class ChatsPage extends StatelessWidget {
-  const ChatsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('💬 ${S.of(context).chats}',
-          style: const TextStyle(fontSize: 24)),
-    );
-  }
-}
 
 class CommunityPage extends StatelessWidget {
   const CommunityPage({super.key});
