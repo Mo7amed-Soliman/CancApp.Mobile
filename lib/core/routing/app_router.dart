@@ -10,6 +10,7 @@ import 'package:canc_app/core/shared_feature/onboarding/presentation/views/langu
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
+import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/patient_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -98,6 +99,14 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const PatientBottomNavBar(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.accessRequestView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const AccessRequestView(),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

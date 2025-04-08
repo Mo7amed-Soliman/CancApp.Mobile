@@ -22,7 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accessRequestAllowed": MessageLookupByLibrary.simpleMessage(
+      "تم السماح بطلب الوصول بنجاح",
+    ),
+    "accessRequestDenied": MessageLookupByLibrary.simpleMessage(
+      "تم رفض طلب الوصول",
+    ),
+    "accessRequests": MessageLookupByLibrary.simpleMessage("طلبات الوصول"),
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "allow": MessageLookupByLibrary.simpleMessage("السماح"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل",
     ),
@@ -39,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تأكيد كلمة المرور مطلوب",
     ),
     "createYourAccount": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
+    "deny": MessageLookupByLibrary.simpleMessage("رفض"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
       "لم أستلم الرمز,",
     ),
@@ -65,6 +74,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("أقرب صيدلية"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noPendingRequests": MessageLookupByLibrary.simpleMessage(
+      "لا توجد طلبات معلقة",
+    ),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "numberValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل رقم واحد",

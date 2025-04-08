@@ -564,6 +564,56 @@ class S {
   String get record {
     return Intl.message('Record', name: 'record', desc: '', args: []);
   }
+
+  /// `Access requests`
+  String get accessRequests {
+    return Intl.message(
+      'Access requests',
+      name: 'accessRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Access request allowed successfully`
+  String get accessRequestAllowed {
+    return Intl.message(
+      'Access request allowed successfully',
+      name: 'accessRequestAllowed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Access request denied`
+  String get accessRequestDenied {
+    return Intl.message(
+      'Access request denied',
+      name: 'accessRequestDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow`
+  String get allow {
+    return Intl.message('Allow', name: 'allow', desc: '', args: []);
+  }
+
+  /// `Deny`
+  String get deny {
+    return Intl.message('Deny', name: 'deny', desc: '', args: []);
+  }
+
+  /// `No pending requests`
+  String get noPendingRequests {
+    return Intl.message(
+      'No pending requests',
+      name: 'noPendingRequests',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

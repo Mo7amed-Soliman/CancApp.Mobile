@@ -76,5 +76,11 @@
       "quickActions": "Quick actions",
 
       "reminder": "Reminder",
-      "record": "Record"
+      "record": "Record",
+      "accessRequests": "Access requests",
+      "accessRequestAllowed": "Access request allowed successfully",
+      "accessRequestDenied": "Access request denied",
+      "allow": "Allow",
+      "deny": "Deny",
+      "noPendingRequests": "No pending requests"
 }

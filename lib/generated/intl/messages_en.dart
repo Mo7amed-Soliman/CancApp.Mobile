@@ -22,7 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accessRequestAllowed": MessageLookupByLibrary.simpleMessage(
+      "Access request allowed successfully",
+    ),
+    "accessRequestDenied": MessageLookupByLibrary.simpleMessage(
+      "Access request denied",
+    ),
+    "accessRequests": MessageLookupByLibrary.simpleMessage("Access requests"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
+    "allow": MessageLookupByLibrary.simpleMessage("Allow"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -39,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "createYourAccount": MessageLookupByLibrary.simpleMessage(
       "Create your Account",
     ),
+    "deny": MessageLookupByLibrary.simpleMessage("Deny"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
       "I didn\'t receive the code,",
     ),
@@ -65,6 +74,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("Nearest Pharmacy"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "noPendingRequests": MessageLookupByLibrary.simpleMessage(
+      "No pending requests",
+    ),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),

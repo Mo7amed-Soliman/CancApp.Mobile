@@ -77,5 +77,11 @@
     "quickActions": "إجراءات سريعة",
 
     "reminder": "تذكير",
-    "record": "سجل"
+    "record": "سجل",
+    "accessRequests": "طلبات الوصول",
+    "accessRequestAllowed": "تم السماح بطلب الوصول بنجاح",
+    "accessRequestDenied": "تم رفض طلب الوصول",
+    "allow": "السماح",
+    "deny": "رفض",
+    "noPendingRequests": "لا توجد طلبات معلقة"
 }
