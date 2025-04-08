@@ -29,12 +29,12 @@ class QuickActionItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              radius: context.setMinSize(45),
+              radius: context.setMinSize(40),
               backgroundColor: item.color,
               child: Icon(
                 item.icon,
                 color: Colors.white,
-                size: context.setMinSize(60),
+                size: context.setMinSize(55),
               ),
             ),
             const VerticalSpacer(10),

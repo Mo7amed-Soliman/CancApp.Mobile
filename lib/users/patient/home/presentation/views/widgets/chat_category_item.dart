@@ -18,9 +18,10 @@ class ChatCategoryItem extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: context.sizeProvider.height * 0.80,
+          height: context.sizeProvider.height * 0.82,
+          width: context.setWidth(130),
           padding: EdgeInsets.symmetric(
-            horizontal: context.setWidth(36),
+            horizontal: context.setWidth(40),
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
@@ -28,7 +29,6 @@ class ChatCategoryItem extends StatelessWidget {
           ),
           child: SvgPicture.asset(
             item.image,
-            height: context.setMinSize(60),
           ),
         ),
         const VerticalSpacer(4),

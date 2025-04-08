@@ -1,6 +1,6 @@
 import 'package:canc_app/generated/l10n.dart';
-import 'package:canc_app/users/patient/home/presentation/views/widgets/available_to_chat_grid.dart';
-import 'package:canc_app/users/patient/home/presentation/views/widgets/nearest_pharmacy_grid.dart';
+import 'package:canc_app/users/patient/home/presentation/views/widgets/available_to_chat_list_view.dart';
+import 'package:canc_app/users/patient/home/presentation/views/widgets/nearest_pharmacy_list_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/quick_actions_grid.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/section_header.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class MainContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,7 +26,7 @@ class MainContent extends StatelessWidget {
               },
             ),
             // Available to chat section
-            const AvailableToChatGrid(),
+            const AvailableToChatListView(),
 
             // Nearest Pharmacy section
             SectionHeader(
@@ -35,13 +35,14 @@ class MainContent extends StatelessWidget {
                 /// Navigate to pharmacy list screen
               },
             ),
-            const NearestPharmacyGrid(),
+            const NearestPharmacyListView(),
 
             // Quick actions section
             SectionHeader(
               title: S.of(context).quickActions,
             ),
             const QuickActionsGrid(),
+            const SizedBox(height: 20),
           ],
         ),
       ),

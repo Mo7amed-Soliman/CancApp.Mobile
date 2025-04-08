@@ -1,11 +1,12 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_provider.dart';
+import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/users/patient/home/data/models/pharmacy_item_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/nearest_pharmacy_item.dart';
 import 'package:flutter/material.dart';
 
-class NearestPharmacyGrid extends StatelessWidget {
-  const NearestPharmacyGrid({super.key});
+class NearestPharmacyListView extends StatelessWidget {
+  const NearestPharmacyListView({super.key});
 
   /// Creates the list of pharmacy items
   List<PharmacyItemModel> _createPharmacyItems() {
@@ -30,28 +31,30 @@ class NearestPharmacyGrid extends StatelessWidget {
     final pharmacyItems = _createPharmacyItems();
 
     return SizeProvider(
-      baseSize: const Size(250, 150),
+      baseSize: const Size(250, 160),
       width: context.setWidth(300),
-      height: context.setHeight(150),
-      child: Builder(builder: (context) {
-        return SizedBox(
-          height: context.sizeProvider.height,
-          child: GridView.builder(
-            scrollDirection: Axis.horizontal,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              childAspectRatio: 1.2,
-              mainAxisSpacing: context.setHeight(10),
-              crossAxisSpacing: context.setWidth(10),
+      height: context.setHeight(160),
+      child: Builder(
+        builder: (context) {
+          return SizedBox(
+            height: context.sizeProvider.height,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: pharmacyItems.length,
+              separatorBuilder: (context, index) {
+                return const HorizontalSpacer(10);
+              },
+              itemBuilder: (context, index) {
+                final item = pharmacyItems[index];
+                return SizedBox(
+                  width: context.setWidth(130),
+                  child: NearestPharmacyItem(item: item),
+                );
+              },
             ),
-            itemCount: pharmacyItems.length,
-            itemBuilder: (context, index) {
-              final item = pharmacyItems[index];
-              return NearestPharmacyItem(item: item);
-            },
-          ),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 }
