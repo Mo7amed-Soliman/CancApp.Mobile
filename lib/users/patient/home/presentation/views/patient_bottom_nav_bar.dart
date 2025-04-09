@@ -1,4 +1,3 @@
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -7,8 +6,7 @@ import 'package:canc_app/users/patient/chat/presentation/views/chats_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
-
-typedef NavItem = ({IconData icon, IconData activeIcon, String label});
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class PatientBottomNavBar extends StatefulWidget {
   const PatientBottomNavBar({super.key});
@@ -17,160 +15,119 @@ class PatientBottomNavBar extends StatefulWidget {
   State<PatientBottomNavBar> createState() => _PatientBottomNavBarState();
 }
 
-class _PatientBottomNavBarState extends State<PatientBottomNavBar>
-    with TickerProviderStateMixin {
-  int _currentIndex = 0;
-  final PageController _pageController = PageController();
-  late final List<AnimationController> _animationControllers;
-  late final List<Animation<Offset>> _slideAnimations;
+class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
+  late PersistentTabController _controller;
 
-  static const _pageTransitionDuration = Duration(milliseconds: 300);
+  // Constants
+  static const double _iconSize = 43.0;
+  static const double _navBarHeight = 80.0;
+  static const double _topPadding = 8.0;
+  static const double _bottomPadding = 4.0;
 
-  final _pages = [
+  // Pages to display in the navigation bar
+  final List<Widget> _pages = [
     const HomeView(),
     const ChatsView(),
     const CommunityPage(),
     const ProfilePage(),
   ];
 
-  /// list of records
-  List<NavItem> _getNavItems(BuildContext context) => [
-        (
-          icon: IconlyLight.home,
-          activeIcon: IconlyBold.home,
-          label: S.of(context).home,
-        ),
-        (
-          icon: IconlyLight.chat,
-          activeIcon: IconlyBold.chat,
-          label: S.of(context).chats,
-        ),
-        (
-          icon: IconlyLight.user_1,
-          activeIcon: IconlyBold.user_3,
-          label: S.of(context).community,
-        ),
-        (
-          icon: IconlyLight.profile,
-          activeIcon: IconlyBold.profile,
-          label: S.of(context).profile,
-        ),
-      ];
-
   @override
   void initState() {
     super.initState();
-    _animationControllers = List.generate(
-      _pages.length,
-      (index) => AnimationController(
-        vsync: this,
-        duration: _pageTransitionDuration,
-      ),
-    );
-
-    _slideAnimations = List.generate(
-      _pages.length,
-      (index) => Tween<Offset>(
-        begin: Offset.zero,
-        end: Offset.zero,
-      ).animate(
-        CurvedAnimation(
-          parent: _animationControllers[index],
-          curve: Curves.easeInOut,
-        ),
-      ),
-    );
-
-    _animationControllers.first.forward();
+    _controller = PersistentTabController(initialIndex: 0);
   }
 
   @override
   void dispose() {
-    for (final controller in _animationControllers) {
-      controller.dispose();
-    }
-    _pageController.dispose();
+    _controller.dispose();
     super.dispose();
-  }
-
-  void _handlePageChange(int newIndex) {
-    if (newIndex == _currentIndex) return;
-
-    final direction = newIndex > _currentIndex ? 1.0 : -1.0;
-    if (isArabic()) {
-      _setupPageAnimation(newIndex, Offset(-direction, 0.0), Offset.zero);
-    } else {
-      _setupPageAnimation(newIndex, Offset(direction, 0.0), Offset.zero);
-    }
-    _executePageTransition(newIndex);
-  }
-
-  void _setupPageAnimation(int index, Offset begin, Offset end) {
-    _slideAnimations[index] = Tween<Offset>(begin: begin, end: end).animate(
-      CurvedAnimation(
-        parent: _animationControllers[index],
-        curve: Curves.easeInOut,
-      ),
-    );
-  }
-
-  void _executePageTransition(int newIndex) {
-    _animationControllers[_currentIndex].reset();
-    _animationControllers[newIndex].reset();
-    _animationControllers[_currentIndex].forward();
-    _animationControllers[newIndex].forward();
-
-    _pageController.jumpToPage(newIndex);
-    setState(() => _currentIndex = newIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    final navItems = _getNavItems(context);
-
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: AppColors.primaryColor,
       ),
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        onPageChanged: (index) => setState(() => _currentIndex = index),
-        children: [
-          for (int i = 0; i < _pages.length; i++)
-            SlideTransition(
-              position: _slideAnimations[i],
-              child: _pages[i],
-            ),
-        ],
+      body: PersistentTabView(
+        context,
+        controller: _controller,
+        screens: _pages,
+        items: _buildNavBarItems(),
+        resizeToAvoidBottomInset: true,
+        padding: EdgeInsets.only(
+          top: context.setSp(_topPadding),
+          bottom: context.setSp(_bottomPadding),
+        ),
+        navBarHeight: context.setSp(_navBarHeight),
+        animationSettings: _buildAnimationSettings(),
+        navBarStyle: NavBarStyle.simple,
       ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-        ),
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          unselectedLabelStyle: AppTextStyle.font15Bold(context),
-          selectedLabelStyle: AppTextStyle.font15Bold(context),
-          iconSize: context.setSp(40),
-          onTap: _handlePageChange,
-          items: navItems
-              .map((item) => BottomNavigationBarItem(
-                    icon: Icon(item.icon),
-                    activeIcon: Icon(item.activeIcon),
-                    label: item.label,
-                  ))
-              .toList(),
-        ),
+    );
+  }
+
+  // Create navigation bar items
+  List<PersistentBottomNavBarItem> _buildNavBarItems() {
+    return [
+      _buildNavBarItem(
+        activeIcon: IconlyBold.home,
+        inactiveIcon: IconlyLight.home,
+        title: S.of(context).home,
+      ),
+      _buildNavBarItem(
+        activeIcon: IconlyBold.chat,
+        inactiveIcon: IconlyLight.chat,
+        title: S.of(context).chats,
+      ),
+      _buildNavBarItem(
+        activeIcon: IconlyBold.user_3,
+        inactiveIcon: IconlyLight.user_1,
+        title: S.of(context).community,
+      ),
+      _buildNavBarItem(
+        activeIcon: IconlyBold.profile,
+        inactiveIcon: IconlyLight.profile,
+        title: S.of(context).profile,
+      ),
+    ];
+  }
+
+  // Helper method to create a navigation bar item
+  PersistentBottomNavBarItem _buildNavBarItem({
+    required IconData activeIcon,
+    required IconData inactiveIcon,
+    required String title,
+  }) {
+    return PersistentBottomNavBarItem(
+      icon: Icon(activeIcon),
+      inactiveIcon: Icon(inactiveIcon),
+      iconSize: context.setSp(_iconSize),
+      title: title,
+      activeColorPrimary: AppColors.primaryColor,
+      inactiveColorPrimary: AppColors.mediumGray,
+      textStyle: AppTextStyle.font15Bold(context),
+    );
+  }
+
+  // Build the navigation bar animation settings
+  NavBarAnimationSettings _buildAnimationSettings() {
+    return const NavBarAnimationSettings(
+      navBarItemAnimation: ItemAnimationSettings(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.ease,
+      ),
+      screenTransitionAnimation: ScreenTransitionAnimationSettings(
+        animateTabTransition: true,
+        duration: Duration(milliseconds: 300),
+        screenTransitionAnimationType: ScreenTransitionAnimationType.slide,
       ),
     );
   }
 }
 
-// Pages content
-
+/// page for the community
 class CommunityPage extends StatelessWidget {
   const CommunityPage({super.key});
 
@@ -183,6 +140,7 @@ class CommunityPage extends StatelessWidget {
   }
 }
 
+/// page for the profile
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
