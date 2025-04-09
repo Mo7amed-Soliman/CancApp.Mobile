@@ -58,6 +58,9 @@ dependencies:
   iconly: ^1.0.1
   # bot_toast for toast messages
   bot_toast: ^4.1.3
+  # persistent bottom navigation bar
+  persistent_bottom_nav_bar: ^6.2.1
+
 
 dev_dependencies:
   flutter_test:
