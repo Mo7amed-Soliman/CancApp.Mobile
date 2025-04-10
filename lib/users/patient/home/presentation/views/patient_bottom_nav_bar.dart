@@ -47,6 +47,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: AppColors.primaryColor,
@@ -57,6 +58,10 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
         screens: _pages,
         items: _buildNavBarItems(),
         resizeToAvoidBottomInset: true,
+        onItemSelected: (index) {
+          /// keyboard focus false when item is selected (for chat view search field)
+          FocusScope.of(context).unfocus();
+        },
         padding: EdgeInsets.only(
           top: context.setSp(_topPadding),
           bottom: context.setSp(_bottomPadding),
