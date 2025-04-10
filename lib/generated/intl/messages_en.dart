@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
+    "chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("Available to chat"),
     "chats": MessageLookupByLibrary.simpleMessage("Chats"),
     "community": MessageLookupByLibrary.simpleMessage("Community"),
@@ -118,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "patients": MessageLookupByLibrary.simpleMessage("Patients"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
+    "pharmacy": MessageLookupByLibrary.simpleMessage("Pharmacy"),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter a strong password",
     ),
@@ -130,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(

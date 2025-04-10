@@ -25,7 +25,8 @@
      "volunteer":"Volunteer",
      "psychiatrist":"Psychiatrist",
      "patient":"Patient",
-    
+    "pharmacy": "Pharmacy",
+      
     "cancApp":"CancApp",
      "welcomeBack":"Welcome back",
      "forgotPassword":"Forgot Password",
@@ -59,6 +60,7 @@
 
       "home": "Home",
       "chats": "Chats",
+      "chat": "Chat",
       "community": "Community",
       "profile": "Profile",
 
@@ -82,5 +84,6 @@
       "accessRequestDenied": "Access request denied",
       "allow": "Allow",
       "deny": "Deny",
-      "noPendingRequests": "No pending requests"
+      "noPendingRequests": "No pending requests",
+      "search": "Search"
 }

@@ -32,15 +32,22 @@ class CardAccessRequestItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       margin: EdgeInsets.symmetric(
         horizontal: context.screenWidth * 0.03,
         vertical: context.screenHeight * 0.004,
       ),
-      color: const Color(0XFFFCFCFC),
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: context.screenWidth * 0.03,

@@ -17,14 +17,17 @@ class WelcomeBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.primaryColor,
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.setMinSize(16),
+      ),
+      height: context.screenHeight * 0.112,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               CircleAvatar(
-                radius: 30,
+                radius: context.setMinSize(30),
                 backgroundColor: Colors.white,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(context.setMinSize(30)),
@@ -43,7 +46,7 @@ class WelcomeBanner extends StatelessWidget {
                 children: [
                   Text(
                     S.of(context).helloWelcome,
-                    style: AppTextStyle.font14SemiBoldWhite(context),
+                    style: AppTextStyle.font14lightWhite(context),
                     textAlign: TextAlign.center,
                     softWrap: true,
                     overflow: TextOverflow.clip,

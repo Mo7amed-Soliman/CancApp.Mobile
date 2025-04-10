@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
+    "chat": MessageLookupByLibrary.simpleMessage("المحادثة"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("متاح للدردشة"),
     "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
     "community": MessageLookupByLibrary.simpleMessage("المجتمع"),
@@ -116,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "patients": MessageLookupByLibrary.simpleMessage("المرضى"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
+    "pharmacy": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال كلمة مرور قوية",
     ),
@@ -128,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),

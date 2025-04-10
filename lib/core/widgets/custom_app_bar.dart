@@ -15,6 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       foregroundColor: Colors.white,
       backgroundColor: Colors.transparent,
+      toolbarHeight: 90,
       flexibleSpace: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -27,28 +28,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       ),
-      title: Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: Text(
-          title,
-          style: AppTextStyle.font20MediumWhite(context),
-        ),
+      title: Text(
+        title,
+        style: AppTextStyle.font20MediumWhite(context),
       ),
-      leading: Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: IconButton(
-          onPressed: () {
-            context.pop();
-          },
-          icon: Icon(
-            isArabic() ? IconlyLight.arrow_right_2 : IconlyLight.arrow_left_2,
-            color: Colors.white,
-          ),
+      leading: IconButton(
+        onPressed: () {
+          context.pop();
+        },
+        icon: Icon(
+          isArabic() ? IconlyLight.arrow_right_2 : IconlyLight.arrow_left_2,
+          color: Colors.white,
         ),
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(95);
+  Size get preferredSize => const Size.fromHeight(90);
 }
