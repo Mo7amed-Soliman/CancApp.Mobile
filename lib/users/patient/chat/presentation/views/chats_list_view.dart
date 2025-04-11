@@ -5,8 +5,8 @@ import 'widgets/chats_header.dart';
 import 'widgets/chats_list.dart';
 import 'widgets/category_list.dart';
 
-class ChatsView extends StatelessWidget {
-  const ChatsView({super.key});
+class ChatsListView extends StatelessWidget {
+  const ChatsListView({super.key});
 
   @override
   Widget build(BuildContext context) {

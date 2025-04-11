@@ -1,5 +1,7 @@
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/widgets/chat_user_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AvailableUsersList extends StatelessWidget {
   const AvailableUsersList({super.key});
@@ -62,7 +64,9 @@ class AvailableUsersList extends StatelessWidget {
       itemBuilder: (context, index) {
         return ChatUserCard(
           model: users[index],
-          onChatPressed: () {},
+          onChatPressed: () {
+            context.push(Routes.chatView);
+          },
         );
       },
     );

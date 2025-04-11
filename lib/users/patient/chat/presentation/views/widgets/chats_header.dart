@@ -3,9 +3,10 @@ import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
-import 'package:canc_app/users/patient/chat/presentation/views/widgets/search_chats_button.dart';
-import 'package:canc_app/users/patient/chat/presentation/views/widgets/search_field_chats.dart';
 import 'package:flutter/material.dart';
+
+import 'search_field_chats.dart';
+import 'search_chats_button.dart';
 
 class ChatsHeader extends StatefulWidget {
   const ChatsHeader({super.key});
