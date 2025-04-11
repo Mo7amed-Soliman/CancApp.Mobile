@@ -6,14 +6,21 @@ import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatefulWidget {
-  const CategoryList({super.key});
+  const CategoryList({super.key, this.item});
+  final int? item;
 
   @override
   State<CategoryList> createState() => _CategoryListState();
 }
 
 class _CategoryListState extends State<CategoryList> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.item ?? 0; // Default to no selection
+  }
 
   List<String> _getCategories(BuildContext context) {
     return [

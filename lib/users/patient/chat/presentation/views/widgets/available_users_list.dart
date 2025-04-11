@@ -1,4 +1,5 @@
 import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/widgets/chat_user_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -57,15 +58,28 @@ class AvailableUsersList extends StatelessWidget {
       imagePath: 'assets/images/dummy_image/img3.png',
     ),
   ];
+
+  UserChatModel _convertToUserModel(ChatUserCardModel cardModel) {
+    return UserChatModel(
+      name: cardModel.name,
+      imagePath: cardModel.imagePath,
+      lastMessage: '',
+      lastMessageTime: '',
+      status: 'Online',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: users.length,
       itemBuilder: (context, index) {
+        final cardModel = users[index];
         return ChatUserCard(
-          model: users[index],
+          model: cardModel,
           onChatPressed: () {
-            context.push(Routes.chatView);
+            final user = _convertToUserModel(cardModel);
+            context.push(Routes.chatView, extra: user);
           },
         );
       },

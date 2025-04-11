@@ -40,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("Available to chat"),
     "chats": MessageLookupByLibrary.simpleMessage("Chats"),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from gallery",
+    ),
     "community": MessageLookupByLibrary.simpleMessage("Community"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
@@ -70,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
     ),
+    "message": MessageLookupByLibrary.simpleMessage("Message"),
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "At least 8 characters long",
     ),
@@ -145,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 special character",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 uppercase letter",
     ),

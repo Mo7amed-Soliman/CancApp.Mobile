@@ -85,5 +85,8 @@
       "allow": "Allow",
       "deny": "Deny",
       "noPendingRequests": "No pending requests",
-      "search": "Search"
+      "search": "Search",
+      "message": "Message",
+      "takePhoto": "Take a photo",
+      "chooseFromGallery": "Choose from gallery"
 }

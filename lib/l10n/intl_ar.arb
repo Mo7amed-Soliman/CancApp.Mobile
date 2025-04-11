@@ -86,5 +86,8 @@
     "allow": "السماح",
     "deny": "رفض",
     "noPendingRequests": "لا توجد طلبات معلقة",
-    "search": "بحث"
+    "search": "بحث",
+    "message": "رسالة",
+    "takePhoto": "أختر صورة",
+    "chooseFromGallery": "اختر من المعرض"
 }

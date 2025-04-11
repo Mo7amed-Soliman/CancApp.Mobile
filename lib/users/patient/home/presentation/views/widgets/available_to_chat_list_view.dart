@@ -1,12 +1,14 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_provider.dart';
 import 'package:canc_app/core/helpers/utils/app_assets.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/home/data/models/chat_item_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/chat_category_item.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AvailableToChatListView extends StatelessWidget {
   const AvailableToChatListView({super.key});
@@ -61,7 +63,16 @@ class AvailableToChatListView extends StatelessWidget {
             },
             itemBuilder: (context, index) {
               final item = chatItems[index];
-              return ChatCategoryItem(item: item);
+              return ChatCategoryItem(
+                item: item,
+                onTap: () {
+                  /// Navigate to chat screen
+                  context.push(
+                    Routes.availableToChatView,
+                    extra: index,
+                  );
+                },
+              );
             },
           ),
         );

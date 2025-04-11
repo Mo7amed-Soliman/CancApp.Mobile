@@ -8,7 +8,8 @@ import 'widgets/category_list.dart';
 import 'widgets/search_field_availble_to_chat.dart';
 
 class AvailableToChatView extends StatelessWidget {
-  const AvailableToChatView({super.key});
+  const AvailableToChatView({super.key, this.item});
+  final int? item;
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +17,14 @@ class AvailableToChatView extends StatelessWidget {
       appBar: CustomAppBar(
         title: S.of(context).chatCategories,
       ),
-      body: const Column(
+      body: Column(
         children: [
-          VerticalSpacer(16),
-          SearchFieldAvailbleToChat(),
-          VerticalSpacer(16),
-          CategoryList(),
-          VerticalSpacer(16),
-          Expanded(
+          const VerticalSpacer(16),
+          const SearchFieldAvailbleToChat(),
+          const VerticalSpacer(16),
+          CategoryList(item: item),
+          const VerticalSpacer(16),
+          const Expanded(
             child: AvailableUsersList(),
           ),
         ],

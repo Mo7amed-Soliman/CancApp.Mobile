@@ -14,6 +14,8 @@ class CustomTextField extends StatelessWidget {
     this.hintColor,
     this.filled,
     this.autofocus = false,
+    this.suffixIcon,
+    this.focusNode,
   });
   final TextEditingController? controller;
   final Widget? prefixIcon;
@@ -23,9 +25,12 @@ class CustomTextField extends StatelessWidget {
   final Color? fillColor;
   final bool? filled;
   final bool autofocus;
+  final FocusNode? focusNode;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      focusNode: focusNode,
       controller: controller,
       autofocus: autofocus,
       style: AppTextStyle.font16RegularDarkGray(context).copyWith(
@@ -36,6 +41,7 @@ class CustomTextField extends StatelessWidget {
         filled: filled,
         hintText: hintText,
         prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
         hintStyle: AppTextStyle.font16RegularDarkGray(context)
             .copyWith(color: hintColor ?? AppColors.offWhite),
         border: _buildSearchBorder(),

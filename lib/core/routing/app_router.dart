@@ -3,6 +3,8 @@
 // import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
+import 'package:canc_app/core/shared_feature/chat/presentation/views/chat_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/otp_view.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/login_view.dart';
@@ -112,12 +114,38 @@ final appRouter = GoRouter(
       ),
     ),
     GoRoute(
-      path: Routes.availableToChatView,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: const AvailableToChatView(),
-        transitionsBuilder: _transitionsBuilder,
-      ),
+        path: Routes.availableToChatView,
+        pageBuilder: (context, state) {
+          final item = state.extra;
+
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: AvailableToChatView(item: item as int?),
+            transitionsBuilder: _transitionsBuilder,
+          );
+        }),
+    GoRoute(
+      path: Routes.chatView,
+      pageBuilder: (context, state) {
+        final user = state.extra;
+        if (user is! UserChatModel) {
+          // Return to previous screen if user model is not provided
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: const Scaffold(
+              body: Center(
+                child: Text('Invalid user data'),
+              ),
+            ),
+            transitionsBuilder: _transitionsBuilder,
+          );
+        }
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: ChatView(user: user),
+          transitionsBuilder: _transitionsBuilder,
+        );
+      },
     ),
   ],
 );

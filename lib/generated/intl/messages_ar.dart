@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "chat": MessageLookupByLibrary.simpleMessage("المحادثة"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("متاح للدردشة"),
     "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage("اختر من المعرض"),
     "community": MessageLookupByLibrary.simpleMessage("المجتمع"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
@@ -70,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف صغير واحد",
     ),
+    "message": MessageLookupByLibrary.simpleMessage("رسالة"),
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "يجب أن يكون على الأقل 8 أحرف",
     ),
@@ -141,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل رمز خاص واحد",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("أختر صورة"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف كبير واحد",
     ),
