@@ -1,9 +1,11 @@
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/available_to_chat_list_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/nearest_pharmacy_list_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/quick_actions_grid.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/section_header.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MainContent extends StatelessWidget {
   const MainContent({
@@ -23,6 +25,7 @@ class MainContent extends StatelessWidget {
               title: S.of(context).chatCategories,
               onSeeAll: () {
                 /// Navigate to chat screen
+                context.push(Routes.availableToChatView);
               },
             ),
             // Available to chat section

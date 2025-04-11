@@ -132,7 +132,7 @@ class AppTextStyle {
     );
   }
 
-  static TextStyle font14SemiBoldWhite(BuildContext context) {
+  static TextStyle font14lightWhite(BuildContext context) {
     return TextStyle(
       color: Colors.white,
       fontSize: context.setSp(14),

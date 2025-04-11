@@ -2,7 +2,7 @@ import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.d
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/generated/l10n.dart';
-import 'package:canc_app/users/patient/chat/presentation/views/chats_view.dart';
+import 'package:canc_app/users/patient/chat/presentation/views/chats_list_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -27,7 +27,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
   // Pages to display in the navigation bar
   final List<Widget> _pages = [
     const HomeView(),
-    const ChatsView(),
+    const ChatsListView(),
     const CommunityPage(),
     const ProfilePage(),
   ];
@@ -47,6 +47,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         toolbarHeight: 0,
         backgroundColor: AppColors.primaryColor,
@@ -57,6 +58,10 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
         screens: _pages,
         items: _buildNavBarItems(),
         resizeToAvoidBottomInset: true,
+        onItemSelected: (index) {
+          /// keyboard focus false when item is selected (for chat view search field)
+          FocusScope.of(context).unfocus();
+        },
         padding: EdgeInsets.only(
           top: context.setSp(_topPadding),
           bottom: context.setSp(_bottomPadding),

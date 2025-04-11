@@ -37,8 +37,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
+    "chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("Available to chat"),
     "chats": MessageLookupByLibrary.simpleMessage("Chats"),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from gallery",
+    ),
     "community": MessageLookupByLibrary.simpleMessage("Community"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
@@ -69,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
     ),
+    "message": MessageLookupByLibrary.simpleMessage("Message"),
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "At least 8 characters long",
     ),
@@ -118,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "patients": MessageLookupByLibrary.simpleMessage("Patients"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
+    "pharmacy": MessageLookupByLibrary.simpleMessage("Pharmacy"),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter a strong password",
     ),
@@ -130,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(
@@ -142,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 special character",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 uppercase letter",
     ),

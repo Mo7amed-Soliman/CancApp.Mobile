@@ -210,6 +210,11 @@ class S {
     return Intl.message('Patient', name: 'patient', desc: '', args: []);
   }
 
+  /// `Pharmacy`
+  String get pharmacy {
+    return Intl.message('Pharmacy', name: 'pharmacy', desc: '', args: []);
+  }
+
   /// `CancApp`
   String get cancApp {
     return Intl.message('CancApp', name: 'cancApp', desc: '', args: []);
@@ -470,6 +475,11 @@ class S {
     return Intl.message('Chats', name: 'chats', desc: '', args: []);
   }
 
+  /// `Chat`
+  String get chat {
+    return Intl.message('Chat', name: 'chat', desc: '', args: []);
+  }
+
   /// `Community`
   String get community {
     return Intl.message('Community', name: 'community', desc: '', args: []);
@@ -610,6 +620,31 @@ class S {
     return Intl.message(
       'No pending requests',
       name: 'noPendingRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
+
+  /// `Message`
+  String get message {
+    return Intl.message('Message', name: 'message', desc: '', args: []);
+  }
+
+  /// `Take a photo`
+  String get takePhoto {
+    return Intl.message('Take a photo', name: 'takePhoto', desc: '', args: []);
+  }
+
+  /// `Choose from gallery`
+  String get chooseFromGallery {
+    return Intl.message(
+      'Choose from gallery',
+      name: 'chooseFromGallery',
       desc: '',
       args: [],
     );

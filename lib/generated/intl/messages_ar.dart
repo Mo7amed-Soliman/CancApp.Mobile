@@ -37,8 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
+    "chat": MessageLookupByLibrary.simpleMessage("المحادثة"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("متاح للدردشة"),
     "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage("اختر من المعرض"),
     "community": MessageLookupByLibrary.simpleMessage("المجتمع"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
@@ -69,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف صغير واحد",
     ),
+    "message": MessageLookupByLibrary.simpleMessage("رسالة"),
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "يجب أن يكون على الأقل 8 أحرف",
     ),
@@ -116,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "patients": MessageLookupByLibrary.simpleMessage("المرضى"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
+    "pharmacy": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال كلمة مرور قوية",
     ),
@@ -128,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
@@ -138,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل رمز خاص واحد",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("أختر صورة"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف كبير واحد",
     ),

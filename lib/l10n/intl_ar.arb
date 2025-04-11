@@ -26,7 +26,8 @@
     "volunteer":"متطوع",
     "psychiatrist":"طبيب نفسي",
     "patient":"مريض",
-
+    "pharmacy": "صيدلية",
+     
     "cancApp": "كانك آب",
     "welcomeBack": "مرحبًا بعودتك",
     "forgotPasswordIntr": "هل نسيت كلمة المرور؟",
@@ -60,6 +61,7 @@
 
     "home": "الرئيسية",
     "chats": "المحادثات",
+    "chat": "المحادثة",
     "community": "المجتمع",
     "profile": "الملف الشخصي",
 
@@ -83,5 +85,9 @@
     "accessRequestDenied": "تم رفض طلب الوصول",
     "allow": "السماح",
     "deny": "رفض",
-    "noPendingRequests": "لا توجد طلبات معلقة"
+    "noPendingRequests": "لا توجد طلبات معلقة",
+    "search": "بحث",
+    "message": "رسالة",
+    "takePhoto": "أختر صورة",
+    "chooseFromGallery": "اختر من المعرض"
 }

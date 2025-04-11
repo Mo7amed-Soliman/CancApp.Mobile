@@ -9,4 +9,6 @@ class Routes {
   static const String signUpView = '/signUpView';
   static const String homeView = '/homeView';
   static const String accessRequestView = '/accessRequestView';
+  static const String availableToChatView = '/availableToChatView';
+  static const String chatView = '/chatView';
 }

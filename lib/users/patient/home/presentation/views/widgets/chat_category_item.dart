@@ -10,25 +10,30 @@ class ChatCategoryItem extends StatelessWidget {
   const ChatCategoryItem({
     super.key,
     required this.item,
+    required this.onTap,
   });
   final ChatItemModel item;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: context.sizeProvider.height * 0.82,
-          width: context.setWidth(130),
-          padding: EdgeInsets.symmetric(
-            horizontal: context.setWidth(40),
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: item.color.withValues(alpha: 0.15),
-          ),
-          child: SvgPicture.asset(
-            item.image,
+        GestureDetector(
+          onTap: onTap,
+          child: Container(
+            height: context.sizeProvider.height * 0.82,
+            width: context.setWidth(130),
+            padding: EdgeInsets.symmetric(
+              horizontal: context.setWidth(40),
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: item.color.withValues(alpha: 0.15),
+            ),
+            child: SvgPicture.asset(
+              item.image,
+            ),
           ),
         ),
         const VerticalSpacer(4),
