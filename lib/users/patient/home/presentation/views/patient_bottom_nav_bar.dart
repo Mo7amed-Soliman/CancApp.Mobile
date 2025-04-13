@@ -55,6 +55,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
       body: PersistentTabView(
         context,
         controller: _controller,
+        handleAndroidBackButtonPress: false,
         screens: _pages,
         items: _buildNavBarItems(),
         resizeToAvoidBottomInset: true,
