@@ -48,7 +48,7 @@ class CustomMaterialApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          locale: context.read<CurrentLocaleCubit>().locale,
+          locale: const Locale('en'),
           debugShowCheckedModeBanner: false,
           builder: BotToastInit(),
           routerConfig: appRouter,
