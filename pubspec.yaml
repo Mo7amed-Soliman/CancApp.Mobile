@@ -62,8 +62,15 @@ dependencies:
   persistent_bottom_nav_bar: ^6.2.1
   # image picker for selecting images from gallery or camera
   image_picker: ^1.0.7
-
-
+  # equatable is a package that helps you simplify and standardize equality comparisons between objects
+  equatable: ^2.0.5
+  # uuid for unique id generation
+  uuid: ^4.3.3
+  # easy_date_timeline for date timeline management
+  easy_date_timeline: ^2.0.9
+  # redacted is a package that helps Shimmer effect
+  redacted: ^1.0.13
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

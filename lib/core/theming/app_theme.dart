@@ -18,4 +18,36 @@ var appLightTheme = ThemeData(
     unselectedIconTheme: IconThemeData(color: Colors.grey),
     type: BottomNavigationBarType.fixed,
   ),
+  timePickerTheme: TimePickerThemeData(
+    backgroundColor: AppColors.offWhite,
+    dialHandColor: AppColors.primaryColor,
+    hourMinuteColor: AppColors.primaryColor.withValues(alpha: 0.1),
+    hourMinuteTextColor: AppColors.primaryColor,
+    dialTextColor: AppColors.darkGray,
+    entryModeIconColor: AppColors.primaryColor,
+    dayPeriodColor: AppColors.primaryColor.withValues(alpha: 0.1),
+    dayPeriodTextColor: AppColors.primaryColor,
+    dialBackgroundColor: Colors.grey[50],
+    confirmButtonStyle: TextButton.styleFrom(
+      backgroundColor: AppColors.primaryColor,
+      foregroundColor: Colors.white,
+    ),
+    cancelButtonStyle: TextButton.styleFrom(
+      backgroundColor: Colors.white,
+      foregroundColor: AppColors.red,
+    ),
+  ),
+  datePickerTheme: DatePickerThemeData(
+    backgroundColor: AppColors.offWhite,
+    headerBackgroundColor: AppColors.primaryColor,
+    headerForegroundColor: AppColors.offWhite,
+    confirmButtonStyle: TextButton.styleFrom(
+      backgroundColor: AppColors.primaryColor,
+      foregroundColor: Colors.white,
+    ),
+    cancelButtonStyle: TextButton.styleFrom(
+      backgroundColor: Colors.white,
+      foregroundColor: AppColors.red,
+    ),
+  ),
 );

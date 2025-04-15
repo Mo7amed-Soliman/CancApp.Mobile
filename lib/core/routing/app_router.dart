@@ -15,6 +15,11 @@ import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_
 import 'package:canc_app/users/patient/chat/presentation/views/available_to_chat_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/patient_bottom_nav_bar.dart';
+import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_model.dart';
+import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
+import 'package:canc_app/users/patient/reminder/presentation/views/medication_reminder_view.dart';
+import 'package:canc_app/users/patient/reminder/presentation/views/reminder_view.dart';
+import 'package:canc_app/users/patient/reminder/presentation/views/visit_reminder_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -127,25 +132,60 @@ final appRouter = GoRouter(
     GoRoute(
       path: Routes.chatView,
       pageBuilder: (context, state) {
-        final user = state.extra;
-        if (user is! UserChatModel) {
-          // Return to previous screen if user model is not provided
-          return CustomTransitionPage(
-            key: state.pageKey,
-            child: const Scaffold(
-              body: Center(
-                child: Text('Invalid user data'),
-              ),
-            ),
-            transitionsBuilder: _transitionsBuilder,
-          );
-        }
+        final user = state.extra as UserChatModel;
         return CustomTransitionPage(
           key: state.pageKey,
           child: ChatView(user: user),
           transitionsBuilder: _transitionsBuilder,
         );
       },
+    ),
+    GoRoute(
+      path: Routes.reminderView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const ReminderView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+      routes: [
+        GoRoute(
+          path: 'medicationReminderView',
+          pageBuilder: (context, state) {
+            if (state.extra is MedicationReminderModel) {
+              final reminder = state.extra as MedicationReminderModel;
+              return CustomTransitionPage(
+                key: state.pageKey,
+                child: MedicationReminderView(
+                  reminder: reminder,
+                ),
+                transitionsBuilder: _transitionsBuilder,
+              );
+            }
+            return CustomTransitionPage(
+              key: state.pageKey,
+              child: const MedicationReminderView(),
+              transitionsBuilder: _transitionsBuilder,
+            );
+          },
+        ),
+        GoRoute(
+          path: 'visitReminderView',
+          pageBuilder: (context, state) {
+            if (state.extra is VisitReminderModel) {
+              final reminder = state.extra as VisitReminderModel;
+              return CustomTransitionPage(
+                key: state.pageKey,
+                child: VisitReminderView(reminder: reminder),
+                transitionsBuilder: _transitionsBuilder,
+              );
+            }
+            return const CustomTransitionPage(
+              child: VisitReminderView(),
+              transitionsBuilder: _transitionsBuilder,
+            );
+          },
+        ),
+      ],
     ),
   ],
 );

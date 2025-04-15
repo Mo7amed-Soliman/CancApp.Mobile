@@ -4,11 +4,17 @@ import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
-import 'package:canc_app/generated/l10n.dart';
 
-class EmptyAccessRequests extends StatelessWidget {
-  const EmptyAccessRequests({super.key});
-
+class EmptyList extends StatelessWidget {
+  const EmptyList({
+    super.key,
+    required this.title,
+    this.onPressed,
+    this.icon = IconlyBroken.tick_square,
+  });
+  final String title;
+  final VoidCallback? onPressed;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -17,18 +23,21 @@ class EmptyAccessRequests extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CircleAvatar(
-            radius: context.setMinSize(65),
+            radius: context.setMinSize(60),
             backgroundColor: const Color(0xffF3F4F6),
-            child: Icon(
-              IconlyBroken.tick_square,
-              color: AppColors.primaryColor,
-              size: context.setMinSize(65),
+            child: IconButton(
+              onPressed: onPressed,
+              icon: Icon(
+                icon,
+                color: AppColors.primaryColor,
+                size: 60,
+              ),
             ),
           ),
-          const VerticalSpacer(10),
+          const VerticalSpacer(16),
           Text(
-            S.of(context).noPendingRequests,
-            style: AppTextStyle.font20MediumWhite(context).copyWith(
+            title,
+            style: AppTextStyle.font18SemiBoldDarkGray(context).copyWith(
               color: const Color(0xff6B7280),
             ),
           ),

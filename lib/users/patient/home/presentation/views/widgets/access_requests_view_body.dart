@@ -2,7 +2,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/animated_slide_request_item.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/card_access_request_item.dart';
-import 'package:canc_app/users/patient/home/presentation/views/widgets/empty_access_requests.dart';
+import 'package:canc_app/core/widgets/empty_list.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/generated/l10n.dart';
 
@@ -127,7 +127,9 @@ class _AccessRequestsViewBodyState extends State<AccessRequestsViewBody>
   @override
   Widget build(BuildContext context) {
     if (_items.isEmpty) {
-      return const EmptyAccessRequests();
+      return EmptyList(
+        title: S.of(context).noPendingRequests,
+      );
     }
 
     return AnimatedList(
