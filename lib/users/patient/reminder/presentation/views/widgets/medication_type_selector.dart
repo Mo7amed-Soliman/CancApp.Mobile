@@ -96,7 +96,7 @@ class TypeOption extends StatelessWidget {
           ),
           const VerticalSpacer(8),
           Text(
-            type.displayName,
+            type.displayName(context),
             style: AppTextStyle.font14RegularDarkGray(context).copyWith(
               color: isSelected ? AppColors.primaryColor : Colors.grey,
               fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,

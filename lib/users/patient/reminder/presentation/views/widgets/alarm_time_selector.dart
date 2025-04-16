@@ -2,9 +2,10 @@ import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.d
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AlarmTimeSelector extends StatelessWidget {
-  final TimeOfDay? selectedTime;
+  final DateTime? selectedTime;
   final Function(BuildContext) onTimeSelected;
 
   const AlarmTimeSelector({
@@ -32,7 +33,7 @@ class AlarmTimeSelector extends StatelessWidget {
           ),
         ),
         child: Text(
-          '${selectedTime!.hour.toString().padLeft(2, '0')}:${selectedTime!.minute.toString().padLeft(2, '0')} ${selectedTime!.period == DayPeriod.am ? 'AM' : 'PM'}',
+          DateFormat('HH:mm a').format(selectedTime!),
           style: AppTextStyle.font14RegularDarkGray(context),
         ),
       ),

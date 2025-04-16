@@ -61,8 +61,8 @@ class VisitCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const VerticalSpacer(8),
-                  if (!isLoading)
+                  if (!isLoading) ...[
+                    const VerticalSpacer(8),
                     Text(
                       reminder.examinationType,
                       style: AppTextStyle.font14lightWhite(context).copyWith(
@@ -70,6 +70,7 @@ class VisitCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
+                  ],
                 ],
               ),
               isLoading
@@ -91,8 +92,12 @@ class VisitCard extends StatelessWidget {
           ),
           const VerticalSpacer(8),
           ReminderScheduleInfo(
-            alarmTime: DateFormat('HH:mm a').format(reminder.time),
-            frequency: DateFormat('dd-MM-yyyy').format(reminder.date),
+            alarmTime: isLoading
+                ? 'HH:mm a'
+                : DateFormat('HH:mm a').format(reminder.time),
+            frequency: isLoading
+                ? 'dd-MM-yyyy'
+                : DateFormat('dd-MM-yyyy').format(reminder.date),
           ),
         ],
       ),

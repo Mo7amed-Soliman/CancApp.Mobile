@@ -1,8 +1,10 @@
+import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/utils/app_assets.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/reminder/data/models/frequency_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,8 +98,8 @@ class MedicationCard extends StatelessWidget {
           ),
           const VerticalSpacer(8),
           ReminderScheduleInfo(
-            alarmTime: _formatAlarmTimes(),
-            frequency: _getFrequency(),
+            alarmTime: _formatAlarmTimes(context),
+            frequency: _getFrequency(context),
           ),
         ],
       ),
@@ -117,41 +119,67 @@ class MedicationCard extends StatelessWidget {
     }
   }
 
-  String _formatAlarmTimes() {
-    if (reminder.alarmTimes.isEmpty) return 'No alarms set';
-    return DateFormat('HH:mm').format(reminder.alarmTimes.first);
+  String _formatAlarmTimes(BuildContext context) {
+    // loading state
+    if (reminder.alarmTimes.isEmpty) return S.of(context).alarmTimes;
+    // if the reminder has only one alarm time
+    return DateFormat('HH:mm a').format(reminder.alarmTimes.first);
   }
 
-  String _getFrequency() {
+  String _getFrequency(BuildContext context) {
     switch (reminder.frequency) {
       case Frequency.everyDay:
-        return reminder.frequency.displayName;
+        return reminder.frequency.displayName(context);
       case Frequency.daysOfWeek:
         return reminder.frequencyDetails.daysOfWeek
-                ?.map((day) => _getDayName(day))
+                ?.map((day) =>
+                    isArabic() ? _getDayNameAr(day) : _getDayNameEn(day))
                 .join(', ') ??
             '';
       case Frequency.everyXDays:
-        return 'Every ${reminder.frequencyDetails.daysInterval} days';
+        return '${S.of(context).every} ${reminder.frequencyDetails.daysInterval} ${S.of(context).days}';
     }
   }
 
-  String _getDayName(int day) {
+  String _getDayNameEn(int day) {
+    switch (day) {
+      case 0: //  0 is Sunday
+        return 'Sun';
+      case 1: // 1 is Monday
+        return 'Mon';
+      case 2: // 2 is Tuesday
+        return 'Tue';
+      case 3: // 3 is Wednesday
+        return 'Wed';
+      case 4: // 4 is Thursday
+        return 'Thu';
+      case 5: // 5 is Friday
+        return 'Fri';
+      case 6: // 6 is Saturday
+        return 'Sat';
+      default:
+        return '';
+    }
+  }
+
+  String _getDayNameAr(int day) {
     switch (day) {
       case 0:
-        return 'Sun';
+        return 'الأحد';
       case 1:
-        return 'Mon';
+        return 'الاثنين';
       case 2:
-        return 'Tue';
+        return 'الثلاثاء';
       case 3:
-        return 'Wed';
+        return 'الأربعاء';
       case 4:
-        return 'Thu';
+        return 'الخميس';
+
       case 5:
-        return 'Fri';
+        return 'الجمعة';
       case 6:
-        return 'Sat';
+        return 'السبت';
+
       default:
         return '';
     }

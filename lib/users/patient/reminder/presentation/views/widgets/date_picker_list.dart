@@ -1,3 +1,4 @@
+import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -21,6 +22,7 @@ class DateSelectorFromList extends StatelessWidget {
       height: context.setHeight(110),
       padding: EdgeInsets.symmetric(vertical: context.setMinSize(10)),
       child: EasyDateTimeLine(
+        locale: isArabic() ? 'ar' : 'en',
         initialDate: selectedDate,
         onDateChange: onDateSelected,
         headerProps: const EasyHeaderProps(

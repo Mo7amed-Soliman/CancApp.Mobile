@@ -1,6 +1,7 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class DeleteConfirmationDialog extends StatelessWidget {
@@ -21,7 +22,7 @@ class DeleteConfirmationDialog extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       insetPadding: EdgeInsets.symmetric(
-        horizontal: context.setMinSize(50),
+        horizontal: context.setMinSize(45),
       ),
       backgroundColor: AppColors.offWhite,
       contentPadding: EdgeInsets.symmetric(
@@ -52,7 +53,7 @@ class DeleteConfirmationDialog extends StatelessWidget {
           ),
           onPressed: () => Navigator.pop(context, false),
           child: Text(
-            'Cancel',
+            S.of(context).cancel,
             style: AppTextStyle.font16RegularDarkGray(context).copyWith(
               color: AppColors.primaryColor,
             ),
@@ -74,7 +75,7 @@ class DeleteConfirmationDialog extends StatelessWidget {
             onConfirm();
           },
           child: Text(
-            'Delete',
+            S.of(context).delete,
             style: AppTextStyle.font16RegularDarkGray(context).copyWith(
               color: Colors.red,
             ),

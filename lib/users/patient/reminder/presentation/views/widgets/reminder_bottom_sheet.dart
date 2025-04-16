@@ -1,6 +1,7 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -35,7 +36,7 @@ class ReminderBottomSheet extends StatelessWidget {
           ),
           const VerticalSpacer(30),
           _ReminderOptionButton(
-            title: 'Meds Reminder',
+            title: S.of(context).medicationReminder,
             onTap: () {
               Navigator.pop(context);
               context.push(Routes.medicationReminderView);
@@ -43,7 +44,7 @@ class ReminderBottomSheet extends StatelessWidget {
           ),
           const VerticalSpacer(16),
           _ReminderOptionButton(
-            title: 'Visit Reminder',
+            title: S.of(context).visitReminder,
             onTap: () {
               Navigator.pop(context);
               context.push(Routes.visitReminderView);

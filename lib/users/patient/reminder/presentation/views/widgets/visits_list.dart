@@ -1,6 +1,7 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/routing/routes.dart';
-import 'package:canc_app/core/widgets/empty_list.dart';
+import 'package:canc_app/core/widgets/in_empty_list.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -10,14 +11,17 @@ import 'package:redacted/redacted.dart';
 import '../../../data/models/visit_reminder_model.dart';
 import '../../manger/visit_reminder_cubit/visit_reminder_cubit.dart';
 import '../../manger/visit_reminder_cubit/visit_reminder_state.dart';
+import 'animated_list_item.dart';
 import 'visit_card.dart';
 
 class VisitsList extends StatelessWidget {
+  final DateTime selectedDate;
   final Function(BuildContext, VisitReminderModel) onEdit;
   final Function(BuildContext, VisitReminderModel) onDelete;
 
   const VisitsList({
     super.key,
+    required this.selectedDate,
     required this.onEdit,
     required this.onDelete,
   });
@@ -56,12 +60,19 @@ class VisitsList extends StatelessWidget {
           );
         }
 
+        /// Filter visits based on selected date
+        final filteredVisits = state.reminders.where((reminder) {
+          return reminder.date.year == selectedDate.year &&
+              reminder.date.month == selectedDate.month &&
+              reminder.date.day == selectedDate.day;
+        }).toList();
+
         /// if the reminders are empty
-        if (state.reminders.isEmpty) {
-          // 'No visit reminders yet'
-          // add a button to add a new visit
-          return EmptyList(
-            title: 'No visit reminders yet',
+        if (state.reminders.isEmpty || filteredVisits.isEmpty) {
+          return InEmptyList(
+            title: filteredVisits.isEmpty
+                ? S.of(context).noVisitsForDate
+                : S.of(context).noVisits,
             icon: IconlyBold.plus,
             onPressed: () {
               context.push(Routes.visitReminderView);
@@ -72,13 +83,16 @@ class VisitsList extends StatelessWidget {
         /// if get the reminders
         return ListView.builder(
           padding: EdgeInsets.all(context.setMinSize(16)),
-          itemCount: state.reminders.length,
+          itemCount: filteredVisits.length,
           itemBuilder: (context, index) {
-            final reminder = state.reminders[index];
-            return VisitCard(
-              reminder: reminder,
-              onEdit: () => onEdit(context, reminder),
-              onDelete: () => onDelete(context, reminder),
+            final reminder = filteredVisits[index];
+            return AnimatedListItem(
+              index: index,
+              child: VisitCard(
+                reminder: reminder,
+                onEdit: () => onEdit(context, reminder),
+                onDelete: () => onDelete(context, reminder),
+              ),
             );
           },
         );

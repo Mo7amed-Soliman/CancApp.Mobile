@@ -1,7 +1,9 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -55,7 +57,7 @@ class _AlarmTimesListState extends State<AlarmTimesList> {
     if (!exists) {
       widget.onTimeAdded(newTime);
     } else {
-      botTextToast('This time is already added.');
+      botTextToast(S.of(context).thisTimeIsAlreadyAdded);
     }
   }
 
@@ -71,7 +73,8 @@ class _AlarmTimesListState extends State<AlarmTimesList> {
                 onTap: _pickTime,
                 child: Container(
                   height: 60,
-                  alignment: Alignment.centerLeft,
+                  alignment:
+                      isArabic() ? Alignment.centerRight : Alignment.centerLeft,
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   decoration: BoxDecoration(
                     color: Colors.grey[50],
@@ -102,7 +105,7 @@ class _AlarmTimesListState extends State<AlarmTimesList> {
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                 ),
                 child: Text(
-                  'Add',
+                  S.of(context).add,
                   style: AppTextStyle.font16SemiBoldWhite(context),
                 ),
               ),
@@ -156,7 +159,7 @@ class _AlarmTimesListState extends State<AlarmTimesList> {
           child: ListTile(
             contentPadding: const EdgeInsets.symmetric(horizontal: 8),
             title: Text(
-              'Notification',
+              S.of(context).notification,
               style: AppTextStyle.font14RegularDarkGray(context),
             ),
             trailing: Switch(

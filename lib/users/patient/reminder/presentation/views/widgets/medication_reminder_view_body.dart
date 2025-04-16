@@ -1,7 +1,9 @@
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
@@ -50,10 +52,7 @@ class _MedicationReminderViewBodyState
 
   Frequency _getInitialFrequency() {
     if (widget.reminder?.frequency != null) {
-      return Frequency.values.firstWhere(
-        (f) => f.displayName == widget.reminder!.frequency.displayName,
-        orElse: () => Frequency.everyDay,
-      );
+      return widget.reminder!.frequency;
     }
     return Frequency.everyDay;
   }
@@ -91,22 +90,22 @@ class _MedicationReminderViewBodyState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AppTextFormField(
-                      label: 'Meds Name',
+                      label: S.of(context).medicationName,
                       labelStyle: AppTextStyle.font18SemiBoldDarkGray(context),
-                      hintText: 'Enter medication name',
+                      hintText: S.of(context).medicationName,
                       fillColor: Colors.grey[50],
                       filled: true,
                       controller: _medicationNameController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter medication name';
+                          return S.of(context).pleaseEnterMedicationName;
                         }
                         return null;
                       },
                     ),
                     const VerticalSpacer(20),
                     Text(
-                      'Select Shape',
+                      S.of(context).medicationType,
                       style: AppTextStyle.font18SemiBoldDarkGray(context),
                     ),
                     const VerticalSpacer(10),
@@ -117,7 +116,7 @@ class _MedicationReminderViewBodyState
                     ),
                     const VerticalSpacer(20),
                     Text(
-                      'Frequency',
+                      S.of(context).frequency,
                       style: AppTextStyle.font18SemiBoldDarkGray(context),
                     ),
                     const VerticalSpacer(6),
@@ -133,7 +132,7 @@ class _MedicationReminderViewBodyState
                     ),
                     const VerticalSpacer(6),
                     Text(
-                      'Alarm Times',
+                      S.of(context).alarmTimes,
                       style: AppTextStyle.font18SemiBoldDarkGray(context),
                     ),
                     const VerticalSpacer(6),
@@ -153,7 +152,7 @@ class _MedicationReminderViewBodyState
           const VerticalSpacer(20),
           AppButtonWidget(
             onPressed: _saveMedicationReminder,
-            text: 'Save',
+            text: S.of(context).save,
           ),
           const VerticalSpacer(20),
         ],
@@ -164,11 +163,7 @@ class _MedicationReminderViewBodyState
   void _saveMedicationReminder() {
     if (_formKey.currentState!.validate()) {
       if (_alarmTimes.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Please add at least one alarm time'),
-          ),
-        );
+        botTextToast(S.of(context).pleaseAddAtLeastOneAlarmTime);
         return;
       }
 

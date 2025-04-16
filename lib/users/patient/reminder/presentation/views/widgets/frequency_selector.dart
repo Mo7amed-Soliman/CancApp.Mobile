@@ -1,6 +1,8 @@
+import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/users/patient/reminder/data/models/frequency_details_model.dart';
 
@@ -157,7 +159,6 @@ class _FrequencyDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormField<Frequency>(
       initialValue: selectedFrequency,
-      validator: (value) => value == null ? 'Please select a frequency' : null,
       builder: (FormFieldState<Frequency> state) {
         return InputDecorator(
           decoration: InputDecoration(
@@ -198,7 +199,7 @@ class _FrequencyDropdown extends StatelessWidget {
                 return DropdownMenuItem<Frequency>(
                   value: frequency,
                   child: Text(
-                    frequency.displayName,
+                    frequency.displayName(context),
                     style: AppTextStyle.font14RegularDarkGray(context),
                   ),
                 );
@@ -330,7 +331,7 @@ class _DaysIntervalSelector extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Every $daysInterval days',
+                '${S.of(context).every} $daysInterval ${S.of(context).days}',
                 style: AppTextStyle.font14RegularDarkGray(context),
               ),
               const Icon(Icons.arrow_drop_down),
@@ -356,7 +357,7 @@ class _DaysOfWeekSelector extends StatelessWidget {
     final selectedDayNames = <String>[];
     for (int i = 0; i < 7; i++) {
       if (selectedDays[i]) {
-        selectedDayNames.add(_getDayName(i));
+        selectedDayNames.add(isArabic() ? _getDayNameAr(i) : _getDayNameEn(i));
       }
     }
 
@@ -386,7 +387,7 @@ class _DaysOfWeekSelector extends StatelessWidget {
             children: [
               Text(
                 selectedDayNames.isEmpty
-                    ? 'Select days of week'
+                    ? S.of(context).selectDaysOfWeek
                     : selectedDayNames.join(', '),
                 style: AppTextStyle.font14RegularDarkGray(context),
               ),
@@ -427,7 +428,7 @@ class _DaysIntervalDialogState extends State<_DaysIntervalDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(
-        'Every X days',
+        S.of(context).everyXDays,
         style: AppTextStyle.font18SemiBoldDarkGray(context),
         textAlign: TextAlign.center,
       ),
@@ -521,7 +522,7 @@ class _DaysOfWeekDialogState extends State<_DaysOfWeekDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(
-        'Day of the Week',
+        S.of(context).dayOfTheWeek,
         style: AppTextStyle.font18SemiBoldDarkGray(context),
         textAlign: TextAlign.center,
       ),
@@ -545,7 +546,7 @@ class _DaysOfWeekDialogState extends State<_DaysOfWeekDialog> {
                   widget.onDaySelected(i, selected ?? false);
                 },
                 title: Text(
-                  _getDayName(i),
+                  isArabic() ? _getDayNameAr(i) : _getDayNameEn(i),
                   style: AppTextStyle.font16RegularBlack(context),
                 ),
                 controlAffinity: ListTileControlAffinity.leading,
@@ -580,7 +581,7 @@ class _DialogCloseButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
         ),
         child: Text(
-          'Close',
+          S.of(context).close,
           style: AppTextStyle.font16SemiBoldWhite(context),
           textAlign: TextAlign.center,
         ),
@@ -589,7 +590,7 @@ class _DialogCloseButton extends StatelessWidget {
   }
 }
 
-String _getDayName(int day) {
+String _getDayNameEn(int day) {
   switch (day) {
     case 0:
       return 'Sun';
@@ -605,6 +606,27 @@ String _getDayName(int day) {
       return 'Fri';
     case 6:
       return 'Sat';
+    default:
+      return '';
+  }
+}
+
+String _getDayNameAr(int day) {
+  switch (day) {
+    case 0:
+      return 'الأحد';
+    case 1:
+      return 'الاثنين';
+    case 2:
+      return 'الثلاثاء';
+    case 3:
+      return 'الأربعاء';
+    case 4:
+      return 'الخميس';
+    case 5:
+      return 'الجمعة';
+    case 6:
+      return 'السبت';
     default:
       return '';
   }

@@ -1,8 +1,19 @@
-enum Frequency {
-  everyDay('Every day'),
-  daysOfWeek('Days of week'),
-  everyXDays('Every X days');
+import 'package:flutter/material.dart';
+import 'package:canc_app/generated/l10n.dart';
 
-  final String displayName;
-  const Frequency(this.displayName);
+enum Frequency {
+  everyDay,
+  daysOfWeek,
+  everyXDays;
+
+  String displayName(BuildContext context) {
+    switch (this) {
+      case Frequency.everyDay:
+        return S.of(context).everyDay;
+      case Frequency.daysOfWeek:
+        return S.of(context).specificDays;
+      case Frequency.everyXDays:
+        return S.of(context).everyXDays;
+    }
+  }
 }

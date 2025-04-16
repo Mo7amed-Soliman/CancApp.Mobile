@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'frequency_details_model.dart';
 import 'frequency_enum.dart';
 
@@ -8,16 +10,16 @@ enum MedicationType {
   liquid,
   radiation;
 
-  String get displayName {
+  String displayName(BuildContext context) {
     switch (this) {
       case MedicationType.pill:
-        return 'Pill';
+        return S.of(context).pill;
       case MedicationType.injection:
-        return 'Injection';
+        return S.of(context).injection;
       case MedicationType.liquid:
-        return 'Liquid';
+        return S.of(context).liquid;
       case MedicationType.radiation:
-        return 'Radiation';
+        return S.of(context).radiation;
     }
   }
 }

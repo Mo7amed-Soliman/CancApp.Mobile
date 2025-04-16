@@ -14,6 +14,7 @@ class ReminderViewBody extends StatefulWidget {
 class _ReminderViewBodyState extends State<ReminderViewBody>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  DateTime _selectedDate = DateTime.now();
 
   @override
   void initState() {
@@ -34,13 +35,18 @@ class _ReminderViewBodyState extends State<ReminderViewBody>
       children: [
         const TodayDateDisplay(),
         DateSelectorFromList(
-          selectedDate: DateTime.now(),
+          selectedDate: _selectedDate,
           onDateSelected: (date) {
-            //TODO: Handle date selection
+            // Filter reminders based on selected date
+            setState(() {
+              _selectedDate = date;
+            });
           },
         ),
-        const Expanded(
-          child: ReminderTabs(),
+        Expanded(
+          child: ReminderTabs(
+            selectedDate: _selectedDate,
+          ),
         ),
       ],
     );

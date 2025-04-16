@@ -26,7 +26,7 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
           id: '2',
           doctorName: 'Dr. Sarah Johnson',
           examinationType: 'Follow-up',
-          date: DateTime.now().add(const Duration(days: 14)),
+          date: DateTime.now(),
           time: DateTime.now().add(const Duration(hours: 14, minutes: 30)),
         ),
       ];

@@ -1,6 +1,8 @@
+import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:intl/intl.dart';
@@ -68,52 +70,55 @@ class _VisitReminderViewBodyState extends State<VisitReminderViewBody> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AppTextFormField(
-                      label: 'Doctor Name',
+                      label: S.of(context).doctorName,
                       labelStyle: AppTextStyle.font18SemiBoldDarkGray(context),
-                      hintText: 'Enter Doctor Name',
+                      hintText: S.of(context).doctorName,
                       fillColor: Colors.grey[50],
                       filled: true,
                       controller: _doctorNameController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter doctor name';
+                          return S.of(context).pleaseEnterDoctorName;
                         }
                         return null;
                       },
                     ),
                     const VerticalSpacer(20),
                     AppTextFormField(
-                      label: 'Examination Type',
+                      label: S.of(context).examinationType,
                       labelStyle: AppTextStyle.font18SemiBoldDarkGray(context),
-                      hintText: 'Enter Examination Type',
+                      hintText: S.of(context).examinationType,
                       fillColor: Colors.grey[50],
                       filled: true,
                       controller: _examinationTypeController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter examination type';
+                          return S.of(context).pleaseEnterExaminationType;
                         }
                         return null;
                       },
                     ),
                     const VerticalSpacer(20),
                     Text(
-                      'Date',
+                      S.of(context).date,
                       style: AppTextStyle.font18SemiBoldDarkGray(context),
                     ),
                     const VerticalSpacer(6),
                     DateSelector(
-                      text: DateFormat('dd/MM/yyyy').format(_selectedDate),
+                      text: isArabic()
+                          ? DateFormat('yyyy/MM/dd').format(_selectedDate)
+                          : DateFormat('dd/MM/yyyy').format(_selectedDate),
                       onTap: () => _selectDate(context),
                     ),
                     const VerticalSpacer(20),
                     Text(
-                      'Alarm',
+                      S.of(context).alarmTime,
                       style: AppTextStyle.font18SemiBoldDarkGray(context),
                     ),
                     const VerticalSpacer(6),
                     AlarmTimeSelector(
-                      selectedTime: _selectedTime,
+                      selectedTime:
+                          _combineDateTime(_selectedDate, _selectedTime),
                       onTimeSelected: _selectTime,
                     ),
                   ],
@@ -123,7 +128,7 @@ class _VisitReminderViewBodyState extends State<VisitReminderViewBody> {
           ),
           const VerticalSpacer(20),
           AppButtonWidget(
-            text: 'Save',
+            text: S.of(context).save,
             onPressed: _saveReminder,
           ),
           const VerticalSpacer(20),

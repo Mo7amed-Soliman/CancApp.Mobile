@@ -1,6 +1,7 @@
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +15,12 @@ import 'medications_list.dart';
 import 'visits_list.dart';
 
 class ReminderTabs extends StatefulWidget {
-  const ReminderTabs({super.key});
+  final DateTime selectedDate;
+
+  const ReminderTabs({
+    super.key,
+    required this.selectedDate,
+  });
 
   @override
   State<ReminderTabs> createState() => _ReminderTabsState();
@@ -52,9 +58,9 @@ class _ReminderTabsState extends State<ReminderTabs>
               indicatorColor: AppColors.offWhite,
               labelColor: AppColors.offWhite,
               unselectedLabelColor: AppColors.offWhite.withValues(alpha: 0.75),
-              tabs: const [
-                Tab(text: 'Medications'),
-                Tab(text: 'Visits'),
+              tabs: [
+                Tab(text: S.of(context).medications),
+                Tab(text: S.of(context).visits),
               ],
             ),
           ),
@@ -63,10 +69,12 @@ class _ReminderTabsState extends State<ReminderTabs>
               controller: _tabController,
               children: [
                 MedicationsList(
+                  selectedDate: widget.selectedDate,
                   onEdit: _onEditMedication,
                   onDelete: _onDeleteMedicationConfirmation,
                 ),
                 VisitsList(
+                  selectedDate: widget.selectedDate,
                   onEdit: _onEditVisit,
                   onDelete: _onDeleteVisitConfirmation,
                 ),
@@ -98,7 +106,7 @@ class _ReminderTabsState extends State<ReminderTabs>
   ) async {
     await DeleteConfirmationDialog.show(
       context,
-      content: 'Are you sure you want to delete this visit reminder?',
+      content: S.of(context).deleteVisit,
       onConfirm: () {
         if (context.mounted) {
           context.read<VisitReminderCubit>().deleteVisitReminder(reminder.id);
@@ -129,8 +137,7 @@ class _ReminderTabsState extends State<ReminderTabs>
   ) async {
     await DeleteConfirmationDialog.show(
       context,
-      content:
-          'Are you sure you want to delete ${reminder.medicationName} reminder?',
+      content: S.of(context).deleteMedication,
       onConfirm: () {
         if (context.mounted) {
           context

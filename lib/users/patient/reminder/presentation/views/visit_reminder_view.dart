@@ -1,3 +1,4 @@
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import '../../data/models/visit_reminder_model.dart';
@@ -15,7 +16,8 @@ class VisitReminderView extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: CustomReminderAppBar(
-        title: reminder == null ? 'Add Visit Reminder' : 'Edit Visit Reminder',
+        title:
+            reminder == null ? S.of(context).addVisit : S.of(context).editVisit,
         backgroundColor: AppColors.primaryColor,
       ),
       body: VisitReminderViewBody(
