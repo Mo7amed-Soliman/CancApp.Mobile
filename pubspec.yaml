@@ -48,8 +48,6 @@ dependencies:
   flutter_bloc: ^9.1.0
   # dependency injection
   get_it: ^8.0.3
-  # persistent key-value storage for simple data
-  shared_preferences: ^2.5.2
   # flutter_svg for svg images
   flutter_svg: ^2.0.17
   # Pin code input (OTP) text field  
@@ -70,6 +68,13 @@ dependencies:
   easy_date_timeline: ^2.0.9
   # redacted is a package that helps Shimmer effect
   redacted: ^1.0.13
+  # Hive for local storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  # persistent key-value storage for simple data
+  shared_preferences: ^2.5.2
+  # path_provider for accessing device file system
+  path_provider: ^2.1.2
   
 dev_dependencies:
   flutter_test:
@@ -83,6 +88,9 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   # flutter_launcher_icons for generating app icons 
   flutter_launcher_icons: "^0.13.1"
+  # Hive generator for type adapters
+  build_runner: ^2.4.8
+  hive_generator: ^2.0.1
 
 
 # The following section is specific to Flutter packages.
