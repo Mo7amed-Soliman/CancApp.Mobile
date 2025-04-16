@@ -1,12 +1,22 @@
 import 'package:equatable/equatable.dart';
 import 'package:uuid/uuid.dart';
+import 'package:hive/hive.dart';
 
+part 'visit_reminder_model.g.dart';
+
+@HiveType(typeId: 5)
 class VisitReminderModel extends Equatable {
+  @HiveField(0)
   final String id;
+  @HiveField(1)
   final String doctorName;
+  @HiveField(2)
   final String examinationType;
+  @HiveField(3)
   final DateTime date;
+  @HiveField(4)
   final DateTime time;
+  @HiveField(5)
   final bool isEnabled;
 
   VisitReminderModel({
