@@ -75,9 +75,11 @@ class VisitsList extends StatelessWidget {
                 : S.of(context).noVisits,
             icon: IconlyBold.plus,
             onPressed: () async {
-              await context.push(Routes.visitReminderView);
+              final reminder = await context.push(Routes.visitReminderView);
               if (context.mounted) {
-                context.read<VisitReminderCubit>().loadReminders();
+                context
+                    .read<VisitReminderCubit>()
+                    .addVisitReminder(reminder as VisitReminderModel);
               }
             },
           );

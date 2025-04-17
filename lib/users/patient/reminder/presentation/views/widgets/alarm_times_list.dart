@@ -11,16 +11,12 @@ class AlarmTimesList extends StatefulWidget {
   final List<DateTime> alarmTimes;
   final Function(DateTime) onTimeAdded;
   final Function(DateTime) onTimeDeleted;
-  final bool isEnabled;
-  final Function(bool) onEnabledChanged;
 
   const AlarmTimesList({
     super.key,
     required this.alarmTimes,
     required this.onTimeAdded,
     required this.onTimeDeleted,
-    required this.isEnabled,
-    required this.onEnabledChanged,
   });
 
   @override
@@ -142,32 +138,6 @@ class _AlarmTimesListState extends State<AlarmTimesList> {
                     );
                   }).toList(),
                 ),
-        ),
-        const VerticalSpacer(16),
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 8,
-            vertical: 2,
-          ),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: AppColors.paleTealTransparent,
-              width: 2,
-            ),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-            title: Text(
-              S.of(context).notification,
-              style: AppTextStyle.font14RegularDarkGray(context),
-            ),
-            trailing: Switch(
-              value: widget.isEnabled,
-              onChanged: widget.onEnabledChanged,
-              activeColor: AppColors.primaryColor,
-            ),
-          ),
         ),
       ],
     );

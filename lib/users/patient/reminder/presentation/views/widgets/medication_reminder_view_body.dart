@@ -118,9 +118,6 @@ class _MedicationReminderViewBodyState
                     const VerticalSpacer(6),
                     AlarmTimesList(
                       alarmTimes: _alarmTimes,
-                      isEnabled: _isEnabled,
-                      onEnabledChanged: (value) =>
-                          setState(() => _isEnabled = value),
                       onTimeAdded: (time) {
                         setState(() {
                           _alarmTimes.add(time);

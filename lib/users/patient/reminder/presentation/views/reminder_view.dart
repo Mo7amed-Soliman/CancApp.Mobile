@@ -20,9 +20,11 @@ class ReminderView extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => MedicationReminderCubit(),
+          lazy: false,
         ),
         BlocProvider(
           create: (_) => VisitReminderCubit(),
+          lazy: false,
         ),
       ],
       child: Builder(
@@ -47,11 +49,14 @@ class ReminderView extends StatelessWidget {
       backgroundColor: Colors.transparent,
       builder: (context) => const ReminderBottomSheet(),
     );
+
     if (context.mounted) {
       if (reminder is MedicationReminderModel) {
-        context.read<MedicationReminderCubit>().addMedicationReminder(reminder);
+        await context
+            .read<MedicationReminderCubit>()
+            .addMedicationReminder(reminder);
       } else if (reminder is VisitReminderModel) {
-        context.read<VisitReminderCubit>().addVisitReminder(reminder);
+        await context.read<VisitReminderCubit>().addVisitReminder(reminder);
       }
     }
   }

@@ -58,27 +58,33 @@ class MedicationCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  isLoading
-                      ? Container(
-                          width: context.setMinSize(30),
-                          height: context.setMinSize(30),
-                          color: Colors.grey[300],
-                        )
-                      : SvgPicture.asset(
-                          imagePath,
-                          height: context.setMinSize(30),
+              Expanded(
+                child: Row(
+                  children: [
+                    isLoading
+                        ? Container(
+                            width: context.setMinSize(30),
+                            height: context.setMinSize(30),
+                            color: Colors.grey[300],
+                          )
+                        : SvgPicture.asset(
+                            imagePath,
+                            height: context.setMinSize(30),
+                          ),
+                    const HorizontalSpacer(20),
+                    Expanded(
+                      child: Text(
+                        reminder.medicationName,
+                        style:
+                            AppTextStyle.font16MediumDarkGray(context).copyWith(
+                          overflow: TextOverflow.ellipsis,
                         ),
-                  const HorizontalSpacer(20),
-                  Text(
-                    reminder.medicationName,
-                    style: AppTextStyle.font16MediumDarkGray(context).copyWith(
-                      overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+              const HorizontalSpacer(16),
               isLoading
                   ? Container(
                       width: context.setMinSize(100),
@@ -136,7 +142,7 @@ class MedicationCard extends StatelessWidget {
                 .join(', ') ??
             '';
       case Frequency.everyXDays:
-        return '${S.of(context).every} ${reminder.frequencyDetails.daysInterval} ${S.of(context).days}';
+        return '${S.of(context).every} ${reminder.frequencyDetails.daysInterval ?? 2} ${S.of(context).days}';
     }
   }
 }

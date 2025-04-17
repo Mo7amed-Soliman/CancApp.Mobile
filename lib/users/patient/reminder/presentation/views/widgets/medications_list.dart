@@ -89,9 +89,13 @@ class MedicationsList extends StatelessWidget {
                 : S.of(context).noMedications,
             icon: IconlyBold.plus,
             onPressed: () async {
-              await context.push(Routes.medicationReminderView);
+              final reminder =
+                  await context.push(Routes.medicationReminderView);
+
               if (context.mounted) {
-                context.read<MedicationReminderCubit>().loadReminders();
+                context
+                    .read<MedicationReminderCubit>()
+                    .addMedicationReminder(reminder as MedicationReminderModel);
               }
             },
           );

@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:canc_app/core/helpers/database/hive_helper.dart';
+import 'package:canc_app/core/services/visit_notification_service.dart';
 import '../../../data/models/visit_reminder_model.dart';
 import 'visit_reminder_state.dart';
 
@@ -34,6 +35,9 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
       await HiveHelper.saveVisitReminder(reminder.id, reminder);
       final updatedReminders = [...state.reminders, reminder];
       emit(state.copyWith(reminders: updatedReminders, isLoading: false));
+
+      // Schedule notification for the new reminder
+      await VisitNotificationService.scheduleVisitReminder(reminder);
     } catch (e) {
       emit(state.copyWith(
         error: 'Failed to add reminder: $e',
@@ -50,6 +54,9 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
       if (index != -1) {
         updatedReminders[index] = reminder;
         emit(state.copyWith(reminders: updatedReminders, isLoading: false));
+
+        // Update notification for the modified reminder
+        await VisitNotificationService.scheduleVisitReminder(reminder);
       }
     } catch (e) {
       emit(state.copyWith(
@@ -65,6 +72,9 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
       final updatedReminders =
           state.reminders.where((r) => r.id != id).toList();
       emit(state.copyWith(reminders: updatedReminders, isLoading: false));
+
+      // Cancel notification for the deleted reminder
+      await VisitNotificationService.cancelVisitReminder(id);
     } catch (e) {
       emit(state.copyWith(
         error: 'Failed to delete reminder: $e',
@@ -91,6 +101,13 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
         await HiveHelper.saveVisitReminder(id, updatedReminder);
         updatedReminders[index] = updatedReminder;
         emit(state.copyWith(reminders: updatedReminders));
+
+        // Update notification based on the toggle state
+        if (updatedReminder.isEnabled) {
+          await VisitNotificationService.scheduleVisitReminder(updatedReminder);
+        } else {
+          await VisitNotificationService.cancelVisitReminder(id);
+        }
       }
     } catch (e) {
       emit(state.copyWith(error: 'Failed to toggle reminder: $e'));
