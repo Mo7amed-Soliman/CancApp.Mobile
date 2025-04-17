@@ -1,8 +1,8 @@
+import 'package:canc_app/core/helpers/class/date_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class AlarmTimeSelector extends StatelessWidget {
   final DateTime? selectedTime;
@@ -33,7 +33,7 @@ class AlarmTimeSelector extends StatelessWidget {
           ),
         ),
         child: Text(
-          DateFormat('HH:mm a').format(selectedTime!),
+          DateHelper.formatTime(selectedTime!),
           style: AppTextStyle.font14RegularDarkGray(context),
         ),
       ),

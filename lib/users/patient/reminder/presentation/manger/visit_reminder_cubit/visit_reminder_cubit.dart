@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:canc_app/core/helpers/database/hive_helper.dart';
 import '../../../data/models/visit_reminder_model.dart';
 import 'visit_reminder_state.dart';
 
@@ -10,29 +11,14 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
   Future<void> loadReminders() async {
     try {
       emit(state.copyWith(isLoading: true));
-      // Simulating API call delay
-      await Future.delayed(const Duration(seconds: 5));
 
-      // Mock data
-      final mockReminders = [
-        VisitReminderModel(
-          id: '1',
-          doctorName: 'Dr. John Smith',
-          examinationType: 'General Check-up',
-          date: DateTime.now().add(const Duration(days: 7)),
-          time: DateTime.now().add(const Duration(hours: 10)),
-        ),
-        VisitReminderModel(
-          id: '2',
-          doctorName: 'Dr. Sarah Johnson',
-          examinationType: 'Follow-up',
-          date: DateTime.now(),
-          time: DateTime.now().add(const Duration(hours: 14, minutes: 30)),
-        ),
-      ];
+      /// open the visit reminders box
+      await HiveHelper.openVisitRemindersBox();
 
+      /// get all the visit reminders
+      final reminders = HiveHelper.getAllVisitReminders();
       emit(state.copyWith(
-        reminders: mockReminders,
+        reminders: reminders,
         isLoading: false,
       ));
     } catch (e) {
@@ -45,8 +31,7 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
 
   Future<void> addVisitReminder(VisitReminderModel reminder) async {
     try {
-      emit(state.copyWith(isLoading: true));
-      // TODO: Save to local storage or API
+      await HiveHelper.saveVisitReminder(reminder.id, reminder);
       final updatedReminders = [...state.reminders, reminder];
       emit(state.copyWith(reminders: updatedReminders, isLoading: false));
     } catch (e) {
@@ -59,12 +44,11 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
 
   Future<void> updateVisitReminder(VisitReminderModel reminder) async {
     try {
-      emit(state.copyWith(isLoading: true));
+      await HiveHelper.saveVisitReminder(reminder.id, reminder);
       final updatedReminders = [...state.reminders];
       final index = updatedReminders.indexWhere((r) => r.id == reminder.id);
       if (index != -1) {
         updatedReminders[index] = reminder;
-        // TODO: Update in local storage or API
         emit(state.copyWith(reminders: updatedReminders, isLoading: false));
       }
     } catch (e) {
@@ -77,10 +61,9 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
 
   Future<void> deleteVisitReminder(String id) async {
     try {
-      emit(state.copyWith(isLoading: true));
+      await HiveHelper.deleteVisitReminder(id);
       final updatedReminders =
           state.reminders.where((r) => r.id != id).toList();
-      // TODO: Delete from local storage or API
       emit(state.copyWith(reminders: updatedReminders, isLoading: false));
     } catch (e) {
       emit(state.copyWith(
@@ -102,10 +85,11 @@ class VisitReminderCubit extends Cubit<VisitReminderState> {
       final updatedReminders = [...state.reminders];
       final index = updatedReminders.indexWhere((r) => r.id == id);
       if (index != -1) {
-        updatedReminders[index] = updatedReminders[index].copyWith(
+        final updatedReminder = updatedReminders[index].copyWith(
           isEnabled: !updatedReminders[index].isEnabled,
         );
-        // TODO: Update in local storage or API
+        await HiveHelper.saveVisitReminder(id, updatedReminder);
+        updatedReminders[index] = updatedReminder;
         emit(state.copyWith(reminders: updatedReminders));
       }
     } catch (e) {

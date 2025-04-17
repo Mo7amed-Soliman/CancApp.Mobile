@@ -1,4 +1,5 @@
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/helpers/class/date_helper.dart';
+import 'package:canc_app/core/helpers/class/week_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/utils/app_assets.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -9,7 +10,6 @@ import 'package:canc_app/users/patient/reminder/data/models/frequency_enum.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl/intl.dart';
 
 import '../../../data/models/medication_reminder_model.dart';
 import '../../manger/medication_reminder_cubit/medication_reminder_cubit.dart';
@@ -123,7 +123,7 @@ class MedicationCard extends StatelessWidget {
     // loading state
     if (reminder.alarmTimes.isEmpty) return S.of(context).alarmTimes;
     // if the reminder has only one alarm time
-    return DateFormat('HH:mm a').format(reminder.alarmTimes.first);
+    return DateHelper.formatTime(reminder.alarmTimes.first);
   }
 
   String _getFrequency(BuildContext context) {
@@ -132,56 +132,11 @@ class MedicationCard extends StatelessWidget {
         return reminder.frequency.displayName(context);
       case Frequency.daysOfWeek:
         return reminder.frequencyDetails.daysOfWeek
-                ?.map((day) =>
-                    isArabic() ? _getDayNameAr(day) : _getDayNameEn(day))
+                ?.map((day) => WeekHelper.getDayName(day))
                 .join(', ') ??
             '';
       case Frequency.everyXDays:
         return '${S.of(context).every} ${reminder.frequencyDetails.daysInterval} ${S.of(context).days}';
-    }
-  }
-
-  String _getDayNameEn(int day) {
-    switch (day) {
-      case 0: //  0 is Sunday
-        return 'Sun';
-      case 1: // 1 is Monday
-        return 'Mon';
-      case 2: // 2 is Tuesday
-        return 'Tue';
-      case 3: // 3 is Wednesday
-        return 'Wed';
-      case 4: // 4 is Thursday
-        return 'Thu';
-      case 5: // 5 is Friday
-        return 'Fri';
-      case 6: // 6 is Saturday
-        return 'Sat';
-      default:
-        return '';
-    }
-  }
-
-  String _getDayNameAr(int day) {
-    switch (day) {
-      case 0:
-        return 'الأحد';
-      case 1:
-        return 'الاثنين';
-      case 2:
-        return 'الثلاثاء';
-      case 3:
-        return 'الأربعاء';
-      case 4:
-        return 'الخميس';
-
-      case 5:
-        return 'الجمعة';
-      case 6:
-        return 'السبت';
-
-      default:
-        return '';
     }
   }
 }

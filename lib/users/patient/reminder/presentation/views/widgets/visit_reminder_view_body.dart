@@ -1,11 +1,10 @@
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/helpers/class/date_helper.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
-import 'package:intl/intl.dart';
 
 import '../../../data/models/visit_reminder_model.dart';
 import 'alarm_time_selector.dart';
@@ -105,9 +104,7 @@ class _VisitReminderViewBodyState extends State<VisitReminderViewBody> {
                     ),
                     const VerticalSpacer(6),
                     DateSelector(
-                      text: isArabic()
-                          ? DateFormat('yyyy/MM/dd').format(_selectedDate)
-                          : DateFormat('dd/MM/yyyy').format(_selectedDate),
+                      text: DateHelper.formatDate(_selectedDate),
                       onTap: () => _selectDate(context),
                     ),
                     const VerticalSpacer(20),
@@ -146,7 +143,7 @@ class _VisitReminderViewBodyState extends State<VisitReminderViewBody> {
         date: _selectedDate,
         time: _combineDateTime(_selectedDate, _selectedTime),
       );
-      // TODO: Save reminder to database
+
       Navigator.pop(context, reminder);
     }
   }

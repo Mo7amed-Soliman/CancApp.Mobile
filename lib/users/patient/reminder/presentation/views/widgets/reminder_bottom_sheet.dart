@@ -2,14 +2,21 @@ import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.d
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_model.dart';
+import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:go_router/go_router.dart';
 
-class ReminderBottomSheet extends StatelessWidget {
+class ReminderBottomSheet extends StatefulWidget {
   const ReminderBottomSheet({super.key});
 
+  @override
+  State<ReminderBottomSheet> createState() => _ReminderBottomSheetState();
+}
+
+class _ReminderBottomSheetState extends State<ReminderBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,19 +42,29 @@ class ReminderBottomSheet extends StatelessWidget {
             ),
           ),
           const VerticalSpacer(30),
-          _ReminderOptionButton(
-            title: S.of(context).medicationReminder,
-            onTap: () {
-              Navigator.pop(context);
-              context.push(Routes.medicationReminderView);
-            },
-          ),
+          Builder(builder: (context) {
+            return _ReminderOptionButton(
+              title: S.of(context).medicationReminder,
+              onTap: () async {
+                MedicationReminderModel? reminder =
+                    await context.push(Routes.medicationReminderView);
+
+                if (context.mounted) {
+                  Navigator.pop<MedicationReminderModel>(context, reminder);
+                }
+              },
+            );
+          }),
           const VerticalSpacer(16),
           _ReminderOptionButton(
             title: S.of(context).visitReminder,
-            onTap: () {
-              Navigator.pop(context);
-              context.push(Routes.visitReminderView);
+            onTap: () async {
+              VisitReminderModel? reminder =
+                  await context.push(Routes.visitReminderView);
+
+              if (context.mounted) {
+                Navigator.pop<VisitReminderModel>(context, reminder);
+              }
             },
           ),
         ],

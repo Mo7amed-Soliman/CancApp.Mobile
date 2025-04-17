@@ -1,11 +1,11 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/helpers/class/date_helper.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class AlarmTimesList extends StatefulWidget {
   final List<DateTime> alarmTimes;
@@ -129,7 +129,7 @@ class _AlarmTimesListState extends State<AlarmTimesList> {
                     return Chip(
                       key: ValueKey(time),
                       label: Text(
-                        DateFormat('hh:mm a').format(time),
+                        DateHelper.formatTime(time),
                         style: AppTextStyle.font14RegularDarkGray(context),
                       ),
                       backgroundColor: const Color(0xFFF7F8FA),

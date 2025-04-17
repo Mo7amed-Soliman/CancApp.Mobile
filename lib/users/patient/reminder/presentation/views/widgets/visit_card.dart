@@ -1,13 +1,14 @@
+import 'package:canc_app/core/helpers/class/date_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 import '../../../data/models/visit_reminder_model.dart';
 import '../../manger/visit_reminder_cubit/visit_reminder_cubit.dart';
+
 import 'reminder_actions.dart';
 import 'reminder_schedule_info.dart';
 
@@ -92,12 +93,11 @@ class VisitCard extends StatelessWidget {
           ),
           const VerticalSpacer(8),
           ReminderScheduleInfo(
-            alarmTime: isLoading
-                ? 'HH:mm a'
-                : DateFormat('HH:mm a').format(reminder.time),
+            alarmTime:
+                isLoading ? 'HH:mm a' : DateHelper.formatTime(reminder.time),
             frequency: isLoading
                 ? 'dd-MM-yyyy'
-                : DateFormat('dd-MM-yyyy').format(reminder.date),
+                : DateHelper.formatDate(reminder.date, format: 'dd-MM-yyyy'),
           ),
         ],
       ),

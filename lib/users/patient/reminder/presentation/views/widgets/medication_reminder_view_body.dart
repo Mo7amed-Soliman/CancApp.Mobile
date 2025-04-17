@@ -44,36 +44,16 @@ class _MedicationReminderViewBodyState
     );
     _selectedType = widget.reminder?.type ?? MedicationType.pill;
     _alarmTimes = widget.reminder?.alarmTimes ?? [];
-    _selectedFrequency = _getInitialFrequency();
+    _selectedFrequency = widget.reminder?.frequency ?? Frequency.everyDay;
     _frequencyDetails =
         widget.reminder?.frequencyDetails ?? const FrequencyDetailsModel();
     _isEnabled = widget.reminder?.isEnabled ?? true;
-  }
-
-  Frequency _getInitialFrequency() {
-    if (widget.reminder?.frequency != null) {
-      return widget.reminder!.frequency;
-    }
-    return Frequency.everyDay;
   }
 
   @override
   void dispose() {
     _medicationNameController.dispose();
     super.dispose();
-  }
-
-  void _addAlarmTime(DateTime time) {
-    setState(() {
-      _alarmTimes.add(time);
-      _alarmTimes.sort();
-    });
-  }
-
-  void _deleteAlarmTime(DateTime time) {
-    setState(() {
-      _alarmTimes.remove(time);
-    });
   }
 
   @override
@@ -123,14 +103,14 @@ class _MedicationReminderViewBodyState
                     FrequencySelector(
                       selectedFrequency: _selectedFrequency,
                       frequencyDetails: _frequencyDetails,
-                      onFrequencySelected: (value) {
-                        setState(() => _selectedFrequency = value);
+                      onFrequencySelected: (frequency) {
+                        setState(() => _selectedFrequency = frequency);
                       },
                       onFrequencyDetailsChanged: (details) {
                         setState(() => _frequencyDetails = details);
                       },
                     ),
-                    const VerticalSpacer(6),
+                    const VerticalSpacer(20),
                     Text(
                       S.of(context).alarmTimes,
                       style: AppTextStyle.font18SemiBoldDarkGray(context),
@@ -138,11 +118,19 @@ class _MedicationReminderViewBodyState
                     const VerticalSpacer(6),
                     AlarmTimesList(
                       alarmTimes: _alarmTimes,
-                      onTimeAdded: _addAlarmTime,
-                      onTimeDeleted: _deleteAlarmTime,
                       isEnabled: _isEnabled,
                       onEnabledChanged: (value) =>
                           setState(() => _isEnabled = value),
+                      onTimeAdded: (time) {
+                        setState(() {
+                          _alarmTimes.add(time);
+                        });
+                      },
+                      onTimeDeleted: (time) {
+                        setState(() {
+                          _alarmTimes.remove(time);
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -151,17 +139,16 @@ class _MedicationReminderViewBodyState
           ),
           const VerticalSpacer(20),
           AppButtonWidget(
-            onPressed: _saveMedicationReminder,
             text: S.of(context).save,
+            onPressed: _saveMedicationReminder,
           ),
-          const VerticalSpacer(20),
         ],
       ),
     );
   }
 
-  void _saveMedicationReminder() {
-    if (_formKey.currentState!.validate()) {
+  Future<void> _saveMedicationReminder() async {
+    if (_formKey.currentState?.validate() ?? false) {
       if (_alarmTimes.isEmpty) {
         botTextToast(S.of(context).pleaseAddAtLeastOneAlarmTime);
         return;
@@ -176,6 +163,7 @@ class _MedicationReminderViewBodyState
         alarmTimes: _alarmTimes,
         isEnabled: _isEnabled,
       );
+
       Navigator.pop(context, reminder);
     }
   }

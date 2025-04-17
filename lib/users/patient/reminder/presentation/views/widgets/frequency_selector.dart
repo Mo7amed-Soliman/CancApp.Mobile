@@ -1,4 +1,4 @@
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/helpers/class/week_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -355,11 +355,13 @@ class _DaysOfWeekSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final selectedDayNames = <String>[];
-    for (int i = 0; i < 7; i++) {
-      if (selectedDays[i]) {
-        selectedDayNames.add(isArabic() ? _getDayNameAr(i) : _getDayNameEn(i));
-      }
-    }
+    selectedDayNames.addAll(WeekHelper.getSelectedDayNames(selectedDays));
+
+    // for (int i = 0; i < 7; i++) {
+    //   if (selectedDays[i]) {
+    //     selectedDayNames.add(WeekHelper.getDayName(i));
+    //   }
+    // }
 
     return TweenAnimationBuilder<double>(
       duration: const Duration(milliseconds: 300),
@@ -529,7 +531,7 @@ class _DaysOfWeekDialogState extends State<_DaysOfWeekDialog> {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          for (int i = 1; i < 6; i++)
+          for (int i = 0; i <= 6; i++)
             TweenAnimationBuilder<double>(
               duration: Duration(milliseconds: 200 + (i * 50)),
               tween: Tween(begin: 0.0, end: 1.0),
@@ -546,7 +548,7 @@ class _DaysOfWeekDialogState extends State<_DaysOfWeekDialog> {
                   widget.onDaySelected(i, selected ?? false);
                 },
                 title: Text(
-                  isArabic() ? _getDayNameAr(i) : _getDayNameEn(i),
+                  WeekHelper.getDayName(i),
                   style: AppTextStyle.font16RegularBlack(context),
                 ),
                 controlAffinity: ListTileControlAffinity.leading,
@@ -587,47 +589,5 @@ class _DialogCloseButton extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-String _getDayNameEn(int day) {
-  switch (day) {
-    case 0:
-      return 'Sun';
-    case 1:
-      return 'Mon';
-    case 2:
-      return 'Tue';
-    case 3:
-      return 'Wed';
-    case 4:
-      return 'Thu';
-    case 5:
-      return 'Fri';
-    case 6:
-      return 'Sat';
-    default:
-      return '';
-  }
-}
-
-String _getDayNameAr(int day) {
-  switch (day) {
-    case 0:
-      return 'الأحد';
-    case 1:
-      return 'الاثنين';
-    case 2:
-      return 'الثلاثاء';
-    case 3:
-      return 'الأربعاء';
-    case 4:
-      return 'الخميس';
-    case 5:
-      return 'الجمعة';
-    case 6:
-      return 'السبت';
-    default:
-      return '';
   }
 }

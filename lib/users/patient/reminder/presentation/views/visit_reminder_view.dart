@@ -1,8 +1,8 @@
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
-import '../../data/models/visit_reminder_model.dart';
 
+import '../../data/models/visit_reminder_model.dart';
 import 'widgets/custom_reminder_app_bar.dart';
 import 'widgets/visit_reminder_view_body.dart';
 
