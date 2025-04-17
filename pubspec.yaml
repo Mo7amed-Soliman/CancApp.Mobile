@@ -75,6 +75,10 @@ dependencies:
   shared_preferences: ^2.5.2
   # path_provider for accessing device file system
   path_provider: ^2.1.2
+  # local notifications 
+  flutter_local_notifications: ^19.1.0
+  # timezone for timezone management
+  timezone: ^0.10.0
   
 dev_dependencies:
   flutter_test:
