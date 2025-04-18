@@ -75,7 +75,7 @@ class MedicationsList extends StatelessWidget {
               return true;
             case Frequency.daysOfWeek:
               return reminder.frequencyDetails.daysOfWeek?.contains(
-                    selectedDate.weekday - 1,
+                    selectedDate.weekday,
                   ) ??
                   false;
             case Frequency.everyXDays:

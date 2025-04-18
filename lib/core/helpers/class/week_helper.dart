@@ -2,6 +2,7 @@ import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 
 /// A utility class that provides helper methods for week-related operations.
 class WeekHelper {
+  /// weekday in easy_date_timeline mon = 1, tue = 2, wed = 3, thu = 4, fri = 5, sat = 6, sun = 7
   static String getDayNameEn(int day) {
     switch (day) {
       case 1:

@@ -38,9 +38,11 @@ class _ReminderViewBodyState extends State<ReminderViewBody>
           selectedDate: _selectedDate,
           onDateSelected: (date) {
             // Filter reminders based on selected date
-            setState(() {
-              _selectedDate = date;
-            });
+            if (date.day != _selectedDate.day) {
+              setState(() {
+                _selectedDate = date;
+              });
+            }
           },
         ),
         Expanded(

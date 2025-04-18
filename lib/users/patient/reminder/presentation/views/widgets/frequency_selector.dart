@@ -80,7 +80,7 @@ class _FrequencySelectorState extends State<FrequencySelector>
             final selectedDays = <int>[];
             for (int j = 0; j < 7; j++) {
               if (_selectedDays[j]) {
-                selectedDays.add(j);
+                selectedDays.add(j + 1);
               }
             }
             widget.onFrequencyDetailsChanged(
