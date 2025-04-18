@@ -22,9 +22,6 @@ class VisitNotificationService {
       _channelName,
       description: _channelDescription,
       importance: Importance.high,
-      playSound: true,
-      enableVibration: true,
-      showBadge: true,
     );
 
     // Register the channel with the system
@@ -45,57 +42,19 @@ class VisitNotificationService {
       return;
     }
 
-    // Schedule notification for 1 hour before the visit
+    // Schedule notification for 3 hour before the visit
     final DateTime notificationTime =
-        reminder.time.subtract(const Duration(hours: 1));
+        reminder.time.subtract(const Duration(hours: 3));
+
     // Skip if the notification time is in the past
-    if (notificationTime.isBefore(DateTime.now())) {
+    if (_isNotificationTimeInPast(notificationTime)) {
       return;
     }
 
-    // Create the notification payload
-    final Map<String, dynamic> payload = {
-      'reminderId': reminder.id,
-      'doctorName': reminder.doctorName,
-      'examinationType': reminder.examinationType,
-    };
-
-    var title = isArabic() ? 'تذكير موعد الطبيب' : 'Doctor Visit Reminder';
-    var body = isArabic()
-        ? 'لديك موعد مع ${reminder.doctorName} خلال ساعة - لا تنسَ، صحتك أولوية وأنت تستحق الأفضل 💪'
-        : 'You have a visit with ${reminder.doctorName} in 1 hour - Don\'t forget, your health matters and you deserve the best 💪';
-
-    await LocalNotificationService.flutterLocalNotificationsPlugin
-        .zonedSchedule(
-      reminder.id.hashCode,
-      title,
-      body,
-      tz.TZDateTime.from(notificationTime, tz.local),
-      const NotificationDetails(
-        android: AndroidNotificationDetails(
-          _channelId,
-          _channelName,
-          channelDescription: _channelDescription,
-          importance: Importance.max,
-          priority: Priority.high,
-          icon: '@mipmap/ic_launcher',
-          fullScreenIntent: true,
-          category: AndroidNotificationCategory.reminder,
-          enableLights: true,
-          enableVibration: true,
-          playSound: true,
-          showWhen: true,
-          autoCancel: true,
-        ),
-        iOS: DarwinNotificationDetails(
-          presentAlert: true,
-          presentBadge: true,
-          presentSound: true,
-          interruptionLevel: InterruptionLevel.timeSensitive,
-        ),
-      ),
-      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-      payload: payload.toString(),
+    await _scheduleNotification(
+      reminder,
+      notificationTime,
+      reminder.id,
     );
   }
 
@@ -113,5 +72,52 @@ class VisitNotificationService {
         await FlutterLocalNotificationsPlugin().cancel(notification.id);
       }
     }
+  }
+
+  /// schedule a notification
+  static Future<void> _scheduleNotification(VisitReminderModel reminder,
+      DateTime scheduledTime, String notificationId) async {
+    // Create the notification payload
+    final Map<String, dynamic> payload = {
+      'reminderId': reminder.id,
+      'doctorName': reminder.doctorName,
+      'examinationType': reminder.examinationType,
+    };
+
+    var title = isArabic() ? 'تذكير موعد الطبيب' : 'Doctor Visit Reminder';
+    var body = isArabic()
+        ? 'لديك موعد مع ${reminder.doctorName} خلال ساعة - لا تنسَ، صحتك أولوية وأنت تستحق الأفضل 💪'
+        : 'You have a visit with ${reminder.doctorName} in 3 hour - Don\'t forget, your health matters and you deserve the best 💪';
+
+    await LocalNotificationService.flutterLocalNotificationsPlugin
+        .zonedSchedule(
+      reminder.id.hashCode,
+      title,
+      body,
+      tz.TZDateTime.from(scheduledTime, tz.local),
+      const NotificationDetails(
+        android: AndroidNotificationDetails(
+          _channelId,
+          _channelName,
+          channelDescription: _channelDescription,
+          importance: Importance.max,
+          priority: Priority.high,
+          icon: '@mipmap/ic_launcher',
+          category: AndroidNotificationCategory.reminder,
+        ),
+        iOS: DarwinNotificationDetails(
+          presentAlert: true,
+          presentBadge: true,
+          presentSound: true,
+          interruptionLevel: InterruptionLevel.timeSensitive,
+        ),
+      ),
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      payload: payload.toString(),
+    );
+  }
+
+  static bool _isNotificationTimeInPast(DateTime notificationTime) {
+    return notificationTime.isBefore(DateTime.now());
   }
 }
