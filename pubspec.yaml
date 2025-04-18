@@ -81,6 +81,9 @@ dependencies:
   timezone: ^0.10.0
   # managing app permissions
   permission_handler: ^12.0.0+1
+  # uesd in the return type of the methods
+  dartz: ^0.10.1
+  
   
 dev_dependencies:
   flutter_test:
