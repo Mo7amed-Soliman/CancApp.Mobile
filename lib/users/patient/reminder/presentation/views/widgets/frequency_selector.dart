@@ -531,7 +531,7 @@ class _DaysOfWeekDialogState extends State<_DaysOfWeekDialog> {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          for (int i = 0; i <= 6; i++)
+          for (int i = 0; i < 7; i++)
             TweenAnimationBuilder<double>(
               duration: Duration(milliseconds: 200 + (i * 50)),
               tween: Tween(begin: 0.0, end: 1.0),
@@ -548,7 +548,7 @@ class _DaysOfWeekDialogState extends State<_DaysOfWeekDialog> {
                   widget.onDaySelected(i, selected ?? false);
                 },
                 title: Text(
-                  WeekHelper.getDayName(i),
+                  WeekHelper.getDayName(i + 1),
                   style: AppTextStyle.font16RegularBlack(context),
                 ),
                 controlAffinity: ListTileControlAffinity.leading,

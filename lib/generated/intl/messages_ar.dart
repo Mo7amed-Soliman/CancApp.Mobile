@@ -183,6 +183,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال كلمة مرور قوية",
     ),
+    "pleaseSelectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
+      "الرجاء اختيار أيام الأسبوع",
+    ),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
     "psychiatrists": MessageLookupByLibrary.simpleMessage("الأطباء النفسيين"),

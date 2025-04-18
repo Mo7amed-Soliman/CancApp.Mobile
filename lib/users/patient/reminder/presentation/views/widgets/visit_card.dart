@@ -52,27 +52,30 @@ class VisitCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    reminder.doctorName,
-                    style: AppTextStyle.font16MediumDarkGray(context).copyWith(
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  if (!isLoading) ...[
-                    const VerticalSpacer(8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
                     Text(
-                      reminder.examinationType,
-                      style: AppTextStyle.font14lightWhite(context).copyWith(
-                        color: AppColors.grayish,
+                      reminder.doctorName,
+                      style:
+                          AppTextStyle.font16MediumDarkGray(context).copyWith(
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
+                    if (!isLoading) ...[
+                      const VerticalSpacer(8),
+                      Text(
+                        reminder.examinationType,
+                        style: AppTextStyle.font14lightWhite(context).copyWith(
+                          color: AppColors.grayish,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
               isLoading
                   ? Container(

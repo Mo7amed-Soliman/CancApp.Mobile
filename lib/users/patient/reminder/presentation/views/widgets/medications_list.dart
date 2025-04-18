@@ -34,7 +34,6 @@ class MedicationsList extends StatelessWidget {
       builder: (context, state) {
         /// if the reminders are loading
         if (state.isLoading) {
-          // show shimmer effect
           return ListView.builder(
             padding: EdgeInsets.all(context.setMinSize(16)),
             itemCount: 5,
@@ -70,7 +69,7 @@ class MedicationsList extends StatelessWidget {
               return true;
             case Frequency.daysOfWeek:
               return reminder.frequencyDetails.daysOfWeek?.contains(
-                    selectedDate.weekday,
+                    selectedDate.weekday - 1,
                   ) ??
                   false;
             case Frequency.everyXDays:

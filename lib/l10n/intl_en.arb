@@ -138,7 +138,8 @@
       "close": "Close",
       "add": "Add",
       "thisTimeIsAlreadyAdded": "This time is already added.",
-      "notification": "Notification"
+      "notification": "Notification",
+      "pleaseSelectDaysOfWeek": "Please select days of week"
  
       
 }

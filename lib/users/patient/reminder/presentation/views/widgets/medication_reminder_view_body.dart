@@ -145,12 +145,24 @@ class _MedicationReminderViewBodyState
   }
 
   Future<void> _saveMedicationReminder() async {
+    /// validate the form
     if (_formKey.currentState?.validate() ?? false) {
+      /// if the alarm times are empty
       if (_alarmTimes.isEmpty) {
         botTextToast(S.of(context).pleaseAddAtLeastOneAlarmTime);
         return;
       }
 
+      /// if the frequency is days of week and the days of week are not selected
+      if (_selectedFrequency == Frequency.daysOfWeek) {
+        if (_frequencyDetails.daysOfWeek == null ||
+            _frequencyDetails.daysOfWeek?.isEmpty == true) {
+          botTextToast(S.of(context).pleaseSelectDaysOfWeek);
+          return;
+        }
+      }
+
+      /// create the reminder
       final reminder = MedicationReminderModel(
         id: widget.reminder?.id ?? const Uuid().v4(),
         medicationName: _medicationNameController.text,
@@ -161,6 +173,7 @@ class _MedicationReminderViewBodyState
         isEnabled: _isEnabled,
       );
 
+      /// pop the reminder
       Navigator.pop(context, reminder);
     }
   }

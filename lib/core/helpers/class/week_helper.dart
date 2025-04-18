@@ -2,13 +2,8 @@ import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 
 /// A utility class that provides helper methods for week-related operations.
 class WeekHelper {
-  /// Returns the abbreviated name of a day in English.
-  ///
-  /// [day] is the day index (0-6, where 0 is Sunday).
   static String getDayNameEn(int day) {
     switch (day) {
-      case 0:
-        return 'Sun';
       case 1:
         return 'Mon';
       case 2:
@@ -21,18 +16,15 @@ class WeekHelper {
         return 'Fri';
       case 6:
         return 'Sat';
+      case 7:
+        return 'Sun';
       default:
-        return '';
+        return 'Sun';
     }
   }
 
-  /// Returns the name of a day in Arabic.
-  ///
-  /// [day] is the day index (0-6, where 0 is Sunday).
   static String getDayNameAr(int day) {
     switch (day) {
-      case 0:
-        return 'الأحد';
       case 1:
         return 'الاثنين';
       case 2:
@@ -45,14 +37,13 @@ class WeekHelper {
         return 'الجمعة';
       case 6:
         return 'السبت';
+      case 7:
+        return 'الأحد';
       default:
         return '';
     }
   }
 
-  /// Returns the name of a day based on the current language.
-  ///
-  /// [day] is the day index (0-6, where 0 is Sunday).
   static String getDayName(int day) {
     return isArabic() ? getDayNameAr(day) : getDayNameEn(day);
   }
@@ -62,8 +53,8 @@ class WeekHelper {
   /// [selectedDays] is a list of booleans indicating which days are selected.
   static List<String> getSelectedDayNames(List<bool> selectedDays) {
     List<String> dayNames = [];
-    for (int i = 0; i < selectedDays.length; i++) {
-      if (selectedDays[i]) {
+    for (int i = 1; i <= selectedDays.length; i++) {
+      if (selectedDays[i - 1]) {
         dayNames.add(getDayName(i));
       }
     }

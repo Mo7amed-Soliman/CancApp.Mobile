@@ -1014,6 +1014,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Please select days of week`
+  String get pleaseSelectDaysOfWeek {
+    return Intl.message(
+      'Please select days of week',
+      name: 'pleaseSelectDaysOfWeek',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

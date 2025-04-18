@@ -18,21 +18,25 @@ class ReminderScheduleInfo extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            const Icon(
-              IconlyLight.calendar,
-              color: Colors.grey,
-            ),
-            const HorizontalSpacer(8),
-            Text(
-              frequency,
-              style: AppTextStyle.font14lightWhite(context).copyWith(
+        Expanded(
+          child: Row(
+            children: [
+              const Icon(
+                IconlyLight.calendar,
                 color: Colors.grey,
-                overflow: TextOverflow.ellipsis,
               ),
-            ),
-          ],
+              const HorizontalSpacer(8),
+              Expanded(
+                child: Text(
+                  frequency,
+                  style: AppTextStyle.font14lightWhite(context).copyWith(
+                    color: Colors.grey,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
         Row(
           children: [

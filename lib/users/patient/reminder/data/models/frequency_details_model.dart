@@ -8,7 +8,7 @@ class FrequencyDetailsModel extends Equatable {
   @HiveField(0)
   final int? daysInterval; // For everyXDays
   @HiveField(1)
-  final List<int>? daysOfWeek; // For daysOfWeek (0-6, where 0 is Sunday)
+  final List<int>? daysOfWeek; // For daysOfWeek
 
   const FrequencyDetailsModel({
     this.daysInterval,
