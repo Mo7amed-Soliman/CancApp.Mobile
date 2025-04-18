@@ -1,10 +1,12 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/generated/l10n.dart';
-import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_model.dart';
-import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
+
+import '../../data/models/medication_reminder_model.dart';
+import '../../data/models/visit_reminder_model.dart';
 import '../manger/medication_reminder_cubit/medication_reminder_cubit.dart';
 import '../manger/visit_reminder_cubit/visit_reminder_cubit.dart';
 import 'widgets/reminder_bottom_sheet.dart';
@@ -19,11 +21,11 @@ class ReminderView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => MedicationReminderCubit(),
+          create: (_) => getIt<MedicationReminderCubit>(),
           lazy: false,
         ),
         BlocProvider(
-          create: (_) => VisitReminderCubit(),
+          create: (_) => getIt<VisitReminderCubit>(),
           lazy: false,
         ),
       ],

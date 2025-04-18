@@ -1,116 +1,95 @@
+import 'package:canc_app/core/services/local_notifications_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:canc_app/core/helpers/database/hive_helper.dart';
-import 'package:canc_app/core/services/visit_notification_service.dart';
-import '../../../data/models/visit_reminder_model.dart';
+import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
+import 'package:canc_app/users/patient/reminder/data/repositories/visit_reminder_repository.dart';
 import 'visit_reminder_state.dart';
 
 class VisitReminderCubit extends Cubit<VisitReminderState> {
-  VisitReminderCubit() : super(VisitReminderState()) {
+  final VisitReminderRepository _repository;
+
+  VisitReminderCubit(this._repository) : super(VisitReminderState()) {
     loadReminders();
   }
 
   Future<void> loadReminders() async {
-    try {
-      emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(isLoading: true));
 
-      /// open the visit reminders box
-      await HiveHelper.openVisitRemindersBox();
-
-      /// get all the visit reminders
-      final reminders = HiveHelper.getAllVisitReminders();
-      emit(state.copyWith(
-        reminders: reminders,
-        isLoading: false,
-      ));
-    } catch (e) {
-      emit(state.copyWith(
-        error: 'Failed to load reminders: ${e.toString()}',
-        isLoading: false,
-      ));
+    // Request notification permissions
+    bool granted =
+        await LocalNotificationService.requestNotificationPermission();
+    if (!granted) {
+      await LocalNotificationService.checkNotificationPermission();
     }
+
+    // Initialize repository
+    final initResult = await _repository.initialize();
+    initResult.fold(
+      (error) => emit(state.copyWith(error: error, isLoading: false)),
+      (_) async {
+        // Get all reminders
+        final remindersResult = await _repository.getAllReminders();
+        remindersResult.fold(
+          (error) => emit(state.copyWith(error: error, isLoading: false)),
+          (reminders) =>
+              emit(state.copyWith(reminders: reminders, isLoading: false)),
+        );
+      },
+    );
   }
 
   Future<void> addVisitReminder(VisitReminderModel reminder) async {
-    try {
-      await HiveHelper.saveVisitReminder(reminder.id, reminder);
-      final updatedReminders = [...state.reminders, reminder];
-      emit(state.copyWith(reminders: updatedReminders, isLoading: false));
-
-      // Schedule notification for the new reminder
-      await VisitNotificationService.scheduleVisitReminder(reminder);
-    } catch (e) {
-      emit(state.copyWith(
-        error: 'Failed to add reminder: $e',
-        isLoading: false,
-      ));
-    }
+    final result = await _repository.addReminder(reminder);
+    result.fold(
+      (error) => emit(state.copyWith(error: error, isLoading: false)),
+      (success) {
+        final updatedReminders = [...state.reminders, reminder];
+        emit(state.copyWith(reminders: updatedReminders, isLoading: false));
+      },
+    );
   }
 
   Future<void> updateVisitReminder(VisitReminderModel reminder) async {
-    try {
-      await HiveHelper.saveVisitReminder(reminder.id, reminder);
-      final updatedReminders = [...state.reminders];
-      final index = updatedReminders.indexWhere((r) => r.id == reminder.id);
-      if (index != -1) {
-        updatedReminders[index] = reminder;
-        emit(state.copyWith(reminders: updatedReminders, isLoading: false));
-
-        // Update notification for the modified reminder
-        await VisitNotificationService.scheduleVisitReminder(reminder);
-      }
-    } catch (e) {
-      emit(state.copyWith(
-        error: 'Failed to update reminder: $e',
-        isLoading: false,
-      ));
-    }
+    final result = await _repository.updateReminder(reminder);
+    result.fold(
+      (error) => emit(state.copyWith(error: error, isLoading: false)),
+      (success) {
+        final updatedReminders = [...state.reminders];
+        final index = updatedReminders.indexWhere((r) => r.id == reminder.id);
+        if (index != -1) {
+          updatedReminders[index] = reminder;
+          emit(state.copyWith(reminders: updatedReminders, isLoading: false));
+        }
+      },
+    );
   }
 
   Future<void> deleteVisitReminder(String id) async {
-    try {
-      await HiveHelper.deleteVisitReminder(id);
-      final updatedReminders =
-          state.reminders.where((r) => r.id != id).toList();
-      emit(state.copyWith(reminders: updatedReminders, isLoading: false));
-
-      // Cancel notification for the deleted reminder
-      await VisitNotificationService.cancelVisitReminder(id);
-    } catch (e) {
-      emit(state.copyWith(
-        error: 'Failed to delete reminder: $e',
-        isLoading: false,
-      ));
-    }
-  }
-
-  List<VisitReminderModel> getUpcomingVisits() {
-    return state.reminders
-        .where((reminder) => reminder.date.isAfter(DateTime.now()))
-        .toList()
-      ..sort((a, b) => a.date.compareTo(b.date));
+    final result = await _repository.deleteReminder(id);
+    result.fold(
+      (error) => emit(state.copyWith(error: error, isLoading: false)),
+      (success) {
+        final updatedReminders =
+            state.reminders.where((r) => r.id != id).toList();
+        emit(state.copyWith(reminders: updatedReminders, isLoading: false));
+      },
+    );
   }
 
   Future<void> toggleVisitReminder(String id) async {
-    try {
-      final updatedReminders = [...state.reminders];
-      final index = updatedReminders.indexWhere((r) => r.id == id);
-      if (index != -1) {
-        final updatedReminder = updatedReminders[index].copyWith(
-          isEnabled: !updatedReminders[index].isEnabled,
-        );
-        await HiveHelper.saveVisitReminder(id, updatedReminder);
-        updatedReminders[index] = updatedReminder;
-        emit(state.copyWith(reminders: updatedReminders));
-
-        // Update notification based on the toggle state
-        if (updatedReminder.isEnabled) {
-          await VisitNotificationService.scheduleVisitReminder(updatedReminder);
-        } else {
-          await VisitNotificationService.cancelVisitReminder(id);
+    final result = await _repository.toggleReminder(id);
+    result.fold(
+      (error) => emit(state.copyWith(error: error, isLoading: false)),
+      (success) {
+        final updatedReminders = [...state.reminders];
+        final index = updatedReminders.indexWhere((r) => r.id == id);
+        if (index != -1) {
+          final updatedReminder = updatedReminders[index].copyWith(
+            isEnabled: !updatedReminders[index].isEnabled,
+          );
+          updatedReminders[index] = updatedReminder;
+          emit(state.copyWith(reminders: updatedReminders, isLoading: false));
         }
-      }
-    } catch (e) {
-      emit(state.copyWith(error: 'Failed to toggle reminder: $e'));
-    }
+      },
+    );
   }
 }

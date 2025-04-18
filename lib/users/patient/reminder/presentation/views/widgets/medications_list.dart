@@ -1,3 +1,4 @@
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/widgets/in_empty_list.dart';
@@ -30,7 +31,12 @@ class MedicationsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MedicationReminderCubit, MedicationReminderState>(
+    return BlocConsumer<MedicationReminderCubit, MedicationReminderState>(
+      listener: (context, state) {
+        if (state.error != null) {
+          botTextToast(state.error!);
+        }
+      },
       builder: (context, state) {
         /// if the reminders are loading
         if (state.isLoading) {
