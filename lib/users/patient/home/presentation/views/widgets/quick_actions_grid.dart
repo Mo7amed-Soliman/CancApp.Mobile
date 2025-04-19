@@ -1,8 +1,10 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/home/data/models/quick_action_item_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/quick_action_item.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 
 class QuickActionsGrid extends StatelessWidget {
@@ -44,7 +46,7 @@ class QuickActionsGrid extends StatelessWidget {
             /// Navigate to quick action screen
             switch (index) {
               case 0:
-              // context.pushNamed(AppRoutes.reminder);
+                context.push(Routes.reminderView);
               case 1:
               // context.pushNamed(AppRoutes.record);
             }
