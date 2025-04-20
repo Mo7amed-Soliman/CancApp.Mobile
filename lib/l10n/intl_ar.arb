@@ -140,5 +140,9 @@
     "add": "إضافة",
     "thisTimeIsAlreadyAdded": "هذا الوقت موجود بالفعل",
     "notification": "الإشعار",
-    "pleaseSelectDaysOfWeek": "الرجاء اختيار أيام الأسبوع"
+    "pleaseSelectDaysOfWeek": "الرجاء اختيار أيام الأسبوع",
+    "noPharmaciesFound": "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
+    "navigate": "تنقل",
+    "closed": "مغلق" 
+ 
 }

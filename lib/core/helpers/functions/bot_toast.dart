@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 void botTextToast(String text) {
   BotToast.showCustomText(
+    align: Alignment.topCenter,
+    duration: const Duration(seconds: 5),
     toastBuilder: (context) => Container(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,

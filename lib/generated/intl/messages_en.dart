@@ -50,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Choose from gallery",
     ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "closed": MessageLookupByLibrary.simpleMessage("Closed"),
     "community": MessageLookupByLibrary.simpleMessage("Community"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
@@ -111,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "At least 8 characters long",
     ),
+    "navigate": MessageLookupByLibrary.simpleMessage("Navigate"),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("Nearest Pharmacy"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "noMedications": MessageLookupByLibrary.simpleMessage("No medications"),
@@ -119,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noPendingRequests": MessageLookupByLibrary.simpleMessage(
       "No pending requests",
+    ),
+    "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
+      "No pharmacies found matching the selected filter.",
     ),
     "noVisits": MessageLookupByLibrary.simpleMessage("No visit reminders yet"),
     "noVisitsForDate": MessageLookupByLibrary.simpleMessage(

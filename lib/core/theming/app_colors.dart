@@ -16,8 +16,8 @@ class AppColors {
 
   // gradients
   static const List<Color> primaryGradient = [
-    darkTeal,
-    lightTeal,
+    Color(0xFF038C83),
+    Color(0xFF03C5B9),
   ];
 
   // background

@@ -53,6 +53,7 @@ class InEmptyList extends StatelessWidget {
               style: AppTextStyle.font18SemiBoldDarkGray(context).copyWith(
                 color: const Color(0xff6B7280),
               ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
