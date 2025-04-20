@@ -16,4 +16,5 @@ class Routes {
   static const String medicationReminderView =
       '/reminderView/medicationReminderView';
   static const String visitReminderView = '/reminderView/visitReminderView';
+  static const String nearestPharmacyView = '/nearestPharmacyView';
 }

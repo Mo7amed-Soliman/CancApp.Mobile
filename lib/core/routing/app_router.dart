@@ -13,7 +13,9 @@ import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboa
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/available_to_chat_view.dart';
+import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
+import 'package:canc_app/users/patient/home/presentation/views/nearest_pharmacy_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/patient_bottom_nav_bar.dart';
 import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_model.dart';
 import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
@@ -136,6 +138,19 @@ final appRouter = GoRouter(
         return CustomTransitionPage(
           key: state.pageKey,
           child: ChatView(user: user),
+          transitionsBuilder: _transitionsBuilder,
+        );
+      },
+    ),
+    GoRoute(
+      path: Routes.nearestPharmacyView,
+      pageBuilder: (context, state) {
+        final pharmacies = state.extra as List<Pharmacy>;
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: NearestPharmacyView(
+            pharmacies: pharmacies,
+          ),
           transitionsBuilder: _transitionsBuilder,
         );
       },

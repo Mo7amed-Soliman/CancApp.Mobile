@@ -139,7 +139,8 @@
       "add": "Add",
       "thisTimeIsAlreadyAdded": "This time is already added.",
       "notification": "Notification",
-      "pleaseSelectDaysOfWeek": "Please select days of week"
- 
-      
+      "pleaseSelectDaysOfWeek": "Please select days of week",
+      "noPharmaciesFound": "No pharmacies found matching the selected filter.",
+      "navigate": "Navigate",
+      "closed": "Closed"
 }

@@ -14,20 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       foregroundColor: Colors.white,
-      backgroundColor: Colors.transparent,
-      toolbarHeight: 90,
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              AppColors.darkTeal,
-              AppColors.lightTeal,
-            ],
-          ),
-        ),
-      ),
+      backgroundColor: AppColors.primaryColor,
       title: Text(
         title,
         style: AppTextStyle.font20MediumWhite(context),
@@ -45,5 +32,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(90);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

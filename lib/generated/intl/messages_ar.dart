@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
     "chooseFromGallery": MessageLookupByLibrary.simpleMessage("اختر من المعرض"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
+    "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
     "community": MessageLookupByLibrary.simpleMessage("المجتمع"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
@@ -109,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "يجب أن يكون على الأقل 8 أحرف",
     ),
+    "navigate": MessageLookupByLibrary.simpleMessage("تنقل"),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("أقرب صيدلية"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noMedications": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noPendingRequests": MessageLookupByLibrary.simpleMessage(
       "لا توجد طلبات معلقة",
+    ),
+    "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
     ),
     "noVisits": MessageLookupByLibrary.simpleMessage(
       "لا توجد تذكيرات بالزيارات بعد",

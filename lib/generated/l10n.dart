@@ -1024,6 +1024,26 @@ class S {
       args: [],
     );
   }
+
+  /// `No pharmacies found matching the selected filter.`
+  String get noPharmaciesFound {
+    return Intl.message(
+      'No pharmacies found matching the selected filter.',
+      name: 'noPharmaciesFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Navigate`
+  String get navigate {
+    return Intl.message('Navigate', name: 'navigate', desc: '', args: []);
+  }
+
+  /// `Closed`
+  String get closed {
+    return Intl.message('Closed', name: 'closed', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
