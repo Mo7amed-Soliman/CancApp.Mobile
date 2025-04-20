@@ -4,6 +4,7 @@ import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.d
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/theming/font_weight_helper.dart';
+import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -22,6 +23,9 @@ class AppTextFormField extends StatelessWidget {
     this.autofillHints,
     this.autofocus = false,
     this.textInputAction = TextInputAction.next,
+    this.fillColor,
+    this.filled,
+    this.labelStyle,
   });
 
   final TextEditingController? controller;
@@ -37,7 +41,9 @@ class AppTextFormField extends StatelessWidget {
   final List<String>? autofillHints;
   final bool autofocus;
   final TextInputAction textInputAction;
-
+  final Color? fillColor;
+  final bool? filled;
+  final TextStyle? labelStyle;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -45,9 +51,9 @@ class AppTextFormField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: AppTextStyle.font16RegularDarkGray(context),
+          style: labelStyle ?? AppTextStyle.font16RegularDarkGray(context),
         ),
-        const SizedBox(height: 5),
+        const VerticalSpacer(6),
         TextFormField(
           textInputAction: textInputAction,
           controller: controller,
@@ -63,8 +69,8 @@ class AppTextFormField extends StatelessWidget {
           decoration: InputDecoration(
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
-            fillColor: AppColors.paleTealTransparent,
-            filled: true,
+            fillColor: fillColor ?? AppColors.paleTealTransparent,
+            filled: filled ?? true,
             border: _borderStyle(),
             enabledBorder: _borderStyle(color: AppColors.paleTealTransparent),
             focusedBorder: _borderStyle(),

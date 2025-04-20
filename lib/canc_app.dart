@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:canc_app/core/cubits/current_locale/current_locale_cubit.dart';
 import 'package:canc_app/core/cubits/current_locale/current_locale_state.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
@@ -47,8 +48,9 @@ class CustomMaterialApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          locale: context.read<CurrentLocaleCubit>().locale,
+          locale: const Locale('en'),
           debugShowCheckedModeBanner: false,
+          builder: BotToastInit(),
           routerConfig: appRouter,
         ),
       ),

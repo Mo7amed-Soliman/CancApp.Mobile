@@ -3,6 +3,8 @@
 // import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
+import 'package:canc_app/core/shared_feature/chat/presentation/views/chat_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/otp_view.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/login_view.dart';
@@ -10,7 +12,16 @@ import 'package:canc_app/core/shared_feature/onboarding/presentation/views/langu
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
-import 'package:canc_app/users/patient/home/presentation/views/home_view.dart';
+import 'package:canc_app/users/patient/chat/presentation/views/available_to_chat_view.dart';
+import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
+import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
+import 'package:canc_app/users/patient/home/presentation/views/nearest_pharmacy_view.dart';
+import 'package:canc_app/users/patient/home/presentation/views/patient_bottom_nav_bar.dart';
+import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_model.dart';
+import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
+import 'package:canc_app/users/patient/reminder/presentation/views/medication_reminder_view.dart';
+import 'package:canc_app/users/patient/reminder/presentation/views/reminder_view.dart';
+import 'package:canc_app/users/patient/reminder/presentation/views/visit_reminder_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -97,10 +108,100 @@ final appRouter = GoRouter(
       path: Routes.homeView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
-        child: const HomeView(),
+        child: const PatientBottomNavBar(),
         transitionsBuilder: _transitionsBuilder,
       ),
-    )
+    ),
+    GoRoute(
+      path: Routes.accessRequestView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const AccessRequestView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+        path: Routes.availableToChatView,
+        pageBuilder: (context, state) {
+          final item = state.extra;
+
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: AvailableToChatView(item: item as int?),
+            transitionsBuilder: _transitionsBuilder,
+          );
+        }),
+    GoRoute(
+      path: Routes.chatView,
+      pageBuilder: (context, state) {
+        final user = state.extra as UserChatModel;
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: ChatView(user: user),
+          transitionsBuilder: _transitionsBuilder,
+        );
+      },
+    ),
+    GoRoute(
+      path: Routes.nearestPharmacyView,
+      pageBuilder: (context, state) {
+        final pharmacies = state.extra as List<Pharmacy>;
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: NearestPharmacyView(
+            pharmacies: pharmacies,
+          ),
+          transitionsBuilder: _transitionsBuilder,
+        );
+      },
+    ),
+    GoRoute(
+      path: Routes.reminderView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const ReminderView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+      routes: [
+        GoRoute(
+          path: 'medicationReminderView',
+          pageBuilder: (context, state) {
+            if (state.extra is MedicationReminderModel) {
+              final reminder = state.extra as MedicationReminderModel;
+              return CustomTransitionPage(
+                key: state.pageKey,
+                child: MedicationReminderView(
+                  reminder: reminder,
+                ),
+                transitionsBuilder: _transitionsBuilder,
+              );
+            }
+            return CustomTransitionPage(
+              key: state.pageKey,
+              child: const MedicationReminderView(),
+              transitionsBuilder: _transitionsBuilder,
+            );
+          },
+        ),
+        GoRoute(
+          path: 'visitReminderView',
+          pageBuilder: (context, state) {
+            if (state.extra is VisitReminderModel) {
+              final reminder = state.extra as VisitReminderModel;
+              return CustomTransitionPage(
+                key: state.pageKey,
+                child: VisitReminderView(reminder: reminder),
+                transitionsBuilder: _transitionsBuilder,
+              );
+            }
+            return const CustomTransitionPage(
+              child: VisitReminderView(),
+              transitionsBuilder: _transitionsBuilder,
+            );
+          },
+        ),
+      ],
+    ),
   ],
 );
 

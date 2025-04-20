@@ -9,5 +9,9 @@ class AppAssets {
       pharmacistIcon = 'assets/icons/pharmacist_icon.svg',
       psychiatristIcon = 'assets/icons/psychiatrist_icon.svg',
       patientIcon = 'assets/icons/patient_icon.svg',
-      volunteerIcon = 'assets/icons/volunteer_icon.svg';
+      volunteerIcon = 'assets/icons/volunteer_icon.svg',
+      radiationIcon = 'assets/icons/radiation.svg',
+      pillIcon = 'assets/icons/pill.svg',
+      injectionIcon = 'assets/icons/injection.svg',
+      liquidIcon = 'assets/icons/liquid.svg';
 }

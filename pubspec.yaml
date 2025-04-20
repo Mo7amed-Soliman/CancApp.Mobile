@@ -48,14 +48,45 @@ dependencies:
   flutter_bloc: ^9.1.0
   # dependency injection
   get_it: ^8.0.3
-  # persistent key-value storage for simple data
-  shared_preferences: ^2.5.2
   # flutter_svg for svg images
   flutter_svg: ^2.0.17
   # Pin code input (OTP) text field  
   pinput: ^5.0.1
   # iconly for icons management   
   iconly: ^1.0.1
+  # bot_toast for toast messages
+  bot_toast: ^4.1.3
+  # persistent bottom navigation bar
+  persistent_bottom_nav_bar: ^6.2.1
+  # image picker for selecting images from gallery or camera
+  image_picker: ^1.0.7
+  # equatable is a package that helps you simplify and standardize equality comparisons between objects
+  equatable: ^2.0.5
+  # uuid for unique id generation
+  uuid: ^4.3.3
+  # easy_date_timeline for date timeline management
+  easy_date_timeline: ^2.0.9
+  # redacted is a package that helps Shimmer effect
+  redacted: ^1.0.13
+  # Hive for local storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  # persistent key-value storage for simple data
+  shared_preferences: ^2.5.2
+  # path_provider for accessing device file system
+  path_provider: ^2.1.2
+  # local notifications 
+  flutter_local_notifications: ^19.1.0
+  # timezone for timezone management
+  timezone: ^0.10.0
+  # managing app permissions
+  permission_handler: ^12.0.0+1
+  # uesd in the return type of the methods
+  dartz: ^0.10.1
+  # dio for http requests
+  dio: ^5.7.0
+  
+ 
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +100,9 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   # flutter_launcher_icons for generating app icons 
   flutter_launcher_icons: "^0.13.1"
+  # Hive generator for type adapters
+  build_runner: ^2.4.8
+  hive_generator: ^2.0.1
 
 
 # The following section is specific to Flutter packages.
@@ -83,6 +117,7 @@ flutter:
   assets:
     - assets/images/on_boarding/
     - assets/icons/
+    - assets/images/dummy_image/
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

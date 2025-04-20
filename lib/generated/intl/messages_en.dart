@@ -22,13 +22,36 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accessRequestAllowed": MessageLookupByLibrary.simpleMessage(
+      "Access request allowed successfully",
+    ),
+    "accessRequestDenied": MessageLookupByLibrary.simpleMessage(
+      "Access request denied",
+    ),
+    "accessRequests": MessageLookupByLibrary.simpleMessage("Access requests"),
+    "add": MessageLookupByLibrary.simpleMessage("Add"),
+    "addMedication": MessageLookupByLibrary.simpleMessage("Add Medication"),
+    "addVisit": MessageLookupByLibrary.simpleMessage("Add Visit"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
+    "alarmTime": MessageLookupByLibrary.simpleMessage("Alarm Time"),
+    "alarmTimes": MessageLookupByLibrary.simpleMessage("Alarm Times"),
+    "allow": MessageLookupByLibrary.simpleMessage("Allow"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "chat": MessageLookupByLibrary.simpleMessage("Chat"),
+    "chatCategories": MessageLookupByLibrary.simpleMessage("Available to chat"),
+    "chats": MessageLookupByLibrary.simpleMessage("Chats"),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from gallery",
+    ),
+    "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "closed": MessageLookupByLibrary.simpleMessage("Closed"),
+    "community": MessageLookupByLibrary.simpleMessage("Community"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Confirm password is required",
@@ -36,31 +59,80 @@ class MessageLookup extends MessageLookupByLibrary {
     "createYourAccount": MessageLookupByLibrary.simpleMessage(
       "Create your Account",
     ),
+    "date": MessageLookupByLibrary.simpleMessage("Date"),
+    "dayOfTheWeek": MessageLookupByLibrary.simpleMessage("Day of the Week"),
+    "days": MessageLookupByLibrary.simpleMessage("days"),
+    "daysInterval": MessageLookupByLibrary.simpleMessage("Days Interval"),
+    "daysOfWeek": MessageLookupByLibrary.simpleMessage("Days of Week"),
+    "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+    "deleteMedication": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this medication reminder?",
+    ),
+    "deleteVisit": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this visit reminder?",
+    ),
+    "deny": MessageLookupByLibrary.simpleMessage("Deny"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
-      "I didn’t receive the code,",
+      "I didn\'t receive the code,",
     ),
     "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
+    "doctorName": MessageLookupByLibrary.simpleMessage("Doctor Name"),
+    "doctors": MessageLookupByLibrary.simpleMessage("Doctors"),
+    "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "editMedication": MessageLookupByLibrary.simpleMessage("Edit Medication"),
+    "editVisit": MessageLookupByLibrary.simpleMessage("Edit Visit"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "Enter the verification code we just sent to your email address",
     ),
+    "every": MessageLookupByLibrary.simpleMessage("Every"),
+    "everyDay": MessageLookupByLibrary.simpleMessage("Every Day"),
+    "everyXDays": MessageLookupByLibrary.simpleMessage("Every X Days"),
+    "examinationType": MessageLookupByLibrary.simpleMessage("Examination Type"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "forgotPasswordIntr": MessageLookupByLibrary.simpleMessage(
       "Forgot Password?",
     ),
+    "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "helloWelcome": MessageLookupByLibrary.simpleMessage("Hello, Welcome"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "injection": MessageLookupByLibrary.simpleMessage("Injection"),
+    "liquid": MessageLookupByLibrary.simpleMessage("Liquid"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
     ),
+    "medicationName": MessageLookupByLibrary.simpleMessage("Medication Name"),
+    "medicationReminder": MessageLookupByLibrary.simpleMessage("Meds Reminder"),
+    "medicationType": MessageLookupByLibrary.simpleMessage("Medication Type"),
+    "medications": MessageLookupByLibrary.simpleMessage("Medications"),
+    "message": MessageLookupByLibrary.simpleMessage("Message"),
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "At least 8 characters long",
     ),
+    "navigate": MessageLookupByLibrary.simpleMessage("Navigate"),
+    "nearestPharmacy": MessageLookupByLibrary.simpleMessage("Nearest Pharmacy"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "noMedications": MessageLookupByLibrary.simpleMessage("No medications"),
+    "noMedicationsForDate": MessageLookupByLibrary.simpleMessage(
+      "No medications for this date",
+    ),
+    "noPendingRequests": MessageLookupByLibrary.simpleMessage(
+      "No pending requests",
+    ),
+    "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
+      "No pharmacies found matching the selected filter.",
+    ),
+    "noVisits": MessageLookupByLibrary.simpleMessage("No visit reminders yet"),
+    "noVisitsForDate": MessageLookupByLibrary.simpleMessage(
+      "No visits for this date",
+    ),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "notification": MessageLookupByLibrary.simpleMessage("Notification"),
     "numberValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 number",
     ),
@@ -96,13 +168,44 @@ class MessageLookup extends MessageLookupByLibrary {
       "Passwords do not match",
     ),
     "patient": MessageLookupByLibrary.simpleMessage("Patient"),
+    "patients": MessageLookupByLibrary.simpleMessage("Patients"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
+    "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
+    "pharmacy": MessageLookupByLibrary.simpleMessage("Pharmacy"),
+    "pill": MessageLookupByLibrary.simpleMessage("Pill"),
+    "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
+      "Please add at least one alarm time",
+    ),
+    "pleaseEnterDoctorName": MessageLookupByLibrary.simpleMessage(
+      "Please enter doctor name",
+    ),
+    "pleaseEnterExaminationType": MessageLookupByLibrary.simpleMessage(
+      "Please enter examination type",
+    ),
+    "pleaseEnterMedicationName": MessageLookupByLibrary.simpleMessage(
+      "Please enter medication name",
+    ),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter a strong password",
     ),
+    "pleaseSelectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
+      "Please select days of week",
+    ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
+    "psychiatrists": MessageLookupByLibrary.simpleMessage("Psychiatrists"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("Quick actions"),
+    "radiation": MessageLookupByLibrary.simpleMessage("Radiation"),
+    "record": MessageLookupByLibrary.simpleMessage("Record"),
+    "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
+    ),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
+    "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
+    "selectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
+      "Select days of week",
     ),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(
@@ -115,6 +218,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 special character",
     ),
+    "specificDays": MessageLookupByLibrary.simpleMessage("Specific Days"),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
+    "thisTimeIsAlreadyAdded": MessageLookupByLibrary.simpleMessage(
+      "This time is already added.",
+    ),
+    "today": MessageLookupByLibrary.simpleMessage("Today"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 uppercase letter",
     ),
@@ -122,7 +231,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Verification Code",
     ),
     "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+    "visitDate": MessageLookupByLibrary.simpleMessage("Visit Date"),
+    "visitReminder": MessageLookupByLibrary.simpleMessage("Visit Reminder"),
+    "visitTime": MessageLookupByLibrary.simpleMessage("Visit Time"),
+    "visits": MessageLookupByLibrary.simpleMessage("Visits"),
     "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
+    "volunteers": MessageLookupByLibrary.simpleMessage("Volunteers"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
   };
 }

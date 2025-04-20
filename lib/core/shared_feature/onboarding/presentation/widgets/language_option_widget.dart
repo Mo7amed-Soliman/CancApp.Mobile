@@ -34,7 +34,7 @@ class LanguageOptionWidget extends StatelessWidget {
         ),
         child: Text(
           language,
-          style: AppTextStyle.font20MediumDarkGray(context).copyWith(
+          style: AppTextStyle.font20MediumWhite(context).copyWith(
             color: isSelected ? AppColors.offWhite : AppColors.darkGray,
           ),
         ),
