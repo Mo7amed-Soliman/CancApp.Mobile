@@ -27,7 +27,7 @@ class FilterChips extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: _buildFilterChip(
-                    label: filter,
+                    label: filter.displayName,
                     isSelected: filterState.selectedFilters.contains(filter),
                     onTap: () => filterState.toggleFilter(filter),
                     context: context,
