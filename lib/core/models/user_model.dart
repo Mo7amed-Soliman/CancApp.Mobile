@@ -1,13 +1,12 @@
-import 'package:canc_app/core/di/dependency_injection.dart';
-import 'package:canc_app/core/helpers/database/cache_helper.dart';
-import 'package:canc_app/core/helpers/utils/constants.dart';
+import 'package:canc_app/core/helpers/database/hive_helper.dart';
+import 'package:equatable/equatable.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 
 part 'user_model.g.dart';
 
-@HiveType(typeId: 4)
-class UserModel extends HiveObject {
+@HiveType(typeId: HiveHelper.userBoxID)
+class UserModel extends Equatable {
   @HiveField(0)
   final String id;
 
@@ -29,7 +28,7 @@ class UserModel extends HiveObject {
   @HiveField(6)
   final String? userType;
 
-  UserModel({
+  const UserModel({
     required this.id,
     required this.email,
     required this.userName,
@@ -47,7 +46,7 @@ class UserModel extends HiveObject {
       name: json['name'],
       address: json['address'],
       image: json['image'] != null ? XFile(json['image']) : null,
-      userType: getIt<CacheHelper>().getDataString(key: CacheKeys.whoAreYou),
+      userType: json['userType'] ?? '',
     );
   }
 
@@ -61,4 +60,8 @@ class UserModel extends HiveObject {
       'image': image?.path,
     };
   }
+
+  @override
+  List<Object?> get props =>
+      [id, email, userName, name, address, image, userType];
 }

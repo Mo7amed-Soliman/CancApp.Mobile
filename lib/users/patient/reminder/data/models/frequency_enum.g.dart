@@ -8,7 +8,7 @@ part of 'frequency_enum.dart';
 
 class FrequencyAdapter extends TypeAdapter<Frequency> {
   @override
-  final int typeId = 1;
+  final int typeId = HiveHelper.frequencyBoxID;
 
   @override
   Frequency read(BinaryReader reader) {

@@ -9,7 +9,7 @@ part of 'medication_reminder_model.dart';
 class MedicationReminderModelAdapter
     extends TypeAdapter<MedicationReminderModel> {
   @override
-  final int typeId = 3;
+  final int typeId = HiveHelper.medicationBoxID;
 
   @override
   MedicationReminderModel read(BinaryReader reader) {

@@ -1,5 +1,4 @@
-import 'package:canc_app/core/di/dependency_injection.dart';
-import 'package:canc_app/core/services/user_service.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,7 +22,7 @@ class OtpCubit extends Cubit<OtpState> {
     emit(LoadingVerifyCodeState());
 
     final result = await _otpRepository.verifyCode(
-      userId: getIt<UserService>().getUser()!.id,
+      userId: UserCacheHelper.getUser()!.id,
       code: codeInput!,
     );
 

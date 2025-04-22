@@ -3,20 +3,18 @@ import 'package:canc_app/core/networking/api_constant.dart';
 import 'package:canc_app/core/networking/api_consumer.dart';
 import 'package:canc_app/core/networking/end_point.dart';
 import 'package:canc_app/core/services/token_service.dart';
-import 'package:canc_app/core/services/user_service.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/shared_feature/login/data/models/login_model.dart';
 import 'package:canc_app/core/models/user_model.dart';
 
 class LoginRemoteDataSource {
   final ApiConsumer _apiConsumer;
   final TokenService _tokenService;
-  final UserService _userService;
 
   LoginRemoteDataSource({
     required ApiConsumer apiConsumer,
   })  : _apiConsumer = apiConsumer,
-        _tokenService = getIt<TokenService>(),
-        _userService = getIt<UserService>();
+        _tokenService = getIt<TokenService>();
 
   Future<UserModel> login({
     required LoginModel loginModel,
@@ -38,7 +36,7 @@ class LoginRemoteDataSource {
 
     /// save user data
     final userModel = UserModel.fromJson(response);
-    await _userService.saveUser(userModel);
+    await UserCacheHelper.saveUser(userModel);
 
     return userModel;
   }
