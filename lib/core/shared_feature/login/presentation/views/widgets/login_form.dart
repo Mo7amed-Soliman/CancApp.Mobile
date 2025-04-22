@@ -1,5 +1,7 @@
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/widgets/login_fields.dart';
+import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +18,15 @@ class LoginForm extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccess) {
           /// Handle successful login
+          // context.push(Routes.completeProfileView);
+          botTextToast(
+            'Login successful \n welcome ${state.userModel.name}👋',
+            color: AppColors.darkTeal,
+          );
         }
         if (state is LoginFailed) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.errMessage)),
-          );
+          botTextToast(state.errMessage);
+          debugPrint(state.errMessage);
         }
       },
       builder: (context, state) => AutofillGroup(

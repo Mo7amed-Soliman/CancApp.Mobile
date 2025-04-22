@@ -5,9 +5,11 @@ import 'package:canc_app/core/networking/dio_consumer.dart';
 import 'package:canc_app/core/services/refresh_token_service.dart';
 import 'package:canc_app/core/services/token_service.dart';
 import 'package:canc_app/core/services/user_service.dart';
-
+import 'package:canc_app/core/shared_feature/login/data/data_sources/login_remote_data_source.dart';
+import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit.dart';
+import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
-
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/nearest_pharmacy_data_source.dart';
 import 'package:canc_app/users/patient/home/data/repositories/nearest_pharmacy_repository.dart';
@@ -40,9 +42,18 @@ Future<void> initDependencies() async {
   getIt.registerLazySingleton<Dio>(() => Dio());
 
   // login cubit
-  getIt.registerFactory<LoginCubit>(() => LoginCubit());
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(
+        loginRepository: getIt<LoginRepository>(),
+      ));
 
-  //!
+  getIt.registerLazySingleton<LoginRepository>(() => LoginRepositoryImpl(
+        loginDataSource: getIt<LoginRemoteDataSource>(),
+      ));
+  getIt
+      .registerLazySingleton<LoginRemoteDataSource>(() => LoginRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
+
   getIt.registerFactory<ApiConsumer>(() => DioConsumer(
         dio: getIt<Dio>(),
       ));
