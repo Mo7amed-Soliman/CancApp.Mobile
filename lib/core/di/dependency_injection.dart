@@ -1,6 +1,13 @@
 import 'package:canc_app/core/helpers/database/cache_helper.dart';
-import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit.dart';
+import 'package:canc_app/core/helpers/database/secure_cache_helper.dart';
+import 'package:canc_app/core/networking/api_consumer.dart';
+import 'package:canc_app/core/networking/dio_consumer.dart';
+import 'package:canc_app/core/services/refresh_token_service.dart';
+import 'package:canc_app/core/services/token_service.dart';
+import 'package:canc_app/core/services/user_service.dart';
+
 import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
+
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/nearest_pharmacy_data_source.dart';
 import 'package:canc_app/users/patient/home/data/repositories/nearest_pharmacy_repository.dart';
@@ -17,13 +24,32 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
-void setupGetIt() {
-  // cache helper
-  getIt.registerSingleton<CacheHelper>(CacheHelper());
+
+Future<void> initDependencies() async {
+  // Core
+  getIt.registerLazySingleton<CacheHelper>(() => CacheHelper());
+  getIt.registerLazySingleton<SecureCacheHelper>(() => SecureCacheHelper());
+  getIt.registerLazySingleton<TokenService>(() => TokenService());
+  getIt.registerLazySingleton<UserService>(() => UserService());
+  getIt.registerLazySingleton<RefreshTokenService>(() => RefreshTokenService(
+        dio: getIt<Dio>(),
+        tokenService: getIt<TokenService>(),
+      ));
+
+  // Dio
+  getIt.registerLazySingleton<Dio>(() => Dio());
+
   // login cubit
   getIt.registerFactory<LoginCubit>(() => LoginCubit());
+
+  //!
+  getIt.registerFactory<ApiConsumer>(() => DioConsumer(
+        dio: getIt<Dio>(),
+      ));
+
   // sign up cubit
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit());
+
   // forgot password cubit
   getIt.registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit());
 
@@ -60,7 +86,4 @@ void setupGetIt() {
               dio: getIt<Dio>(),
             ),
           ));
-
-  // dio
-  getIt.registerLazySingleton<Dio>(() => Dio());
 }

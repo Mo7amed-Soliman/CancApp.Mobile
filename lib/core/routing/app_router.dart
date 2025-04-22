@@ -1,6 +1,6 @@
-// import 'package:canc_app/core/di/dependency_injection.dart';
-// import 'package:canc_app/core/helpers/database/cache_helper.dart';
-// import 'package:canc_app/core/helpers/utils/constants.dart';
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/cache_helper.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
@@ -27,25 +27,9 @@ import 'package:go_router/go_router.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: Routes.homeView,
+  initialLocation: _getFirstView(),
   debugLogDiagnostics: true,
   routes: [
-    GoRoute(
-      path: Routes.initialRoute,
-      pageBuilder: (context, state) {
-        return CustomTransitionPage(
-          key: state.pageKey,
-          child: const Scaffold(
-            body: Center(
-              child: Text(
-                'Welcome to CancApp',
-              ),
-            ),
-          ),
-          transitionsBuilder: _transitionsBuilder,
-        );
-      },
-    ),
     GoRoute(
       path: Routes.languageSelectionView,
       pageBuilder: (context, state) => CustomTransitionPage(
@@ -220,10 +204,10 @@ Widget _transitionsBuilder(context, animation, secondaryAnimation, child) {
   );
 }
 
-// String _getFirstView() {
-//   bool? isFirstTime = getIt<CacheHelper>().getData(key: CacheKeys.onBoarding);
-//   if (isFirstTime == null || !isFirstTime) {
-//     return Routes.languageSelectionView;
-//   }
-//   return Routes.whoAreYou;
-// }
+String _getFirstView() {
+  bool? isFirstTime = getIt<CacheHelper>().getData(key: CacheKeys.onBoarding);
+  if (isFirstTime == null || !isFirstTime) {
+    return Routes.languageSelectionView;
+  }
+  return Routes.whoAreYou;
+}

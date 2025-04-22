@@ -4,12 +4,14 @@ import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_
 import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
 import 'package:canc_app/users/patient/reminder/data/models/frequency_enum.dart';
 import 'package:canc_app/users/patient/reminder/data/models/frequency_details_model.dart';
+import 'package:canc_app/core/models/user_model.dart';
 
 class HiveHelper {
   static const String medicationRemindersBox = 'medication_reminders';
   static const String visitRemindersBox = 'visit_reminders';
   static const String frequencyDetailsBox = 'frequency_details';
   static const String frequencyBox = 'frequency';
+  static const String userBox = 'user';
   static bool _isInitialized = false;
 
   static Future<void> init() async {
@@ -24,6 +26,9 @@ class HiveHelper {
     Hive.registerAdapter(VisitReminderModelAdapter());
     Hive.registerAdapter(FrequencyAdapter());
     Hive.registerAdapter(FrequencyDetailsModelAdapter());
+    Hive.registerAdapter(UserModelAdapter());
+
+    // await Hive.openBox<UserModel>(userBox);
 
     _isInitialized = true;
   }

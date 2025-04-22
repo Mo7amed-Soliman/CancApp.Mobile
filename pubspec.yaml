@@ -73,6 +73,10 @@ dependencies:
   hive_flutter: ^1.1.0
   # persistent key-value storage for simple data
   shared_preferences: ^2.5.2
+  # flutter_secure_storage for secure storage of tokens
+  flutter_secure_storage: ^9.2.4
+  # flutter_dotenv for environment variables (API_URL, API_KEY, etc.)
+  flutter_dotenv: ^5.2.1
   # path_provider for accessing device file system
   path_provider: ^2.1.2
   # local notifications 
@@ -118,7 +122,7 @@ flutter:
     - assets/images/on_boarding/
     - assets/icons/
     - assets/images/dummy_image/
-
+    - .env
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
