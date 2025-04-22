@@ -26,7 +26,7 @@ class UserModel extends Equatable {
   final XFile? image;
 
   @HiveField(6)
-  final String? userType;
+  final String userType;
 
   const UserModel({
     required this.id,
@@ -35,7 +35,7 @@ class UserModel extends Equatable {
     required this.name,
     required this.address,
     this.image,
-    this.userType,
+    required this.userType,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -46,7 +46,7 @@ class UserModel extends Equatable {
       name: json['name'],
       address: json['address'],
       image: json['image'] != null ? XFile(json['image']) : null,
-      userType: json['userType'] ?? '',
+      userType: json['userType'],
     );
   }
 
@@ -58,6 +58,7 @@ class UserModel extends Equatable {
       'name': name,
       'address': address,
       'image': image?.path,
+      'userType': userType,
     };
   }
 

@@ -1,4 +1,8 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/widgets/login_fields.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -6,6 +10,7 @@ import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -15,13 +20,19 @@ class LoginForm extends StatelessWidget {
     final loginCubit = context.read<LoginCubit>();
 
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is LoginSuccess) {
           /// Handle successful login
-          // context.push(Routes.completeProfileView);
+          _navigateToNextView(context, state.userModel.userType);
           botTextToast(
             'Login successful \n welcome ${state.userModel.name}👋',
             color: AppColors.darkTeal,
+          );
+
+          /// Save is logged in to cache
+          await getIt<CacheHelper>().saveData(
+            key: CacheKeys.isLoggedIn,
+            value: true,
           );
         }
         if (state is LoginFailed) {
@@ -46,6 +57,22 @@ class LoginForm extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _navigateToNextView(BuildContext context, String userType) {
+    if (userType == 'Patient') {
+      context.go(Routes.homeView);
+    } else if (userType == 'Volunteer') {
+      context.go(Routes.volunteerView);
+    } else if (userType == 'Doctor') {
+      context.go(Routes.doctorView);
+    } else if (userType == 'Pharmacist') {
+      context.go(Routes.pharmacistView);
+    } else if (userType == 'Psychiatrist') {
+      context.go(Routes.psychiatristView);
+    } else {
+      context.go(Routes.homeView);
+    }
   }
 }
 

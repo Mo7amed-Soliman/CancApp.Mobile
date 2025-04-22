@@ -23,7 +23,7 @@ class UserModelAdapter extends TypeAdapter<UserModel> {
       name: fields[3] as String,
       address: fields[4] as String,
       image: fields[5] as XFile?,
-      userType: fields[6] as String?,
+      userType: fields[6] as String,
     );
   }
 

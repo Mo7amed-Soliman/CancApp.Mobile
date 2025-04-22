@@ -1,5 +1,6 @@
 import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/database/cache_helper.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/routing/routes.dart';
@@ -13,6 +14,7 @@ import 'package:canc_app/core/shared_feature/onboarding/presentation/views/langu
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
+import 'package:canc_app/users/doctor/doctor_view.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/available_to_chat_view.dart';
 import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
@@ -23,6 +25,9 @@ import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model
 import 'package:canc_app/users/patient/reminder/presentation/views/medication_reminder_view.dart';
 import 'package:canc_app/users/patient/reminder/presentation/views/reminder_view.dart';
 import 'package:canc_app/users/patient/reminder/presentation/views/visit_reminder_view.dart';
+import 'package:canc_app/users/pharmacist/pharmacist_view.dart';
+import 'package:canc_app/users/psychiatrist/psychiatrist_view.dart';
+import 'package:canc_app/users/volunteer/volunteer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -197,6 +202,38 @@ final appRouter = GoRouter(
         transitionsBuilder: _transitionsBuilder,
       ),
     ),
+    GoRoute(
+      path: Routes.doctorView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const DoctorView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.volunteerView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const VolunteerView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.pharmacistView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const PharmacistView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.psychiatristView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const PsychiatristView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
   ],
 );
 
@@ -220,5 +257,25 @@ String _getFirstView() {
   if (isFirstTime == null || !isFirstTime) {
     return Routes.languageSelectionView;
   }
+  bool? isLoggedIn = getIt<CacheHelper>().getData(key: CacheKeys.isLoggedIn);
+  if (isLoggedIn != null && isLoggedIn) {
+    return _getInitialRouteForLoggedInUser();
+  }
   return Routes.whoAreYou;
+}
+
+String _getInitialRouteForLoggedInUser() {
+  final userModel = UserCacheHelper.getUser();
+  if (userModel?.userType == 'Patient') {
+    return Routes.homeView;
+  } else if (userModel?.userType == 'Volunteer') {
+    return Routes.volunteerView;
+  } else if (userModel?.userType == 'Doctor') {
+    return Routes.doctorView;
+  } else if (userModel?.userType == 'Pharmacist') {
+    return Routes.pharmacistView;
+  } else if (userModel?.userType == 'Psychiatrist') {
+    return Routes.psychiatristView;
+  }
+  return Routes.homeView;
 }

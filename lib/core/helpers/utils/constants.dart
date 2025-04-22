@@ -10,4 +10,5 @@ abstract class CacheKeys {
   static const language = 'language';
   static const onBoarding = 'onBoarding';
   static const whoAreYou = 'who';
+  static const isLoggedIn = 'isLoggedIn';
 }
