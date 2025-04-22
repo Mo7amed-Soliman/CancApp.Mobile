@@ -1,5 +1,10 @@
 import 'dart:developer';
 
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/cache_helper.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
+import 'package:canc_app/core/shared_feature/sign_up/data/models/sign_up_model.dart';
+import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,8 +12,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
-  SignUpCubit() : super(SignUpInitial());
-
+  SignUpCubit({required SignUpRepository signUpRepository})
+      : _signUpRepository = signUpRepository,
+        super(SignUpInitial());
+  final SignUpRepository _signUpRepository;
   // Form management
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode validationMode = AutovalidateMode.disabled;
@@ -36,9 +43,31 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   Future<void> _authenticateUser() async {
     emit(SignUpLoading());
-    // Implementation for authentication
-    // emit(LoginLoading());
-    // ... authentication logic
+    final signUpModel = SignUpModel(
+      email: emailInput!,
+      password: passwordInput!,
+      name: fullNameInput!,
+      address: addressInput!,
+      userType: getIt<CacheHelper>().getData(key: CacheKeys.whoAreYou),
+    );
+    final result = await _signUpRepository.signUp(signUpModel: signUpModel);
+    result.fold(
+      (failure) {
+        emit(SignUpFailed(failure.errorMessage));
+      },
+      (success) async {
+        final result = await _signUpRepository.resendConfirmEmail(
+            email: signUpModel.email);
+        result.fold(
+          (failure) {
+            emit(SignUpFailed(failure.errorMessage));
+          },
+          (success) {
+            emit(SignUpSuccess());
+          },
+        );
+      },
+    );
   }
 
   // Password visibility

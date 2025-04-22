@@ -10,6 +10,9 @@ import 'package:canc_app/core/shared_feature/login/data/repositories/login_repos
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
+import 'package:canc_app/core/shared_feature/sign_up/data/data_sources/sign_up_remote_data_source.dart';
+import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository.dart';
+import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/nearest_pharmacy_data_source.dart';
 import 'package:canc_app/users/patient/home/data/repositories/nearest_pharmacy_repository.dart';
@@ -59,7 +62,16 @@ Future<void> initDependencies() async {
       ));
 
   // sign up cubit
-  getIt.registerFactory<SignUpCubit>(() => SignUpCubit());
+  getIt.registerFactory<SignUpCubit>(() => SignUpCubit(
+        signUpRepository: getIt<SignUpRepository>(),
+      ));
+  getIt.registerLazySingleton<SignUpRepository>(() => SignUpRepositoryImpl(
+        signUpDataSource: getIt<SignUpRemoteDataSource>(),
+      ));
+  getIt.registerLazySingleton<SignUpRemoteDataSource>(
+      () => SignUpRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
 
   // forgot password cubit
   getIt.registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit());

@@ -31,7 +31,7 @@ class SignUpViewBody extends StatelessWidget {
             actionText: S.of(context).login,
             onPressed: () {
               FocusManager.instance.primaryFocus?.unfocus();
-              context.push(Routes.loginView);
+              context.pop(Routes.loginView);
             },
           ),
           const VerticalSpacer(5),
