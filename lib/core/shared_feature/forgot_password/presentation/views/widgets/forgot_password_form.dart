@@ -1,5 +1,6 @@
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/routing/routes.dart';
-import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/widgets/send_code_button.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
@@ -18,10 +19,13 @@ class ForgotPasswordForm extends StatelessWidget {
       listener: (context, state) {
         // Handle state changes if needed
         if (state is SuccessSensCodeState) {
+          botTextToast('Sent code successfully');
           context.push<String>(Routes.otpView,
               extra: forgotPasswordCubit.emailInput);
         }
-        if (state is FailedSendCodeState) {}
+        if (state is FailedSendCodeState) {
+          botTextToast(state.errorMessage);
+        }
       },
       child: Column(
         children: [

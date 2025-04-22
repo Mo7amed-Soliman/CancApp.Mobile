@@ -1,10 +1,16 @@
+import 'package:canc_app/core/shared_feature/forgot_password/data/repositories/forget_password_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'forgot_password_state.dart';
 
 class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
-  ForgotPasswordCubit() : super(InitialState());
+  ForgotPasswordCubit({
+    required ForgetPasswordRepository forgetPasswordRepository,
+  })  : _forgetPasswordRepository = forgetPasswordRepository,
+        super(InitialState());
+
+  final ForgetPasswordRepository _forgetPasswordRepository;
 
   // Form management
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -26,8 +32,17 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     return false;
   }
 
-  void _performForgotPasswordSendCode() {
+  void _performForgotPasswordSendCode() async {
     /// Perform forgot password send code
-    emit(SuccessSensCodeState());
+    emit(LoadingSendCodeState());
+    final result = await _forgetPasswordRepository.forgetPassword(
+      email: emailInput!,
+    );
+    result.fold(
+      (failure) => emit(
+        FailedSendCodeState(errorMessage: failure.errorMessage),
+      ),
+      (success) => emit(SuccessSensCodeState()),
+    );
   }
 }

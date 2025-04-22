@@ -8,6 +8,8 @@ class EndPoint {
   static const String refreshToken = 'auth/refresh';
   static const String confirmEmail = 'auth/confirm-email';
   static const String resendConfirmEmail = 'auth/resend-confirm-email';
+  static const String forgotPassword = 'auth/forget-password';
+  static const String resetPassword = 'auth/reset-password';
   static String getUserDataEndPoint(id) {
     return 'user/get-user/$id';
   }

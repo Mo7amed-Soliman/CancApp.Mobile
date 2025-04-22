@@ -1,5 +1,5 @@
 // Send Code Button Widget
-import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';

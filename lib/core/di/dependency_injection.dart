@@ -4,9 +4,11 @@ import 'package:canc_app/core/networking/api_consumer.dart';
 import 'package:canc_app/core/networking/dio_consumer.dart';
 import 'package:canc_app/core/services/refresh_token_service.dart';
 import 'package:canc_app/core/services/token_service.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/data/data_sources/forget_password_remote_data_source.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/data/repositories/forget_password_repository.dart';
 import 'package:canc_app/core/shared_feature/login/data/data_sources/login_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository.dart';
-import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
 import 'package:canc_app/core/shared_feature/otp/data/data_sources/otp_remote_data_source.dart';
@@ -82,7 +84,17 @@ Future<void> initDependencies() async {
       ));
 
   //! forgot password cubit
-  getIt.registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit());
+  getIt.registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(
+        forgetPasswordRepository: getIt<ForgetPasswordRepository>(),
+      ));
+  getIt.registerLazySingleton<ForgetPasswordRepository>(
+      () => ForgetPasswordRepositoryImpl(
+            remoteDataSource: getIt<ForgetPasswordRemoteDataSource>(),
+          ));
+  getIt.registerLazySingleton<ForgetPasswordRemoteDataSource>(
+      () => ForgetPasswordRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
 
   //! medication reminder cubit
   getIt.registerFactory<MedicationReminderCubit>(() => MedicationReminderCubit(
