@@ -6,8 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
 class OTPInput extends StatelessWidget {
-  const OTPInput({super.key});
+  const OTPInput({
+    super.key,
+    required this.onCompleted,
+    required this.onChanged,
+  });
 
+  final Function(String) onCompleted;
+  final Function(String) onChanged;
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
@@ -54,15 +60,13 @@ class OTPInput extends StatelessWidget {
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,
       submittedPinTheme: submittedPinTheme,
-      validator: (value) {
-        return null; // Add validation logic if needed
-      },
       separatorBuilder: (index) => const HorizontalSpacer(24),
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       pinAnimationType: PinAnimationType.fade,
       showCursor: false,
       autofocus: true,
-      onCompleted: (pin) => debugPrint(pin), // Handle OTP completion
+      onCompleted: onCompleted, // Handle OTP completion
+      onChanged: onChanged,
     );
   }
 }

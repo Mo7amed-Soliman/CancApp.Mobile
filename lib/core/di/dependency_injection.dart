@@ -10,6 +10,9 @@ import 'package:canc_app/core/shared_feature/login/data/repositories/login_repos
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
+import 'package:canc_app/core/shared_feature/otp/data/data_sources/otp_remote_data_source.dart';
+import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repository.dart';
+import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/data_sources/sign_up_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository_impl.dart';
@@ -31,7 +34,7 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 Future<void> initDependencies() async {
-  // Core
+  //! Core
   getIt.registerLazySingleton<CacheHelper>(() => CacheHelper());
   getIt.registerLazySingleton<SecureCacheHelper>(() => SecureCacheHelper());
   getIt.registerLazySingleton<TokenService>(() => TokenService());
@@ -41,10 +44,10 @@ Future<void> initDependencies() async {
         tokenService: getIt<TokenService>(),
       ));
 
-  // Dio
+  //! Dio
   getIt.registerLazySingleton<Dio>(() => Dio());
 
-  // login cubit
+  //! login cubit
   getIt.registerFactory<LoginCubit>(() => LoginCubit(
         loginRepository: getIt<LoginRepository>(),
       ));
@@ -61,7 +64,7 @@ Future<void> initDependencies() async {
         dio: getIt<Dio>(),
       ));
 
-  // sign up cubit
+  //! sign up cubit
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(
         signUpRepository: getIt<SignUpRepository>(),
       ));
@@ -72,16 +75,23 @@ Future<void> initDependencies() async {
       () => SignUpRemoteDataSource(
             apiConsumer: getIt<ApiConsumer>(),
           ));
+  //! otp Repository
+  getIt.registerLazySingleton<OtpRepository>(() => OtpRepositoryImpl(
+        otpRemoteDataSource: getIt<OtpRemoteDataSource>(),
+      ));
+  getIt.registerLazySingleton<OtpRemoteDataSource>(() => OtpRemoteDataSource(
+        apiConsumer: getIt<ApiConsumer>(),
+      ));
 
-  // forgot password cubit
+  //! forgot password cubit
   getIt.registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit());
 
-  // medication reminder cubit
+  //! medication reminder cubit
   getIt.registerFactory<MedicationReminderCubit>(() => MedicationReminderCubit(
         getIt<MedicationReminderRepository>(),
       ));
 
-  // visit reminder cubit
+  //! visit reminder cubit
   getIt.registerFactory<VisitReminderCubit>(() => VisitReminderCubit(
         getIt<VisitReminderRepository>(),
       ));
@@ -91,18 +101,18 @@ Future<void> initDependencies() async {
             MedicationReminderDataSourceImpl(),
           ));
 
-  // visit reminder repository
+  //! visit reminder repository
   getIt.registerLazySingleton<VisitReminderRepository>(
       () => VisitReminderRepositoryImpl(
             VisitReminderDataSourceImpl(),
           ));
 
-  // nearest pharmacy cubit
+  //! nearest pharmacy cubit
   getIt.registerFactory<NearestPharmacyCubit>(() => NearestPharmacyCubit(
         repository: getIt<NearestPharmacyRepository>(),
       ));
 
-  // nearest pharmacy repository
+  //! nearest pharmacy repository
   getIt.registerLazySingleton<NearestPharmacyRepository>(
       () => NearestPharmacyRepositoryImpl(
             dataSource: NearestPharmacyDataSourceImpl(
