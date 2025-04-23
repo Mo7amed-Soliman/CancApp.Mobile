@@ -10,7 +10,6 @@ class Failure implements Exception {
 /// ServerFailure is a class that extends Failure and contains the error message for the API.
 class ServerFailure extends Failure {
   ServerFailure(super.errorMessage);
-
   factory ServerFailure.fromDioError(DioException dioError) {
     switch (dioError.type) {
       case DioExceptionType.connectionTimeout:
@@ -55,7 +54,10 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromResponse(
       {required int statuscode, required ApiErrorModel response}) {
-    if (statuscode == 400 || statuscode == 401 || statuscode == 403) {
+    if (statuscode == 400 ||
+        statuscode == 401 ||
+        statuscode == 403 ||
+        statuscode == 409) {
       return ServerFailure(response.errorMessage);
     } else if (statuscode == 404) {
       return ServerFailure(

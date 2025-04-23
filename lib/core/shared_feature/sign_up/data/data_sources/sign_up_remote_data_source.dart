@@ -1,3 +1,5 @@
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
+import 'package:canc_app/core/models/user_model.dart';
 import 'package:canc_app/core/networking/api_constant.dart';
 import 'package:canc_app/core/networking/api_consumer.dart';
 import 'package:canc_app/core/networking/end_point.dart';
@@ -32,11 +34,15 @@ class SignUpRemoteDataSource {
   Future<void> resendConfirmEmail({
     required String email,
   }) async {
-    await _apiConsumer.post(
+    final response = await _apiConsumer.post(
       EndPoint.resendConfirmEmail,
       data: {
         ApiConstant.email: email,
       },
     );
+
+    /// save user data
+    final userModel = UserModel.fromJson(response);
+    await UserCacheHelper.saveUser(userModel);
   }
 }

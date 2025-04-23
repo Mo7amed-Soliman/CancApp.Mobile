@@ -24,7 +24,10 @@ class SignUpForm extends StatelessWidget {
             'Sign up successful , please verify your email',
             color: AppColors.darkTeal,
           );
-          context.go(Routes.otpView, extra: signUpCubit.emailInput);
+          context.go(
+            Routes.otpView,
+            extra: signUpCubit.emailInput,
+          );
         }
         if (state is SignUpFailed) {
           botTextToast(state.errMessage);
