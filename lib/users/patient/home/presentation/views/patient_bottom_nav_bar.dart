@@ -1,4 +1,5 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/community_view.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/generated/l10n.dart';
@@ -28,7 +29,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
   final List<Widget> _pages = [
     const HomeView(),
     const ChatsListView(),
-    const CommunityPage(),
+    const CommunityView(),
     const ProfilePage(),
   ];
 
@@ -129,19 +130,6 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
         duration: Duration(milliseconds: 300),
         screenTransitionAnimationType: ScreenTransitionAnimationType.slide,
       ),
-    );
-  }
-}
-
-/// page for the community
-class CommunityPage extends StatelessWidget {
-  const CommunityPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('👥 ${S.of(context).community}',
-          style: const TextStyle(fontSize: 24)),
     );
   }
 }
