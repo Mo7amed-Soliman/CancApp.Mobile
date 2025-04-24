@@ -1,9 +1,6 @@
-import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
-import 'package:canc_app/core/models/user_model.dart';
 import 'package:canc_app/core/networking/api_constant.dart';
 import 'package:canc_app/core/networking/api_consumer.dart';
 import 'package:canc_app/core/networking/end_point.dart';
-
 import 'package:canc_app/core/shared_feature/sign_up/data/models/sign_up_model.dart';
 
 class SignUpRemoteDataSource {
@@ -21,12 +18,12 @@ class SignUpRemoteDataSource {
       EndPoint.signUp,
       isFromData: true,
       data: {
-        'Email': signUpModel.email,
-        'Password': signUpModel.password,
-        'FullName': signUpModel.name,
-        'Address': signUpModel.address,
-        'Image': signUpModel.image,
-        'UserType': signUpModel.userType,
+        ApiConstantForm.email: signUpModel.email,
+        ApiConstantForm.password: signUpModel.password,
+        ApiConstantForm.name: signUpModel.name,
+        ApiConstantForm.address: signUpModel.address,
+        ApiConstantForm.image: signUpModel.image,
+        ApiConstantForm.userType: signUpModel.userType,
       },
     );
   }
@@ -34,15 +31,11 @@ class SignUpRemoteDataSource {
   Future<void> resendConfirmEmail({
     required String email,
   }) async {
-    final response = await _apiConsumer.post(
+    await _apiConsumer.post(
       EndPoint.resendConfirmEmail,
       data: {
         ApiConstant.email: email,
       },
     );
-
-    /// save user data
-    final userModel = UserModel.fromJson(response);
-    await UserCacheHelper.saveUser(userModel);
   }
 }

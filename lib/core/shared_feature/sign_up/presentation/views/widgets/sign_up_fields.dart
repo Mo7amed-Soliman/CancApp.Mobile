@@ -65,78 +65,67 @@ class _PasswordInput extends StatelessWidget {
     final signUpCubit = context.read<SignUpCubit>();
 
     return BlocBuilder<SignUpCubit, SignUpState>(
-      buildWhen: (previous, current) => current is PasswordVisibilityUpdated,
+      buildWhen: (previous, current) =>
+          current is PasswordVisibilityUpdated ||
+          current is PasswordValidationUpdated ||
+          current is PasswordMatchUpdated,
       builder: (context, state) {
         return Column(
           children: [
-            BlocBuilder<SignUpCubit, SignUpState>(
-              buildWhen: (previous, current) =>
-                  current is PasswordValidationUpdated,
-              builder: (context, state) {
-                return Column(
-                  children: [
-                    AppTextFormField(
-                      label: S.of(context).password,
-                      obscureText: signUpCubit.isPasswordObscured,
-                      suffixIcon: signUpCubit.buildVisibilityToggleIcon(),
-                      onChanged: (password) {
-                        signUpCubit.updatePasswordValidation(password);
-                      },
-                      onSaved: (password) {
-                        signUpCubit.passwordInput = password;
-                      },
-                      validator: (value) {
-                        if (value == null) {
-                          return S.of(context).passwordIsRequired;
-                        }
-                        if (!signUpCubit.hasLowercase ||
-                            !signUpCubit.hasUppercase ||
-                            !signUpCubit.hasSpecialCharacters ||
-                            !signUpCubit.hasNumber ||
-                            !signUpCubit.hasMinLength) {
-                          return S.of(context).pleaseEnteraStrongPassword;
-                        }
-                        return null;
-                      },
-                    ),
-                    const VerticalSpacer(12),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18),
-                      child: PasswordValidations(
-                        hasLowerCase: signUpCubit.hasLowercase,
-                        hasUpperCase: signUpCubit.hasUppercase,
-                        hasSpecialCharacters: signUpCubit.hasSpecialCharacters,
-                        hasNumber: signUpCubit.hasNumber,
-                        hasMinLength: signUpCubit.hasMinLength,
-                      ),
-                    ),
-                  ],
-                );
+            const VerticalSpacer(12),
+            AppTextFormField(
+              label: S.of(context).password,
+              obscureText: signUpCubit.isPasswordObscured,
+              suffixIcon: signUpCubit.buildVisibilityToggleIcon(),
+              onChanged: (password) {
+                signUpCubit.updatePasswordValidation(password);
+              },
+              onSaved: (password) {
+                signUpCubit.passwordInput = password;
+              },
+              validator: (value) {
+                if (value == null) {
+                  return S.of(context).passwordIsRequired;
+                }
+                if (!signUpCubit.hasLowercase ||
+                    !signUpCubit.hasUppercase ||
+                    !signUpCubit.hasSpecialCharacters ||
+                    !signUpCubit.hasNumber ||
+                    !signUpCubit.hasMinLength) {
+                  return S.of(context).pleaseEnteraStrongPassword;
+                }
+                return null;
               },
             ),
             const VerticalSpacer(12),
-            BlocBuilder<SignUpCubit, SignUpState>(
-              buildWhen: (previous, current) => current is PasswordMatchUpdated,
-              builder: (context, state) {
-                return AppTextFormField(
-                  label: S.of(context).confirmPassword,
-                  obscureText: signUpCubit.isConfirmPasswordObscured,
-                  suffixIcon: signUpCubit.buildConfirmPasswordVisibilityIcon(),
-                  onChanged: (confirmPassword) {
-                    signUpCubit.updateConfirmPassword(confirmPassword);
-                  },
-                  onSaved: (confirmPassword) {
-                    signUpCubit.confirmPasswordInput = confirmPassword;
-                  },
-                  validator: (value) {
-                    if (value == null) {
-                      return S.of(context).confirmPasswordIsRequired;
-                    }
-                    return signUpCubit.passwordsMatch()
-                        ? null
-                        : S.of(context).passwordsDonotMatch;
-                  },
-                );
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18),
+              child: PasswordValidations(
+                hasLowerCase: signUpCubit.hasLowercase,
+                hasUpperCase: signUpCubit.hasUppercase,
+                hasSpecialCharacters: signUpCubit.hasSpecialCharacters,
+                hasNumber: signUpCubit.hasNumber,
+                hasMinLength: signUpCubit.hasMinLength,
+              ),
+            ),
+            const VerticalSpacer(12),
+            AppTextFormField(
+              label: S.of(context).confirmPassword,
+              obscureText: signUpCubit.isConfirmPasswordObscured,
+              suffixIcon: signUpCubit.buildConfirmPasswordVisibilityIcon(),
+              onChanged: (confirmPassword) {
+                signUpCubit.updateConfirmPassword(confirmPassword);
+              },
+              onSaved: (confirmPassword) {
+                signUpCubit.confirmPasswordInput = confirmPassword;
+              },
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return S.of(context).confirmPasswordIsRequired;
+                }
+                return signUpCubit.passwordsMatch()
+                    ? null
+                    : S.of(context).passwordsDonotMatch;
               },
             ),
           ],

@@ -25,7 +25,7 @@ class ResetPasswordBody extends StatelessWidget {
       listener: (context, state) {
         if (state is ResetPasswordSuccess) {
           botTextToast(
-            'Password reset successfully',
+            S.of(context).passwordResetSuccessfully,
             color: AppColors.darkTeal,
           );
           context.go(Routes.loginView);
@@ -59,7 +59,7 @@ class ResetPasswordBody extends StatelessWidget {
               ),
               const VerticalSpacer(12),
               AppButtonWidget(
-                text: 'Save',
+                text: S.of(context).save,
                 isLoading: state is ResetPasswordLoading,
                 onPressed: () {
                   final cubit = context.read<ResetPasswordCubit>();

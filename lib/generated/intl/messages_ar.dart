@@ -80,6 +80,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "editMedication": MessageLookupByLibrary.simpleMessage("تعديل دواء"),
     "editVisit": MessageLookupByLibrary.simpleMessage("تعديل زيارة"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم التحقق من البريد الإلكتروني بنجاح",
+    ),
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "أدخل رمز التحقق الذي أرسلناه إلى بريدك الإلكتروني",
@@ -99,6 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "injection": MessageLookupByLibrary.simpleMessage("حقنة"),
     "liquid": MessageLookupByLibrary.simpleMessage("سائل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "loginSuccessful": MessageLookupByLibrary.simpleMessage(
+      "تم تسجيل الدخول بنجاح",
+    ),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف صغير واحد",
     ),
@@ -164,6 +170,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور مطلوبة",
     ),
+    "passwordResetSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إعادة تعيين كلمة المرور بنجاح",
+    ),
     "passwordsDonotMatch": MessageLookupByLibrary.simpleMessage(
       "كلمات المرور لا تتطابق",
     ),
@@ -191,6 +200,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseSelectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
       "الرجاء اختيار أيام الأسبوع",
     ),
+    "pleaseVerifyYourEmail": MessageLookupByLibrary.simpleMessage(
+      "الرجاء التحقق من بريدك الإلكتروني",
+    ),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
     "psychiatrists": MessageLookupByLibrary.simpleMessage("الأطباء النفسيين"),
@@ -198,6 +210,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("إشعاع"),
     "record": MessageLookupByLibrary.simpleMessage("سجل"),
     "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
     ),
@@ -211,7 +226,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
     "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسل الكود"),
+    "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال الكود بنجاح",
+    ),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signUpSuccessful": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء الحساب بنجاح",
+    ),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل رمز خاص واحد",
@@ -233,6 +254,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "visits": MessageLookupByLibrary.simpleMessage("الزيارات"),
     "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),
     "volunteers": MessageLookupByLibrary.simpleMessage("المتطوعين"),
+    "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
   };
 }

@@ -19,7 +19,7 @@ class ForgotPasswordForm extends StatelessWidget {
       listener: (context, state) {
         // Handle state changes if needed
         if (state is SuccessSensCodeState) {
-          botTextToast('Sent code successfully');
+          botTextToast(S.of(context).sentCodeSuccessfully);
           context.push<String>(Routes.otpView,
               extra: forgotPasswordCubit.emailInput);
         }

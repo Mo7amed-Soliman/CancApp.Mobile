@@ -43,7 +43,6 @@ final class PasswordValidationUpdated extends ResetPasswordState {
   final bool hasSpecialCharacters;
   final bool hasNumber;
   final bool hasMinLength;
-  final bool isValid;
 
   const PasswordValidationUpdated({
     required this.hasLowercase,
@@ -51,7 +50,6 @@ final class PasswordValidationUpdated extends ResetPasswordState {
     required this.hasSpecialCharacters,
     required this.hasNumber,
     required this.hasMinLength,
-    required this.isValid,
   });
 
   @override
@@ -61,7 +59,6 @@ final class PasswordValidationUpdated extends ResetPasswordState {
         hasSpecialCharacters,
         hasNumber,
         hasMinLength,
-        isValid,
       ];
 }
 

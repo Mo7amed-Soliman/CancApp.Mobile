@@ -1,4 +1,4 @@
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/helpers/extension/regex_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,15 +23,9 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     emit(ResetPasswordLoading());
     try {
       // TODO: Add reset password implementation when the endpoint is ready
-      // await _forgetPasswordRemoteDataSource.resetPassword(
-      //   email: email,
-      //   newPassword: newPassword,
-      //   confirmPassword: confirmPassword,
-      //   code: code,
-      // );
 
       // Simulate API call delay
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 3));
 
       emit(ResetPasswordSuccess());
     } catch (error) {
@@ -44,13 +38,6 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   ) async {
     if (!_validateForm()) {
       emit(const FormValidationState(isValid: false));
-      return;
-    }
-
-    if (!passwordsMatch()) {
-      String errorMessage =
-          isArabic() ? 'كلمة المرور غير متطابقة' : 'Passwords do not match';
-      emit(ResetPasswordError(errorMessage));
       return;
     }
 
@@ -117,18 +104,12 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
 
   void updateNewPasswordValidation(String newPassword) {
     newPasswordInput = newPassword;
-    hasLowercase = newPassword.contains(RegExp(r'[a-z]'));
-    hasUppercase = newPassword.contains(RegExp(r'[A-Z]'));
-    hasSpecialCharacters =
-        newPassword.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
-    hasNumber = newPassword.contains(RegExp(r'[0-9]'));
-    hasMinLength = newPassword.length >= 8;
 
-    final isValid = hasLowercase &&
-        hasUppercase &&
-        hasSpecialCharacters &&
-        hasNumber &&
-        hasMinLength;
+    hasLowercase = newPassword.hasLowerCase;
+    hasUppercase = newPassword.hasUpperCase;
+    hasSpecialCharacters = newPassword.hasSpecialCharacter;
+    hasNumber = newPassword.hasDigit;
+    hasMinLength = newPassword.hasMinLength;
 
     emit(
       PasswordValidationUpdated(
@@ -137,7 +118,6 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
         hasSpecialCharacters: hasSpecialCharacters,
         hasNumber: hasNumber,
         hasMinLength: hasMinLength,
-        isValid: isValid,
       ),
     );
   }

@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/database/cache_helper.dart';
+import 'package:canc_app/core/helpers/extension/regex_extension.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/models/sign_up_model.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository.dart';
@@ -52,19 +51,14 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
     final result = await _signUpRepository.signUp(signUpModel: signUpModel);
     result.fold(
-      (failure) {
-        emit(SignUpFailed(failure.errorMessage));
-      },
+      (failure) => emit(SignUpFailed(failure.errorMessage)),
       (success) async {
         final result = await _signUpRepository.resendConfirmEmail(
-            email: signUpModel.email);
+          email: signUpModel.email,
+        );
         result.fold(
-          (failure) {
-            emit(SignUpFailed(failure.errorMessage));
-          },
-          (success) {
-            emit(SignUpSuccess());
-          },
+          (failure) => emit(SignUpFailed(failure.errorMessage)),
+          (success) => emit(SignUpSuccess()),
         );
       },
     );
@@ -111,11 +105,12 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   void updatePasswordValidation(String password) {
     passwordInput = password;
-    hasLowercase = password.contains(RegExp(r'[a-z]'));
-    hasUppercase = password.contains(RegExp(r'[A-Z]'));
-    hasSpecialCharacters = password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
-    hasNumber = password.contains(RegExp(r'[0-9]'));
-    hasMinLength = password.length >= 8;
+
+    hasLowercase = password.hasLowerCase;
+    hasUppercase = password.hasUpperCase;
+    hasSpecialCharacters = password.hasSpecialCharacter;
+    hasNumber = password.hasDigit;
+    hasMinLength = password.hasMinLength;
 
     emit(
       PasswordValidationUpdated(
@@ -130,7 +125,6 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   bool passwordsMatch() {
     if (passwordInput == null || confirmPasswordInput == null) {
-      log('Passwords are null');
       return false;
     }
     return passwordInput == confirmPasswordInput;

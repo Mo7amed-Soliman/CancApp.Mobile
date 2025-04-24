@@ -1,7 +1,6 @@
 import 'package:canc_app/core/helpers/database/hive_helper.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hive/hive.dart';
-import 'package:image_picker/image_picker.dart';
 
 part 'user_model.g.dart';
 
@@ -23,7 +22,7 @@ class UserModel extends Equatable {
   final String address;
 
   @HiveField(5)
-  final XFile? image;
+  final String? image;
 
   @HiveField(6)
   final String userType;
@@ -45,7 +44,7 @@ class UserModel extends Equatable {
       userName: json['userName'],
       name: json['name'],
       address: json['address'],
-      image: json['image'] != null ? XFile(json['image']) : null,
+      image: json['image'],
       userType: json['userType'],
     );
   }
@@ -57,7 +56,7 @@ class UserModel extends Equatable {
       'userName': userName,
       'name': name,
       'address': address,
-      'image': image?.path,
+      'image': image,
       'userType': userType,
     };
   }

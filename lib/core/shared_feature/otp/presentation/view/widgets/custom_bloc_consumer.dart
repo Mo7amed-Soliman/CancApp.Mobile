@@ -1,10 +1,12 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_cubit.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_state.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/view/widgets/otp_input_section.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/view/widgets/verify_button.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -25,10 +27,11 @@ class CustomBlocConsumer extends StatelessWidget {
         }
         if (state is SuccessVerifyCodeState) {
           botTextToast(
-            'Email verified successfully',
+            S.of(context).emailVerifiedSuccessfully,
             color: AppColors.darkTeal,
           );
-          context.pop();
+          // navigate to login view
+          context.go(Routes.loginView);
         }
       },
       builder: (context, state) {

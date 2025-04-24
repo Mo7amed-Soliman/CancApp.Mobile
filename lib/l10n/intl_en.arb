@@ -142,5 +142,14 @@
       "pleaseSelectDaysOfWeek": "Please select days of week",
       "noPharmaciesFound": "No pharmacies found matching the selected filter.",
       "navigate": "Navigate",
-      "closed": "Closed"
+      "closed": "Closed",
+      "loginSuccessful": "Login successful",
+      "welcome": "Welcome",
+      "signUpSuccessful": "Sign up successful",
+      "pleaseVerifyYourEmail": "Please verify your email",
+      "emailVerifiedSuccessfully": "Email verified successfully",
+      "resetPassword": "Reset Password",
+      "passwordResetSuccessfully": "Password reset successfully",
+      "sentCodeSuccessfully": "Sent code successfully"
+ 
 }

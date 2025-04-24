@@ -13,12 +13,12 @@ class OtpRepositoryImpl implements OtpRepository {
 
   @override
   Future<Either<Failure, void>> verifyCode({
-    required String userId,
+    required String email,
     required String code,
   }) async {
     try {
       await _otpRemoteDataSource.verifyCode(
-        userId: userId,
+        email: email,
         code: code,
       );
       return const Right(null);

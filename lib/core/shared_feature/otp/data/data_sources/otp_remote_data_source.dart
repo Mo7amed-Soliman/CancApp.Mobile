@@ -10,14 +10,14 @@ class OtpRemoteDataSource {
   }) : _apiConsumer = apiConsumer;
 
   Future<void> verifyCode({
-    required String userId,
+    required String email,
     required String code,
   }) async {
     await _apiConsumer.post(
       EndPoint.confirmEmail,
       data: {
-        ApiConstant.userId: userId,
-        ApiConstant.code: code,
+        ApiConstant.email: email,
+        ApiConstant.otpCode: code,
       },
     );
   }

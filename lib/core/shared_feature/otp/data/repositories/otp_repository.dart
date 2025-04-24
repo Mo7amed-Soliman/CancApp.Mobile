@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 
 abstract class OtpRepository {
   Future<Either<Failure, void>> verifyCode({
-    required String userId,
+    required String email,
     required String code,
   });
 

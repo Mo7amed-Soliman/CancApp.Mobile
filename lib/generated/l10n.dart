@@ -1044,6 +1044,81 @@ class S {
   String get closed {
     return Intl.message('Closed', name: 'closed', desc: '', args: []);
   }
+
+  /// `Login successful`
+  String get loginSuccessful {
+    return Intl.message(
+      'Login successful',
+      name: 'loginSuccessful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome`
+  String get welcome {
+    return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
+  }
+
+  /// `Sign up successful`
+  String get signUpSuccessful {
+    return Intl.message(
+      'Sign up successful',
+      name: 'signUpSuccessful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please verify your email`
+  String get pleaseVerifyYourEmail {
+    return Intl.message(
+      'Please verify your email',
+      name: 'pleaseVerifyYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email verified successfully`
+  String get emailVerifiedSuccessfully {
+    return Intl.message(
+      'Email verified successfully',
+      name: 'emailVerifiedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset successfully`
+  String get passwordResetSuccessfully {
+    return Intl.message(
+      'Password reset successfully',
+      name: 'passwordResetSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sent code successfully`
+  String get sentCodeSuccessfully {
+    return Intl.message(
+      'Sent code successfully',
+      name: 'sentCodeSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

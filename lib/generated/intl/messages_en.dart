@@ -82,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "editMedication": MessageLookupByLibrary.simpleMessage("Edit Medication"),
     "editVisit": MessageLookupByLibrary.simpleMessage("Edit Visit"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Email verified successfully",
+    ),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "Enter the verification code we just sent to your email address",
@@ -101,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
     "liquid": MessageLookupByLibrary.simpleMessage("Liquid"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginSuccessful": MessageLookupByLibrary.simpleMessage("Login successful"),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
     ),
@@ -164,6 +168,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Password is required",
     ),
+    "passwordResetSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Password reset successfully",
+    ),
     "passwordsDonotMatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
@@ -191,6 +198,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseSelectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
       "Please select days of week",
     ),
+    "pleaseVerifyYourEmail": MessageLookupByLibrary.simpleMessage(
+      "Please verify your email",
+    ),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
     "psychiatrists": MessageLookupByLibrary.simpleMessage("Psychiatrists"),
@@ -198,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("Radiation"),
     "record": MessageLookupByLibrary.simpleMessage("Record"),
     "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
@@ -213,7 +224,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sendAgain": MessageLookupByLibrary.simpleMessage("Send again"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
+    "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Sent code successfully",
+    ),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "signUpSuccessful": MessageLookupByLibrary.simpleMessage(
+      "Sign up successful",
+    ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 special character",
@@ -237,6 +254,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "visits": MessageLookupByLibrary.simpleMessage("Visits"),
     "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
     "volunteers": MessageLookupByLibrary.simpleMessage("Volunteers"),
+    "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
   };
 }

@@ -19,9 +19,8 @@ class SignUpForm extends StatelessWidget {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpSuccess) {
-          // context.go(Routes.initialRoute);
           botTextToast(
-            'Sign up successful , please verify your email',
+            '${S.of(context).signUpSuccessful} , ${S.of(context).pleaseVerifyYourEmail}',
             color: AppColors.darkTeal,
           );
           context.go(

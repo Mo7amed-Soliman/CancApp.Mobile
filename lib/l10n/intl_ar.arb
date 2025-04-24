@@ -143,6 +143,14 @@
     "pleaseSelectDaysOfWeek": "الرجاء اختيار أيام الأسبوع",
     "noPharmaciesFound": "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
     "navigate": "تنقل",
-    "closed": "مغلق" 
+    "closed": "مغلق" ,
+    "loginSuccessful": "تم تسجيل الدخول بنجاح",
+    "welcome": "مرحبًا",
+    "signUpSuccessful": "تم إنشاء الحساب بنجاح",
+    "pleaseVerifyYourEmail": "الرجاء التحقق من بريدك الإلكتروني",
+    "emailVerifiedSuccessfully": "تم التحقق من البريد الإلكتروني بنجاح",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "passwordResetSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح",
+    "sentCodeSuccessfully": "تم إرسال الكود بنجاح"
  
 }

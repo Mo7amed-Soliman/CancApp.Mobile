@@ -1,5 +1,6 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/widgets/custom_app_bar.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manger/reset_password_cubit/reset_password_cubit.dart';
@@ -24,8 +25,8 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
       create: (context) => ResetPasswordCubit(),
       child: Scaffold(
         backgroundColor: Colors.white, // Set background to white
-        appBar: const CustomAppBar(
-          title: 'Reset Password',
+        appBar: CustomAppBar(
+          title: S.of(context).resetPassword,
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
