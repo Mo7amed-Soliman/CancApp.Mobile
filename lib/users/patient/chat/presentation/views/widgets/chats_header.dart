@@ -68,7 +68,7 @@ class _ChatsHeaderState extends State<ChatsHeader>
       padding: EdgeInsets.symmetric(
         horizontal: context.setMinSize(16),
       ),
-      height: context.screenHeight * 0.112,
+      height: context.screenHeight * 0.1,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

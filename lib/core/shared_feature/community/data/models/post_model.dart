@@ -1,3 +1,5 @@
+import 'comment_model.dart';
+
 class PostModel {
   final String userName;
   final String userImageUrl;
@@ -9,6 +11,7 @@ class PostModel {
   final int comments;
   final String userId;
   final String postId;
+  final List<CommentModel>? commentsList;
 
   PostModel({
     required this.userName,
@@ -21,6 +24,7 @@ class PostModel {
     required this.postId,
     required this.contentPost,
     required this.postTime,
+    this.commentsList,
   });
 }
 
@@ -37,6 +41,7 @@ List<PostModel> posts = [
     imageUrl: null,
     userId: '1',
     postId: '1',
+    commentsList: dummyComments,
   ),
   PostModel(
     userName: 'Zahra Ahmed',
@@ -57,6 +62,7 @@ And above all, life is worth holding onto, no matter how hard it gets.""",
     imageUrl: null,
     userId: '2',
     postId: '2',
+    commentsList: dummyComments,
   ),
   PostModel(
     userName: 'Dr.Ahmed Ali',
@@ -86,5 +92,6 @@ And above all, life is worth holding onto, no matter how hard it gets.""",
         'https://c8.alamy.com/comp/BR4XA4/x-ray-showing-lung-cancer-in-an-80-year-old-man-with-a-long-history-BR4XA4.jpg',
     userId: '1',
     postId: '1',
+    commentsList: dummyComments,
   ),
 ];

@@ -16,5 +16,6 @@ class AppAssets {
       liquidIcon = 'assets/icons/liquid.svg',
       heartIcon = 'assets/icons/heart_icon.svg',
       commitIcon = 'assets/icons/commit_icon.svg',
-      likeSound = 'sounds/like_sound.mp3';
+      likeSound = 'sounds/like_sound.mp3',
+      noComments = 'assets/icons/no_comments.svg';
 }

@@ -1,21 +1,22 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/utils/app_assets.dart';
+import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class PostActions extends StatefulWidget {
   const PostActions({
     super.key,
-    required this.likes,
-    required this.comments,
+    required this.post,
   });
 
-  final int likes;
-  final int comments;
+  final PostModel post;
 
   @override
   State<PostActions> createState() => _PostActionsState();
@@ -32,7 +33,7 @@ class _PostActionsState extends State<PostActions>
   @override
   void initState() {
     super.initState();
-    currentLikes = widget.likes;
+    currentLikes = widget.post.likes;
     _controller = AnimationController(
       duration: const Duration(milliseconds: 350),
       vsync: this,
@@ -95,11 +96,11 @@ class _PostActionsState extends State<PostActions>
                           ? Icon(
                               Icons.favorite,
                               color: AppColors.red,
-                              size: context.setMinSize(32),
+                              size: context.setMinSize(29),
                             )
                           : SvgPicture.asset(
                               AppAssets.heartIcon,
-                              height: context.setMinSize(32),
+                              height: context.setMinSize(29),
                             ),
                     );
                   },
@@ -115,13 +116,18 @@ class _PostActionsState extends State<PostActions>
           const HorizontalSpacer(24),
           Row(
             children: [
-              SvgPicture.asset(
-                AppAssets.commitIcon,
-                height: context.setMinSize(32),
+              InkWell(
+                onTap: () {
+                  context.push(Routes.commentView, extra: widget.post);
+                },
+                child: SvgPicture.asset(
+                  AppAssets.commitIcon,
+                  height: context.setMinSize(31),
+                ),
               ),
               const HorizontalSpacer(6),
               Text(
-                widget.comments.toString(),
+                widget.post.comments.toString(),
                 style: AppTextStyle.font16RegularDarkGray(context),
               ),
             ],

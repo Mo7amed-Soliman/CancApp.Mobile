@@ -142,5 +142,10 @@
       "pleaseSelectDaysOfWeek": "Please select days of week",
       "noPharmaciesFound": "No pharmacies found matching the selected filter.",
       "navigate": "Navigate",
-      "closed": "Closed"
+      "closed": "Closed",
+      "report": "Report",
+      "showOriginal": "Show original",
+      "showTranslation": "Show translation",
+      "seeMore": "See more",
+      "seeLess": "See less"
 }

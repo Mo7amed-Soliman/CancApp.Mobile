@@ -5,6 +5,7 @@ import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
 
@@ -88,7 +89,7 @@ class _PostContentState extends State<PostContent> {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       child: Text(
-        widget.isExpanded ? 'See less' : 'See more',
+        widget.isExpanded ? S.of(context).seeLess : S.of(context).seeMore,
         style: AppTextStyle.font15Bold(context).copyWith(
           color: AppColors.primaryColor,
           fontWeight: FontWeight.w400,
@@ -104,7 +105,9 @@ class _PostContentState extends State<PostContent> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            _isTranslated ? 'Show original' : 'Show translation',
+            _isTranslated
+                ? S.of(context).showOriginal
+                : S.of(context).showTranslation,
             style: AppTextStyle.font15Bold(context).copyWith(
               color: AppColors.grayish,
               fontWeight: FontWeight.w400,
@@ -165,6 +168,8 @@ class _PostContentState extends State<PostContent> {
                       ? CrossFadeState.showSecond
                       : CrossFadeState.showFirst,
                   duration: const Duration(milliseconds: 300),
+                  firstCurve: Curves.easeInOut,
+                  secondCurve: Curves.easeInOut,
                 ),
               ),
               if (isTextLong) _buildSeeMoreButton(),

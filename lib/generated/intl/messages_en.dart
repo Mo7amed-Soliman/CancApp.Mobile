@@ -198,12 +198,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("Radiation"),
     "record": MessageLookupByLibrary.simpleMessage("Record"),
     "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
+    "report": MessageLookupByLibrary.simpleMessage("Report"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
+    "seeLess": MessageLookupByLibrary.simpleMessage("See less"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
     "selectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
       "Select days of week",
     ),
@@ -213,6 +216,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sendAgain": MessageLookupByLibrary.simpleMessage("Send again"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
+    "showOriginal": MessageLookupByLibrary.simpleMessage("Show original"),
+    "showTranslation": MessageLookupByLibrary.simpleMessage("Show translation"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(

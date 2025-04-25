@@ -5,6 +5,7 @@ import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
 import 'package:canc_app/core/shared_feature/chat/presentation/views/chat_view.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/comment_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/otp_view.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/login_view.dart';
@@ -24,6 +25,8 @@ import 'package:canc_app/users/patient/reminder/presentation/views/reminder_view
 import 'package:canc_app/users/patient/reminder/presentation/views/visit_reminder_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../shared_feature/community/data/models/post_model.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
@@ -201,6 +204,14 @@ final appRouter = GoRouter(
           },
         ),
       ],
+    ),
+    GoRoute(
+      path: Routes.commentView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: CommentView(post: state.extra as PostModel),
+        transitionsBuilder: _transitionsBuilder,
+      ),
     ),
   ],
 );
