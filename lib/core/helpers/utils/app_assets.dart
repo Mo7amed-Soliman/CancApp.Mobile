@@ -13,5 +13,6 @@ class AppAssets {
       radiationIcon = 'assets/icons/radiation.svg',
       pillIcon = 'assets/icons/pill.svg',
       injectionIcon = 'assets/icons/injection.svg',
-      liquidIcon = 'assets/icons/liquid.svg';
+      liquidIcon = 'assets/icons/liquid.svg',
+      botAvatar = 'assets/icons/bot_avatar.png';
 }

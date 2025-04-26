@@ -33,6 +33,8 @@ class CustomTextField extends StatelessWidget {
       focusNode: focusNode,
       controller: controller,
       autofocus: autofocus,
+      minLines: 1,
+      maxLines: 5,
       style: AppTextStyle.font16RegularDarkGray(context).copyWith(
         color: textColor ?? AppColors.offWhite,
       ),
@@ -49,6 +51,7 @@ class CustomTextField extends StatelessWidget {
         focusedBorder: _buildSearchBorder(isFocused: true),
         contentPadding: EdgeInsets.symmetric(
           horizontal: context.setMinSize(20),
+          vertical: context.setMinSize(6),
         ),
       ),
     );
@@ -56,7 +59,7 @@ class CustomTextField extends StatelessWidget {
 
   OutlineInputBorder _buildSearchBorder({bool isFocused = false}) {
     return OutlineInputBorder(
-      borderRadius: const BorderRadius.all(Radius.circular(50)),
+      borderRadius: const BorderRadius.all(Radius.circular(30)),
       borderSide: BorderSide(
         color: fillColor ??
             AppColors.offWhite.withValues(

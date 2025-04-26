@@ -16,6 +16,7 @@ import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
 import 'package:canc_app/users/doctor/doctor_view.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/available_to_chat_view.dart';
+import 'package:canc_app/users/patient/chatbot/presentation/views/chatbot_view.dart';
 import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/nearest_pharmacy_view.dart';
@@ -33,7 +34,7 @@ import 'package:go_router/go_router.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: _getFirstView(),
+  initialLocation: Routes.chatBotView,
   debugLogDiagnostics: true,
   routes: [
     GoRoute(
@@ -128,6 +129,16 @@ final appRouter = GoRouter(
         return CustomTransitionPage(
           key: state.pageKey,
           child: ChatView(user: user),
+          transitionsBuilder: _transitionsBuilder,
+        );
+      },
+    ),
+    GoRoute(
+      path: Routes.chatBotView,
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: const ChatBotView(),
           transitionsBuilder: _transitionsBuilder,
         );
       },

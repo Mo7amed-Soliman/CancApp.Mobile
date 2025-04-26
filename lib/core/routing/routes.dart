@@ -22,4 +22,5 @@ class Routes {
   static const String volunteerView = '/volunteerView';
   static const String pharmacistView = '/pharmacistView';
   static const String psychiatristView = '/psychiatristView';
+  static const String chatBotView = '/ChatBotView';
 }
