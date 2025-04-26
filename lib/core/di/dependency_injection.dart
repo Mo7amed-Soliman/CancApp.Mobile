@@ -18,6 +18,8 @@ import 'package:canc_app/core/shared_feature/sign_up/data/data_sources/sign_up_r
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit.dart';
+import 'package:canc_app/users/patient/chatbot/data/data_sources/chatbot_remote_data_source.dart';
+import 'package:canc_app/users/patient/chatbot/data/repositories/chatbot_repository.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/nearest_pharmacy_data_source.dart';
 import 'package:canc_app/users/patient/home/data/repositories/nearest_pharmacy_repository.dart';
 import 'package:canc_app/users/patient/home/presentation/manger/nearest_pharmacy_cubit/nearest_pharmacy_cubit.dart';
@@ -31,6 +33,9 @@ import 'package:canc_app/users/patient/reminder/presentation/manger/medication_r
 import 'package:canc_app/users/patient/reminder/presentation/manger/visit_reminder_cubit/visit_reminder_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
+import '../../users/patient/chatbot/presentation/manger/chat_bot_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -129,4 +134,17 @@ Future<void> initDependencies() async {
               dio: getIt<Dio>(),
             ),
           ));
+
+  //! Chatbot cubit
+
+  getIt.registerFactory<ChatBotCubit>(() => ChatBotCubit(
+        chatbotRepository: getIt<ChatBotRepository>(),
+      ));
+
+  //! nearest pharmacy repository
+  getIt.registerLazySingleton<ChatBotRepository>(() => ChatbotRepositoryImpl(
+        dataSource: ChatbotRemoteDataSource(
+          dio: getIt<Dio>(),
+        ),
+      ));
 }

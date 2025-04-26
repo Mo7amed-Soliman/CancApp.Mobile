@@ -10,6 +10,10 @@ class EndPoint {
   static const String resendConfirmEmail = 'auth/resend-confirm-email';
   static const String forgotPassword = 'auth/forget-password';
   static const String resetPassword = 'auth/reset-password';
+  static String chatbotBaseUrl = dotenv.get('CHAT_BOT_BASE_URL');
+
+  static const String charbotAsk = '/ask';
+
   static String getUserDataEndPoint(id) {
     return 'user/get-user/$id';
   }
