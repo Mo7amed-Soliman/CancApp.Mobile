@@ -55,14 +55,14 @@ class ChatbotInputField extends StatelessWidget {
             child: CircleAvatar(
               radius: context.setMinSize(24),
               backgroundColor:
-                  isLoading ? AppColors.grayish : AppColors.primaryColor,
+                  isLoading ? AppColors.offWhite : AppColors.primaryColor,
               child: isLoading
                   ? SizedBox(
                       width: context.setMinSize(24),
                       height: context.setMinSize(24),
                       child: const CircularProgressIndicator(
-                        color: Colors.white,
-                        strokeWidth: 2,
+                        color: AppColors.primaryColor,
+                        strokeWidth: 3,
                       ),
                     )
                   : RotatedBox(

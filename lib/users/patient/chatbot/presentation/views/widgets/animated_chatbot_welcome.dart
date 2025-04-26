@@ -40,6 +40,7 @@ class _AnimatedChatbotWelcomeState extends State<AnimatedChatbotWelcome>
   Widget build(BuildContext context) {
     return Column(
       children: [
+        const Spacer(),
         AnimatedBuilder(
           animation: _scaleAnimation,
           builder: (context, child) {
@@ -61,6 +62,7 @@ class _AnimatedChatbotWelcomeState extends State<AnimatedChatbotWelcome>
           style: AppTextStyle.font17Medium(context),
           textAlign: TextAlign.center,
         ),
+        const Spacer(),
       ],
     );
   }

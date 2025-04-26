@@ -13,6 +13,42 @@ class ChatbotMessageBubble extends StatelessWidget {
     required this.message,
   });
 
+  List<TextSpan> _parseText(String text, BuildContext context) {
+    final List<TextSpan> spans = [];
+    final RegExp boldPattern = RegExp(r'\*\*(.*?)\*\*');
+    int lastIndex = 0;
+
+    for (final match in boldPattern.allMatches(text)) {
+      // Add text before the bold section
+      if (match.start > lastIndex) {
+        spans.add(TextSpan(
+          text: text.substring(lastIndex, match.start),
+          style: AppTextStyle.font14RegularDarkGray(context),
+        ));
+      }
+
+      // Add the bold text
+      spans.add(TextSpan(
+        text: match.group(1),
+        style: AppTextStyle.font14RegularDarkGray(context).copyWith(
+          fontWeight: FontWeight.bold,
+        ),
+      ));
+
+      lastIndex = match.end;
+    }
+
+    // Add any remaining text
+    if (lastIndex < text.length) {
+      spans.add(TextSpan(
+        text: text.substring(lastIndex),
+        style: AppTextStyle.font14RegularDarkGray(context),
+      ));
+    }
+
+    return spans;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -33,15 +69,21 @@ class ChatbotMessageBubble extends StatelessWidget {
           color: message.isBot
               ? AppColors.lightGray
               : AppColors.primaryColor.withValues(alpha: 0.08),
-          borderRadius: BorderRadius.circular(context.setMinSize(16)),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(message.isBot ? 0 : 16),
+            bottomRight: Radius.circular(message.isBot ? 16 : 0),
+            topLeft: const Radius.circular(16),
+            topRight: const Radius.circular(16),
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              message.text,
-              style: AppTextStyle.font14RegularDarkGray(context),
+            RichText(
+              text: TextSpan(
+                children: _parseText(message.text, context),
+              ),
             ),
             const VerticalSpacer(4),
             Text(
