@@ -19,7 +19,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
   late PersistentTabController _controller;
 
   // Constants
-  static const double _iconSize = 43.0;
+  static const double _iconSize = 40.0;
   static const double _navBarHeight = 80.0;
   static const double _topPadding = 8.0;
   static const double _bottomPadding = 4.0;

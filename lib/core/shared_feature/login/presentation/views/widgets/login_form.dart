@@ -60,18 +60,18 @@ class LoginForm extends StatelessWidget {
   }
 
   void _navigateToNextView(BuildContext context, String userType) {
-    if (userType == 'Patient') {
+    if (userType == UsersKey.patient) {
       context.go(Routes.homeView);
-    } else if (userType == 'Volunteer') {
+    } else if (userType == UsersKey.volunteer) {
       context.go(Routes.volunteerView);
-    } else if (userType == 'Doctor') {
+    } else if (userType == UsersKey.doctor) {
       context.go(Routes.doctorView);
-    } else if (userType == 'Pharmacist') {
+    } else if (userType == UsersKey.pharmacist) {
       context.go(Routes.pharmacistView);
-    } else if (userType == 'Psychiatrist') {
+    } else if (userType == UsersKey.psychiatrist) {
       context.go(Routes.psychiatristView);
-    } else {
-      context.go(Routes.homeView);
+    } else if (userType == UsersKey.admin) {
+      // TODO : navigate to admin view
     }
   }
 }

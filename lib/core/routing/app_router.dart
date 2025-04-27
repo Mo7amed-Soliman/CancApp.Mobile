@@ -34,7 +34,7 @@ import 'package:go_router/go_router.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: Routes.homeView,
+  initialLocation: _getFirstView(),
   debugLogDiagnostics: true,
   routes: [
     GoRoute(
@@ -270,23 +270,23 @@ String _getFirstView() {
   }
   bool? isLoggedIn = getIt<CacheHelper>().getData(key: CacheKeys.isLoggedIn);
   if (isLoggedIn != null && isLoggedIn) {
-    return _getInitialRouteForLoggedInUser();
+    return _getInitialRouteForLoggedInUser() ?? Routes.whoAreYou;
   }
   return Routes.whoAreYou;
 }
 
-String _getInitialRouteForLoggedInUser() {
+String? _getInitialRouteForLoggedInUser() {
   final userModel = UserCacheHelper.getUser();
-  if (userModel?.userType == 'Patient') {
+  if (userModel?.userType == UsersKey.patient) {
     return Routes.homeView;
-  } else if (userModel?.userType == 'Volunteer') {
+  } else if (userModel?.userType == UsersKey.volunteer) {
     return Routes.volunteerView;
-  } else if (userModel?.userType == 'Doctor') {
+  } else if (userModel?.userType == UsersKey.doctor) {
     return Routes.doctorView;
-  } else if (userModel?.userType == 'Pharmacist') {
+  } else if (userModel?.userType == UsersKey.pharmacist) {
     return Routes.pharmacistView;
-  } else if (userModel?.userType == 'Psychiatrist') {
+  } else if (userModel?.userType == UsersKey.psychiatrist) {
     return Routes.psychiatristView;
   }
-  return Routes.homeView;
+  return null;
 }
