@@ -1,5 +1,4 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
-import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/widgets/sign_up_form.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/auth_prompt_button.dart';
@@ -31,7 +30,7 @@ class SignUpViewBody extends StatelessWidget {
             actionText: S.of(context).login,
             onPressed: () {
               FocusManager.instance.primaryFocus?.unfocus();
-              context.pop(Routes.loginView);
+              context.pop();
             },
           ),
           const VerticalSpacer(5),

@@ -17,4 +17,6 @@ class ApiConstantForm {
   static const String address = 'Address';
   static const String image = 'Image';
   static const String userType = 'UserType';
+  static const String medicalSyndicatePhoto = 'MedicalSyndicatePhoto';
+  static const String imageId = 'ImageId';
 }

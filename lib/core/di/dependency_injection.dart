@@ -17,7 +17,7 @@ import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repositor
 import 'package:canc_app/core/shared_feature/sign_up/data/data_sources/sign_up_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository_impl.dart';
-import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit.dart';
+import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit/sign_up_cubit.dart';
 import 'package:canc_app/users/patient/chatbot/data/data_sources/chatbot_remote_data_source.dart';
 import 'package:canc_app/users/patient/chatbot/data/repositories/chatbot_repository.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/nearest_pharmacy_data_source.dart';
@@ -36,6 +36,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
 import '../../users/patient/chatbot/presentation/manger/chat_bot_cubit.dart';
+import '../shared_feature/sign_up/presentation/manger/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -80,6 +81,13 @@ Future<void> initDependencies() async {
       () => SignUpRemoteDataSource(
             apiConsumer: getIt<ApiConsumer>(),
           ));
+
+  //! complete doctor cubit
+  getIt.registerFactory<CompleteDoctorRegistrationCubit>(
+    () => CompleteDoctorRegistrationCubit(
+      signUpRepository: getIt<SignUpRepository>(),
+    ),
+  );
   //! otp Repository
   getIt.registerLazySingleton<OtpRepository>(() => OtpRepositoryImpl(
         otpRemoteDataSource: getIt<OtpRemoteDataSource>(),

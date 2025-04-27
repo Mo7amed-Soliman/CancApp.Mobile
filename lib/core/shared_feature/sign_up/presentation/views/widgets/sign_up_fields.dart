@@ -1,4 +1,4 @@
-import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit.dart';
+import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit/sign_up_cubit.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';
 import 'package:canc_app/core/widgets/password_validations.dart';

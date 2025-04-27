@@ -1,4 +1,9 @@
+import 'dart:developer';
+
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_cubit.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_state.dart';
@@ -24,6 +29,7 @@ class CustomBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is FailedVerifyCodeState) {
           botTextToast(state.errorMessage);
+          log(state.errorMessage);
         }
         if (state is SuccessVerifyCodeState) {
           botTextToast(
@@ -31,7 +37,9 @@ class CustomBlocConsumer extends StatelessWidget {
             color: AppColors.darkTeal,
           );
           // navigate to login view
-          context.go(Routes.loginView);
+          final userType =
+              getIt<CacheHelper>().getData(key: CacheKeys.whoAreYou);
+          _navigateToNextView(context, userType);
         }
       },
       builder: (context, state) {
@@ -65,5 +73,28 @@ class CustomBlocConsumer extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _navigateToNextView(BuildContext context, String userType) async {
+    if (userType == UsersKey.patient) {
+      context.go(Routes.homeView);
+    } else if (userType == UsersKey.volunteer) {
+      context.go(Routes.volunteerView);
+    } else if (userType == UsersKey.doctor ||
+        userType == UsersKey.psychiatrist) {
+      context.go(Routes.completeDoctorRegistrationView);
+    } else if (userType == UsersKey.pharmacist) {
+      // TODO: navigate to complete profile view for pharmacist
+
+      context.go(Routes.pharmacistView);
+    }
+
+    if (userType == UsersKey.patient || userType == UsersKey.volunteer) {
+      /// Save is logged in to cache
+      await getIt<CacheHelper>().saveData(
+        key: CacheKeys.isLoggedIn,
+        value: true,
+      );
+    }
   }
 }

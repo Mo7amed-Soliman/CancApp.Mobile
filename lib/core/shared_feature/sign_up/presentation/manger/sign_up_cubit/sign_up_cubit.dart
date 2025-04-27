@@ -52,14 +52,8 @@ class SignUpCubit extends Cubit<SignUpState> {
     final result = await _signUpRepository.signUp(signUpModel: signUpModel);
     result.fold(
       (failure) => emit(SignUpFailed(failure.errorMessage)),
-      (success) async {
-        final result = await _signUpRepository.resendConfirmEmail(
-          email: signUpModel.email,
-        );
-        result.fold(
-          (failure) => emit(SignUpFailed(failure.errorMessage)),
-          (success) => emit(SignUpSuccess()),
-        );
+      (success) {
+        emit(SignUpSuccess());
       },
     );
   }

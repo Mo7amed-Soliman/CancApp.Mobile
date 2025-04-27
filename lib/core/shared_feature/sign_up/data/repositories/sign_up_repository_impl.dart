@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:canc_app/core/networking/api_faliure.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/data_sources/sign_up_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/models/sign_up_model.dart';
 import 'package:dartz/dartz.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'sign_up_repository.dart';
 
@@ -29,14 +32,18 @@ class SignUpRepositoryImpl implements SignUpRepository {
   }
 
   @override
-  Future<Either<Failure, void>> resendConfirmEmail(
-      {required String email}) async {
+  Future<Either<Failure, void>> completeDoctorSignUp(
+      {required XFile idPhoto, required XFile syndicatePhoto}) async {
     try {
-      await _signUpDataSource.resendConfirmEmail(email: email);
+      await _signUpDataSource.completeDoctorSignUp(
+        idPhoto: idPhoto,
+        syndicatePhoto: syndicatePhoto,
+      );
       return const Right(null);
     } on ServerFailure catch (e) {
       return Left(e);
     } catch (e) {
+      log(e.toString());
       return Left(Failure(e.toString()));
     }
   }

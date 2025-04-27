@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../data/models/chat_message_model.dart';
 import '../../data/models/user_chat_model.dart';
 import 'widgets/chat_body.dart';
-import 'widgets/chat_image_picker.dart';
+import '../../../../widgets/image_source_picker.dart';
 import 'widgets/custom_app_bar_chat.dart';
 import 'widgets/message_input.dart';
 
@@ -94,7 +94,7 @@ class _ChatViewState extends State<ChatView> {
           top: Radius.circular(context.setMinSize(20)),
         ),
       ),
-      builder: (context) => ChatImagePicker(
+      builder: (context) => ImageSourcePicker(
         onImageSourceSelected: _pickImage,
       ),
     );
