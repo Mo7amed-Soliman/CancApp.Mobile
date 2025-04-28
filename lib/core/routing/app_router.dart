@@ -113,6 +113,7 @@ final appRouter = GoRouter(
         key: state.pageKey,
         child: OTPView(
           otpModel: state.extra as OtpModel,
+<<<<<<< HEAD
         ),
         transitionsBuilder: _transitionsBuilder,
       ),
@@ -123,6 +124,8 @@ final appRouter = GoRouter(
         key: state.pageKey,
         child: ResetPasswordView(
           email: state.extra as String,
+=======
+>>>>>>> 6dc5276 (- forget password done)
         ),
         transitionsBuilder: _transitionsBuilder,
       ),
