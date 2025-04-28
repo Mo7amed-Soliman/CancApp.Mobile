@@ -4,6 +4,7 @@ import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/database/hive_helper.dart';
 import 'package:canc_app/core/services/local_notifications_service.dart';
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
+import 'package:canc_app/core/services/location_services.dart';
 import 'package:canc_app/core/services/visit_notification_service.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,9 @@ void main() async {
 
   /// Initialize Visit Reminder Notification Service
   await VisitNotificationService.initialize();
+
+  /// Ensure location services are ready
+  await LocationServices.ensureLocationReady();
 
   /// Run the app
   runApp(
