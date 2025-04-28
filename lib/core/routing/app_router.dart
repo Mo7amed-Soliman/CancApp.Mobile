@@ -106,6 +106,16 @@ final appRouter = GoRouter(
       ),
     ),
     GoRoute(
+      path: Routes.resetPasswordView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: ResetPasswordView(
+          email: state.extra as String,
+        ),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
       path: Routes.homeView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
@@ -212,16 +222,6 @@ final appRouter = GoRouter(
           },
         ),
       ],
-    ),
-    GoRoute(
-      path: Routes.resetPasswordView,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: const ResetPasswordView(
-          email: 'test@test.com',
-        ),
-        transitionsBuilder: _transitionsBuilder,
-      ),
     ),
     GoRoute(
       path: Routes.doctorView,

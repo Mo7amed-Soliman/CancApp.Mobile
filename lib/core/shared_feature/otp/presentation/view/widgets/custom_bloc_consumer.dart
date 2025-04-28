@@ -2,6 +2,7 @@ import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
+import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_cubit.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_state.dart';
@@ -19,10 +20,10 @@ import 'resend_code_button.dart';
 class CustomBlocConsumer extends StatelessWidget {
   const CustomBlocConsumer({
     super.key,
-    required this.isForgetPassword,
+    required this.otpModel,
   });
 
-  final bool isForgetPassword;
+  final OtpModel otpModel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,8 @@ class CustomBlocConsumer extends StatelessWidget {
           botTextToast(state.errorMessage);
         }
         if (state is SuccessVerifyCodeState) {
-          if (isForgetPassword) {
-            context.push(Routes.resetPasswordView);
+          if (otpModel.isForgotPassword) {
+            context.push(Routes.resetPasswordView, extra: otpModel.email);
           } else {
             botTextToast(
               S.of(context).emailVerifiedSuccessfully,
@@ -65,7 +66,7 @@ class CustomBlocConsumer extends StatelessWidget {
               isInputFilled: context.read<OtpCubit>().completedCode,
               isLoading: state is LoadingVerifyCodeState,
               onPressed: () {
-                if (isForgetPassword) {
+                if (otpModel.isForgotPassword) {
                   context.read<OtpCubit>().verifyCodeForgetPassword();
                 } else {
                   context.read<OtpCubit>().verifyCode();
