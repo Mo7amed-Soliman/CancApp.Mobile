@@ -23,18 +23,6 @@ class CustomAppBarChat extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: AppColors.primaryColor,
       toolbarHeight: 90,
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              AppColors.darkTeal,
-              AppColors.lightTeal,
-            ],
-          ),
-        ),
-      ),
       leading: IconButton(
         onPressed: () {
           context.pop();
@@ -64,7 +52,7 @@ class CustomAppBarChat extends StatelessWidget implements PreferredSizeWidget {
               Text(
                 subtitle,
                 style: AppTextStyle.font12MediumDarkGray(context).copyWith(
-                  color: AppColors.offWhite.withValues(alpha: 0.8),
+                  color: AppColors.offWhite.withValues(alpha: 0.9),
                 ),
               ),
             ],
