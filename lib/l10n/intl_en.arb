@@ -173,6 +173,15 @@
     "allPersonalDetailsMustBeVisible": "All personal details must be clearly visible",
     "photoRequirements": "Photo requirements:",
     "resetPasswordOtpVerifiedSuccessfully": "OTP verified successfully, please reset your password",
-   "resetPasswordSuccessfully": "Your password has been successfully reset"
+   "resetPasswordSuccessfully": "Your password has been successfully reset",
+   "pharmacyDetailsTitle": "Pharmacy Details",
+   "pharmacyDetailsDescription": "Please provide the required information to complete your pharmacy registration.",
+   "pharmacyLicenseTitle": "Pharmacy License",
+   "dailyWorkingHoursLabel": "Daily Working Hours",
+   "workingHoursValidationError": "Please enter Daily working hours",
+   "validNumberValidationError": "Please enter a valid number",
+   "deliveryServiceTitle": "Delivery Service",
+   "enableDeliveryService": "Enable Delivery Service",
+   "allowMedicineDelivery": "Allow customers to request medicine delivery"
  
 }

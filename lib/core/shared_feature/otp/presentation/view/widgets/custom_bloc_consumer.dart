@@ -97,9 +97,7 @@ class CustomBlocConsumer extends StatelessWidget {
         userType == UsersKey.psychiatrist) {
       context.go(Routes.completeDoctorRegistrationView);
     } else if (userType == UsersKey.pharmacist) {
-      // TODO: navigate to complete profile view for pharmacist
-
-      context.go(Routes.pharmacistView);
+      context.go(Routes.completePharmacyRegistrationView);
     }
 
     if (userType == UsersKey.patient || userType == UsersKey.volunteer) {

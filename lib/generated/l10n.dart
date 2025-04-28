@@ -1314,6 +1314,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Pharmacy Details`
+  String get pharmacyDetailsTitle {
+    return Intl.message(
+      'Pharmacy Details',
+      name: 'pharmacyDetailsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide the required information to complete your pharmacy registration.`
+  String get pharmacyDetailsDescription {
+    return Intl.message(
+      'Please provide the required information to complete your pharmacy registration.',
+      name: 'pharmacyDetailsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pharmacy License`
+  String get pharmacyLicenseTitle {
+    return Intl.message(
+      'Pharmacy License',
+      name: 'pharmacyLicenseTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Working Hours`
+  String get dailyWorkingHoursLabel {
+    return Intl.message(
+      'Daily Working Hours',
+      name: 'dailyWorkingHoursLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter Daily working hours`
+  String get workingHoursValidationError {
+    return Intl.message(
+      'Please enter Daily working hours',
+      name: 'workingHoursValidationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid number`
+  String get validNumberValidationError {
+    return Intl.message(
+      'Please enter a valid number',
+      name: 'validNumberValidationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Service`
+  String get deliveryServiceTitle {
+    return Intl.message(
+      'Delivery Service',
+      name: 'deliveryServiceTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enable Delivery Service`
+  String get enableDeliveryService {
+    return Intl.message(
+      'Enable Delivery Service',
+      name: 'enableDeliveryService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow customers to request medicine delivery`
+  String get allowMedicineDelivery {
+    return Intl.message(
+      'Allow customers to request medicine delivery',
+      name: 'allowMedicineDelivery',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

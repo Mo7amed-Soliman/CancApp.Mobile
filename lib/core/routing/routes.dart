@@ -24,5 +24,7 @@ class Routes {
   static const String psychiatristView = '/psychiatristView';
   static const String chatBotView = '/ChatBotView';
   static const String completeDoctorRegistrationView =
-      '/completeDoctorRegistration';
+      '/completeDoctorRegistrationView';
+  static const String completePharmacyRegistrationView =
+      '/completePharmacyRegistrationView';
 }

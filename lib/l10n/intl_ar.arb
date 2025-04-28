@@ -179,7 +179,16 @@
     "allPersonalDetailsMustBeVisible": "يجب أن تكون جميع التفاصيل الشخصية واضحة",
       "photoRequirements": "متطلبات الصورة:",
       "resetPasswordOtpVerifiedSuccessfully": "تم التحقق من رمز التحقق بنجاح، يرجى إعادة تعيين كلمة المرور",
-     "resetPasswordSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح"
+     "resetPasswordSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح",
+     "pharmacyDetailsTitle": "تفاصيل الصيدلية",
+     "pharmacyDetailsDescription": "يرجى تقديم المعلومات المطلوبة لإتمام تسجيل الصيدلية.",
+     "pharmacyLicenseTitle": "رخصة الصيدلية",
+     "dailyWorkingHoursLabel": "ساعات العمل اليومية",
+     "workingHoursValidationError": "يرجى إدخال ساعات العمل اليومية",
+     "validNumberValidationError": "يرجى إدخال رقم صالح",
+     "deliveryServiceTitle": "خدمة التوصيل",
+     "enableDeliveryService": "تمكين خدمة التوصيل",
+     "allowMedicineDelivery": "السماح للعملاء بطلب توصيل الأدوية"
 
 
 

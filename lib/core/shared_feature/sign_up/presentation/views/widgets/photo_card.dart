@@ -26,6 +26,7 @@ class PhotoCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        width: double.infinity,
         height: context.setHeight(220),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(

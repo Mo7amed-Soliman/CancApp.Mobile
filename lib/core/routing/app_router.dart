@@ -14,6 +14,7 @@ import 'package:canc_app/core/shared_feature/login/presentation/views/login_view
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/language_selection_view.dart';
 import 'package:canc_app/core/shared_feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/complete_doctor_registration_view.dart';
+import 'package:canc_app/core/shared_feature/sign_up/presentation/views/complete_pharmacy_registration_view.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
 import 'package:canc_app/users/doctor/doctor_view.dart';
@@ -84,6 +85,14 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const CompleteDoctorRegistrationView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.completePharmacyRegistrationView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const CompletePharmacyRegistrationView(),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

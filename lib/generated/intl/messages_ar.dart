@@ -42,6 +42,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "يجب أن تكون جميع المعلومات الشخصية واضحة",
     ),
     "allow": MessageLookupByLibrary.simpleMessage("السماح"),
+    "allowMedicineDelivery": MessageLookupByLibrary.simpleMessage(
+      "السماح للعملاء بطلب توصيل الأدوية",
+    ),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل",
     ),
@@ -66,6 +69,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "تأكيد كلمة المرور مطلوب",
     ),
     "createYourAccount": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
+    "dailyWorkingHoursLabel": MessageLookupByLibrary.simpleMessage(
+      "ساعات العمل اليومية",
+    ),
     "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
     "dayOfTheWeek": MessageLookupByLibrary.simpleMessage("يوم الأسبوع"),
     "days": MessageLookupByLibrary.simpleMessage("أيام"),
@@ -77,6 +83,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "deleteVisit": MessageLookupByLibrary.simpleMessage(
       "هل أنت متأكد أنك تريد حذف هذا التذكير بالزيارة؟",
+    ),
+    "deliveryServiceTitle": MessageLookupByLibrary.simpleMessage(
+      "خدمة التوصيل",
     ),
     "deny": MessageLookupByLibrary.simpleMessage("رفض"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -97,6 +106,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم التحقق من البريد الإلكتروني بنجاح",
+    ),
+    "enableDeliveryService": MessageLookupByLibrary.simpleMessage(
+      "تمكين خدمة التوصيل",
     ),
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
@@ -215,6 +227,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
     "pharmacy": MessageLookupByLibrary.simpleMessage("صيدلية"),
+    "pharmacyDetailsDescription": MessageLookupByLibrary.simpleMessage(
+      "يرجى تقديم المعلومات المطلوبة لإتمام تسجيل الصيدلية.",
+    ),
+    "pharmacyDetailsTitle": MessageLookupByLibrary.simpleMessage(
+      "تفاصيل الصيدلية",
+    ),
+    "pharmacyLicenseTitle": MessageLookupByLibrary.simpleMessage(
+      "رخصة الصيدلية",
+    ),
     "photoRequirements": MessageLookupByLibrary.simpleMessage(
       "متطلبات الصورة:",
     ),
@@ -303,6 +324,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف كبير واحد",
     ),
+    "validNumberValidationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال رقم صالح",
+    ),
     "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
     "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
     "visitDate": MessageLookupByLibrary.simpleMessage("تاريخ الزيارة"),
@@ -313,5 +337,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "volunteers": MessageLookupByLibrary.simpleMessage("المتطوعين"),
     "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
+    "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال ساعات العمل اليومية",
+    ),
   };
 }

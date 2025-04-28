@@ -7,6 +7,8 @@ class EndPoint {
   static const String signUp = 'auth/register';
   static const String completeDoctorSignUp =
       'auth/complete-doctor-registration';
+  static const String completePharmacySignUp =
+      'auth/complete-pharmacy-registration';
   static const String refreshToken = 'auth/refresh';
   static const String confirmEmail = 'auth/confirm-email';
   static const String resendConfirmEmail = 'auth/resend-confirm-email';

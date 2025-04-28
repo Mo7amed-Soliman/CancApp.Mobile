@@ -6,9 +6,7 @@ import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
-import 'package:canc_app/core/shared_feature/sign_up/presentation/views/widgets/photo_card.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
-import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/core/widgets/image_source_picker.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
@@ -19,7 +17,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../manger/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
 import '../../manger/complete_doctor_registration_cubit/complete_doctor_registration_state.dart';
-import 'info_box.dart';
+import 'complete_registration_header.dart';
+import 'upload_photo_section.dart';
 
 class CompleteDoctorRegistrationViewBody extends StatelessWidget {
   const CompleteDoctorRegistrationViewBody({super.key});
@@ -60,45 +59,16 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: context.setMinSize(35),
-                            backgroundColor:
-                                AppColors.primaryColor.withAlpha(25),
-                            child: Icon(
-                              Icons.verified_user_outlined,
-                              size: context.setMinSize(40),
-                              color: AppColors.lightTeal,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            S.of(context).documentVerification,
-                            style: AppTextStyle.font20SemiBold(context),
-                            textAlign: TextAlign.center,
-                          ),
-                          const VerticalSpacer(4),
-                          Text(
-                            S.of(context).documentVerificationDescription,
-                            style: AppTextStyle.font16RegularDarkGray(context)
-                                .copyWith(
-                              color: Colors.grey[600],
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
+                    CompleteRegistrationHeader(
+                      title: S.of(context).documentVerification,
+                      description:
+                          S.of(context).documentVerificationDescription,
                     ),
                     const VerticalSpacer(8),
-                    Text(
-                      S.of(context).medicalSyndicateLicense,
-                      style: AppTextStyle.font16RegularDarkGray(context),
-                    ),
-                    const VerticalSpacer(12),
-                    PhotoCard(
+
+                    /// Medical Syndicate License Upload Section
+                    UploadPhotoSection(
+                      title: S.of(context).medicalSyndicateLicense,
                       imageFile: state.syndicatePhoto == null
                           ? null
                           : File(state.syndicatePhoto!.path),
@@ -107,21 +77,17 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
                       placeholderText:
                           S.of(context).tapToTakePhotoOfYourLicense,
                       subText: S.of(context).makeSureAllTextVisible,
-                    ),
-                    InfoBox(
-                      points: [
+                      infoPoints: [
                         S.of(context).licenseMustBeIssuedByAuthority,
                         S.of(context).licenseMustBeValidAndNotExpired,
                         S.of(context).allPersonalDetailsMustBeVisible,
                       ],
                     ),
                     const VerticalSpacer(24),
-                    Text(
-                      S.of(context).governmentId,
-                      style: AppTextStyle.font16RegularDarkGray(context),
-                    ),
-                    const VerticalSpacer(12),
-                    PhotoCard(
+
+                    /// Government ID Upload Section
+                    UploadPhotoSection(
+                      title: S.of(context).governmentId,
                       imageFile: state.idPhoto == null
                           ? null
                           : File(state.idPhoto!.path),
@@ -129,9 +95,7 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
                       placeholderIcon: Icons.badge_outlined,
                       placeholderText: S.of(context).tapToTakePhotoOfYourId,
                       subText: S.of(context).makeSureAllTextVisible,
-                    ),
-                    InfoBox(
-                      points: [
+                      infoPoints: [
                         S.of(context).idMustBeValidAndNotExpired,
                         S.of(context).bothFrontAndBackSidesRequired,
                         S.of(context).allPersonalInfoMustBeVisible,

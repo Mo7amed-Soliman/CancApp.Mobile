@@ -42,6 +42,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "All personal information must be visible",
     ),
     "allow": MessageLookupByLibrary.simpleMessage("Allow"),
+    "allowMedicineDelivery": MessageLookupByLibrary.simpleMessage(
+      "Allow customers to request medicine delivery",
+    ),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
@@ -68,6 +71,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "createYourAccount": MessageLookupByLibrary.simpleMessage(
       "Create your Account",
     ),
+    "dailyWorkingHoursLabel": MessageLookupByLibrary.simpleMessage(
+      "Daily Working Hours",
+    ),
     "date": MessageLookupByLibrary.simpleMessage("Date"),
     "dayOfTheWeek": MessageLookupByLibrary.simpleMessage("Day of the Week"),
     "days": MessageLookupByLibrary.simpleMessage("days"),
@@ -79,6 +85,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "deleteVisit": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete this visit reminder?",
+    ),
+    "deliveryServiceTitle": MessageLookupByLibrary.simpleMessage(
+      "Delivery Service",
     ),
     "deny": MessageLookupByLibrary.simpleMessage("Deny"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -99,6 +108,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Email verified successfully",
+    ),
+    "enableDeliveryService": MessageLookupByLibrary.simpleMessage(
+      "Enable Delivery Service",
     ),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
@@ -213,6 +225,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
     "pharmacy": MessageLookupByLibrary.simpleMessage("Pharmacy"),
+    "pharmacyDetailsDescription": MessageLookupByLibrary.simpleMessage(
+      "Please provide the required information to complete your pharmacy registration.",
+    ),
+    "pharmacyDetailsTitle": MessageLookupByLibrary.simpleMessage(
+      "Pharmacy Details",
+    ),
+    "pharmacyLicenseTitle": MessageLookupByLibrary.simpleMessage(
+      "Pharmacy License",
+    ),
     "photoRequirements": MessageLookupByLibrary.simpleMessage(
       "Photo requirements:",
     ),
@@ -301,6 +322,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 uppercase letter",
     ),
+    "validNumberValidationError": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid number",
+    ),
     "verificationCode": MessageLookupByLibrary.simpleMessage(
       "Verification Code",
     ),
@@ -313,5 +337,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "volunteers": MessageLookupByLibrary.simpleMessage("Volunteers"),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
+    "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
+      "Please enter Daily working hours",
+    ),
   };
 }
