@@ -1100,21 +1100,216 @@ class S {
     );
   }
 
-  /// `Password reset successfully`
-  String get passwordResetSuccessfully {
-    return Intl.message(
-      'Password reset successfully',
-      name: 'passwordResetSuccessfully',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Sent code successfully`
   String get sentCodeSuccessfully {
     return Intl.message(
       'Sent code successfully',
       name: 'sentCodeSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Document Verification`
+  String get documentVerification {
+    return Intl.message(
+      'Document Verification',
+      name: 'documentVerification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide clear photos of your medical license and government ID to complete the verification process.`
+  String get documentVerificationDescription {
+    return Intl.message(
+      'Please provide clear photos of your medical license and government ID to complete the verification process.',
+      name: 'documentVerificationDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Government ID`
+  String get governmentId {
+    return Intl.message(
+      'Government ID',
+      name: 'governmentId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to take a photo of your ID`
+  String get tapToTakePhotoOfId {
+    return Intl.message(
+      'Tap to take a photo of your ID',
+      name: 'tapToTakePhotoOfId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make sure all text is clearly visible`
+  String get makeSureTextVisible {
+    return Intl.message(
+      'Make sure all text is clearly visible',
+      name: 'makeSureTextVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medical Syndicate License`
+  String get medicalSyndicateLicense {
+    return Intl.message(
+      'Medical Syndicate License',
+      name: 'medicalSyndicateLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to take a photo of your license`
+  String get tapToTakePhotoOfLicense {
+    return Intl.message(
+      'Tap to take a photo of your license',
+      name: 'tapToTakePhotoOfLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload`
+  String get upload {
+    return Intl.message('Upload', name: 'upload', desc: '', args: []);
+  }
+
+  /// `Tap to take a photo of your ID`
+  String get tapToTakePhotoOfYourId {
+    return Intl.message(
+      'Tap to take a photo of your ID',
+      name: 'tapToTakePhotoOfYourId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make sure all text is clearly visible`
+  String get makeSureAllTextVisible {
+    return Intl.message(
+      'Make sure all text is clearly visible',
+      name: 'makeSureAllTextVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID must be valid and not expired`
+  String get idMustBeValidAndNotExpired {
+    return Intl.message(
+      'ID must be valid and not expired',
+      name: 'idMustBeValidAndNotExpired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Both front and back sides are required`
+  String get bothFrontAndBackSidesRequired {
+    return Intl.message(
+      'Both front and back sides are required',
+      name: 'bothFrontAndBackSidesRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All personal information must be visible`
+  String get allPersonalInfoMustBeVisible {
+    return Intl.message(
+      'All personal information must be visible',
+      name: 'allPersonalInfoMustBeVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No fingers covering any part of the ID`
+  String get noFingersCoveringId {
+    return Intl.message(
+      'No fingers covering any part of the ID',
+      name: 'noFingersCoveringId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to take a photo of your license`
+  String get tapToTakePhotoOfYourLicense {
+    return Intl.message(
+      'Tap to take a photo of your license',
+      name: 'tapToTakePhotoOfYourLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The license must be issued by the official\n   Medical Syndicate authority`
+  String get licenseMustBeIssuedByAuthority {
+    return Intl.message(
+      'The license must be issued by the official\n   Medical Syndicate authority',
+      name: 'licenseMustBeIssuedByAuthority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The license must be valid and not expired`
+  String get licenseMustBeValidAndNotExpired {
+    return Intl.message(
+      'The license must be valid and not expired',
+      name: 'licenseMustBeValidAndNotExpired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All personal details must be clearly visible`
+  String get allPersonalDetailsMustBeVisible {
+    return Intl.message(
+      'All personal details must be clearly visible',
+      name: 'allPersonalDetailsMustBeVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Photo requirements:`
+  String get photoRequirements {
+    return Intl.message(
+      'Photo requirements:',
+      name: 'photoRequirements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OTP verified successfully, please reset your password`
+  String get resetPasswordOtpVerifiedSuccessfully {
+    return Intl.message(
+      'OTP verified successfully, please reset your password',
+      name: 'resetPasswordOtpVerifiedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password has been successfully reset`
+  String get resetPasswordSuccessfully {
+    return Intl.message(
+      'Your password has been successfully reset',
+      name: 'resetPasswordSuccessfully',
       desc: '',
       args: [],
     );

@@ -76,13 +76,13 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
                           ),
                           const SizedBox(height: 12),
                           Text(
-                            'Document Verification',
+                            S.of(context).documentVerification,
                             style: AppTextStyle.font20SemiBold(context),
                             textAlign: TextAlign.center,
                           ),
                           const VerticalSpacer(4),
                           Text(
-                            'Please provide clear photos of your medical license and government ID to complete the verification process.',
+                            S.of(context).documentVerificationDescription,
                             style: AppTextStyle.font16RegularDarkGray(context)
                                 .copyWith(
                               color: Colors.grey[600],
@@ -94,30 +94,7 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
                     ),
                     const VerticalSpacer(8),
                     Text(
-                      'Government ID',
-                      style: AppTextStyle.font16RegularDarkGray(context),
-                    ),
-                    const VerticalSpacer(12),
-                    PhotoCard(
-                      imageFile: state.idPhoto == null
-                          ? null
-                          : File(state.idPhoto!.path),
-                      onTap: () => _handleImagePicker(context, false),
-                      placeholderIcon: Icons.badge_outlined,
-                      placeholderText: 'Tap to take a photo of your ID',
-                      subText: 'Make sure all text is clearly visible',
-                    ),
-                    const InfoBox(
-                      points: [
-                        'ID must be valid and not expired',
-                        'Both front and back sides are required',
-                        'All personal information must be visible',
-                        'No fingers covering any part of the ID',
-                      ],
-                    ),
-                    const VerticalSpacer(24),
-                    Text(
-                      'Medical Syndicate License',
+                      S.of(context).medicalSyndicateLicense,
                       style: AppTextStyle.font16RegularDarkGray(context),
                     ),
                     const VerticalSpacer(12),
@@ -127,14 +104,38 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
                           : File(state.syndicatePhoto!.path),
                       onTap: () => _handleImagePicker(context, true),
                       placeholderIcon: Icons.badge_outlined,
-                      placeholderText: 'Tap to take a photo of your license',
-                      subText: 'Make sure all text is clearly visible',
+                      placeholderText:
+                          S.of(context).tapToTakePhotoOfYourLicense,
+                      subText: S.of(context).makeSureAllTextVisible,
                     ),
-                    const InfoBox(
+                    InfoBox(
                       points: [
-                        'The license must be issued by the official\n   Medical Syndicate authority',
-                        'The license must be valid and not expired',
-                        'All personal details must be clearly visible',
+                        S.of(context).licenseMustBeIssuedByAuthority,
+                        S.of(context).licenseMustBeValidAndNotExpired,
+                        S.of(context).allPersonalDetailsMustBeVisible,
+                      ],
+                    ),
+                    const VerticalSpacer(24),
+                    Text(
+                      S.of(context).governmentId,
+                      style: AppTextStyle.font16RegularDarkGray(context),
+                    ),
+                    const VerticalSpacer(12),
+                    PhotoCard(
+                      imageFile: state.idPhoto == null
+                          ? null
+                          : File(state.idPhoto!.path),
+                      onTap: () => _handleImagePicker(context, false),
+                      placeholderIcon: Icons.badge_outlined,
+                      placeholderText: S.of(context).tapToTakePhotoOfYourId,
+                      subText: S.of(context).makeSureAllTextVisible,
+                    ),
+                    InfoBox(
+                      points: [
+                        S.of(context).idMustBeValidAndNotExpired,
+                        S.of(context).bothFrontAndBackSidesRequired,
+                        S.of(context).allPersonalInfoMustBeVisible,
+                        S.of(context).noFingersCoveringId,
                       ],
                     ),
                     const VerticalSpacer(20),
@@ -146,7 +147,7 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
                 onPressed: state.canContinue && !state.isUploading
                     ? cubit.uploadDocuments
                     : () {},
-                text: 'Upload',
+                text: S.of(context).upload,
                 isLoading: state.isUploading,
               )
             ],

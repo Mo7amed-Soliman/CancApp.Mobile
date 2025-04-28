@@ -35,12 +35,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "alarmTime": MessageLookupByLibrary.simpleMessage("وقت التنبيه"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("أوقات التنبيه"),
+    "allPersonalDetailsMustBeVisible": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون جميع التفاصيل الشخصية واضحة",
+    ),
+    "allPersonalInfoMustBeVisible": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون جميع المعلومات الشخصية واضحة",
+    ),
     "allow": MessageLookupByLibrary.simpleMessage("السماح"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
+    "bothFrontAndBackSidesRequired": MessageLookupByLibrary.simpleMessage(
+      "مطلوب تصوير الجهتين الأمامية والخلفية",
+    ),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "chat": MessageLookupByLibrary.simpleMessage("المحادثة"),
@@ -76,6 +85,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "doctor": MessageLookupByLibrary.simpleMessage("طبيب"),
     "doctorName": MessageLookupByLibrary.simpleMessage("اسم الطبيب"),
     "doctors": MessageLookupByLibrary.simpleMessage("الأطباء"),
+    "documentVerification": MessageLookupByLibrary.simpleMessage(
+      "توثيق المستندات",
+    ),
+    "documentVerificationDescription": MessageLookupByLibrary.simpleMessage(
+      "يرجى تقديم صور واضحة لرخصة مزاولة المهنة والهوية الحكومية لإكمال عملية التحقق.",
+    ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "editMedication": MessageLookupByLibrary.simpleMessage("تعديل دواء"),
     "editVisit": MessageLookupByLibrary.simpleMessage("تعديل زيارة"),
@@ -97,9 +112,19 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "frequency": MessageLookupByLibrary.simpleMessage("التكرار"),
     "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+    "governmentId": MessageLookupByLibrary.simpleMessage("الهوية الحكومية"),
     "helloWelcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "idMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون الهوية سارية وغير منتهية",
+    ),
     "injection": MessageLookupByLibrary.simpleMessage("حقنة"),
+    "licenseMustBeIssuedByAuthority": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تصدر الرخصة من قبل الجهة الرسمية للنقابة الطبية",
+    ),
+    "licenseMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون الرخصة سارية وغير منتهية",
+    ),
     "liquid": MessageLookupByLibrary.simpleMessage("سائل"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSuccessful": MessageLookupByLibrary.simpleMessage(
@@ -107,6 +132,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف صغير واحد",
+    ),
+    "makeSureAllTextVisible": MessageLookupByLibrary.simpleMessage(
+      "تأكد من أن جميع النصوص واضحة",
+    ),
+    "makeSureTextVisible": MessageLookupByLibrary.simpleMessage(
+      "تأكد أن جميع النصوص واضحة",
+    ),
+    "medicalSyndicateLicense": MessageLookupByLibrary.simpleMessage(
+      "رخصة النقابة الطبية",
     ),
     "medicationName": MessageLookupByLibrary.simpleMessage("اسم الدواء"),
     "medicationReminder": MessageLookupByLibrary.simpleMessage("تذكير الأدوية"),
@@ -119,6 +153,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "navigate": MessageLookupByLibrary.simpleMessage("تنقل"),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("أقرب صيدلية"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
+      "يُمنع تغطية أي جزء من الهوية بالأصابع",
+    ),
     "noMedications": MessageLookupByLibrary.simpleMessage(
       "لا توجد تذكيرات بالأدوية بعد",
     ),
@@ -170,9 +207,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور مطلوبة",
     ),
-    "passwordResetSuccessfully": MessageLookupByLibrary.simpleMessage(
-      "تم إعادة تعيين كلمة المرور بنجاح",
-    ),
     "passwordsDonotMatch": MessageLookupByLibrary.simpleMessage(
       "كلمات المرور لا تتطابق",
     ),
@@ -181,6 +215,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
     "pharmacy": MessageLookupByLibrary.simpleMessage("صيدلية"),
+    "photoRequirements": MessageLookupByLibrary.simpleMessage(
+      "متطلبات الصورة:",
+    ),
     "pill": MessageLookupByLibrary.simpleMessage("حبة"),
     "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة وقت تنبيه واحد على الأقل",
@@ -216,6 +253,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
     ),
+    "resetPasswordOtpVerifiedSuccessfully":
+        MessageLookupByLibrary.simpleMessage(
+          "تم التحقق من رمز التحقق بنجاح، يرجى إعادة تعيين كلمة المرور",
+        ),
+    "resetPasswordSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إعادة تعيين كلمة المرور بنجاح",
+    ),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
@@ -239,10 +283,23 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "specificDays": MessageLookupByLibrary.simpleMessage("أيام محددة"),
     "takePhoto": MessageLookupByLibrary.simpleMessage("أختر صورة"),
+    "tapToTakePhotoOfId": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة لبطاقتك",
+    ),
+    "tapToTakePhotoOfLicense": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة للرخصة",
+    ),
+    "tapToTakePhotoOfYourId": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة لهويتك",
+    ),
+    "tapToTakePhotoOfYourLicense": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة لرخصتك",
+    ),
     "thisTimeIsAlreadyAdded": MessageLookupByLibrary.simpleMessage(
       "هذا الوقت موجود بالفعل",
     ),
     "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "upload": MessageLookupByLibrary.simpleMessage("رفع"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف كبير واحد",
     ),

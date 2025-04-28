@@ -1,4 +1,5 @@
 import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 
@@ -24,7 +25,7 @@ class InfoBox extends StatelessWidget {
               Icon(Icons.info_outline, color: AppColors.red.withAlpha(230)),
               const SizedBox(width: 8),
               Text(
-                'Photo requirements:',
+                S.of(context).photoRequirements,
                 style: AppTextStyle.font14RegularDarkGray(context).copyWith(
                   fontWeight: FontWeight.w600,
                 ),

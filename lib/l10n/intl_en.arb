@@ -149,7 +149,30 @@
       "pleaseVerifyYourEmail": "Please verify your email",
       "emailVerifiedSuccessfully": "Email verified successfully",
       "resetPassword": "Reset Password",
-      "passwordResetSuccessfully": "Password reset successfully",
-      "sentCodeSuccessfully": "Sent code successfully"
+    
+      "sentCodeSuccessfully": "Sent code successfully",
+
+
+    "documentVerification": "Document Verification",
+    "documentVerificationDescription": "Please provide clear photos of your medical license and government ID to complete the verification process.",
+    "governmentId": "Government ID",
+    "tapToTakePhotoOfId": "Tap to take a photo of your ID",
+    "makeSureTextVisible": "Make sure all text is clearly visible",
+    "medicalSyndicateLicense": "Medical Syndicate License",
+    "tapToTakePhotoOfLicense": "Tap to take a photo of your license",
+    "upload": "Upload",
+    "tapToTakePhotoOfYourId": "Tap to take a photo of your ID",
+    "makeSureAllTextVisible": "Make sure all text is clearly visible",
+    "idMustBeValidAndNotExpired": "ID must be valid and not expired",
+    "bothFrontAndBackSidesRequired": "Both front and back sides are required",
+    "allPersonalInfoMustBeVisible": "All personal information must be visible",
+    "noFingersCoveringId": "No fingers covering any part of the ID",
+    "tapToTakePhotoOfYourLicense": "Tap to take a photo of your license",
+    "licenseMustBeIssuedByAuthority": "The license must be issued by the official\n   Medical Syndicate authority",
+    "licenseMustBeValidAndNotExpired": "The license must be valid and not expired",
+    "allPersonalDetailsMustBeVisible": "All personal details must be clearly visible",
+    "photoRequirements": "Photo requirements:",
+    "resetPasswordOtpVerifiedSuccessfully": "OTP verified successfully, please reset your password",
+   "resetPasswordSuccessfully": "Your password has been successfully reset"
  
 }

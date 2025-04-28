@@ -35,6 +35,10 @@ class CustomBlocConsumer extends StatelessWidget {
         if (state is SuccessVerifyCodeState) {
           if (otpModel.isForgotPassword) {
             context.push(Routes.resetPasswordView, extra: otpModel.email);
+            botTextToast(
+              S.of(context).resetPasswordOtpVerifiedSuccessfully,
+              color: AppColors.darkTeal,
+            );
           } else {
             botTextToast(
               S.of(context).emailVerifiedSuccessfully,

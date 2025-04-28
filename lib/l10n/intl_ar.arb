@@ -150,7 +150,37 @@
     "pleaseVerifyYourEmail": "الرجاء التحقق من بريدك الإلكتروني",
     "emailVerifiedSuccessfully": "تم التحقق من البريد الإلكتروني بنجاح",
     "resetPassword": "إعادة تعيين كلمة المرور",
-    "passwordResetSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح",
-    "sentCodeSuccessfully": "تم إرسال الكود بنجاح"
- 
+    "sentCodeSuccessfully": "تم إرسال الكود بنجاح",
+    "tapToTakePhotoOfId": "اضغط لالتقاط صورة لبطاقتك",
+    "tapToTakePhotoOfLicense": "اضغط لالتقاط صورة للرخصة",
+    "documentVerification": "توثيق المستندات",
+    "documentVerificationDescription": "يرجى تقديم صور واضحة لرخصة مزاولة المهنة والهوية الحكومية لإكمال عملية التحقق.",
+    "governmentId": "الهوية الحكومية",
+    "tapToTakePhotoId": "اضغط لالتقاط صورة لهويتك",
+    "makeSureTextVisible": "تأكد أن جميع النصوص واضحة",
+    "medicalSyndicateLicense": "رخصة النقابة الطبية",
+    "tapToTakePhotoLicense": "اضغط لالتقاط صورة للرخصة",
+    "licenseMustBeOfficial": "يجب أن تصدر الرخصة من الجهة الرسمية للنقابة الطبية",
+    "licenseMustBeValid": "يجب أن تكون الرخصة سارية المفعول",
+    "allPersonalDetailsVisible": "يجب أن تكون جميع التفاصيل الشخصية واضحة",
+    "idMustBeValid": "يجب أن تكون الهوية سارية المفعول",
+    "bothSidesRequired": "مطلوب تصوير الوجهين الأمامي والخلفي",
+    "allPersonalInfoVisible": "يجب أن تكون جميع المعلومات الشخصية واضحة",
+    "noFingersCoveringId": "يُمنع تغطية أي جزء من الهوية بالأصابع",
+    "upload": "رفع",
+    "tapToTakePhotoOfYourId": "اضغط لالتقاط صورة لهويتك",
+    "makeSureAllTextVisible": "تأكد من أن جميع النصوص واضحة",
+    "idMustBeValidAndNotExpired": "يجب أن تكون الهوية سارية وغير منتهية",
+    "bothFrontAndBackSidesRequired": "مطلوب تصوير الجهتين الأمامية والخلفية",
+    "allPersonalInfoMustBeVisible": "يجب أن تكون جميع المعلومات الشخصية واضحة",
+    "tapToTakePhotoOfYourLicense": "اضغط لالتقاط صورة لرخصتك",
+    "licenseMustBeIssuedByAuthority": "يجب أن تصدر الرخصة من قبل الجهة الرسمية للنقابة الطبية",
+    "licenseMustBeValidAndNotExpired": "يجب أن تكون الرخصة سارية وغير منتهية",
+    "allPersonalDetailsMustBeVisible": "يجب أن تكون جميع التفاصيل الشخصية واضحة",
+      "photoRequirements": "متطلبات الصورة:",
+      "resetPasswordOtpVerifiedSuccessfully": "تم التحقق من رمز التحقق بنجاح، يرجى إعادة تعيين كلمة المرور",
+     "resetPasswordSuccessfully": "تم إعادة تعيين كلمة المرور بنجاح"
+
+
+
 }

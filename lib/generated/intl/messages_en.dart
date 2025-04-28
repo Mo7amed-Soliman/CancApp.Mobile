@@ -35,12 +35,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "address": MessageLookupByLibrary.simpleMessage("Address"),
     "alarmTime": MessageLookupByLibrary.simpleMessage("Alarm Time"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("Alarm Times"),
+    "allPersonalDetailsMustBeVisible": MessageLookupByLibrary.simpleMessage(
+      "All personal details must be clearly visible",
+    ),
+    "allPersonalInfoMustBeVisible": MessageLookupByLibrary.simpleMessage(
+      "All personal information must be visible",
+    ),
     "allow": MessageLookupByLibrary.simpleMessage("Allow"),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account?",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
+    "bothFrontAndBackSidesRequired": MessageLookupByLibrary.simpleMessage(
+      "Both front and back sides are required",
+    ),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "chat": MessageLookupByLibrary.simpleMessage("Chat"),
@@ -78,6 +87,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "doctor": MessageLookupByLibrary.simpleMessage("Doctor"),
     "doctorName": MessageLookupByLibrary.simpleMessage("Doctor Name"),
     "doctors": MessageLookupByLibrary.simpleMessage("Doctors"),
+    "documentVerification": MessageLookupByLibrary.simpleMessage(
+      "Document Verification",
+    ),
+    "documentVerificationDescription": MessageLookupByLibrary.simpleMessage(
+      "Please provide clear photos of your medical license and government ID to complete the verification process.",
+    ),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "editMedication": MessageLookupByLibrary.simpleMessage("Edit Medication"),
     "editVisit": MessageLookupByLibrary.simpleMessage("Edit Visit"),
@@ -99,14 +114,33 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "governmentId": MessageLookupByLibrary.simpleMessage("Government ID"),
     "helloWelcome": MessageLookupByLibrary.simpleMessage("Hello, Welcome"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
+    "idMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
+      "ID must be valid and not expired",
+    ),
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
+    "licenseMustBeIssuedByAuthority": MessageLookupByLibrary.simpleMessage(
+      "The license must be issued by the official\n   Medical Syndicate authority",
+    ),
+    "licenseMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
+      "The license must be valid and not expired",
+    ),
     "liquid": MessageLookupByLibrary.simpleMessage("Liquid"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSuccessful": MessageLookupByLibrary.simpleMessage("Login successful"),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
+    ),
+    "makeSureAllTextVisible": MessageLookupByLibrary.simpleMessage(
+      "Make sure all text is clearly visible",
+    ),
+    "makeSureTextVisible": MessageLookupByLibrary.simpleMessage(
+      "Make sure all text is clearly visible",
+    ),
+    "medicalSyndicateLicense": MessageLookupByLibrary.simpleMessage(
+      "Medical Syndicate License",
     ),
     "medicationName": MessageLookupByLibrary.simpleMessage("Medication Name"),
     "medicationReminder": MessageLookupByLibrary.simpleMessage("Meds Reminder"),
@@ -119,6 +153,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "navigate": MessageLookupByLibrary.simpleMessage("Navigate"),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("Nearest Pharmacy"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
+      "No fingers covering any part of the ID",
+    ),
     "noMedications": MessageLookupByLibrary.simpleMessage("No medications"),
     "noMedicationsForDate": MessageLookupByLibrary.simpleMessage(
       "No medications for this date",
@@ -168,9 +205,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Password is required",
     ),
-    "passwordResetSuccessfully": MessageLookupByLibrary.simpleMessage(
-      "Password reset successfully",
-    ),
     "passwordsDonotMatch": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
@@ -179,6 +213,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
     "pharmacy": MessageLookupByLibrary.simpleMessage("Pharmacy"),
+    "photoRequirements": MessageLookupByLibrary.simpleMessage(
+      "Photo requirements:",
+    ),
     "pill": MessageLookupByLibrary.simpleMessage("Pill"),
     "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
       "Please add at least one alarm time",
@@ -212,6 +249,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
+    "resetPasswordOtpVerifiedSuccessfully":
+        MessageLookupByLibrary.simpleMessage(
+          "OTP verified successfully, please reset your password",
+        ),
+    "resetPasswordSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Your password has been successfully reset",
+    ),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
@@ -237,10 +281,23 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "specificDays": MessageLookupByLibrary.simpleMessage("Specific Days"),
     "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
+    "tapToTakePhotoOfId": MessageLookupByLibrary.simpleMessage(
+      "Tap to take a photo of your ID",
+    ),
+    "tapToTakePhotoOfLicense": MessageLookupByLibrary.simpleMessage(
+      "Tap to take a photo of your license",
+    ),
+    "tapToTakePhotoOfYourId": MessageLookupByLibrary.simpleMessage(
+      "Tap to take a photo of your ID",
+    ),
+    "tapToTakePhotoOfYourLicense": MessageLookupByLibrary.simpleMessage(
+      "Tap to take a photo of your license",
+    ),
     "thisTimeIsAlreadyAdded": MessageLookupByLibrary.simpleMessage(
       "This time is already added.",
     ),
     "today": MessageLookupByLibrary.simpleMessage("Today"),
+    "upload": MessageLookupByLibrary.simpleMessage("Upload"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 uppercase letter",
     ),

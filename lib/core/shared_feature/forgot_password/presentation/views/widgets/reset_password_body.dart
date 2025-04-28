@@ -24,11 +24,11 @@ class ResetPasswordBody extends StatelessWidget {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
         if (state is ResetPasswordSuccess) {
+          context.go(Routes.loginView);
           botTextToast(
-            S.of(context).passwordResetSuccessfully,
+            S.of(context).resetPasswordSuccessfully,
             color: AppColors.darkTeal,
           );
-          context.go(Routes.loginView);
         }
         if (state is ResetPasswordError) {
           botTextToast(
