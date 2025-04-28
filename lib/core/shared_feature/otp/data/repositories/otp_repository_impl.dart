@@ -44,4 +44,22 @@ class OtpRepositoryImpl implements OtpRepository {
       return Left(Failure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> verifyCodeForgetPassword({
+    required String email,
+    required String code,
+  }) async {
+    try {
+      await _otpRemoteDataSource.verifyCodeForgetPassword(
+        email: email,
+        code: code,
+      );
+      return const Right(null);
+    } on ServerFailure catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(Failure(e.toString()));
+    }
+  }
 }

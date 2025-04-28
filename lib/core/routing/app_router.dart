@@ -3,6 +3,7 @@ import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
 import 'package:canc_app/core/shared_feature/chat/presentation/views/chat_view.dart';
@@ -99,7 +100,7 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: OTPView(
-          email: state.extra as String,
+          otpModel: state.extra as OtpModel,
         ),
         transitionsBuilder: _transitionsBuilder,
       ),

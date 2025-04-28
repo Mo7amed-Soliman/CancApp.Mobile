@@ -1,5 +1,6 @@
 import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repository.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_cubit.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/view/widgets/otp_view_body.dart';
@@ -10,20 +11,23 @@ import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 
 class OTPView extends StatelessWidget {
-  const OTPView({super.key, required this.email});
+  const OTPView({
+    super.key,
+    required this.otpModel,
+  });
 
-  final String email;
+  final OtpModel otpModel;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => OtpCubit(
         otpRepository: getIt<OtpRepository>(),
-        email: email,
+        otpModel: otpModel,
       ),
       child: Scaffold(
         appBar: _buildAppBar(context),
-        body: OtpViewBody(email: email),
+        body: OtpViewBody(otpModel: otpModel),
       ),
     );
   }

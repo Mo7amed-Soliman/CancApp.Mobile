@@ -8,6 +8,7 @@ class ApiConstant {
   static const String image = 'image';
   static const String otpCode = 'otp';
   static const String userId = 'userId';
+  static const String newPassword = 'newPassword';
 }
 
 class ApiConstantForm {

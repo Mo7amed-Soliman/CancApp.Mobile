@@ -4,10 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../data/repositories/forget_password_repository.dart';
+
 part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit() : super(ResetPasswordInitial());
+  ResetPasswordCubit(
+      {required ForgetPasswordRepository forgetPasswordRepository})
+      : _forgetPasswordRepository = forgetPasswordRepository,
+        super(ResetPasswordInitial());
+
+  final ForgetPasswordRepository _forgetPasswordRepository;
 
   // Form management
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -22,12 +29,15 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   }) async {
     emit(ResetPasswordLoading());
     try {
-      // TODO: Add reset password implementation when the endpoint is ready
+      final result = await _forgetPasswordRepository.resetPassword(
+        email: email,
+        newPassword: newPassword,
+      );
 
-      // Simulate API call delay
-      await Future.delayed(const Duration(seconds: 3));
-
-      emit(ResetPasswordSuccess());
+      result.fold(
+        (failure) => emit(ResetPasswordError(failure.errorMessage)),
+        (success) => emit(ResetPasswordSuccess()),
+      );
     } catch (error) {
       emit(ResetPasswordError(error.toString()));
     }

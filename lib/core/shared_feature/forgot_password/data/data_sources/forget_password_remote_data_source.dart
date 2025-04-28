@@ -20,4 +20,18 @@ class ForgetPasswordRemoteDataSource {
       },
     );
   }
+
+  Future<void> resetPassword({
+    required String email,
+    required String newPassword,
+  }) async {
+    /// forget password request
+    await _apiConsumer.post(
+      EndPoint.resetPassword,
+      data: {
+        ApiConstant.email: email,
+        ApiConstant.newPassword: newPassword,
+      },
+    );
+  }
 }

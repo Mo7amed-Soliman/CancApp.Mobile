@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
@@ -21,7 +19,10 @@ import 'resend_code_button.dart';
 class CustomBlocConsumer extends StatelessWidget {
   const CustomBlocConsumer({
     super.key,
+    required this.isForgetPassword,
   });
+
+  final bool isForgetPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -29,17 +30,20 @@ class CustomBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is FailedVerifyCodeState) {
           botTextToast(state.errorMessage);
-          log(state.errorMessage);
         }
         if (state is SuccessVerifyCodeState) {
-          botTextToast(
-            S.of(context).emailVerifiedSuccessfully,
-            color: AppColors.darkTeal,
-          );
-          // navigate to login view
-          final userType =
-              getIt<CacheHelper>().getData(key: CacheKeys.whoAreYou);
-          _navigateToNextView(context, userType);
+          if (isForgetPassword) {
+            context.push(Routes.resetPasswordView);
+          } else {
+            botTextToast(
+              S.of(context).emailVerifiedSuccessfully,
+              color: AppColors.darkTeal,
+            );
+            // navigate to login view
+            final userType =
+                getIt<CacheHelper>().getData(key: CacheKeys.whoAreYou);
+            _navigateToNextView(context, userType);
+          }
         }
       },
       builder: (context, state) {
@@ -61,7 +65,11 @@ class CustomBlocConsumer extends StatelessWidget {
               isInputFilled: context.read<OtpCubit>().completedCode,
               isLoading: state is LoadingVerifyCodeState,
               onPressed: () {
-                context.read<OtpCubit>().verifyCode();
+                if (isForgetPassword) {
+                  context.read<OtpCubit>().verifyCodeForgetPassword();
+                } else {
+                  context.read<OtpCubit>().verifyCode();
+                }
               },
             ),
             ResendCodeButton(

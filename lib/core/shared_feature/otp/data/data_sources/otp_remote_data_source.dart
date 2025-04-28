@@ -47,4 +47,17 @@ class OtpRemoteDataSource {
       },
     );
   }
+
+  Future<void> verifyCodeForgetPassword({
+    required String email,
+    required String code,
+  }) async {
+    await _apiConsumer.post(
+      EndPoint.registerOtpNewPassword,
+      data: {
+        ApiConstant.email: email,
+        ApiConstant.otpCode: code,
+      },
+    );
+  }
 }

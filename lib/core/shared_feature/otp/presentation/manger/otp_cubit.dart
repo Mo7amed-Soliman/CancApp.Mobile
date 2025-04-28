@@ -1,3 +1,4 @@
+import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,11 +6,11 @@ import 'otp_state.dart';
 
 class OtpCubit extends Cubit<OtpState> {
   final OtpRepository _otpRepository;
-  final String email;
+  final OtpModel otpModel;
 
   OtpCubit({
     required OtpRepository otpRepository,
-    required this.email,
+    required this.otpModel,
   })  : _otpRepository = otpRepository,
         super(InitialState());
 
@@ -21,7 +22,7 @@ class OtpCubit extends Cubit<OtpState> {
     emit(LoadingVerifyCodeState());
 
     final result = await _otpRepository.verifyCode(
-      email: email,
+      email: otpModel.email,
       code: codeInput!,
     );
 
@@ -37,7 +38,7 @@ class OtpCubit extends Cubit<OtpState> {
     emit(LoadingVerifyCodeState());
 
     final result = await _otpRepository.resendCode(
-      email: email,
+      email: otpModel.email,
     );
 
     result.fold(
@@ -45,6 +46,22 @@ class OtpCubit extends Cubit<OtpState> {
         emit(FailedVerifyCodeState(errorMessage: failure.errorMessage));
       },
       (success) => emit(InitialState()),
+    );
+  }
+
+  Future<void> verifyCodeForgetPassword() async {
+    emit(LoadingVerifyCodeState());
+
+    final result = await _otpRepository.verifyCodeForgetPassword(
+      email: otpModel.email,
+      code: codeInput!,
+    );
+
+    result.fold(
+      (failure) {
+        emit(FailedVerifyCodeState(errorMessage: failure.errorMessage));
+      },
+      (success) => emit(SuccessVerifyCodeState()),
     );
   }
 

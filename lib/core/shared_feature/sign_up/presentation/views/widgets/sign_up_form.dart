@@ -1,4 +1,5 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit/sign_up_cubit.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/widgets/sign_up_fields.dart';
@@ -23,9 +24,12 @@ class SignUpForm extends StatelessWidget {
             '${S.of(context).signUpSuccessful} , ${S.of(context).pleaseVerifyYourEmail}',
             color: AppColors.darkTeal,
           );
-          context.go(
+          context.push(
             Routes.otpView,
-            extra: signUpCubit.emailInput,
+            extra: OtpModel(
+              isForgotPassword: false,
+              email: signUpCubit.emailInput!,
+            ),
           );
         }
         if (state is SignUpFailed) {

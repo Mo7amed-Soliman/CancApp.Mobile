@@ -10,4 +10,9 @@ abstract class OtpRepository {
   Future<Either<Failure, void>> resendCode({
     required String email,
   });
+
+  Future<Either<Failure, void>> verifyCodeForgetPassword({
+    required String email,
+    required String code,
+  });
 }

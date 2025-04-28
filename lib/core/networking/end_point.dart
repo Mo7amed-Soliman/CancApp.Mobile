@@ -12,6 +12,8 @@ class EndPoint {
   static const String resendConfirmEmail = 'auth/resend-confirm-email';
   static const String forgotPassword = 'auth/forget-password';
   static const String resetPassword = 'auth/reset-password';
+  static const String registerOtpNewPassword =
+      'auth/register-otp-for-new-password';
 
   static String chatbotBaseUrl = dotenv.get('CHAT_BOT_BASE_URL');
 

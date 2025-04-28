@@ -6,6 +6,7 @@ import 'package:canc_app/core/services/refresh_token_service.dart';
 import 'package:canc_app/core/services/token_service.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/data/data_sources/forget_password_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/data/repositories/forget_password_repository.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/reset_password_cubit/reset_password_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/data/data_sources/login_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit/forgot_password_cubit.dart';
@@ -108,7 +109,10 @@ Future<void> initDependencies() async {
       () => ForgetPasswordRemoteDataSource(
             apiConsumer: getIt<ApiConsumer>(),
           ));
-
+  //! reset password cubit
+  getIt.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(
+        forgetPasswordRepository: getIt<ForgetPasswordRepository>(),
+      ));
   //! medication reminder cubit
   getIt.registerFactory<MedicationReminderCubit>(() => MedicationReminderCubit(
         getIt<MedicationReminderRepository>(),

@@ -1,7 +1,9 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/widgets/send_code_button.dart';
+import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
@@ -19,9 +21,17 @@ class ForgotPasswordForm extends StatelessWidget {
       listener: (context, state) {
         // Handle state changes if needed
         if (state is SuccessSensCodeState) {
-          botTextToast(S.of(context).sentCodeSuccessfully);
-          context.push<String>(Routes.otpView,
-              extra: forgotPasswordCubit.emailInput);
+          botTextToast(
+            S.of(context).sentCodeSuccessfully,
+            color: AppColors.darkTeal,
+          );
+          context.push(
+            Routes.otpView,
+            extra: OtpModel(
+              isForgotPassword: true,
+              email: forgotPasswordCubit.emailInput!,
+            ),
+          );
         }
         if (state is FailedSendCodeState) {
           botTextToast(state.errorMessage);
