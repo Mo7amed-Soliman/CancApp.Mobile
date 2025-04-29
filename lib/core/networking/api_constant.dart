@@ -20,4 +20,7 @@ class ApiConstantForm {
   static const String userType = 'UserType';
   static const String medicalSyndicatePhoto = 'MedicalSyndicatePhoto';
   static const String imageId = 'ImageId';
+  static const String pharmacyLicensePhoto = 'ImagePharmacyLicense';
+  static const String numberOfWorkingHours = 'NumberOfWorkingHours';
+  static const String isDeliveryEnabled = 'IsDeliveryEnabled';
 }

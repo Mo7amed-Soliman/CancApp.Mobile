@@ -18,6 +18,7 @@ import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repositor
 import 'package:canc_app/core/shared_feature/sign_up/data/data_sources/sign_up_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository_impl.dart';
+import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/complete_pharmacy_registration_cubit/complete_pharmacy_registration_cubit.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit/sign_up_cubit.dart';
 import 'package:canc_app/users/patient/chatbot/data/data_sources/chatbot_remote_data_source.dart';
 import 'package:canc_app/users/patient/chatbot/data/repositories/chatbot_repository.dart';
@@ -86,6 +87,12 @@ Future<void> initDependencies() async {
   //! complete doctor cubit
   getIt.registerFactory<CompleteDoctorRegistrationCubit>(
     () => CompleteDoctorRegistrationCubit(
+      signUpRepository: getIt<SignUpRepository>(),
+    ),
+  );
+  //! complete pharmacy cubit
+  getIt.registerFactory<CompletePharmacyRegistrationCubit>(
+    () => CompletePharmacyRegistrationCubit(
       signUpRepository: getIt<SignUpRepository>(),
     ),
   );

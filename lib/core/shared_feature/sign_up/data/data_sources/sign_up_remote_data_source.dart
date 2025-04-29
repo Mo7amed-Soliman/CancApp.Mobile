@@ -6,6 +6,8 @@ import 'package:canc_app/core/networking/upload_image_to_api.dart';
 import 'package:canc_app/core/shared_feature/sign_up/data/models/sign_up_model.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../models/complete_pharmacy_registration_model.dart';
+
 class SignUpRemoteDataSource {
   final ApiConsumer _apiConsumer;
 
@@ -35,7 +37,6 @@ class SignUpRemoteDataSource {
     required XFile idPhoto,
     required XFile syndicatePhoto,
   }) async {
-    /// sign up request
     await _apiConsumer.post(
       EndPoint.completeDoctorSignUp,
       isFromData: true,
@@ -44,6 +45,25 @@ class SignUpRemoteDataSource {
         ApiConstantForm.medicalSyndicatePhoto:
             await uploadImageToAPI(syndicatePhoto),
         ApiConstantForm.imageId: await uploadImageToAPI(idPhoto),
+      },
+    );
+  }
+
+  Future<void> completePharmacySignUp({
+    required CompletePharmacyModel pharmacyModel,
+  }) async {
+    await _apiConsumer.post(
+      EndPoint.completePharmacySignUp,
+      isFromData: true,
+      data: {
+        ApiConstantForm.email: UserCacheHelper.getUser()?.email,
+        ApiConstantForm.pharmacyLicensePhoto:
+            await uploadImageToAPI(pharmacyModel.pharmacyLicensePhoto),
+        ApiConstantForm.imageId: await uploadImageToAPI(pharmacyModel.idPhoto),
+        ApiConstantForm.isDeliveryEnabled: pharmacyModel.isDeliveryEnabled,
+        ApiConstantForm.numberOfWorkingHours:
+            pharmacyModel.numberOfWorkingHours,
+        //TODO: ApiConstantForm.latLog : pharmacyModel.location,
       },
     );
   }
