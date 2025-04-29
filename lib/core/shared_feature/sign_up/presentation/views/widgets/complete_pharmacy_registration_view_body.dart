@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -26,7 +27,7 @@ class _CompletePharmacyRegistrationViewBodyState
   final TextEditingController _workingHoursController = TextEditingController();
   File? _idImage;
   File? _licenseImage;
-  bool _deliveryEnabled = true;
+  bool _deliveryEnabled = false;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -85,6 +86,28 @@ class _CompletePharmacyRegistrationViewBodyState
                     }
                     return null;
                   },
+                ),
+                const VerticalSpacer(24),
+                GestureDetector(
+                  onTap: () {
+                    log('Select Location on Map');
+                  },
+                  child: AppTextFormField(
+                    controller: _workingHoursController,
+                    label: 'Select Location on Map',
+                    filled: true,
+                    fillColor: AppColors.lightGray,
+                    enabled: false,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return S.of(context).workingHoursValidationError;
+                      }
+                      if (int.parse(value) <= 24 && int.parse(value) >= 3) {
+                        return S.of(context).validNumberValidationError;
+                      }
+                      return null;
+                    },
+                  ),
                 ),
                 const VerticalSpacer(24),
                 DeliverySwitchSection(

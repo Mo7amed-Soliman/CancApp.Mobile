@@ -25,9 +25,9 @@ class DeliverySwitchSection extends StatelessWidget {
         ),
         const VerticalSpacer(6),
         Container(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           decoration: BoxDecoration(
-            color: Colors.grey[50],
+            color: AppColors.lightGray,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: AppColors.paleTealTransparent,

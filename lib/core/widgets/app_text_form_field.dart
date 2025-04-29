@@ -26,6 +26,7 @@ class AppTextFormField extends StatelessWidget {
     this.fillColor,
     this.filled,
     this.labelStyle,
+    this.enabled = true,
   });
 
   final TextEditingController? controller;
@@ -44,6 +45,7 @@ class AppTextFormField extends StatelessWidget {
   final Color? fillColor;
   final bool? filled;
   final TextStyle? labelStyle;
+  final bool enabled;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -62,6 +64,7 @@ class AppTextFormField extends StatelessWidget {
           obscureText: obscureText,
           onSaved: onSaved,
           onChanged: onChanged,
+          enabled: enabled,
           validator: _getValidator(label),
           keyboardType: keyboardType ?? _getKeyboardType(label),
           cursorColor: AppColors.primaryColor,
@@ -75,12 +78,11 @@ class AppTextFormField extends StatelessWidget {
             enabledBorder: _borderStyle(color: AppColors.paleTealTransparent),
             focusedBorder: _borderStyle(),
             errorBorder: _borderStyle(color: AppColors.red),
+            disabledBorder: _borderStyle(color: AppColors.paleTealTransparent),
             errorStyle: TextStyle(
               color: AppColors.red,
               fontSize: context.setSp(13),
               fontWeight: FontWeightHelper.regular,
-              // number of line set 2
-
               overflow: TextOverflow.visible,
             ),
             focusedErrorBorder: _borderStyle(),
