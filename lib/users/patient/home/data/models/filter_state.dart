@@ -1,26 +1,39 @@
 import 'package:flutter/foundation.dart';
+import 'pharmacy_model.dart';
+
+enum PharmacyFilter {
+  all,
+  delivery,
+  openNow;
+
+  String get displayName {
+    switch (this) {
+      case PharmacyFilter.all:
+        return 'All';
+      case PharmacyFilter.delivery:
+        return 'Delivery';
+      case PharmacyFilter.openNow:
+        return 'Open Now';
+    }
+  }
+}
 
 class FilterState extends ChangeNotifier {
-  final List<String> _selectedFilters = ['All'];
-  final List<String> _availableFilters = [
-    'All',
-    'Delivery',
-    'Open Now',
-  ];
+  final Set<PharmacyFilter> _selectedFilters = {PharmacyFilter.all};
 
-  List<String> get selectedFilters => List.unmodifiable(_selectedFilters);
-  List<String> get availableFilters => _availableFilters;
+  Set<PharmacyFilter> get selectedFilters => Set.unmodifiable(_selectedFilters);
+  List<PharmacyFilter> get availableFilters => PharmacyFilter.values;
 
-  void toggleFilter(String filter) {
-    if (filter == 'All') {
+  void toggleFilter(PharmacyFilter filter) {
+    if (filter == PharmacyFilter.all) {
       _selectedFilters.clear();
-      _selectedFilters.add('All');
+      _selectedFilters.add(PharmacyFilter.all);
     } else {
-      _selectedFilters.remove('All');
+      _selectedFilters.remove(PharmacyFilter.all);
       if (_selectedFilters.contains(filter)) {
         _selectedFilters.remove(filter);
         if (_selectedFilters.isEmpty) {
-          _selectedFilters.add('All');
+          _selectedFilters.add(PharmacyFilter.all);
         }
       } else {
         if (_selectedFilters.length < 3) {
@@ -31,12 +44,22 @@ class FilterState extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool isFilterSelected(String filter) {
+  bool isFilterSelected(PharmacyFilter filter) {
     return _selectedFilters.contains(filter);
   }
 
-  bool shouldShowPharmacy(List<String> services) {
-    if (_selectedFilters.contains('All')) return true;
-    return _selectedFilters.any((filter) => services.contains(filter));
+  bool shouldShowPharmacy(Pharmacy pharmacy) {
+    if (_selectedFilters.contains(PharmacyFilter.all)) return true;
+
+    return _selectedFilters.every((filter) {
+      switch (filter) {
+        case PharmacyFilter.delivery:
+          return pharmacy.isDelivery;
+        case PharmacyFilter.openNow:
+          return pharmacy.isOpen;
+        case PharmacyFilter.all:
+          return true;
+      }
+    });
   }
 }

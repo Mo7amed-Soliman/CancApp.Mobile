@@ -35,12 +35,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "alarmTime": MessageLookupByLibrary.simpleMessage("وقت التنبيه"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("أوقات التنبيه"),
+    "allPersonalDetailsMustBeVisible": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون جميع التفاصيل الشخصية واضحة",
+    ),
+    "allPersonalInfoMustBeVisible": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون جميع المعلومات الشخصية واضحة",
+    ),
     "allow": MessageLookupByLibrary.simpleMessage("السماح"),
+    "allowMedicineDelivery": MessageLookupByLibrary.simpleMessage(
+      "السماح للعملاء بطلب توصيل الأدوية",
+    ),
     "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
       "لديك حساب بالفعل",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
+    "bothFrontAndBackSidesRequired": MessageLookupByLibrary.simpleMessage(
+      "مطلوب تصوير الجهتين الأمامية والخلفية",
+    ),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "chat": MessageLookupByLibrary.simpleMessage("المحادثة"),
@@ -57,6 +69,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "تأكيد كلمة المرور مطلوب",
     ),
     "createYourAccount": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
+    "dailyWorkingHoursLabel": MessageLookupByLibrary.simpleMessage(
+      "ساعات العمل اليومية",
+    ),
     "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
     "dayOfTheWeek": MessageLookupByLibrary.simpleMessage("يوم الأسبوع"),
     "days": MessageLookupByLibrary.simpleMessage("أيام"),
@@ -69,6 +84,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteVisit": MessageLookupByLibrary.simpleMessage(
       "هل أنت متأكد أنك تريد حذف هذا التذكير بالزيارة؟",
     ),
+    "deliveryServiceTitle": MessageLookupByLibrary.simpleMessage(
+      "خدمة التوصيل",
+    ),
     "deny": MessageLookupByLibrary.simpleMessage("رفض"),
     "didNotReceiveCode": MessageLookupByLibrary.simpleMessage(
       "لم أستلم الرمز,",
@@ -76,10 +94,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "doctor": MessageLookupByLibrary.simpleMessage("طبيب"),
     "doctorName": MessageLookupByLibrary.simpleMessage("اسم الطبيب"),
     "doctors": MessageLookupByLibrary.simpleMessage("الأطباء"),
+    "documentVerification": MessageLookupByLibrary.simpleMessage(
+      "توثيق المستندات",
+    ),
+    "documentVerificationDescription": MessageLookupByLibrary.simpleMessage(
+      "يرجى تقديم صور واضحة لرخصة مزاولة المهنة والهوية الحكومية لإكمال عملية التحقق.",
+    ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "editMedication": MessageLookupByLibrary.simpleMessage("تعديل دواء"),
     "editVisit": MessageLookupByLibrary.simpleMessage("تعديل زيارة"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم التحقق من البريد الإلكتروني بنجاح",
+    ),
+    "enableDeliveryService": MessageLookupByLibrary.simpleMessage(
+      "تمكين خدمة التوصيل",
+    ),
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "أدخل رمز التحقق الذي أرسلناه إلى بريدك الإلكتروني",
@@ -94,13 +124,38 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "frequency": MessageLookupByLibrary.simpleMessage("التكرار"),
     "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+    "governmentId": MessageLookupByLibrary.simpleMessage("الهوية الحكومية"),
     "helloWelcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "idMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون الهوية سارية وغير منتهية",
+    ),
     "injection": MessageLookupByLibrary.simpleMessage("حقنة"),
+    "licenseMustBeIssuedByAuthority": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تصدر الرخصة من قبل الجهة الرسمية للنقابة الطبية",
+    ),
+    "licenseMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون الرخصة سارية وغير منتهية",
+    ),
     "liquid": MessageLookupByLibrary.simpleMessage("سائل"),
+    "locationPermissionError": MessageLookupByLibrary.simpleMessage(
+      "خدمة الموقع أو الإذن غير متاح. يرجى تمكين خدمات الموقع ومنح الإذن في إعدادات جهازك للمتابعة.",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "loginSuccessful": MessageLookupByLibrary.simpleMessage(
+      "تم تسجيل الدخول بنجاح",
+    ),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف صغير واحد",
+    ),
+    "makeSureAllTextVisible": MessageLookupByLibrary.simpleMessage(
+      "تأكد من أن جميع النصوص واضحة",
+    ),
+    "makeSureTextVisible": MessageLookupByLibrary.simpleMessage(
+      "تأكد أن جميع النصوص واضحة",
+    ),
+    "medicalSyndicateLicense": MessageLookupByLibrary.simpleMessage(
+      "رخصة النقابة الطبية",
     ),
     "medicationName": MessageLookupByLibrary.simpleMessage("اسم الدواء"),
     "medicationReminder": MessageLookupByLibrary.simpleMessage("تذكير الأدوية"),
@@ -113,6 +168,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "navigate": MessageLookupByLibrary.simpleMessage("تنقل"),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("أقرب صيدلية"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
+      "يُمنع تغطية أي جزء من الهوية بالأصابع",
+    ),
     "noMedications": MessageLookupByLibrary.simpleMessage(
       "لا توجد تذكيرات بالأدوية بعد",
     ),
@@ -172,6 +230,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
     "pharmacy": MessageLookupByLibrary.simpleMessage("صيدلية"),
+    "pharmacyDetailsDescription": MessageLookupByLibrary.simpleMessage(
+      "يرجى تقديم المعلومات المطلوبة لإتمام تسجيل الصيدلية.",
+    ),
+    "pharmacyDetailsTitle": MessageLookupByLibrary.simpleMessage(
+      "تفاصيل الصيدلية",
+    ),
+    "pharmacyLicenseTitle": MessageLookupByLibrary.simpleMessage(
+      "رخصة الصيدلية",
+    ),
+    "photoRequirements": MessageLookupByLibrary.simpleMessage(
+      "متطلبات الصورة:",
+    ),
+    "pickPharmacyLocation": MessageLookupByLibrary.simpleMessage(
+      "اختر موقع الصيدلية",
+    ),
     "pill": MessageLookupByLibrary.simpleMessage("حبة"),
     "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة وقت تنبيه واحد على الأقل",
@@ -191,6 +264,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseSelectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
       "الرجاء اختيار أيام الأسبوع",
     ),
+    "pleaseVerifyYourEmail": MessageLookupByLibrary.simpleMessage(
+      "الرجاء التحقق من بريدك الإلكتروني",
+    ),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
     "psychiatrists": MessageLookupByLibrary.simpleMessage("الأطباء النفسيين"),
@@ -198,9 +274,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("إشعاع"),
     "record": MessageLookupByLibrary.simpleMessage("سجل"),
     "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
+<<<<<<< HEAD
+    "resetPassword": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
+=======
     "report": MessageLookupByLibrary.simpleMessage("تقرير"),
+>>>>>>> development
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
+    ),
+    "resetPasswordOtpVerifiedSuccessfully":
+        MessageLookupByLibrary.simpleMessage(
+          "تم التحقق من رمز التحقق بنجاح، يرجى إعادة تعيين كلمة المرور",
+        ),
+    "resetPasswordSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إعادة تعيين كلمة المرور بنجاح",
     ),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
@@ -211,24 +300,58 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختر أيام الأسبوع",
     ),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+    "selectLocationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى تحديد موقع الصيدلية",
+    ),
+    "selectLocationLabel": MessageLookupByLibrary.simpleMessage(
+      "اختر الموقع على الخريطة",
+    ),
+    "selectThisLocation": MessageLookupByLibrary.simpleMessage(
+      "اختر هذا الموقع",
+    ),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
     "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسل الكود"),
+<<<<<<< HEAD
+    "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال الكود بنجاح",
+    ),
+=======
     "showOriginal": MessageLookupByLibrary.simpleMessage("عرض الأصلي"),
     "showTranslation": MessageLookupByLibrary.simpleMessage("عرض الترجمة"),
+>>>>>>> development
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signUpSuccessful": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء الحساب بنجاح",
+    ),
     "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل رمز خاص واحد",
     ),
     "specificDays": MessageLookupByLibrary.simpleMessage("أيام محددة"),
     "takePhoto": MessageLookupByLibrary.simpleMessage("أختر صورة"),
+    "tapToTakePhotoOfId": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة لبطاقتك",
+    ),
+    "tapToTakePhotoOfLicense": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة للرخصة",
+    ),
+    "tapToTakePhotoOfYourId": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة لهويتك",
+    ),
+    "tapToTakePhotoOfYourLicense": MessageLookupByLibrary.simpleMessage(
+      "اضغط لالتقاط صورة لرخصتك",
+    ),
     "thisTimeIsAlreadyAdded": MessageLookupByLibrary.simpleMessage(
       "هذا الوقت موجود بالفعل",
     ),
     "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "upload": MessageLookupByLibrary.simpleMessage("رفع"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف كبير واحد",
+    ),
+    "validNumberValidationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال رقم صالح",
     ),
     "verificationCode": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
     "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
@@ -238,6 +361,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "visits": MessageLookupByLibrary.simpleMessage("الزيارات"),
     "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),
     "volunteers": MessageLookupByLibrary.simpleMessage("المتطوعين"),
+    "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
+    "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال ساعات العمل اليومية",
+    ),
   };
 }

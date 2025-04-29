@@ -8,7 +8,7 @@ part of 'frequency_details_model.dart';
 
 class FrequencyDetailsModelAdapter extends TypeAdapter<FrequencyDetailsModel> {
   @override
-  final int typeId = 2;
+  final int typeId = HiveHelper.frequencyDetailsBoxID;
 
   @override
   FrequencyDetailsModel read(BinaryReader reader) {

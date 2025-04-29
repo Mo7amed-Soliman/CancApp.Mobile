@@ -3,7 +3,7 @@ import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
 
-void botTextToast(String text) {
+void botTextToast(String text, {Color? color}) {
   BotToast.showCustomText(
     align: Alignment.topCenter,
     duration: const Duration(seconds: 5),
@@ -26,10 +26,11 @@ void botTextToast(String text) {
       child: Text(
         text,
         style: TextStyle(
-          color: AppColors.red,
+          color: color ?? AppColors.red,
           fontSize: 16,
           fontFamily: AppTextStyle.fontFamily,
         ),
+        textAlign: TextAlign.center,
       ),
     ),
   );

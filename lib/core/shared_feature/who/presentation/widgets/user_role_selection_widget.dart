@@ -1,5 +1,6 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/utils/app_assets.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/shared_feature/onboarding/data/models/user_role_model.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/widgets/user_role_buttom.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -58,31 +59,31 @@ class UserRoleSelectionWidget extends StatelessWidget {
   List<UserRoleModel> _initializeRoles(BuildContext context) {
     return [
       UserRoleModel(
-        key: 'Doctor',
+        key: UsersKey.doctor,
         title: S.of(context).doctor,
         imagePath: AppAssets.doctorIcon,
         color: AppColors.deepBlue,
       ),
       UserRoleModel(
-        key: 'Pharmacist',
+        key: UsersKey.pharmacist,
         title: S.of(context).pharmacist,
         imagePath: AppAssets.pharmacistIcon,
         color: AppColors.mintGreen,
       ),
       UserRoleModel(
-        key: 'Psychiatrist',
+        key: UsersKey.psychiatrist,
         title: S.of(context).psychiatrist,
         imagePath: AppAssets.psychiatristIcon,
         color: AppColors.orange,
       ),
       UserRoleModel(
-        key: 'Volunteer',
+        key: UsersKey.volunteer,
         title: S.of(context).volunteer,
         imagePath: AppAssets.volunteerIcon,
         color: AppColors.red,
       ),
       UserRoleModel(
-        key: 'Patient',
+        key: UsersKey.patient,
         title: S.of(context).patient,
         imagePath: AppAssets.patientIcon,
         color: AppColors.purple,

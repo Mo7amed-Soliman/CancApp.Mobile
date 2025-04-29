@@ -8,7 +8,7 @@ part of 'visit_reminder_model.dart';
 
 class VisitReminderModelAdapter extends TypeAdapter<VisitReminderModel> {
   @override
-  final int typeId = 5;
+  final int typeId = HiveHelper.visitBoxID;
 
   @override
   VisitReminderModel read(BinaryReader reader) {

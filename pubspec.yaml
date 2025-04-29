@@ -73,6 +73,10 @@ dependencies:
   hive_flutter: ^1.1.0
   # persistent key-value storage for simple data
   shared_preferences: ^2.5.2
+  # flutter_secure_storage for secure storage of tokens
+  flutter_secure_storage: ^9.2.4
+  # flutter_dotenv for environment variables (API_URL, API_KEY, etc.)
+  flutter_dotenv: ^5.2.1
   # path_provider for accessing device file system
   path_provider: ^2.1.2
   # local notifications 
@@ -80,11 +84,16 @@ dependencies:
   # timezone for timezone management
   timezone: ^0.10.0
   # managing app permissions
-  permission_handler: ^12.0.0+1
+  permission_handler: ^11.3.1
   # uesd in the return type of the methods
   dartz: ^0.10.1
   # dio for http requests
   dio: ^5.7.0
+<<<<<<< HEAD
+  # plugin for easy access to device's location in real-time.
+  location: ^8.0.0
+  google_maps_flutter: ^2.12.1
+=======
   # audio player for sound effects
   audioplayers: ^6.4.0
   # translator for text translation
@@ -92,6 +101,7 @@ dependencies:
  
   
  
+>>>>>>> development
 
 dev_dependencies:
   flutter_test:
@@ -123,8 +133,12 @@ flutter:
     - assets/images/on_boarding/
     - assets/icons/
     - assets/images/dummy_image/
+<<<<<<< HEAD
+    - .env
+=======
     - assets/sounds/
 
+>>>>>>> development
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

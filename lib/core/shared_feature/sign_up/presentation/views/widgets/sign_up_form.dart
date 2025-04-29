@@ -1,9 +1,14 @@
-import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit.dart';
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/models/otp_model.dart';
+import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/sign_up/presentation/manger/sign_up_cubit/sign_up_cubit.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/widgets/sign_up_fields.dart';
+import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
@@ -15,12 +20,20 @@ class SignUpForm extends StatelessWidget {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpSuccess) {
-          // context.go(Routes.initialRoute);
+          botTextToast(
+            '${S.of(context).signUpSuccessful} , ${S.of(context).pleaseVerifyYourEmail}',
+            color: AppColors.darkTeal,
+          );
+          context.push(
+            Routes.otpView,
+            extra: OtpModel(
+              isForgotPassword: false,
+              email: signUpCubit.emailInput!,
+            ),
+          );
         }
         if (state is SignUpFailed) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.errMessage)),
-          );
+          botTextToast(state.errMessage);
         }
       },
       builder: (context, state) {

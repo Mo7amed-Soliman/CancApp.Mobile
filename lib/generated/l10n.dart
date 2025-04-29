@@ -1045,6 +1045,13 @@ class S {
     return Intl.message('Closed', name: 'closed', desc: '', args: []);
   }
 
+<<<<<<< HEAD
+  /// `Login successful`
+  String get loginSuccessful {
+    return Intl.message(
+      'Login successful',
+      name: 'loginSuccessful',
+=======
   /// `Report`
   String get report {
     return Intl.message('Report', name: 'report', desc: '', args: []);
@@ -1055,21 +1062,420 @@ class S {
     return Intl.message(
       'Show original',
       name: 'showOriginal',
+>>>>>>> development
       desc: '',
       args: [],
     );
   }
 
+<<<<<<< HEAD
+  /// `Welcome`
+  String get welcome {
+    return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
+  }
+
+  /// `Sign up successful`
+  String get signUpSuccessful {
+    return Intl.message(
+      'Sign up successful',
+      name: 'signUpSuccessful',
+=======
   /// `Show translation`
   String get showTranslation {
     return Intl.message(
       'Show translation',
       name: 'showTranslation',
+>>>>>>> development
       desc: '',
       args: [],
     );
   }
 
+<<<<<<< HEAD
+  /// `Please verify your email`
+  String get pleaseVerifyYourEmail {
+    return Intl.message(
+      'Please verify your email',
+      name: 'pleaseVerifyYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email verified successfully`
+  String get emailVerifiedSuccessfully {
+    return Intl.message(
+      'Email verified successfully',
+      name: 'emailVerifiedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sent code successfully`
+  String get sentCodeSuccessfully {
+    return Intl.message(
+      'Sent code successfully',
+      name: 'sentCodeSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Document Verification`
+  String get documentVerification {
+    return Intl.message(
+      'Document Verification',
+      name: 'documentVerification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide clear photos of your medical license and government ID to complete the verification process.`
+  String get documentVerificationDescription {
+    return Intl.message(
+      'Please provide clear photos of your medical license and government ID to complete the verification process.',
+      name: 'documentVerificationDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Government ID`
+  String get governmentId {
+    return Intl.message(
+      'Government ID',
+      name: 'governmentId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to take a photo of your ID`
+  String get tapToTakePhotoOfId {
+    return Intl.message(
+      'Tap to take a photo of your ID',
+      name: 'tapToTakePhotoOfId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make sure all text is clearly visible`
+  String get makeSureTextVisible {
+    return Intl.message(
+      'Make sure all text is clearly visible',
+      name: 'makeSureTextVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Medical Syndicate License`
+  String get medicalSyndicateLicense {
+    return Intl.message(
+      'Medical Syndicate License',
+      name: 'medicalSyndicateLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to take a photo of your license`
+  String get tapToTakePhotoOfLicense {
+    return Intl.message(
+      'Tap to take a photo of your license',
+      name: 'tapToTakePhotoOfLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload`
+  String get upload {
+    return Intl.message('Upload', name: 'upload', desc: '', args: []);
+  }
+
+  /// `Tap to take a photo of your ID`
+  String get tapToTakePhotoOfYourId {
+    return Intl.message(
+      'Tap to take a photo of your ID',
+      name: 'tapToTakePhotoOfYourId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make sure all text is clearly visible`
+  String get makeSureAllTextVisible {
+    return Intl.message(
+      'Make sure all text is clearly visible',
+      name: 'makeSureAllTextVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID must be valid and not expired`
+  String get idMustBeValidAndNotExpired {
+    return Intl.message(
+      'ID must be valid and not expired',
+      name: 'idMustBeValidAndNotExpired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Both front and back sides are required`
+  String get bothFrontAndBackSidesRequired {
+    return Intl.message(
+      'Both front and back sides are required',
+      name: 'bothFrontAndBackSidesRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All personal information must be visible`
+  String get allPersonalInfoMustBeVisible {
+    return Intl.message(
+      'All personal information must be visible',
+      name: 'allPersonalInfoMustBeVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No fingers covering any part of the ID`
+  String get noFingersCoveringId {
+    return Intl.message(
+      'No fingers covering any part of the ID',
+      name: 'noFingersCoveringId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap to take a photo of your license`
+  String get tapToTakePhotoOfYourLicense {
+    return Intl.message(
+      'Tap to take a photo of your license',
+      name: 'tapToTakePhotoOfYourLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The license must be issued by the official\n   Medical Syndicate authority`
+  String get licenseMustBeIssuedByAuthority {
+    return Intl.message(
+      'The license must be issued by the official\n   Medical Syndicate authority',
+      name: 'licenseMustBeIssuedByAuthority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The license must be valid and not expired`
+  String get licenseMustBeValidAndNotExpired {
+    return Intl.message(
+      'The license must be valid and not expired',
+      name: 'licenseMustBeValidAndNotExpired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All personal details must be clearly visible`
+  String get allPersonalDetailsMustBeVisible {
+    return Intl.message(
+      'All personal details must be clearly visible',
+      name: 'allPersonalDetailsMustBeVisible',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Photo requirements:`
+  String get photoRequirements {
+    return Intl.message(
+      'Photo requirements:',
+      name: 'photoRequirements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OTP verified successfully, please reset your password`
+  String get resetPasswordOtpVerifiedSuccessfully {
+    return Intl.message(
+      'OTP verified successfully, please reset your password',
+      name: 'resetPasswordOtpVerifiedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password has been successfully reset`
+  String get resetPasswordSuccessfully {
+    return Intl.message(
+      'Your password has been successfully reset',
+      name: 'resetPasswordSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pharmacy Details`
+  String get pharmacyDetailsTitle {
+    return Intl.message(
+      'Pharmacy Details',
+      name: 'pharmacyDetailsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide the required information to complete your pharmacy registration.`
+  String get pharmacyDetailsDescription {
+    return Intl.message(
+      'Please provide the required information to complete your pharmacy registration.',
+      name: 'pharmacyDetailsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pharmacy License`
+  String get pharmacyLicenseTitle {
+    return Intl.message(
+      'Pharmacy License',
+      name: 'pharmacyLicenseTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily Working Hours`
+  String get dailyWorkingHoursLabel {
+    return Intl.message(
+      'Daily Working Hours',
+      name: 'dailyWorkingHoursLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter Daily working hours`
+  String get workingHoursValidationError {
+    return Intl.message(
+      'Please enter Daily working hours',
+      name: 'workingHoursValidationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid number`
+  String get validNumberValidationError {
+    return Intl.message(
+      'Please enter a valid number',
+      name: 'validNumberValidationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Service`
+  String get deliveryServiceTitle {
+    return Intl.message(
+      'Delivery Service',
+      name: 'deliveryServiceTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enable Delivery Service`
+  String get enableDeliveryService {
+    return Intl.message(
+      'Enable Delivery Service',
+      name: 'enableDeliveryService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow customers to request medicine delivery`
+  String get allowMedicineDelivery {
+    return Intl.message(
+      'Allow customers to request medicine delivery',
+      name: 'allowMedicineDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Location on Map`
+  String get selectLocationLabel {
+    return Intl.message(
+      'Select Location on Map',
+      name: 'selectLocationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select your pharmacy location`
+  String get selectLocationError {
+    return Intl.message(
+      'Please select your pharmacy location',
+      name: 'selectLocationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select This Location`
+  String get selectThisLocation {
+    return Intl.message(
+      'Select This Location',
+      name: 'selectThisLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick Pharmacy Location`
+  String get pickPharmacyLocation {
+    return Intl.message(
+      'Pick Pharmacy Location',
+      name: 'pickPharmacyLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.`
+  String get locationPermissionError {
+    return Intl.message(
+      'Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.',
+      name: 'locationPermissionError',
+      desc: '',
+      args: [],
+    );
+=======
   /// `See more`
   String get seeMore {
     return Intl.message('See more', name: 'seeMore', desc: '', args: []);
@@ -1078,6 +1484,7 @@ class S {
   /// `See less`
   String get seeLess {
     return Intl.message('See less', name: 'seeLess', desc: '', args: []);
+>>>>>>> development
   }
 }
 

@@ -1,3 +1,4 @@
+import 'package:canc_app/core/helpers/database/hive_helper.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/generated/l10n.dart';
@@ -32,7 +33,7 @@ enum MedicationType {
   }
 }
 
-@HiveType(typeId: 3)
+@HiveType(typeId: HiveHelper.medicationBoxID)
 class MedicationReminderModel extends Equatable {
   @HiveField(0)
   final String id;

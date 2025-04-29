@@ -143,9 +143,59 @@
       "noPharmaciesFound": "No pharmacies found matching the selected filter.",
       "navigate": "Navigate",
       "closed": "Closed",
+<<<<<<< HEAD
+      "loginSuccessful": "Login successful",
+      "welcome": "Welcome",
+      "signUpSuccessful": "Sign up successful",
+      "pleaseVerifyYourEmail": "Please verify your email",
+      "emailVerifiedSuccessfully": "Email verified successfully",
+      "resetPassword": "Reset Password",
+    
+      "sentCodeSuccessfully": "Sent code successfully",
+
+
+    "documentVerification": "Document Verification",
+    "documentVerificationDescription": "Please provide clear photos of your medical license and government ID to complete the verification process.",
+    "governmentId": "Government ID",
+    "tapToTakePhotoOfId": "Tap to take a photo of your ID",
+    "makeSureTextVisible": "Make sure all text is clearly visible",
+    "medicalSyndicateLicense": "Medical Syndicate License",
+    "tapToTakePhotoOfLicense": "Tap to take a photo of your license",
+    "upload": "Upload",
+    "tapToTakePhotoOfYourId": "Tap to take a photo of your ID",
+    "makeSureAllTextVisible": "Make sure all text is clearly visible",
+    "idMustBeValidAndNotExpired": "ID must be valid and not expired",
+    "bothFrontAndBackSidesRequired": "Both front and back sides are required",
+    "allPersonalInfoMustBeVisible": "All personal information must be visible",
+    "noFingersCoveringId": "No fingers covering any part of the ID",
+    "tapToTakePhotoOfYourLicense": "Tap to take a photo of your license",
+    "licenseMustBeIssuedByAuthority": "The license must be issued by the official\n   Medical Syndicate authority",
+    "licenseMustBeValidAndNotExpired": "The license must be valid and not expired",
+    "allPersonalDetailsMustBeVisible": "All personal details must be clearly visible",
+    "photoRequirements": "Photo requirements:",
+    "resetPasswordOtpVerifiedSuccessfully": "OTP verified successfully, please reset your password",
+   "resetPasswordSuccessfully": "Your password has been successfully reset",
+   "pharmacyDetailsTitle": "Pharmacy Details",
+   "pharmacyDetailsDescription": "Please provide the required information to complete your pharmacy registration.",
+   "pharmacyLicenseTitle": "Pharmacy License",
+   "dailyWorkingHoursLabel": "Daily Working Hours",
+   "workingHoursValidationError": "Please enter Daily working hours",
+   "validNumberValidationError": "Please enter a valid number",
+   "deliveryServiceTitle": "Delivery Service",
+   "enableDeliveryService": "Enable Delivery Service",
+   "allowMedicineDelivery": "Allow customers to request medicine delivery",
+   "selectLocationLabel": "Select Location on Map",
+   "selectLocationError": "Please select your pharmacy location",
+   "selectThisLocation": "Select This Location",
+   "pickPharmacyLocation": "Pick Pharmacy Location",
+   "locationPermissionError": "Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed."
+
+ 
+=======
       "report": "Report",
       "showOriginal": "Show original",
       "showTranslation": "Show translation",
       "seeMore": "See more",
       "seeLess": "See less"
+>>>>>>> development
 }

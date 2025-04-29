@@ -1,10 +1,11 @@
+import 'package:canc_app/core/helpers/database/hive_helper.dart';
 import 'package:equatable/equatable.dart';
 import 'package:uuid/uuid.dart';
 import 'package:hive/hive.dart';
 
 part 'visit_reminder_model.g.dart';
 
-@HiveType(typeId: 5)
+@HiveType(typeId: HiveHelper.visitBoxID)
 class VisitReminderModel extends Equatable {
   @HiveField(0)
   final String id;

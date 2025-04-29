@@ -1,9 +1,12 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/helpers/utils/app_assets.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'search_field_chats.dart';
 import 'search_chats_button.dart';
@@ -86,9 +89,28 @@ class _ChatsHeaderState extends State<ChatsHeader>
               slideAnimation: _slideAnimation,
             ),
           const HorizontalSpacer(10),
-          SearchChatsButton(
-            isSearchVisible: _isSearchVisible,
-            onTap: _toggleSearch,
+          Row(
+            children: [
+              if (!_isSearchVisible)
+                InkWell(
+                  onTap: () {
+                    context.push(Routes.chatBotView);
+                  },
+                  child: CircleAvatar(
+                    radius: context.setMinSize(20),
+                    backgroundColor: AppColors.offWhite.withValues(alpha: 0.2),
+                    child: Image.asset(
+                      AppAssets.botAvatar,
+                      height: context.setMinSize(38),
+                    ),
+                  ),
+                ),
+              const HorizontalSpacer(10),
+              SearchChatsButton(
+                isSearchVisible: _isSearchVisible,
+                onTap: _toggleSearch,
+              ),
+            ],
           ),
         ],
       ),

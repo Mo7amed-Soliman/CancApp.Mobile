@@ -56,5 +56,14 @@
 		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
+
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>We need your location to provide better services.</string>
+
+		<key>UIBackgroundModes</key>
+		<array>
+		<string>location</string>
+		</array>
+
 	</dict>
 </plist>

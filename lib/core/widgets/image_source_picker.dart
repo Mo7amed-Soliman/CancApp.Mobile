@@ -5,10 +5,12 @@ import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:iconly/iconly.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ChatImagePicker extends StatelessWidget {
-  final Function(ImageSource) onImageSourceSelected;
+import 'vertical_spacer.dart';
 
-  const ChatImagePicker({
+class ImageSourcePicker extends StatelessWidget {
+  final void Function(ImageSource) onImageSourceSelected;
+
+  const ImageSourcePicker({
     super.key,
     required this.onImageSourceSelected,
   });
@@ -20,6 +22,15 @@ class ChatImagePicker extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Container(
+            width: context.setMinSize(50),
+            height: context.setMinSize(4),
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          const VerticalSpacer(10),
           ListTile(
             leading: Icon(
               IconlyBold.camera,

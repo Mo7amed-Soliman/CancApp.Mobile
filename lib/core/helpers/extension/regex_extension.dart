@@ -12,10 +12,19 @@ extension RegexExtensions on String {
         r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$',
       );
 
-  bool get hasLowerCase => matches(r'(?=.*[a-z])');
-  bool get hasUpperCase => matches(r'(?=.*[A-Z])');
-  bool get hasDigit => matches(r'(?=.*\d)');
-  bool get hasSpecialCharacter => matches(r'(?=.*\W)');
+  /// check if the password contains a lowercase letter
+  bool get hasLowerCase => contains(RegExp(r'[a-z]'));
+
+  /// check if the password contains an uppercase letter
+  bool get hasUpperCase => contains(RegExp(r'[A-Z]'));
+
+  /// check if the password contains a number
+  bool get hasDigit => contains(RegExp(r'[0-9]'));
+
+  /// check if the password contains a special character
+  bool get hasSpecialCharacter => contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
+
+  /// check if the password is at least 8 characters long
   bool get hasMinLength => length >= 8;
 
   bool get isValidPassword =>

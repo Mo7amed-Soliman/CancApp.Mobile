@@ -27,13 +27,13 @@ class PharmacySliverList extends StatelessWidget {
         listenable: filterState,
         builder: (context, _) {
           final filteredPharmacies = pharmacies.where((pharmacy) {
-            if (filterState.selectedFilters.contains('All')) {
+            if (filterState.selectedFilters.contains(PharmacyFilter.all)) {
               return true;
             }
 
             // If both "Open Now" and "Delivery" are selected, only show open pharmacies
-            if (filterState.selectedFilters.contains('Open Now') &&
-                filterState.selectedFilters.contains('Delivery')) {
+            if (filterState.selectedFilters.contains(PharmacyFilter.openNow) &&
+                filterState.selectedFilters.contains(PharmacyFilter.delivery)) {
               if (!pharmacy.isOpen) {
                 return false;
               }
@@ -41,9 +41,9 @@ class PharmacySliverList extends StatelessWidget {
 
             return filterState.selectedFilters.any((filter) {
               switch (filter) {
-                case 'Delivery':
+                case PharmacyFilter.delivery:
                   return pharmacy.isDelivery;
-                case 'Open Now':
+                case PharmacyFilter.openNow:
                   return pharmacy.isOpen;
                 default:
                   return true;

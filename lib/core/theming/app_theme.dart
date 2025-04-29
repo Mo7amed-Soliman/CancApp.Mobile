@@ -9,6 +9,9 @@ var appLightTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
   appBarTheme: const AppBarTheme(
     foregroundColor: Colors.white,
+    backgroundColor: AppColors.primaryColor,
+    // to remove shadow under app bar in scrolled screens
+    surfaceTintColor: Colors.transparent,
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.white,

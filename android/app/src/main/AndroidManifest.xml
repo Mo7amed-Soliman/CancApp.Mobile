@@ -17,6 +17,10 @@
         android:label="CancApp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+         
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCvdP-4WbB5pNQZqWT24ymlKZTE5Hru6AY"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

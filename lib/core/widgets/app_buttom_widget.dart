@@ -4,7 +4,7 @@ import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class AppButtonWidget extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String text;
   final Color backgroundColor;
   final double width;
