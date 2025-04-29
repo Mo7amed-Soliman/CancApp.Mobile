@@ -143,11 +143,9 @@
     "pleaseSelectDaysOfWeek": "الرجاء اختيار أيام الأسبوع",
     "noPharmaciesFound": "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
     "navigate": "تنقل",
-<<<<<<< HEAD
-    "closed": "مغلق" ,
-    "loginSuccessful": "تم تسجيل الدخول بنجاح",
+    "loginSuccessfully": "تم تسجيل الدخول بنجاح",
     "welcome": "مرحبًا",
-    "signUpSuccessful": "تم إنشاء الحساب بنجاح",
+    "signUpSuccessfully": "تم إنشاء الحساب بنجاح",
     "pleaseVerifyYourEmail": "الرجاء التحقق من بريدك الإلكتروني",
     "emailVerifiedSuccessfully": "تم التحقق من البريد الإلكتروني بنجاح",
     "resetPassword": "إعادة تعيين كلمة المرور",
@@ -194,11 +192,7 @@
      "selectLocationError": "يرجى تحديد موقع الصيدلية",
      "selectThisLocation": "اختر هذا الموقع",
      "pickPharmacyLocation": "اختر موقع الصيدلية",
-     "locationPermissionError": "خدمة الموقع أو الإذن غير متاح. يرجى تمكين خدمات الموقع ومنح الإذن في إعدادات جهازك للمتابعة."
-
-
-
-=======
+     "locationPermissionError": "خدمة الموقع أو الإذن غير متاح. يرجى تمكين خدمات الموقع ومنح الإذن في إعدادات جهازك للمتابعة.",
     "closed": "مغلق",
     "report": "تقرير",
     "showOriginal": "عرض الأصلي",
@@ -206,5 +200,4 @@
     "seeMore": "عرض المزيد",
     "seeLess": "عرض الأقل"
  
->>>>>>> development
 }

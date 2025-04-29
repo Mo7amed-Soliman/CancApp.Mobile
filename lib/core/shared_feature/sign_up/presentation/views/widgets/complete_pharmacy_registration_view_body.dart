@@ -52,7 +52,7 @@ class _CompletePharmacyRegistrationViewBodyState
           // Handle successful upload
           context.go(Routes.pharmacistView);
           botTextToast(
-            S.of(context).signUpSuccessful,
+            S.of(context).signUpSuccessfully,
             color: AppColors.darkTeal,
           );
 

@@ -144,7 +144,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
-    "loginSuccessful": MessageLookupByLibrary.simpleMessage("Login successful"),
+    "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Login successfully",
+    ),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
     ),
@@ -272,11 +274,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("Radiation"),
     "record": MessageLookupByLibrary.simpleMessage("Record"),
     "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
-<<<<<<< HEAD
-    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
-=======
     "report": MessageLookupByLibrary.simpleMessage("Report"),
->>>>>>> development
+    "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
@@ -310,17 +309,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sendAgain": MessageLookupByLibrary.simpleMessage("Send again"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
-<<<<<<< HEAD
     "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Sent code successfully",
     ),
-=======
     "showOriginal": MessageLookupByLibrary.simpleMessage("Show original"),
     "showTranslation": MessageLookupByLibrary.simpleMessage("Show translation"),
->>>>>>> development
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
-    "signUpSuccessful": MessageLookupByLibrary.simpleMessage(
-      "Sign up successful",
+    "signUpSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Sign up successfully",
     ),
     "skip": MessageLookupByLibrary.simpleMessage("Skip"),
     "specialCharacterValidation": MessageLookupByLibrary.simpleMessage(

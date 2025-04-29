@@ -36,7 +36,10 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
           } else if (userType == UsersKey.psychiatrist) {
             context.go(Routes.psychiatristView);
           }
-          botTextToast(S.of(context).signUpSuccessful);
+          botTextToast(
+            S.of(context).signUpSuccessfully,
+            color: AppColors.darkTeal,
+          );
 
           /// Save is logged in to cache
           await getIt<CacheHelper>().saveData(

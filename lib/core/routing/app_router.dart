@@ -113,7 +113,6 @@ final appRouter = GoRouter(
         key: state.pageKey,
         child: OTPView(
           otpModel: state.extra as OtpModel,
-<<<<<<< HEAD
         ),
         transitionsBuilder: _transitionsBuilder,
       ),
@@ -124,8 +123,6 @@ final appRouter = GoRouter(
         key: state.pageKey,
         child: ResetPasswordView(
           email: state.extra as String,
-=======
->>>>>>> 6dc5276 (- forget password done)
         ),
         transitionsBuilder: _transitionsBuilder,
       ),
@@ -239,7 +236,6 @@ final appRouter = GoRouter(
       ],
     ),
     GoRoute(
-<<<<<<< HEAD
       path: Routes.doctorView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
@@ -268,12 +264,14 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const PsychiatristView(),
-=======
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
       path: Routes.commentView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: CommentView(post: state.extra as PostModel),
->>>>>>> development
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

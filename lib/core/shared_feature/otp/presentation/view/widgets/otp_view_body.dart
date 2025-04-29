@@ -24,11 +24,7 @@ class OtpViewBody extends StatelessWidget {
           OTPHeader(otpModel: otpModel),
           const VerticalSpacer(32),
           CustomBlocConsumer(
-<<<<<<< HEAD
             otpModel: otpModel,
-=======
-            isForgetPassword: otpModel.isForgotPassword,
->>>>>>> 6dc5276 (- forget password done)
           ),
           const VerticalSpacer(8),
         ],

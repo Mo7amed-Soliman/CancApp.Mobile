@@ -21,7 +21,7 @@ class SignUpForm extends StatelessWidget {
       listener: (context, state) {
         if (state is SignUpSuccess) {
           botTextToast(
-            '${S.of(context).signUpSuccessful} , ${S.of(context).pleaseVerifyYourEmail}',
+            '${S.of(context).signUpSuccessfully} , ${S.of(context).pleaseVerifyYourEmail}',
             color: AppColors.darkTeal,
           );
           context.push(

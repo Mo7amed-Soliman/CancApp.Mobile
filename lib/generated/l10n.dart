@@ -1045,53 +1045,31 @@ class S {
     return Intl.message('Closed', name: 'closed', desc: '', args: []);
   }
 
-<<<<<<< HEAD
-  /// `Login successful`
-  String get loginSuccessful {
+  /// `Login successfully`
+  String get loginSuccessfully {
     return Intl.message(
-      'Login successful',
-      name: 'loginSuccessful',
-=======
-  /// `Report`
-  String get report {
-    return Intl.message('Report', name: 'report', desc: '', args: []);
-  }
-
-  /// `Show original`
-  String get showOriginal {
-    return Intl.message(
-      'Show original',
-      name: 'showOriginal',
->>>>>>> development
+      'Login successfully',
+      name: 'loginSuccessfully',
       desc: '',
       args: [],
     );
   }
 
-<<<<<<< HEAD
   /// `Welcome`
   String get welcome {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
   }
 
-  /// `Sign up successful`
-  String get signUpSuccessful {
+  /// `Sign up successfully`
+  String get signUpSuccessfully {
     return Intl.message(
-      'Sign up successful',
-      name: 'signUpSuccessful',
-=======
-  /// `Show translation`
-  String get showTranslation {
-    return Intl.message(
-      'Show translation',
-      name: 'showTranslation',
->>>>>>> development
+      'Sign up successfully',
+      name: 'signUpSuccessfully',
       desc: '',
       args: [],
     );
   }
 
-<<<<<<< HEAD
   /// `Please verify your email`
   String get pleaseVerifyYourEmail {
     return Intl.message(
@@ -1475,7 +1453,33 @@ class S {
       desc: '',
       args: [],
     );
-=======
+  }
+
+  /// `Report`
+  String get report {
+    return Intl.message('Report', name: 'report', desc: '', args: []);
+  }
+
+  /// `Show original`
+  String get showOriginal {
+    return Intl.message(
+      'Show original',
+      name: 'showOriginal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show translation`
+  String get showTranslation {
+    return Intl.message(
+      'Show translation',
+      name: 'showTranslation',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `See more`
   String get seeMore {
     return Intl.message('See more', name: 'seeMore', desc: '', args: []);
@@ -1484,7 +1488,6 @@ class S {
   /// `See less`
   String get seeLess {
     return Intl.message('See less', name: 'seeLess', desc: '', args: []);
->>>>>>> development
   }
 }
 

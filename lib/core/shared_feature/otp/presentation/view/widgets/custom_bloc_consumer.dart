@@ -20,17 +20,10 @@ import 'resend_code_button.dart';
 class CustomBlocConsumer extends StatelessWidget {
   const CustomBlocConsumer({
     super.key,
-<<<<<<< HEAD
     required this.otpModel,
   });
 
   final OtpModel otpModel;
-=======
-    required this.isForgetPassword,
-  });
-
-  final bool isForgetPassword;
->>>>>>> 6dc5276 (- forget password done)
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +33,12 @@ class CustomBlocConsumer extends StatelessWidget {
           botTextToast(state.errorMessage);
         }
         if (state is SuccessVerifyCodeState) {
-<<<<<<< HEAD
           if (otpModel.isForgotPassword) {
             context.push(Routes.resetPasswordView, extra: otpModel.email);
             botTextToast(
               S.of(context).resetPasswordOtpVerifiedSuccessfully,
               color: AppColors.darkTeal,
             );
-=======
-          if (isForgetPassword) {
-            context.push(Routes.resetPasswordView);
->>>>>>> 6dc5276 (- forget password done)
           } else {
             botTextToast(
               S.of(context).emailVerifiedSuccessfully,
@@ -82,11 +70,7 @@ class CustomBlocConsumer extends StatelessWidget {
               isInputFilled: context.read<OtpCubit>().completedCode,
               isLoading: state is LoadingVerifyCodeState,
               onPressed: () {
-<<<<<<< HEAD
                 if (otpModel.isForgotPassword) {
-=======
-                if (isForgetPassword) {
->>>>>>> 6dc5276 (- forget password done)
                   context.read<OtpCubit>().verifyCodeForgetPassword();
                 } else {
                   context.read<OtpCubit>().verifyCode();

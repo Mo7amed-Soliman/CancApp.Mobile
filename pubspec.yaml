@@ -89,11 +89,9 @@ dependencies:
   dartz: ^0.10.1
   # dio for http requests
   dio: ^5.7.0
-<<<<<<< HEAD
   # plugin for easy access to device's location in real-time.
   location: ^8.0.0
   google_maps_flutter: ^2.12.1
-=======
   # audio player for sound effects
   audioplayers: ^6.4.0
   # translator for text translation
@@ -101,7 +99,6 @@ dependencies:
  
   
  
->>>>>>> development
 
 dev_dependencies:
   flutter_test:
@@ -133,12 +130,9 @@ flutter:
     - assets/images/on_boarding/
     - assets/icons/
     - assets/images/dummy_image/
-<<<<<<< HEAD
     - .env
-=======
     - assets/sounds/
 
->>>>>>> development
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

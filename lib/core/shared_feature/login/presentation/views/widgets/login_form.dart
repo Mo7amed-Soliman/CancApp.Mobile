@@ -25,7 +25,7 @@ class LoginForm extends StatelessWidget {
           /// Handle successful login
           _navigateToNextView(context, state.userModel.userType);
           botTextToast(
-            '${S.of(context).loginSuccessful} \n ${S.of(context).welcome} ${state.userModel.name}👋',
+            '${S.of(context).loginSuccessfully} \n ${S.of(context).welcome} ${state.userModel.name}👋',
             color: AppColors.darkTeal,
           );
 

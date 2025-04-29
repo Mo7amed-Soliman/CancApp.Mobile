@@ -29,10 +29,7 @@ class ResetPasswordBody extends StatelessWidget {
             S.of(context).resetPasswordSuccessfully,
             color: AppColors.darkTeal,
           );
-<<<<<<< HEAD
-=======
           context.go(Routes.loginView);
->>>>>>> 6dc5276 (- forget password done)
         }
         if (state is ResetPasswordError) {
           botTextToast(
