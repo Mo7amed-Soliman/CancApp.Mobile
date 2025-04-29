@@ -140,6 +140,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "The license must be valid and not expired",
     ),
     "liquid": MessageLookupByLibrary.simpleMessage("Liquid"),
+    "locationPermissionError": MessageLookupByLibrary.simpleMessage(
+      "Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSuccessful": MessageLookupByLibrary.simpleMessage("Login successful"),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
@@ -237,6 +240,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "photoRequirements": MessageLookupByLibrary.simpleMessage(
       "Photo requirements:",
     ),
+    "pickPharmacyLocation": MessageLookupByLibrary.simpleMessage(
+      "Pick Pharmacy Location",
+    ),
     "pill": MessageLookupByLibrary.simpleMessage("Pill"),
     "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
       "Please add at least one alarm time",
@@ -284,6 +290,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Select days of week",
     ),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("Select Language"),
+    "selectLocationError": MessageLookupByLibrary.simpleMessage(
+      "Please select your pharmacy location",
+    ),
+    "selectLocationLabel": MessageLookupByLibrary.simpleMessage(
+      "Select Location on Map",
+    ),
+    "selectThisLocation": MessageLookupByLibrary.simpleMessage(
+      "Select This Location",
+    ),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage(
       "Select who are you",
     ),

@@ -138,6 +138,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "يجب أن تكون الرخصة سارية وغير منتهية",
     ),
     "liquid": MessageLookupByLibrary.simpleMessage("سائل"),
+    "locationPermissionError": MessageLookupByLibrary.simpleMessage(
+      "خدمة الموقع أو الإذن غير متاح. يرجى تمكين خدمات الموقع ومنح الإذن في إعدادات جهازك للمتابعة.",
+    ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSuccessful": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
@@ -239,6 +242,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "photoRequirements": MessageLookupByLibrary.simpleMessage(
       "متطلبات الصورة:",
     ),
+    "pickPharmacyLocation": MessageLookupByLibrary.simpleMessage(
+      "اختر موقع الصيدلية",
+    ),
     "pill": MessageLookupByLibrary.simpleMessage("حبة"),
     "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة وقت تنبيه واحد على الأقل",
@@ -288,6 +294,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختر أيام الأسبوع",
     ),
     "selectLanguage": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+    "selectLocationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى تحديد موقع الصيدلية",
+    ),
+    "selectLocationLabel": MessageLookupByLibrary.simpleMessage(
+      "اختر الموقع على الخريطة",
+    ),
+    "selectThisLocation": MessageLookupByLibrary.simpleMessage(
+      "اختر هذا الموقع",
+    ),
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
     "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسل الكود"),

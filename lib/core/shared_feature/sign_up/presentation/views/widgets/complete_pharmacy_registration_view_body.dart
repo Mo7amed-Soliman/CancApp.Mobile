@@ -7,9 +7,11 @@ import 'package:canc_app/core/widgets/app_text_form_field.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'complete_registration_header.dart';
 import 'delivery_switch_section.dart';
+import 'map_dialog.dart';
 import 'upload_photo_section.dart';
 
 class CompletePharmacyRegistrationViewBody extends StatefulWidget {
@@ -22,12 +24,13 @@ class CompletePharmacyRegistrationViewBody extends StatefulWidget {
 
 class _CompletePharmacyRegistrationViewBodyState
     extends State<CompletePharmacyRegistrationViewBody> {
-  //
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _workingHoursController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
   File? _idImage;
   File? _licenseImage;
   bool _deliveryEnabled = false;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -81,7 +84,8 @@ class _CompletePharmacyRegistrationViewBodyState
                     if (value == null || value.isEmpty) {
                       return S.of(context).workingHoursValidationError;
                     }
-                    if (int.parse(value) <= 24 && int.parse(value) >= 3) {
+                    final hours = int.tryParse(value);
+                    if (hours == null || hours > 24 || hours < 3) {
                       return S.of(context).validNumberValidationError;
                     }
                     return null;
@@ -89,24 +93,21 @@ class _CompletePharmacyRegistrationViewBodyState
                 ),
                 const VerticalSpacer(24),
                 GestureDetector(
-                  onTap: () {
-                    log('Select Location on Map');
-                  },
-                  child: AppTextFormField(
-                    controller: _workingHoursController,
-                    label: 'Select Location on Map',
-                    filled: true,
-                    fillColor: AppColors.lightGray,
-                    enabled: false,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.of(context).workingHoursValidationError;
-                      }
-                      if (int.parse(value) <= 24 && int.parse(value) >= 3) {
-                        return S.of(context).validNumberValidationError;
-                      }
-                      return null;
-                    },
+                  onTap: _pickLocation,
+                  child: AbsorbPointer(
+                    child: AppTextFormField(
+                      controller: _locationController,
+                      label: S.of(context).selectLocationLabel,
+                      filled: true,
+                      fillColor: AppColors.lightGray,
+                      enabled: false,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return S.of(context).selectLocationError;
+                        }
+                        return null;
+                      },
+                    ),
                   ),
                 ),
                 const VerticalSpacer(24),
@@ -124,12 +125,29 @@ class _CompletePharmacyRegistrationViewBodyState
           ),
           const VerticalSpacer(20),
           AppButtonWidget(
-            onPressed: () {},
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                log('All fields valid');
+                // Proceed with submission
+              }
+            },
             text: S.of(context).upload,
           ),
           const VerticalSpacer(20),
         ],
       ),
     );
+  }
+
+  Future<void> _pickLocation() async {
+    final LatLng? result = await showDialog<LatLng>(
+      context: context,
+      builder: (_) => const MapDialog(),
+    );
+    if (result != null) {
+      setState(() {
+        _locationController.text = '${result.latitude}, ${result.longitude}';
+      });
+    }
   }
 }

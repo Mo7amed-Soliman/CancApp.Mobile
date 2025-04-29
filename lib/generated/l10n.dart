@@ -1404,6 +1404,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Select Location on Map`
+  String get selectLocationLabel {
+    return Intl.message(
+      'Select Location on Map',
+      name: 'selectLocationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select your pharmacy location`
+  String get selectLocationError {
+    return Intl.message(
+      'Please select your pharmacy location',
+      name: 'selectLocationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select This Location`
+  String get selectThisLocation {
+    return Intl.message(
+      'Select This Location',
+      name: 'selectThisLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick Pharmacy Location`
+  String get pickPharmacyLocation {
+    return Intl.message(
+      'Pick Pharmacy Location',
+      name: 'pickPharmacyLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.`
+  String get locationPermissionError {
+    return Intl.message(
+      'Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.',
+      name: 'locationPermissionError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

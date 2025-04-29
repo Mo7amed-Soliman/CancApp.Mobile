@@ -182,6 +182,12 @@
    "validNumberValidationError": "Please enter a valid number",
    "deliveryServiceTitle": "Delivery Service",
    "enableDeliveryService": "Enable Delivery Service",
-   "allowMedicineDelivery": "Allow customers to request medicine delivery"
+   "allowMedicineDelivery": "Allow customers to request medicine delivery",
+   "selectLocationLabel": "Select Location on Map",
+   "selectLocationError": "Please select your pharmacy location",
+   "selectThisLocation": "Select This Location",
+   "pickPharmacyLocation": "Pick Pharmacy Location",
+   "locationPermissionError": "Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed."
+
  
 }

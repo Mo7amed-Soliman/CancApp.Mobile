@@ -188,7 +188,12 @@
      "validNumberValidationError": "يرجى إدخال رقم صالح",
      "deliveryServiceTitle": "خدمة التوصيل",
      "enableDeliveryService": "تمكين خدمة التوصيل",
-     "allowMedicineDelivery": "السماح للعملاء بطلب توصيل الأدوية"
+     "allowMedicineDelivery": "السماح للعملاء بطلب توصيل الأدوية",
+     "selectLocationLabel": "اختر الموقع على الخريطة",
+     "selectLocationError": "يرجى تحديد موقع الصيدلية",
+     "selectThisLocation": "اختر هذا الموقع",
+     "pickPharmacyLocation": "اختر موقع الصيدلية",
+     "locationPermissionError": "خدمة الموقع أو الإذن غير متاح. يرجى تمكين خدمات الموقع ومنح الإذن في إعدادات جهازك للمتابعة."
 
 
 
