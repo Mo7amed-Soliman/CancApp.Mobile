@@ -272,7 +272,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("Radiation"),
     "record": MessageLookupByLibrary.simpleMessage("Record"),
     "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
+<<<<<<< HEAD
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+=======
+    "report": MessageLookupByLibrary.simpleMessage("Report"),
+>>>>>>> development
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
     ),
@@ -286,6 +290,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
+    "seeLess": MessageLookupByLibrary.simpleMessage("See less"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
     "selectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
       "Select days of week",
     ),
@@ -304,9 +310,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sendAgain": MessageLookupByLibrary.simpleMessage("Send again"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
+<<<<<<< HEAD
     "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Sent code successfully",
     ),
+=======
+    "showOriginal": MessageLookupByLibrary.simpleMessage("Show original"),
+    "showTranslation": MessageLookupByLibrary.simpleMessage("Show translation"),
+>>>>>>> development
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "signUpSuccessful": MessageLookupByLibrary.simpleMessage(
       "Sign up successful",

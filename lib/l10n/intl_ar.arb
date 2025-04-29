@@ -143,6 +143,7 @@
     "pleaseSelectDaysOfWeek": "الرجاء اختيار أيام الأسبوع",
     "noPharmaciesFound": "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
     "navigate": "تنقل",
+<<<<<<< HEAD
     "closed": "مغلق" ,
     "loginSuccessful": "تم تسجيل الدخول بنجاح",
     "welcome": "مرحبًا",
@@ -197,4 +198,13 @@
 
 
 
+=======
+    "closed": "مغلق",
+    "report": "تقرير",
+    "showOriginal": "عرض الأصلي",
+    "showTranslation": "عرض الترجمة",
+    "seeMore": "عرض المزيد",
+    "seeLess": "عرض الأقل"
+ 
+>>>>>>> development
 }

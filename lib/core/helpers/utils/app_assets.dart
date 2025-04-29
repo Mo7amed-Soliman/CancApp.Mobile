@@ -14,5 +14,12 @@ class AppAssets {
       pillIcon = 'assets/icons/pill.svg',
       injectionIcon = 'assets/icons/injection.svg',
       liquidIcon = 'assets/icons/liquid.svg',
+<<<<<<< HEAD
       botAvatar = 'assets/icons/bot_avatar.png';
+=======
+      heartIcon = 'assets/icons/heart_icon.svg',
+      commitIcon = 'assets/icons/commit_icon.svg',
+      likeSound = 'sounds/like_sound.mp3',
+      noComments = 'assets/icons/no_comments.svg';
+>>>>>>> development
 }

@@ -274,9 +274,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("إشعاع"),
     "record": MessageLookupByLibrary.simpleMessage("سجل"),
     "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
+<<<<<<< HEAD
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
+=======
+    "report": MessageLookupByLibrary.simpleMessage("تقرير"),
+>>>>>>> development
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني وسنرسل لك رمزًا لإعادة تعيين كلمة المرور",
     ),
@@ -290,6 +294,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+    "seeLess": MessageLookupByLibrary.simpleMessage("عرض الأقل"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("عرض المزيد"),
     "selectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
       "اختر أيام الأسبوع",
     ),
@@ -306,9 +312,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
     "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسل الكود"),
+<<<<<<< HEAD
     "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الكود بنجاح",
     ),
+=======
+    "showOriginal": MessageLookupByLibrary.simpleMessage("عرض الأصلي"),
+    "showTranslation": MessageLookupByLibrary.simpleMessage("عرض الترجمة"),
+>>>>>>> development
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "signUpSuccessful": MessageLookupByLibrary.simpleMessage(
       "تم إنشاء الحساب بنجاح",

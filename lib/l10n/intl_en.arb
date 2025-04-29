@@ -143,6 +143,7 @@
       "noPharmaciesFound": "No pharmacies found matching the selected filter.",
       "navigate": "Navigate",
       "closed": "Closed",
+<<<<<<< HEAD
       "loginSuccessful": "Login successful",
       "welcome": "Welcome",
       "signUpSuccessful": "Sign up successful",
@@ -190,4 +191,11 @@
    "locationPermissionError": "Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed."
 
  
+=======
+      "report": "Report",
+      "showOriginal": "Show original",
+      "showTranslation": "Show translation",
+      "seeMore": "See more",
+      "seeLess": "See less"
+>>>>>>> development
 }

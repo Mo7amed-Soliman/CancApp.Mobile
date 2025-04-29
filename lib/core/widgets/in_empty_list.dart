@@ -3,6 +3,7 @@ import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconly/iconly.dart';
 
 class InEmptyList extends StatelessWidget {
@@ -11,10 +12,12 @@ class InEmptyList extends StatelessWidget {
     required this.title,
     this.onPressed,
     this.icon = IconlyBroken.tick_square,
+    this.image,
   });
   final String title;
   final VoidCallback? onPressed;
   final IconData icon;
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
@@ -35,18 +38,22 @@ class InEmptyList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
-              radius: context.setMinSize(60),
-              backgroundColor: const Color(0xffF3F4F6),
-              child: IconButton(
-                onPressed: onPressed,
-                icon: Icon(
-                  icon,
-                  color: AppColors.primaryColor,
-                  size: 60,
-                ),
-              ),
-            ),
+            image != null
+                ? SvgPicture.asset(
+                    image!,
+                  )
+                : CircleAvatar(
+                    radius: context.setMinSize(60),
+                    backgroundColor: const Color(0xffF3F4F6),
+                    child: IconButton(
+                      onPressed: onPressed,
+                      icon: Icon(
+                        icon,
+                        color: AppColors.primaryColor,
+                        size: 60,
+                      ),
+                    ),
+                  ),
             const VerticalSpacer(16),
             Text(
               title,

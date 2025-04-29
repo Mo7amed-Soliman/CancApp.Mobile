@@ -7,6 +7,7 @@ import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
 import 'package:canc_app/core/shared_feature/chat/presentation/views/chat_view.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/comment_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/reset_password_view.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/view/otp_view.dart';
@@ -34,6 +35,8 @@ import 'package:canc_app/users/psychiatrist/psychiatrist_view.dart';
 import 'package:canc_app/users/volunteer/volunteer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../shared_feature/community/data/models/post_model.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
@@ -233,6 +236,7 @@ final appRouter = GoRouter(
       ],
     ),
     GoRoute(
+<<<<<<< HEAD
       path: Routes.doctorView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
@@ -261,6 +265,12 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const PsychiatristView(),
+=======
+      path: Routes.commentView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: CommentView(post: state.extra as PostModel),
+>>>>>>> development
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

@@ -1045,16 +1045,30 @@ class S {
     return Intl.message('Closed', name: 'closed', desc: '', args: []);
   }
 
+<<<<<<< HEAD
   /// `Login successful`
   String get loginSuccessful {
     return Intl.message(
       'Login successful',
       name: 'loginSuccessful',
+=======
+  /// `Report`
+  String get report {
+    return Intl.message('Report', name: 'report', desc: '', args: []);
+  }
+
+  /// `Show original`
+  String get showOriginal {
+    return Intl.message(
+      'Show original',
+      name: 'showOriginal',
+>>>>>>> development
       desc: '',
       args: [],
     );
   }
 
+<<<<<<< HEAD
   /// `Welcome`
   String get welcome {
     return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
@@ -1065,11 +1079,19 @@ class S {
     return Intl.message(
       'Sign up successful',
       name: 'signUpSuccessful',
+=======
+  /// `Show translation`
+  String get showTranslation {
+    return Intl.message(
+      'Show translation',
+      name: 'showTranslation',
+>>>>>>> development
       desc: '',
       args: [],
     );
   }
 
+<<<<<<< HEAD
   /// `Please verify your email`
   String get pleaseVerifyYourEmail {
     return Intl.message(
@@ -1453,6 +1475,16 @@ class S {
       desc: '',
       args: [],
     );
+=======
+  /// `See more`
+  String get seeMore {
+    return Intl.message('See more', name: 'seeMore', desc: '', args: []);
+  }
+
+  /// `See less`
+  String get seeLess {
+    return Intl.message('See less', name: 'seeLess', desc: '', args: []);
+>>>>>>> development
   }
 }
 
