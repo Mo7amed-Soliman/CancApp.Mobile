@@ -1044,6 +1044,41 @@ class S {
   String get closed {
     return Intl.message('Closed', name: 'closed', desc: '', args: []);
   }
+
+  /// `Report`
+  String get report {
+    return Intl.message('Report', name: 'report', desc: '', args: []);
+  }
+
+  /// `Show original`
+  String get showOriginal {
+    return Intl.message(
+      'Show original',
+      name: 'showOriginal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show translation`
+  String get showTranslation {
+    return Intl.message(
+      'Show translation',
+      name: 'showTranslation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See more`
+  String get seeMore {
+    return Intl.message('See more', name: 'seeMore', desc: '', args: []);
+  }
+
+  /// `See less`
+  String get seeLess {
+    return Intl.message('See less', name: 'seeLess', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

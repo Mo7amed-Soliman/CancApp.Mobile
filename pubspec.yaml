@@ -85,6 +85,11 @@ dependencies:
   dartz: ^0.10.1
   # dio for http requests
   dio: ^5.7.0
+  # audio player for sound effects
+  audioplayers: ^6.4.0
+  # translator for text translation
+  translator: ^1.0.3+1
+ 
   
  
 
@@ -118,6 +123,7 @@ flutter:
     - assets/images/on_boarding/
     - assets/icons/
     - assets/images/dummy_image/
+    - assets/sounds/
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
