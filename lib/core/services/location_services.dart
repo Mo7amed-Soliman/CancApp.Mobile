@@ -1,37 +1,36 @@
 import 'package:location/location.dart';
 
 class LocationServices {
-  //1- inquire about Location service
-  //2- request permission
-  //3- get Location
+  static final Location _location = Location();
 
-  static Location location = Location();
-  static Future<void> checkAndRequestLocationService() async {
-    bool isServiceEnabled = await location.serviceEnabled();
+  /// Ensures both the location service and permissions are granted.
+  /// Returns `true` if location is ready to use, otherwise `false`.
+  static Future<bool> ensureLocationReady() async {
+    final serviceReady = await _checkAndRequestService();
+    if (!serviceReady) return false;
 
-    if (!isServiceEnabled) {
-      bool isServiceEnabled = await location.requestService();
+    final permissionGranted = await _checkAndRequestPermission();
+    if (!permissionGranted) return false;
 
-      if (!isServiceEnabled) {
-        //todo: Show error bar
-      }
+    return true;
+  }
+
+  static Future<bool> _checkAndRequestService() async {
+    bool serviceEnabled = await _location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await _location.requestService();
     }
+    return serviceEnabled;
   }
 
-  static Future<void> checkAndRequestLocationPermission() async {
-    var permissionStatus = await location.hasPermission();
-
-    if (permissionStatus == PermissionStatus.denied) {
-      permissionStatus = await location.requestPermission();
-
-      if (permissionStatus != PermissionStatus.granted) {
-        //todo: Show error bar
-      }
+  static Future<bool> _checkAndRequestPermission() async {
+    PermissionStatus permission = await _location.hasPermission();
+    if (permission == PermissionStatus.denied) {
+      permission = await _location.requestPermission();
     }
+    return permission == PermissionStatus.granted;
   }
 
-  static Future<void> ensureLocationReady() async {
-    await checkAndRequestLocationService();
-    await checkAndRequestLocationPermission();
-  }
+  /// Direct access to the `location` instance for location fetching.
+  static Location get instance => _location;
 }
