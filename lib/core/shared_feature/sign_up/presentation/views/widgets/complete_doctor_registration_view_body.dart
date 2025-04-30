@@ -32,19 +32,13 @@ class CompleteDoctorRegistrationViewBody extends StatelessWidget {
           final userType =
               getIt<CacheHelper>().getData(key: CacheKeys.whoAreYou);
           if (userType == UsersKey.doctor) {
-            context.go(Routes.doctorView);
+            context.go(Routes.loginView);
           } else if (userType == UsersKey.psychiatrist) {
-            context.go(Routes.psychiatristView);
+            context.go(Routes.loginView);
           }
           botTextToast(
-            S.of(context).signUpSuccessfully,
+            S.of(context).accountReviewMessage,
             color: AppColors.darkTeal,
-          );
-
-          /// Save is logged in to cache
-          await getIt<CacheHelper>().saveData(
-            key: CacheKeys.isLoggedIn,
-            value: true,
           );
         }
         if (!state.uploadSuccess) {

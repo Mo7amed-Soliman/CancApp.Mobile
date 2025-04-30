@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم رفض طلب الوصول",
     ),
     "accessRequests": MessageLookupByLibrary.simpleMessage("طلبات الوصول"),
+    "accountReviewMessage": MessageLookupByLibrary.simpleMessage(
+      "شكرًا لتسجيلك! نحن نقوم بالتحقق من هويتك. قد يستغرق ذلك ما يصل إلى ٤٨ ساعة. سيتم إعلامك عبر البريد الإلكتروني بمجرد الموافقة.",
+    ),
     "add": MessageLookupByLibrary.simpleMessage("إضافة"),
     "addMedication": MessageLookupByLibrary.simpleMessage("إضافة دواء"),
     "addVisit": MessageLookupByLibrary.simpleMessage("إضافة زيارة"),

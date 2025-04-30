@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Access request denied",
     ),
     "accessRequests": MessageLookupByLibrary.simpleMessage("Access requests"),
+    "accountReviewMessage": MessageLookupByLibrary.simpleMessage(
+      "Thanks for signing up! We\'re verifying your identity. This may take up to 48 hours. You\'ll be notified by email once approved.",
+    ),
     "add": MessageLookupByLibrary.simpleMessage("Add"),
     "addMedication": MessageLookupByLibrary.simpleMessage("Add Medication"),
     "addVisit": MessageLookupByLibrary.simpleMessage("Add Visit"),

@@ -192,5 +192,7 @@
     "showOriginal": "Show original",
    "showTranslation": "Show translation",
    "seeMore": "See more",
-   "seeLess": "See less"
+   "seeLess": "See less",
+   "accountReviewMessage": "Thanks for signing up! We're verifying your identity. This may take up to 48 hours. You'll be notified by email once approved."
+
 }

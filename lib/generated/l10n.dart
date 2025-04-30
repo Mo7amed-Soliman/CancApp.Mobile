@@ -1489,6 +1489,16 @@ class S {
   String get seeLess {
     return Intl.message('See less', name: 'seeLess', desc: '', args: []);
   }
+
+  /// `Thanks for signing up! We're verifying your identity. This may take up to 48 hours. You'll be notified by email once approved.`
+  String get accountReviewMessage {
+    return Intl.message(
+      'Thanks for signing up! We\'re verifying your identity. This may take up to 48 hours. You\'ll be notified by email once approved.',
+      name: 'accountReviewMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

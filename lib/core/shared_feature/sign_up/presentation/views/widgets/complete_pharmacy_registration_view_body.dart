@@ -1,9 +1,6 @@
 import 'dart:io';
 
-import 'package:canc_app/core/di/dependency_injection.dart';
-import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
-import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
@@ -49,17 +46,10 @@ class _CompletePharmacyRegistrationViewBodyState
         CompletePharmacyRegistrationState>(
       listener: (context, state) async {
         if (state.uploadSuccess) {
-          // Handle successful upload
-          context.go(Routes.pharmacistView);
+          context.go(Routes.loginView);
           botTextToast(
-            S.of(context).signUpSuccessfully,
+            S.of(context).accountReviewMessage,
             color: AppColors.darkTeal,
-          );
-
-          /// Save is logged in to cache
-          await getIt<CacheHelper>().saveData(
-            key: CacheKeys.isLoggedIn,
-            value: true,
           );
         } else if (state.errorMessage != null) {
           // Show error message
