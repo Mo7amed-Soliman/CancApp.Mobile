@@ -65,7 +65,6 @@
       "profile": "Profile",
 
       "helloWelcome": "Hello, Welcome",
-      
       "chatCategories": "Available to chat",
       "doctors": "Doctors",
       "pharmacists": "Pharmacists",
@@ -109,9 +108,9 @@
       "save": "Save",
       "medications": "Medications",
       "visits": "Visits",
-      "noMedications": "No medications",
+      "noMedications": "No medications reminders",
       "noMedicationsForDate": "No medications for this date",
-      "noVisits": "No visit reminders yet",
+      "noVisits": "No visit reminders",
       "noVisitsForDate": "No visits for this date",
       "addMedication": "Add Medication",
       "addVisit": "Add Visit",
@@ -194,5 +193,5 @@
    "seeMore": "See more",
    "seeLess": "See less",
    "accountReviewMessage": "Thanks for signing up! We're verifying your identity. This may take up to 48 hours. You'll be notified by email once approved."
-
+ 
 }

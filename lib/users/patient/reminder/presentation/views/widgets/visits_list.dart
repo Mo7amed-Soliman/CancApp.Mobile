@@ -76,9 +76,9 @@ class VisitsList extends StatelessWidget {
         /// if the reminders are empty
         if (state.reminders.isEmpty || filteredVisits.isEmpty) {
           return InEmptyList(
-            title: filteredVisits.isEmpty
-                ? S.of(context).noVisitsForDate
-                : S.of(context).noVisits,
+            title: state.reminders.isEmpty
+                ? S.of(context).noVisits
+                : S.of(context).noVisitsForDate,
             icon: IconlyBold.plus,
             onPressed: () async {
               final reminder = await context.push(Routes.visitReminderView);

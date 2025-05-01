@@ -176,7 +176,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "No fingers covering any part of the ID",
     ),
-    "noMedications": MessageLookupByLibrary.simpleMessage("No medications"),
+    "noMedications": MessageLookupByLibrary.simpleMessage(
+      "No medications reminders",
+    ),
     "noMedicationsForDate": MessageLookupByLibrary.simpleMessage(
       "No medications for this date",
     ),
@@ -186,7 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
       "No pharmacies found matching the selected filter.",
     ),
-    "noVisits": MessageLookupByLibrary.simpleMessage("No visit reminders yet"),
+    "noVisits": MessageLookupByLibrary.simpleMessage("No visit reminders"),
     "noVisitsForDate": MessageLookupByLibrary.simpleMessage(
       "No visits for this date",
     ),

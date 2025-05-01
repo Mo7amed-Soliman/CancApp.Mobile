@@ -780,10 +780,10 @@ class S {
     return Intl.message('Visits', name: 'visits', desc: '', args: []);
   }
 
-  /// `No medications`
+  /// `No medications reminders`
   String get noMedications {
     return Intl.message(
-      'No medications',
+      'No medications reminders',
       name: 'noMedications',
       desc: '',
       args: [],
@@ -800,10 +800,10 @@ class S {
     );
   }
 
-  /// `No visit reminders yet`
+  /// `No visit reminders`
   String get noVisits {
     return Intl.message(
-      'No visit reminders yet',
+      'No visit reminders',
       name: 'noVisits',
       desc: '',
       args: [],

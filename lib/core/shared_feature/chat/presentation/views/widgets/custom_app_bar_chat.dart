@@ -22,7 +22,6 @@ class CustomAppBarChat extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.primaryColor,
-      toolbarHeight: 90,
       leading: IconButton(
         onPressed: () {
           context.pop();
@@ -35,7 +34,7 @@ class CustomAppBarChat extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         children: [
           CircleAvatar(
-            radius: context.setMinSize(25),
+            radius: context.setMinSize(20),
             backgroundImage: AssetImage(imagePath),
           ),
           const HorizontalSpacer(12),
@@ -63,5 +62,5 @@ class CustomAppBarChat extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(90);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

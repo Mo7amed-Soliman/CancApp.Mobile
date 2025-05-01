@@ -175,7 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يُمنع تغطية أي جزء من الهوية بالأصابع",
     ),
     "noMedications": MessageLookupByLibrary.simpleMessage(
-      "لا توجد تذكيرات بالأدوية بعد",
+      "لا توجد تذكيرات بالأدوية",
     ),
     "noMedicationsForDate": MessageLookupByLibrary.simpleMessage(
       "لا توجد أدوية لهذا التاريخ",
@@ -187,7 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
     ),
     "noVisits": MessageLookupByLibrary.simpleMessage(
-      "لا توجد تذكيرات بالزيارات بعد",
+      "لا توجد تذكيرات بالزيارات ",
     ),
     "noVisitsForDate": MessageLookupByLibrary.simpleMessage(
       "لا توجد زيارات لهذا التاريخ",

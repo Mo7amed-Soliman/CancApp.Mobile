@@ -6,7 +6,6 @@ class PostModel {
   final String postTime;
   final String contentPost;
   final String? imageUrl;
-  final bool hasImage;
   final int likes;
   final int comments;
   final String userId;
@@ -16,7 +15,6 @@ class PostModel {
   PostModel({
     required this.userName,
     required this.userImageUrl,
-    required this.hasImage,
     required this.likes,
     required this.comments,
     this.imageUrl,
@@ -37,7 +35,6 @@ List<PostModel> posts = [
         '''السرطان هو مرض خطير يحدث نتيجة نمو غير طبيعي وخارج عن السيطرة لخلايا الجسم. يمكن أن يصيب أي جزء من الجسم، ويُطلق عليه اسم الورم الخبيث عندما تنتشر الخلايا إلى أماكن أخرى. تختلف أنواع السرطان باختلاف العضو المصاب، مثل سرطان الثدي، الرئة، القولون، أو الدم. السبب الدقيق للإصابة بالسرطان غير معروف دائمًا، لكنه يرتبط بعوامل مثل التدخين، التعرض للإشعاعات، الوراثة، ونمط الحياة غير الصحي. تبدأ الأعراض بحسب نوع السرطان، وقد تشمل تعبًا غير مبرر، فقدان وزن، كتل أو أورام، أو نزيف غير طبيعي. يُشخص السرطان عبر الفحوصات والصور والتحاليل، وأحيانًا خزعة من النسيج. تختلف طرق العلاج وتشمل الجراحة، والعلاج الكيميائي، والإشعاعي، والمناعي. الكشف المبكر يزيد من فرص الشفاء ويقلل من المضاعفات. من المهم التوعية والفحص المنتظم، خاصة لمن لديهم عوامل خطورة.''',
     likes: 30,
     comments: 20,
-    hasImage: false,
     imageUrl: null,
     userId: '1',
     postId: '1',
@@ -58,7 +55,6 @@ Remember, your journey is unique, and every step forward is a victory.
 And above all, life is worth holding onto, no matter how hard it gets.""",
     likes: 100,
     comments: 30,
-    hasImage: false,
     imageUrl: null,
     userId: '2',
     postId: '2',
@@ -87,7 +83,6 @@ And above all, life is worth holding onto, no matter how hard it gets.""",
 - If you work with chemicals, dust, or fumes, wear masks and follow safety protocols.''',
     likes: 81,
     comments: 53,
-    hasImage: true,
     imageUrl:
         'https://c8.alamy.com/comp/BR4XA4/x-ray-showing-lung-cancer-in-an-80-year-old-man-with-a-long-history-BR4XA4.jpg',
     userId: '1',

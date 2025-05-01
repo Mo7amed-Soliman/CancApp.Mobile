@@ -7,8 +7,6 @@ class CommentModel {
   final String userId;
   final String commentId;
   final String postId;
-  final String? replyName;
-  final List<CommentModel>? replies;
 
   CommentModel({
     required this.userName,
@@ -19,8 +17,6 @@ class CommentModel {
     required this.userId,
     required this.commentId,
     required this.postId,
-    this.replyName,
-    this.replies,
   });
 }
 
@@ -35,19 +31,6 @@ List<CommentModel> dummyComments = [
     userId: '1',
     commentId: '1',
     postId: '1',
-    replies: [
-      CommentModel(
-        userName: 'Ahmed Ali',
-        userImageUrl: 'assets/images/dummy_image/img4.png',
-        replyName: 'Ahmed Eid',
-        commentTime: '5 h',
-        content: 'Thank you brother.',
-        likes: 1,
-        userId: '2',
-        commentId: '2',
-        postId: '1',
-      ),
-    ],
   ),
   CommentModel(
     userName: 'Aliaa shady',

@@ -89,14 +89,17 @@ class MedicationsList extends StatelessWidget {
         /// if the reminders are empty
         if (state.reminders.isEmpty || filteredReminders.isEmpty) {
           return InEmptyList(
-            title: filteredReminders.isEmpty
-                ? S.of(context).noMedicationsForDate
-                : S.of(context).noMedications,
+            title: state.reminders.isEmpty
+                ? S.of(context).noMedications
+                : S.of(context).noMedicationsForDate,
             icon: IconlyBold.plus,
             onPressed: () async {
-              final reminder =
-                  await context.push(Routes.medicationReminderView);
+              /// navigate to medication reminder view
+              final reminder = await context.push(
+                Routes.medicationReminderView,
+              );
 
+              /// add medication reminder
               if (context.mounted) {
                 context
                     .read<MedicationReminderCubit>()
