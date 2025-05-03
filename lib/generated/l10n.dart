@@ -780,10 +780,10 @@ class S {
     return Intl.message('Visits', name: 'visits', desc: '', args: []);
   }
 
-  /// `No medications`
+  /// `No medications reminders`
   String get noMedications {
     return Intl.message(
-      'No medications',
+      'No medications reminders',
       name: 'noMedications',
       desc: '',
       args: [],
@@ -800,10 +800,10 @@ class S {
     );
   }
 
-  /// `No visit reminders yet`
+  /// `No visit reminders`
   String get noVisits {
     return Intl.message(
-      'No visit reminders yet',
+      'No visit reminders',
       name: 'noVisits',
       desc: '',
       args: [],
@@ -1488,6 +1488,16 @@ class S {
   /// `See less`
   String get seeLess {
     return Intl.message('See less', name: 'seeLess', desc: '', args: []);
+  }
+
+  /// `Thanks for signing up! We're verifying your identity. This may take up to 48 hours. You'll be notified by email once approved.`
+  String get accountReviewMessage {
+    return Intl.message(
+      'Thanks for signing up! We\'re verifying your identity. This may take up to 48 hours. You\'ll be notified by email once approved.',
+      name: 'accountReviewMessage',
+      desc: '',
+      args: [],
+    );
   }
 }
 

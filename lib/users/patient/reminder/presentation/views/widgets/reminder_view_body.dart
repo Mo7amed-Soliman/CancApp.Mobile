@@ -11,22 +11,8 @@ class ReminderViewBody extends StatefulWidget {
   State<ReminderViewBody> createState() => _ReminderViewBodyState();
 }
 
-class _ReminderViewBodyState extends State<ReminderViewBody>
-    with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+class _ReminderViewBodyState extends State<ReminderViewBody> {
   DateTime _selectedDate = DateTime.now();
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 2, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

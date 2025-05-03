@@ -42,7 +42,8 @@ class _PostState extends State<Post> {
             isExpanded: isExpanded,
             onExpand: () => setState(() => isExpanded = !isExpanded),
           ),
-          if (widget.post.hasImage) PostImage(imageUrl: widget.post.imageUrl!),
+          if (widget.post.imageUrl != null)
+            PostImage(imageUrl: widget.post.imageUrl!),
           PostActions(post: widget.post),
         ],
       ),

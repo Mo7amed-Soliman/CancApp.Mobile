@@ -1,4 +1,3 @@
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/comment_model.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -13,11 +12,10 @@ class CommentItem extends StatefulWidget {
   const CommentItem({
     super.key,
     required this.comment,
-    this.isReply = false,
   });
 
   final CommentModel comment;
-  final bool isReply;
+
   @override
   State<CommentItem> createState() => _CommentItemState();
 }
@@ -48,23 +46,17 @@ class _CommentItemState extends State<CommentItem> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
-              radius: widget.isReply
-                  ? context.setMinSize(16)
-                  : context.setMinSize(22),
+              radius: context.setMinSize(22),
               backgroundImage: AssetImage(widget.comment.userImageUrl),
             ),
-            widget.isReply
-                ? const HorizontalSpacer(6)
-                : const HorizontalSpacer(10),
+            const HorizontalSpacer(10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     padding: EdgeInsets.all(
-                      widget.isReply
-                          ? context.setWidth(8)
-                          : context.setWidth(12),
+                      context.setWidth(12),
                     ),
                     decoration: BoxDecoration(
                       color: AppColors.lightGray,
@@ -98,14 +90,6 @@ class _CommentItemState extends State<CommentItem> {
                         Text.rich(
                           TextSpan(
                             children: [
-                              if (widget.isReply)
-                                TextSpan(
-                                  text: '@${widget.comment.replyName} ',
-                                  style:
-                                      AppTextStyle.font15Bold(context).copyWith(
-                                    color: AppColors.primaryColor,
-                                  ),
-                                ),
                               TextSpan(
                                 text: widget.comment.content,
                                 style:
@@ -143,38 +127,15 @@ class _CommentItemState extends State<CommentItem> {
                           currentLikes.toString(),
                           style: AppTextStyle.font14RegularDarkGray(context),
                         ),
-                        const HorizontalSpacer(20),
-                        InkWell(
-                          onTap: () {},
-                          child: Text(
-                            'Reply',
-                            style: AppTextStyle.font14RegularDarkGray(context),
-                          ),
-                        ),
                       ],
                     ),
                   ),
-                  const VerticalSpacer(8),
+                  const VerticalSpacer(10),
                 ],
               ),
             ),
           ],
         ),
-        // Display replies if any
-        if (widget.comment.replies != null &&
-            widget.comment.replies!.isNotEmpty)
-          ...widget.comment.replies!.map(
-            (reply) => Padding(
-              padding: EdgeInsets.only(
-                left: isArabic() ? 0 : context.setMinSize(30),
-                right: isArabic() ? context.setMinSize(30) : 0,
-              ),
-              child: CommentItem(
-                comment: reply,
-                isReply: true,
-              ),
-            ),
-          ),
       ],
     );
   }

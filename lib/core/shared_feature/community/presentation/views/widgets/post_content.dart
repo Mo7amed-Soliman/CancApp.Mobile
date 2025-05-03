@@ -141,7 +141,7 @@ class _PostContentState extends State<PostContent> {
 
           final textPainter = TextPainter(
             text: textSpan,
-            maxLines: widget.post.hasImage ? 3 : 12,
+            maxLines: widget.post.imageUrl != null ? 3 : 12,
             textDirection: _textDirection,
           );
           textPainter.layout(maxWidth: constraints.maxWidth);
@@ -157,7 +157,7 @@ class _PostContentState extends State<PostContent> {
                   firstChild: Text(
                     _displayText,
                     style: _getTextStyle(context),
-                    maxLines: widget.post.hasImage ? 3 : 12,
+                    maxLines: widget.post.imageUrl != null ? 3 : 12,
                     overflow: TextOverflow.ellipsis,
                   ),
                   secondChild: Text(

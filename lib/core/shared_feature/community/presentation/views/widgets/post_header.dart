@@ -91,7 +91,9 @@ class PostPopupMenu extends StatelessWidget {
         if (post.userId == '1')
           PopupMenuItem(
             value: 'delete',
-            onTap: () {},
+            onTap: () {
+              // TODO: implement delete
+            },
             child: Row(
               children: [
                 const Icon(
@@ -109,26 +111,30 @@ class PostPopupMenu extends StatelessWidget {
               ],
             ),
           ),
-        PopupMenuItem(
-          value: 'report',
-          onTap: () {},
-          child: Row(
-            children: [
-              const Icon(
-                IconlyLight.info_circle,
-                color: AppColors.red,
-              ),
-              const HorizontalSpacer(12),
-              Text(
-                S.of(context).report,
-                style: AppTextStyle.font15Bold(context).copyWith(
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.darkGray,
+        // TODO: change to current user id
+        if (post.userId != '1')
+          PopupMenuItem(
+            value: 'report',
+            onTap: () {
+              // TODO: implement report
+            },
+            child: Row(
+              children: [
+                const Icon(
+                  IconlyLight.info_circle,
+                  color: AppColors.red,
                 ),
-              ),
-            ],
+                const HorizontalSpacer(12),
+                Text(
+                  S.of(context).report,
+                  style: AppTextStyle.font15Bold(context).copyWith(
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.darkGray,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
       ],
     );
   }

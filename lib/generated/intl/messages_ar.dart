@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم رفض طلب الوصول",
     ),
     "accessRequests": MessageLookupByLibrary.simpleMessage("طلبات الوصول"),
+    "accountReviewMessage": MessageLookupByLibrary.simpleMessage(
+      "شكرًا لتسجيلك! نحن نقوم بالتحقق من هويتك. قد يستغرق ذلك ما يصل إلى ٤٨ ساعة. سيتم إعلامك عبر البريد الإلكتروني بمجرد الموافقة.",
+    ),
     "add": MessageLookupByLibrary.simpleMessage("إضافة"),
     "addMedication": MessageLookupByLibrary.simpleMessage("إضافة دواء"),
     "addVisit": MessageLookupByLibrary.simpleMessage("إضافة زيارة"),
@@ -172,7 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يُمنع تغطية أي جزء من الهوية بالأصابع",
     ),
     "noMedications": MessageLookupByLibrary.simpleMessage(
-      "لا توجد تذكيرات بالأدوية بعد",
+      "لا توجد تذكيرات بالأدوية",
     ),
     "noMedicationsForDate": MessageLookupByLibrary.simpleMessage(
       "لا توجد أدوية لهذا التاريخ",
@@ -184,7 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
     ),
     "noVisits": MessageLookupByLibrary.simpleMessage(
-      "لا توجد تذكيرات بالزيارات بعد",
+      "لا توجد تذكيرات بالزيارات ",
     ),
     "noVisitsForDate": MessageLookupByLibrary.simpleMessage(
       "لا توجد زيارات لهذا التاريخ",

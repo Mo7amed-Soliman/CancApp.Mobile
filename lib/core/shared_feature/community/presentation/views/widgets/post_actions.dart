@@ -56,7 +56,7 @@ class _PostActionsState extends State<PostActions>
   Future<void> _playLikeSound() async {
     await _audioPlayer.play(
       AssetSource(AppAssets.likeSound),
-      volume: 0.3,
+      volume: 0.1,
     );
   }
 

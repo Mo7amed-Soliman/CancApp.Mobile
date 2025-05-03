@@ -1,9 +1,11 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 
 import 'notification_badge.dart';
@@ -33,7 +35,9 @@ class CommunityHeader extends StatelessWidget {
           Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  context.push(Routes.createPostView);
+                },
                 child: CircleAvatar(
                   radius: context.setMinSize(20),
                   backgroundColor: AppColors.offWhite.withValues(alpha: 0.2),
