@@ -29,4 +29,5 @@ class Routes {
       '/completePharmacyRegistrationView';
 
   static const String commentView = '/commentView';
+  static const String createPostView = '/createPostView';
 }
