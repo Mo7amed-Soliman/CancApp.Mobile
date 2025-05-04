@@ -2,7 +2,7 @@ name: canc_app
 description: "CancApp is a Flutter-based mobile application aimed at enhancing the quality of life for cancer patients"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -50,9 +50,9 @@ dependencies:
   get_it: ^8.0.3
   # flutter_svg for svg images
   flutter_svg: ^2.0.17
-  # Pin code input (OTP) text field  
+  # Pin code input (OTP) text field
   pinput: ^5.0.1
-  # iconly for icons management   
+  # iconly for icons management
   iconly: ^1.0.1
   # bot_toast for toast messages
   bot_toast: ^4.1.3
@@ -79,7 +79,7 @@ dependencies:
   flutter_dotenv: ^5.2.1
   # path_provider for accessing device file system
   path_provider: ^2.1.2
-  # local notifications 
+  # local notifications
   flutter_local_notifications: ^19.1.0
   # timezone for timezone management
   timezone: ^0.10.0
@@ -96,9 +96,6 @@ dependencies:
   audioplayers: ^6.4.0
   # translator for text translation
   translator: ^1.0.3+1
- 
-  
- 
 
 dev_dependencies:
   flutter_test:
@@ -110,16 +107,14 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
-  # flutter_launcher_icons for generating app icons 
+  # flutter_launcher_icons for generating app icons
   flutter_launcher_icons: "^0.13.1"
   # Hive generator for type adapters
   build_runner: ^2.4.8
   hive_generator: ^2.0.1
 
-
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -146,7 +141,7 @@ flutter:
         - asset: assets/fonts/Poppins-SemiBold.ttf
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
-          weight: 700  
+          weight: 700
 
     - family: Almarai
       fonts:
@@ -157,6 +152,6 @@ flutter:
     - family: Righteous
       fonts:
         - asset: assets/fonts/Righteous-Regular.ttf
- 
-flutter_intl: 
+
+flutter_intl:
   enabled: true
