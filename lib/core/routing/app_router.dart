@@ -41,7 +41,7 @@ import '../shared_feature/community/data/models/post_model.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: _getFirstView(),
+  initialLocation: Routes.homeView,
   debugLogDiagnostics: true,
   routes: [
     GoRoute(
@@ -272,7 +272,9 @@ final appRouter = GoRouter(
       path: Routes.commentView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
-        child: CommentView(post: state.extra as PostModel),
+        child: CommentView(
+          postId: state.pageKey as String,
+        ),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

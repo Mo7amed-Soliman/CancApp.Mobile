@@ -2,6 +2,8 @@ import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.d
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:canc_app/core/shared_feature/community/manager/comment_cubit.dart';
 
 class CommentInputField extends StatefulWidget {
   const CommentInputField({
@@ -20,6 +22,7 @@ class CommentInputField extends StatefulWidget {
 class _CommentInputFieldState extends State<CommentInputField> {
   final TextEditingController _commentController = TextEditingController();
   bool _canSubmit = false;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -43,11 +46,20 @@ class _CommentInputFieldState extends State<CommentInputField> {
     }
   }
 
-  void _submitComment() {
-    if (_canSubmit) {
-      // TODO: Implement comment submission logic
-      // This would add a new comment to the comments list
+  Future<void> _submitComment() async {
+    if (!_canSubmit || _isLoading) return;
+
+    setState(() => _isLoading = true);
+    try {
+      await context.read<CommentCubit>().addComment(
+            _commentController.text.trim(),
+            'current_user_id', // Replace with actual user ID
+          );
       _commentController.clear();
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
@@ -62,7 +74,7 @@ class _CommentInputFieldState extends State<CommentInputField> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 5,
             offset: const Offset(0, -1),
           ),
@@ -91,17 +103,29 @@ class _CommentInputFieldState extends State<CommentInputField> {
                 ),
               ),
               textCapitalization: TextCapitalization.sentences,
+              onSubmitted: (_) => _submitComment(),
             ),
           ),
           SizedBox(width: context.setWidth(8)),
-          IconButton(
-            onPressed: _canSubmit ? _submitComment : null,
-            icon: Icon(
-              Icons.send_rounded,
-              color: _canSubmit ? AppColors.primaryColor : AppColors.mediumGray,
-              size: context.setMinSize(24),
-            ),
-          ),
+          _isLoading
+              ? const SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: AppColors.primaryColor,
+                  ),
+                )
+              : IconButton(
+                  onPressed: _canSubmit ? _submitComment : null,
+                  icon: Icon(
+                    Icons.send_rounded,
+                    color: _canSubmit
+                        ? AppColors.primaryColor
+                        : AppColors.mediumGray,
+                    size: context.setMinSize(24),
+                  ),
+                ),
         ],
       ),
     );

@@ -1,56 +1,76 @@
-class CommentModel {
-  final String userName;
-  final String userImageUrl;
-  final String commentTime;
+import 'package:equatable/equatable.dart';
+
+class CommentModel extends Equatable {
+  final String id;
   final String content;
-  final int likes;
   final String userId;
-  final String commentId;
+  final String userName;
+  final String? userImage;
   final String postId;
+  final DateTime createdAt;
+  final int likesCount;
+  final int dislikesCount;
+  final bool isLiked;
+  final bool isDisliked;
 
-  CommentModel({
-    required this.userName,
-    required this.userImageUrl,
-    required this.commentTime,
+  const CommentModel({
+    required this.id,
     required this.content,
-    required this.likes,
     required this.userId,
-    required this.commentId,
+    required this.userName,
+    this.userImage,
     required this.postId,
+    required this.createdAt,
+    required this.likesCount,
+    required this.dislikesCount,
+    required this.isLiked,
+    required this.isDisliked,
   });
-}
 
-// Sample data for testing
-List<CommentModel> dummyComments = [
-  CommentModel(
-    userName: 'Ahmed Eid',
-    userImageUrl: 'assets/images/dummy_image/img3.png',
-    commentTime: '5 h',
-    content: 'Thank you for sharing this, its so inspiring',
-    likes: 3,
-    userId: '1',
-    commentId: '1',
-    postId: '1',
-  ),
-  CommentModel(
-    userName: 'Aliaa shady',
-    userImageUrl: 'assets/images/dummy_image/img2.png',
-    commentTime: '5 h',
-    content:
-        'Your strength is inspiring ! wishing you continued courage and positivity on your journey so thank you, I always prayer to you',
-    likes: 7,
-    userId: '3',
-    commentId: '3',
-    postId: '1',
-  ),
-  CommentModel(
-    userName: 'Youssef',
-    userImageUrl: 'assets/images/dummy_image/img4.png',
-    commentTime: '5 h',
-    content: 'Thank you for sharing this, its so inspiring',
-    likes: 3,
-    userId: '4',
-    commentId: '4',
-    postId: '1',
-  ),
-];
+  factory CommentModel.fromJson(Map<String, dynamic> json) {
+    return CommentModel(
+      id: json['id'] as String,
+      content: json['content'] as String,
+      userId: json['userId'] as String,
+      userName: json['userName'] as String,
+      userImage: json['userImage'] as String?,
+      postId: json['postId'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      likesCount: json['likesCount'] as int,
+      dislikesCount: json['dislikesCount'] as int,
+      isLiked: json['isLiked'] as bool,
+      isDisliked: json['isDisliked'] as bool,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'content': content,
+      'userId': userId,
+      'userName': userName,
+      'userImage': userImage,
+      'postId': postId,
+      'createdAt': createdAt.toIso8601String(),
+      'likesCount': likesCount,
+      'dislikesCount': dislikesCount,
+      'isLiked': isLiked,
+      'isDisliked': isDisliked,
+    };
+  }
+
+  @override
+  List<Object?> get props => [
+        id,
+        content,
+        userId,
+        userName,
+        userImage,
+        postId,
+        createdAt,
+        likesCount,
+        dislikesCount,
+        isLiked,
+        isDisliked,
+      ];
+}

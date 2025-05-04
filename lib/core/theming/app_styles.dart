@@ -61,10 +61,9 @@ class AppTextStyle {
   }
 
   static TextStyle font17Medium(BuildContext context) {
-    return TextStyle(
-      fontSize: context.setSp(17),
-      fontWeight: FontWeightHelper.medium,
-      fontFamily: fontFamily,
+    return const TextStyle(
+      fontSize: 17,
+      fontWeight: FontWeight.w500,
     );
   }
 
@@ -106,11 +105,10 @@ class AppTextStyle {
   }
 
   static TextStyle font19MediumDarkGray(BuildContext context) {
-    return TextStyle(
-      fontSize: context.setSp(19),
-      fontWeight: FontWeightHelper.medium,
-      color: AppColors.darkGray,
-      fontFamily: fontFamily,
+    return const TextStyle(
+      fontSize: 19,
+      fontWeight: FontWeight.w500,
+      color: Colors.black87,
     );
   }
 
@@ -155,6 +153,13 @@ class AppTextStyle {
       fontSize: context.setMinSize(16),
       fontWeight: FontWeight.w400,
       color: Colors.black,
+    );
+  }
+
+  static TextStyle font15Medium(BuildContext context) {
+    return const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w500,
     );
   }
 }

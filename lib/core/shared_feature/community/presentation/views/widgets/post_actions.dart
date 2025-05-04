@@ -3,10 +3,12 @@ import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.d
 import 'package:canc_app/core/helpers/utils/app_assets.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
+import 'package:canc_app/core/shared_feature/community/manager/community_cubit.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,8 +26,8 @@ class PostActions extends StatefulWidget {
 
 class _PostActionsState extends State<PostActions>
     with SingleTickerProviderStateMixin {
-  bool isLiked = false;
-  int currentLikes = 0;
+  late bool isLiked;
+  late int currentLikes;
   final AudioPlayer _audioPlayer = AudioPlayer();
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
@@ -33,7 +35,8 @@ class _PostActionsState extends State<PostActions>
   @override
   void initState() {
     super.initState();
-    currentLikes = widget.post.likes;
+    isLiked = widget.post.isLiked;
+    currentLikes = widget.post.likesCount;
     _controller = AnimationController(
       duration: const Duration(milliseconds: 350),
       vsync: this,
@@ -71,6 +74,8 @@ class _PostActionsState extends State<PostActions>
       _controller.forward().then((_) => _controller.reverse());
       await _playLikeSound();
     }
+
+    context.read<CommunityCubit>().likePost(widget.post.id);
   }
 
   @override
@@ -98,9 +103,10 @@ class _PostActionsState extends State<PostActions>
                               color: AppColors.red,
                               size: context.setMinSize(29),
                             )
-                          : SvgPicture.asset(
-                              AppAssets.heartIcon,
-                              height: context.setMinSize(29),
+                          : Icon(
+                              Icons.favorite_border,
+                              color: AppColors.darkGray,
+                              size: context.setMinSize(29),
                             ),
                     );
                   },
@@ -113,12 +119,11 @@ class _PostActionsState extends State<PostActions>
               ),
             ],
           ),
-          const HorizontalSpacer(24),
           Row(
             children: [
               InkWell(
                 onTap: () {
-                  context.push(Routes.commentView, extra: widget.post);
+                  context.push(Routes.commentView, extra: widget.post.id);
                 },
                 child: SvgPicture.asset(
                   AppAssets.commitIcon,
@@ -127,7 +132,7 @@ class _PostActionsState extends State<PostActions>
               ),
               const HorizontalSpacer(6),
               Text(
-                widget.post.comments.toString(),
+                widget.post.commentCount.toString(),
                 style: AppTextStyle.font16RegularDarkGray(context),
               ),
             ],

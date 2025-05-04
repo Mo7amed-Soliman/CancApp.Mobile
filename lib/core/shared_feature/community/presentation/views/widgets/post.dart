@@ -18,7 +18,7 @@ class Post extends StatefulWidget {
 
 class _PostState extends State<Post> {
   bool isExpanded = false;
-
+//
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +27,7 @@ class _PostState extends State<Post> {
         color: AppColors.offWhite,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -42,8 +42,8 @@ class _PostState extends State<Post> {
             isExpanded: isExpanded,
             onExpand: () => setState(() => isExpanded = !isExpanded),
           ),
-          if (widget.post.imageUrl != null)
-            PostImage(imageUrl: widget.post.imageUrl!),
+          if (widget.post.image != null)
+            PostImage(imageUrl: widget.post.image!),
           PostActions(post: widget.post),
         ],
       ),

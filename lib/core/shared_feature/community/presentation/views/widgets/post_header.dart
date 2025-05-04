@@ -1,10 +1,12 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
+import 'package:canc_app/core/shared_feature/community/manager/community_cubit.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
 class PostHeader extends StatelessWidget {
@@ -23,7 +25,10 @@ class PostHeader extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: context.setMinSize(24),
-            backgroundImage: AssetImage(post.userImageUrl),
+            backgroundImage:
+                post.userImage != null ? NetworkImage(post.userImage!) : null,
+            child:
+                post.userImage == null ? const Icon(IconlyLight.profile) : null,
           ),
           const HorizontalSpacer(12),
           Expanded(
@@ -35,7 +40,7 @@ class PostHeader extends StatelessWidget {
                   style: AppTextStyle.font17Medium(context).copyWith(),
                 ),
                 Text(
-                  post.postTime.toString(),
+                  post.createdAt.toString(),
                   style: AppTextStyle.font14RegularDarkGray(context),
                 ),
               ],
@@ -92,7 +97,7 @@ class PostPopupMenu extends StatelessWidget {
           PopupMenuItem(
             value: 'delete',
             onTap: () {
-              // TODO: implement delete
+              context.read<CommunityCubit>().deletePost(post.id);
             },
             child: Row(
               children: [

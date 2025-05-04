@@ -1,9 +1,12 @@
 import 'dart:io';
 
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/shared_feature/community/manager/post_cubit.dart';
+import 'package:canc_app/core/shared_feature/community/manager/post_state.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,231 +19,137 @@ class CreatePostView extends StatefulWidget {
 }
 
 class _CreatePostViewState extends State<CreatePostView> {
-  File? _pickedImage;
-  final TextEditingController _postController = TextEditingController();
-  bool _isPosting = false;
+  final TextEditingController _controller = TextEditingController();
+  String? _imagePath;
 
-  Future<void> _pickImage(ImageSource source) async {
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickImage() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? pickedFile = await picker.pickImage(source: source);
-    if (pickedFile != null) {
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
       setState(() {
-        _pickedImage = File(pickedFile.path);
+        _imagePath = image.path;
       });
     }
   }
 
-  void _removeImage() {
-    setState(() {
-      _pickedImage = null;
-    });
-  }
+  void _submitPost() {
+    if (_controller.text.trim().isEmpty) return;
 
-  bool get _isPostValid {
-    return _postController.text.trim().isNotEmpty;
-  }
-
-  Future<void> _submitPost() async {
-    if (!_isPostValid) return;
-
-    setState(() {
-      _isPosting = true;
-    });
-
-    try {
-      // TODO: Implement your post submission logic here
-      // You can access the content with _postController.text
-      // and the image with _pickedImage
-
-      // Simulate network delay
-      await Future.delayed(const Duration(seconds: 2));
-
-      // After successful post, pop the screen
-      if (mounted) {
-        context.pop();
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to post: ${e.toString()}')),
+    context.read<PostCubit>().createPost(
+          _controller.text.trim(),
+          'current_user_id', // Replace with actual user ID
+          image: _imagePath,
         );
-      }
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isPosting = false;
-        });
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    _postController.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.offWhite,
-        title: Text(
-          'Create Post',
-          style: AppTextStyle.font19MediumDarkGray(context).copyWith(
-            color: AppColors.darkGray,
-          ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            context.pop();
-          },
-          icon: Icon(
-            isArabic() ? IconlyLight.arrow_right_2 : IconlyLight.arrow_left_2,
-            color: AppColors.darkGray,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: TextButton(
-              onPressed: _isPostValid && !_isPosting ? _submitPost : null,
-              style: TextButton.styleFrom(
-                backgroundColor: _isPostValid
-                    ? AppColors.primaryColor
-                    : Colors.grey.shade200,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              child: _isPosting
-                  ? const SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        color: Colors.white,
-                        strokeWidth: 2,
-                      ),
-                    )
-                  : Text(
-                      'Post',
-                      style: AppTextStyle.font15Bold(context).copyWith(
-                        color: _isPostValid
-                            ? AppColors.offWhite
-                            : Colors.grey.shade400,
-                      ),
-                    ),
+    return BlocListener<PostCubit, PostState>(
+      listener: (context, state) {
+        if (state is PostCreated) {
+          Navigator.pop(context);
+        } else if (state is PostError) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.message),
+              backgroundColor: AppColors.red,
             ),
+          );
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Create Post',
+            style: AppTextStyle.font19MediumDarkGray(context),
           ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                const CircleAvatar(
-                  radius: 24,
-                  backgroundImage: AssetImage(
-                    'assets/images/dummy_image/img2.png',
+          backgroundColor: AppColors.offWhite,
+          actions: [
+            BlocBuilder<PostCubit, PostState>(
+              builder: (context, state) {
+                return TextButton(
+                  onPressed: state is PostLoading ? null : _submitPost,
+                  child: Text(
+                    'Post',
+                    style: AppTextStyle.font15Medium(context).copyWith(
+                      color: state is PostLoading
+                          ? AppColors.darkGray.withOpacity(0.5)
+                          : AppColors.primaryColor,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  'Dr.Basmala Yasser',
-                  style: AppTextStyle.font17Medium(context),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: _postController,
-                      maxLines: null,
-                      decoration: const InputDecoration(
-                        hintText: 'Anything on your mind ?\nLet it out here.',
-                        border: InputBorder.none,
-                      ),
-                      style: const TextStyle(fontSize: 18),
-                      onChanged: (_) => setState(() {}),
-                    ),
-                    if (_pickedImage != null) ...[
-                      const SizedBox(height: 16),
-                      Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.file(_pickedImage!),
-                          ),
-                          Positioned(
-                            top: 8,
-                            right: 8,
-                            child: GestureDetector(
-                              onTap: _removeImage,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                  color: Colors.black54,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Icon(Icons.close,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                _iconButton(
-                  icon: IconlyLight.image,
-                  backgroundColor: Colors.green.shade50,
-                  iconColor: Colors.green,
-                  onPressed: () => _pickImage(ImageSource.gallery),
-                ),
-                const SizedBox(width: 10),
-                _iconButton(
-                  icon: IconlyLight.camera,
-                  backgroundColor: Colors.red.shade50,
-                  iconColor: Colors.red,
-                  onPressed: () => _pickImage(ImageSource.camera),
-                ),
-              ],
+                );
+              },
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _iconButton({
-    required IconData icon,
-    required Color backgroundColor,
-    required Color iconColor,
-    required VoidCallback onPressed,
-  }) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        padding: const EdgeInsets.all(12),
-        child: Icon(
-          icon,
-          color: iconColor,
-          size: 28,
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              TextField(
+                controller: _controller,
+                decoration: InputDecoration(
+                  hintText: 'What\'s on your mind?',
+                  border: InputBorder.none,
+                  hintStyle: AppTextStyle.font15Medium(context).copyWith(
+                    color: AppColors.darkGray.withOpacity(0.5),
+                  ),
+                ),
+                style: AppTextStyle.font15Medium(context),
+                maxLines: null,
+              ),
+              const SizedBox(height: 16),
+              if (_imagePath != null)
+                Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.file(
+                        File(_imagePath!),
+                        height: 200,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: IconButton(
+                        onPressed: () => setState(() => _imagePath = null),
+                        icon: const Icon(
+                          Icons.close,
+                          color: AppColors.red,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              const Spacer(),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: _pickImage,
+                    icon: const Icon(
+                      Icons.image,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                  Text(
+                    'Add Photo',
+                    style: AppTextStyle.font15Medium(context).copyWith(
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
