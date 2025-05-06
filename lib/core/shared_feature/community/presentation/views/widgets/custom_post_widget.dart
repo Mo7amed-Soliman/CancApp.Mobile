@@ -7,16 +7,16 @@ import 'post_content.dart';
 import 'post_header.dart';
 import 'post_image.dart';
 
-class Post extends StatefulWidget {
-  const Post({super.key, required this.post});
+class CustomPostWidget extends StatefulWidget {
+  const CustomPostWidget({super.key, required this.post});
 
   final PostModel post;
 
   @override
-  State<Post> createState() => _PostState();
+  State<CustomPostWidget> createState() => _CustomPostWidgetState();
 }
 
-class _PostState extends State<Post> {
+class _CustomPostWidgetState extends State<CustomPostWidget> {
   bool isExpanded = false;
 //
   @override

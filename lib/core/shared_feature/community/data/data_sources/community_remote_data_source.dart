@@ -10,14 +10,18 @@ class CommunityRemoteDataSource implements CommunityDataSource {
 
   @override
   Future<List<PostModel>> getPosts() async {
-    final response = await apiConsumer.get('/posts');
+    final response = await apiConsumer.get('/posts', queryParameters: {
+      'PageNumber': 1,
+      'PageSize': 10,
+    });
     return (response as List).map((post) => PostModel.fromJson(post)).toList();
   }
 
   @override
-  Future<List<PostModel>> getMorePosts(int lastPostId) async {
+  Future<List<PostModel>> getMorePosts(int pageNumber) async {
     final response = await apiConsumer.get('/posts', queryParameters: {
-      'lastPostId': lastPostId,
+      'PageNumber': pageNumber,
+      'PageSize': 10,
     });
     return (response as List).map((post) => PostModel.fromJson(post)).toList();
   }

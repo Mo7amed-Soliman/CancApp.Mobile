@@ -1,30 +1,46 @@
 import 'dart:io';
 
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/networking/api_consumer.dart';
+import 'package:canc_app/core/shared_feature/community/data/data_sources/community_data_source.dart';
 import 'package:canc_app/core/shared_feature/community/manager/post_cubit.dart';
 import 'package:canc_app/core/shared_feature/community/manager/post_state.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_content_field.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_image_picker.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_image_preview.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:iconly/iconly.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
+import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository_impl.dart';
+import 'package:canc_app/core/shared_feature/community/data/data_sources/community_remote_data_source.dart';
 
 class CreatePostView extends StatefulWidget {
-  const CreatePostView({super.key});
+  final PostModel? post; // If null, create; if not, edit
+
+  const CreatePostView({Key? key, this.post}) : super(key: key);
 
   @override
   State<CreatePostView> createState() => _CreatePostViewState();
 }
 
 class _CreatePostViewState extends State<CreatePostView> {
-  final TextEditingController _controller = TextEditingController();
+  late TextEditingController _contentController;
   String? _imagePath;
 
   @override
+  void initState() {
+    super.initState();
+    _contentController = TextEditingController(
+      text: widget.post?.content ?? '',
+    );
+  }
+
+  @override
   void dispose() {
-    _controller.dispose();
+    _contentController.dispose();
     super.dispose();
   }
 
@@ -38,120 +54,84 @@ class _CreatePostViewState extends State<CreatePostView> {
     }
   }
 
-  void _submitPost() {
-    if (_controller.text.trim().isEmpty) return;
+  void _submit() {
+    final content = _contentController.text.trim();
+    if (content.isEmpty) return;
 
-    context.read<PostCubit>().createPost(
-          _controller.text.trim(),
-          'current_user_id', // Replace with actual user ID
-          image: _imagePath,
-        );
+    if (widget.post == null) {
+      context.read<PostCubit>().createPost(
+            content,
+            _imagePath ?? '',
+          );
+    } else {
+      context.read<PostCubit>().updatePost(
+            widget.post!.id,
+            content,
+            _imagePath ?? '',
+          );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<PostCubit, PostState>(
-      listener: (context, state) {
-        if (state is PostCreated) {
-          Navigator.pop(context);
-        } else if (state is PostError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.message),
-              backgroundColor: AppColors.red,
-            ),
-          );
-        }
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Create Post',
-            style: AppTextStyle.font19MediumDarkGray(context),
-          ),
-          backgroundColor: AppColors.offWhite,
-          actions: [
-            BlocBuilder<PostCubit, PostState>(
-              builder: (context, state) {
-                return TextButton(
-                  onPressed: state is PostLoading ? null : _submitPost,
-                  child: Text(
-                    'Post',
-                    style: AppTextStyle.font15Medium(context).copyWith(
-                      color: state is PostLoading
-                          ? AppColors.darkGray.withOpacity(0.5)
-                          : AppColors.primaryColor,
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  hintText: 'What\'s on your mind?',
-                  border: InputBorder.none,
-                  hintStyle: AppTextStyle.font15Medium(context).copyWith(
-                    color: AppColors.darkGray.withOpacity(0.5),
-                  ),
-                ),
-                style: AppTextStyle.font15Medium(context),
-                maxLines: null,
-              ),
-              const SizedBox(height: 16),
-              if (_imagePath != null)
-                Stack(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.file(
-                        File(_imagePath!),
-                        height: 200,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Positioned(
-                      top: 8,
-                      right: 8,
-                      child: IconButton(
-                        onPressed: () => setState(() => _imagePath = null),
-                        icon: const Icon(
-                          Icons.close,
-                          color: AppColors.red,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              const Spacer(),
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: _pickImage,
-                    icon: const Icon(
-                      Icons.image,
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                  Text(
-                    'Add Photo',
-                    style: AppTextStyle.font15Medium(context).copyWith(
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+    final isEdit = widget.post != null;
+    return BlocProvider(
+      create: (context) => PostCubit(
+        repository: CommunityRepositoryImpl(
+          dataSource: CommunityRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
           ),
         ),
       ),
+      child: Builder(builder: (context) {
+        return BlocListener<PostCubit, PostState>(
+          listener: (context, state) {
+            if (state is PostCreated) {
+              Navigator.pop(context);
+            } else if (state is PostError) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
+                  backgroundColor: AppColors.red,
+                ),
+              );
+            }
+          },
+          child: Scaffold(
+            appBar: AppBar(
+              title: Text(isEdit ? 'Edit Post' : 'Create Post'),
+              backgroundColor: AppColors.offWhite,
+              actions: [
+                TextButton(
+                  onPressed: _submit,
+                  child: Text(
+                    isEdit ? 'Save' : 'Post',
+                    style: AppTextStyle.font15Medium(context).copyWith(
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            body: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  PostContentField(controller: _contentController),
+                  const SizedBox(height: 16),
+                  if (_imagePath != null)
+                    PostImagePreview(
+                      imagePath: _imagePath!,
+                      onRemove: () => setState(() => _imagePath = null),
+                    ),
+                  const Spacer(),
+                  PostImagePicker(onPickImage: _pickImage),
+                ],
+              ),
+            ),
+          ),
+        );
+      }),
     );
   }
 }

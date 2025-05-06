@@ -4,7 +4,7 @@ import 'package:canc_app/core/shared_feature/community/data/models/comment_model
 abstract class CommunityDataSource {
   // Posts
   Future<List<PostModel>> getPosts();
-  Future<List<PostModel>> getMorePosts(int lastPostId);
+  Future<List<PostModel>> getMorePosts(int pageNumber);
   Future<PostModel> createPost(String content, String userId, {String? image});
   Future<PostModel> updatePost(String id, String content, String userId,
       {String? image});

@@ -1,6 +1,6 @@
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
 import 'package:flutter/material.dart';
-import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/custom_post_widget.dart';
 
 class ListOfPosts extends StatelessWidget {
   final List<PostModel> posts;
@@ -40,7 +40,7 @@ class ListOfPosts extends StatelessWidget {
           );
         }
         final post = posts[index];
-        return Post(post: post);
+        return CustomPostWidget(post: post);
       },
     );
   }

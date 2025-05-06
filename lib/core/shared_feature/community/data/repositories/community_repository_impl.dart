@@ -23,9 +23,9 @@ class CommunityRepositoryImpl implements CommunityRepository {
   }
 
   @override
-  Future<Either<Failure, List<PostModel>>> getMorePosts(int lastPostId) async {
+  Future<Either<Failure, List<PostModel>>> getMorePosts(int pageNumber) async {
     try {
-      final posts = await dataSource.getMorePosts(lastPostId);
+      final posts = await dataSource.getMorePosts(pageNumber);
       return Right(posts);
     } on ServerFailure catch (e) {
       return Left(e);

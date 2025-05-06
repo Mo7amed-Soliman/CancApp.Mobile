@@ -1,7 +1,7 @@
-import 'package:canc_app/core/error/failure.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/shared_feature/community/manager/community_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommunityCubit extends Cubit<CommunityState> {
@@ -34,7 +34,7 @@ class CommunityCubit extends Cubit<CommunityState> {
 
     final currentState = state as CommunityLoaded;
     if (!currentState.hasMorePosts) return;
-
+    debugPrint('loadMorePosts');
     _currentPage++;
     final result =
         await repository.getMorePosts(int.parse(currentState.posts.last.id));

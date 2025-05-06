@@ -1,3 +1,4 @@
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
 import 'package:canc_app/core/shared_feature/community/manager/community_cubit.dart';
@@ -8,6 +9,7 @@ import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/create_post_view.dart';
 
 class PostHeader extends StatelessWidget {
   const PostHeader({
@@ -63,6 +65,8 @@ class PostPopupMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String currentUserId =
+        UserCacheHelper.getUser()!.id; // Replace with actual user id logic
     return PopupMenuButton<String>(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -70,11 +74,9 @@ class PostPopupMenu extends StatelessWidget {
       color: Colors.white,
       offset: Offset(0, context.setHeight(32)),
       itemBuilder: (context) => [
-        // TODO: change to current user id
-        if (post.userId == '1')
+        if (post.userId == currentUserId)
           PopupMenuItem(
             value: 'edit',
-            onTap: () {},
             child: Row(
               children: [
                 const Icon(
@@ -83,7 +85,7 @@ class PostPopupMenu extends StatelessWidget {
                 ),
                 const HorizontalSpacer(12),
                 Text(
-                  S.of(context).edit,
+                  'Edit Post',
                   style: AppTextStyle.font15Bold(context).copyWith(
                     fontWeight: FontWeight.w500,
                     color: AppColors.darkGray,
@@ -91,9 +93,15 @@ class PostPopupMenu extends StatelessWidget {
                 ),
               ],
             ),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const CreatePostView(),
+                ),
+              );
+            },
           ),
-        // TODO: change to current user id
-        if (post.userId == '1')
+        if (post.userId == currentUserId)
           PopupMenuItem(
             value: 'delete',
             onTap: () {
@@ -116,13 +124,9 @@ class PostPopupMenu extends StatelessWidget {
               ],
             ),
           ),
-        // TODO: change to current user id
-        if (post.userId != '1')
+        if (post.userId != currentUserId)
           PopupMenuItem(
             value: 'report',
-            onTap: () {
-              // TODO: implement report
-            },
             child: Row(
               children: [
                 const Icon(
@@ -134,11 +138,14 @@ class PostPopupMenu extends StatelessWidget {
                   S.of(context).report,
                   style: AppTextStyle.font15Bold(context).copyWith(
                     fontWeight: FontWeight.w500,
-                    color: AppColors.darkGray,
+                    color: AppColors.red,
                   ),
                 ),
               ],
             ),
+            onTap: () {
+              // TODO: implement report
+            },
           ),
       ],
     );

@@ -6,7 +6,7 @@ import 'package:canc_app/core/networking/api_faliure.dart';
 abstract class CommunityRepository {
   // Posts
   Future<Either<Failure, List<PostModel>>> getPosts();
-  Future<Either<Failure, List<PostModel>>> getMorePosts(int lastPostId);
+  Future<Either<Failure, List<PostModel>>> getMorePosts(int pageNumber);
   Future<Either<Failure, PostModel>> createPost(String content, String userId,
       {String? image});
   Future<Either<Failure, PostModel>> updatePost(

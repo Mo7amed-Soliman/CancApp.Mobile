@@ -37,8 +37,6 @@ import 'package:canc_app/users/volunteer/volunteer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../shared_feature/community/data/models/post_model.dart';
-
 //? GoRouter configuration
 final appRouter = GoRouter(
   initialLocation: Routes.homeView,

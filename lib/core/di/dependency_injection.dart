@@ -4,6 +4,7 @@ import 'package:canc_app/core/networking/api_consumer.dart';
 import 'package:canc_app/core/networking/dio_consumer.dart';
 import 'package:canc_app/core/services/refresh_token_service.dart';
 import 'package:canc_app/core/services/token_service.dart';
+import 'package:canc_app/core/shared_feature/community/manager/community_cubit.dart' show CommunityCubit;
 import 'package:canc_app/core/shared_feature/forgot_password/data/data_sources/forget_password_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/data/repositories/forget_password_repository.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/reset_password_cubit/reset_password_cubit.dart';
@@ -35,9 +36,11 @@ import 'package:canc_app/users/patient/reminder/presentation/manger/medication_r
 import 'package:canc_app/users/patient/reminder/presentation/manger/visit_reminder_cubit/visit_reminder_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-
 import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
 import '../../users/patient/chatbot/presentation/manger/chat_bot_cubit.dart';
+import '../shared_feature/community/data/data_sources/community_remote_data_source.dart';
+import '../shared_feature/community/data/repositories/community_repository.dart';
+import '../shared_feature/community/data/repositories/community_repository_impl.dart';
 import '../shared_feature/sign_up/presentation/manger/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
 
 final getIt = GetIt.instance;
@@ -164,6 +167,17 @@ Future<void> initDependencies() async {
   getIt.registerLazySingleton<ChatBotRepository>(() => ChatbotRepositoryImpl(
         dataSource: ChatbotRemoteDataSource(
           dio: getIt<Dio>(),
+        ),
+      ));
+  //! community cubit
+  getIt.registerFactory<CommunityCubit>(() => CommunityCubit(
+        repository: getIt<CommunityRepository>(),
+      )); 
+
+  //! community repository
+  getIt.registerLazySingleton<CommunityRepository>(() => CommunityRepositoryImpl(
+        dataSource: CommunityRemoteDataSource(
+          apiConsumer: getIt<ApiConsumer>(),
         ),
       ));
 }
