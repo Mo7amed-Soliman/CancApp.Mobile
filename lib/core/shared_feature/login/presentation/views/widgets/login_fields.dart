@@ -1,5 +1,5 @@
 import 'package:canc_app/core/routing/routes.dart';
-import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
+import 'package:canc_app/core/shared_feature/login/presentation/manager/login_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/widgets/forgot_password_button.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';

@@ -4,7 +4,7 @@ import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manger/complete_pharmacy_registration_cubit/complete_pharmacy_registration_cubit.dart';
+import '../manager/complete_pharmacy_registration_cubit/complete_pharmacy_registration_cubit.dart';
 import 'widgets/complete_pharmacy_registration_view_body.dart';
 
 class CompletePharmacyRegistrationView extends StatefulWidget {

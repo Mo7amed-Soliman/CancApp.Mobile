@@ -10,8 +10,8 @@ import 'package:iconly/iconly.dart';
 import 'package:redacted/redacted.dart';
 
 import '../../../data/models/visit_reminder_model.dart';
-import '../../manger/visit_reminder_cubit/visit_reminder_cubit.dart';
-import '../../manger/visit_reminder_cubit/visit_reminder_state.dart';
+import '../../manager/visit_reminder_cubit/visit_reminder_cubit.dart';
+import '../../manager/visit_reminder_cubit/visit_reminder_state.dart';
 import 'animated_list_item.dart';
 import 'visit_card.dart';
 

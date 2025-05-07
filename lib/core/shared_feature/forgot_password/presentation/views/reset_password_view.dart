@@ -4,7 +4,7 @@ import 'package:canc_app/core/widgets/custom_app_bar.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../manger/reset_password_cubit/reset_password_cubit.dart';
+import '../manager/reset_password_cubit/reset_password_cubit.dart';
 import 'widgets/reset_password_body.dart';
 
 class ResetPasswordView extends StatelessWidget {

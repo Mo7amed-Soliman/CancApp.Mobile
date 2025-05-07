@@ -13,7 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../manger/complete_pharmacy_registration_cubit/complete_pharmacy_registration_cubit.dart';
+import '../../manager/complete_pharmacy_registration_cubit/complete_pharmacy_registration_cubit.dart';
 import 'complete_registration_header.dart';
 import 'delivery_switch_section.dart';
 import 'map_dialog.dart';

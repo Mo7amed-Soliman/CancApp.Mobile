@@ -1,7 +1,7 @@
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
-import 'package:canc_app/users/patient/home/presentation/manger/nearest_pharmacy_cubit/nearest_pharmacy_cubit.dart';
+import 'package:canc_app/users/patient/home/presentation/manager/nearest_pharmacy_cubit/nearest_pharmacy_cubit.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/available_to_chat_list_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/nearest_pharmacy_list_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/quick_actions_grid.dart';

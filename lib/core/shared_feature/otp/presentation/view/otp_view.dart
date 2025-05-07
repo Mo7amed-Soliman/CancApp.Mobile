@@ -2,7 +2,7 @@ import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repository.dart';
-import 'package:canc_app/core/shared_feature/otp/presentation/manger/otp_cubit.dart';
+import 'package:canc_app/core/shared_feature/otp/presentation/manager/otp_cubit.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/view/widgets/otp_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:canc_app/core/theming/app_colors.dart';

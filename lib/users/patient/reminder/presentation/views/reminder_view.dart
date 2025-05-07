@@ -7,8 +7,8 @@ import 'package:iconly/iconly.dart';
 
 import '../../data/models/medication_reminder_model.dart';
 import '../../data/models/visit_reminder_model.dart';
-import '../manger/medication_reminder_cubit/medication_reminder_cubit.dart';
-import '../manger/visit_reminder_cubit/visit_reminder_cubit.dart';
+import '../manager/medication_reminder_cubit/medication_reminder_cubit.dart';
+import '../manager/visit_reminder_cubit/visit_reminder_cubit.dart';
 import 'widgets/reminder_bottom_sheet.dart';
 import 'widgets/custom_reminder_app_bar.dart';
 import 'widgets/reminder_view_body.dart';

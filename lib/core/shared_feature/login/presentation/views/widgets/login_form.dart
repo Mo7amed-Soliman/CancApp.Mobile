@@ -3,7 +3,7 @@ import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
-import 'package:canc_app/core/shared_feature/login/presentation/manger/login_cubit.dart';
+import 'package:canc_app/core/shared_feature/login/presentation/manager/login_cubit.dart';
 import 'package:canc_app/core/shared_feature/login/presentation/views/widgets/login_fields.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
