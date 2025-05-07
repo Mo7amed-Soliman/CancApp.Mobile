@@ -58,6 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "cancApp": MessageLookupByLibrary.simpleMessage("كانك آب"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+    "changePasswordSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم تغيير كلمة المرور بنجاح",
+    ),
     "chat": MessageLookupByLibrary.simpleMessage("المحادثة"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("متاح للدردشة"),
     "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
@@ -65,11 +69,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
     "community": MessageLookupByLibrary.simpleMessage("المجتمع"),
+    "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+    "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور الجديدة",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور مطلوب",
+    ),
+    "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور الجديدة مطلوب",
     ),
     "createYourAccount": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
     "dailyWorkingHoursLabel": MessageLookupByLibrary.simpleMessage(
@@ -105,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "editMedication": MessageLookupByLibrary.simpleMessage("تعديل دواء"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "editVisit": MessageLookupByLibrary.simpleMessage("تعديل زيارة"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -148,6 +160,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
     ),
+    "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "logout_confirm": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    ),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف صغير واحد",
     ),
@@ -168,8 +184,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "يجب أن يكون على الأقل 8 أحرف",
     ),
+    "myProfile": MessageLookupByLibrary.simpleMessage("ملفي الشخصي"),
     "navigate": MessageLookupByLibrary.simpleMessage("تنقل"),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("أقرب صيدلية"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
+    "newPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور الجديدة مطلوبة",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "يُمنع تغطية أي جزء من الهوية بالأصابع",
@@ -196,6 +217,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "notification": MessageLookupByLibrary.simpleMessage("الإشعار"),
     "numberValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل رقم واحد",
+    ),
+    "oldPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور القديمة"),
+    "oldPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور القديمة مطلوبة",
     ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
       "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
@@ -326,6 +351,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "على الأقل رمز خاص واحد",
     ),
     "specificDays": MessageLookupByLibrary.simpleMessage("أيام محددة"),
+    "switchToArabic": MessageLookupByLibrary.simpleMessage(
+      "التبديل إلى العربية",
+    ),
+    "switchToEnglish": MessageLookupByLibrary.simpleMessage(
+      "التبديل إلى الإنجليزية",
+    ),
     "takePhoto": MessageLookupByLibrary.simpleMessage("أختر صورة"),
     "tapToTakePhotoOfId": MessageLookupByLibrary.simpleMessage(
       "اضغط لالتقاط صورة لبطاقتك",
@@ -363,5 +394,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال ساعات العمل اليومية",
     ),
+    "yes": MessageLookupByLibrary.simpleMessage("نعم"),
   };
 }

@@ -150,8 +150,14 @@
       "resetPassword": "Reset Password",
     
       "sentCodeSuccessfully": "Sent code successfully",
-
-
+      "oldPassword": "Old Password",
+      "oldPasswordRequired": "Old Password is required",
+      "newPassword": "New Password",
+      "newPasswordRequired": "New Password is required",
+      "confirmNewPassword": "Confirm New Password",
+      "confirmPasswordRequired": "Confirm New Password is required",
+      "changePasswordSuccessfully": "Password changed successfully",
+      "changePassword": "Change Password",
     "documentVerification": "Document Verification",
     "documentVerificationDescription": "Please provide clear photos of your medical license and government ID to complete the verification process.",
     "governmentId": "Government ID",
@@ -192,6 +198,15 @@
    "showTranslation": "Show translation",
    "seeMore": "See more",
    "seeLess": "See less",
-   "accountReviewMessage": "Thanks for signing up! We're verifying your identity. This may take up to 48 hours. You'll be notified by email once approved."
+   "accountReviewMessage": "Thanks for signing up! We're verifying your identity. This may take up to 48 hours. You'll be notified by email once approved.",
+   "myProfile": "My Profile",
+   "editProfile": "Edit Profile",
+   
+   "switchToArabic": "Switch to Arabic",
+   "switchToEnglish": "Switch to English",
+   "logout": "Log out",
+   "logout_confirm": "Are you sure you want to logout?",
+   "confirm": "Confirm",
+   "yes": "Yes"
  
 }

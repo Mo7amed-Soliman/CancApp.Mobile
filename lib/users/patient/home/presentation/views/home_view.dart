@@ -12,8 +12,9 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          getIt<NearestPharmacyCubit>()..getNearestPharmacies(),
+      create: (context) {
+        return getIt<NearestPharmacyCubit>()..getNearestPharmacies();
+      },
       child: const Column(
         children: [
           /// Welcome Banner

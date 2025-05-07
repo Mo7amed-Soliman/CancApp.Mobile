@@ -1110,6 +1110,86 @@ class S {
     );
   }
 
+  /// `Old Password`
+  String get oldPassword {
+    return Intl.message(
+      'Old Password',
+      name: 'oldPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old Password is required`
+  String get oldPasswordRequired {
+    return Intl.message(
+      'Old Password is required',
+      name: 'oldPasswordRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password is required`
+  String get newPasswordRequired {
+    return Intl.message(
+      'New Password is required',
+      name: 'newPasswordRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm New Password`
+  String get confirmNewPassword {
+    return Intl.message(
+      'Confirm New Password',
+      name: 'confirmNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm New Password is required`
+  String get confirmPasswordRequired {
+    return Intl.message(
+      'Confirm New Password is required',
+      name: 'confirmPasswordRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password changed successfully`
+  String get changePasswordSuccessfully {
+    return Intl.message(
+      'Password changed successfully',
+      name: 'changePasswordSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Document Verification`
   String get documentVerification {
     return Intl.message(
@@ -1498,6 +1578,66 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `My Profile`
+  String get myProfile {
+    return Intl.message('My Profile', name: 'myProfile', desc: '', args: []);
+  }
+
+  /// `Edit Profile`
+  String get editProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Switch to Arabic`
+  String get switchToArabic {
+    return Intl.message(
+      'Switch to Arabic',
+      name: 'switchToArabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Switch to English`
+  String get switchToEnglish {
+    return Intl.message(
+      'Switch to English',
+      name: 'switchToEnglish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get logout {
+    return Intl.message('Log out', name: 'logout', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to logout?`
+  String get logout_confirm {
+    return Intl.message(
+      'Are you sure you want to logout?',
+      name: 'logout_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message('Yes', name: 'yes', desc: '', args: []);
   }
 }
 

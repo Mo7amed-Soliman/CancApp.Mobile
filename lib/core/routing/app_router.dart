@@ -37,6 +37,7 @@ import 'package:canc_app/users/volunteer/volunteer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../shared_feature/change_password/presentation/views/change_password.dart';
 import '../shared_feature/community/data/models/post_model.dart';
 
 //? GoRouter configuration
@@ -281,6 +282,14 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const CreatePostView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.changePassword,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const ChangePasswordView(),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

@@ -30,4 +30,5 @@ class Routes {
 
   static const String commentView = '/commentView';
   static const String createPostView = '/createPostView';
+  static const String changePassword = '/changePassword';
 }

@@ -58,6 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "cancApp": MessageLookupByLibrary.simpleMessage("CancApp"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
+    "changePasswordSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Password changed successfully",
+    ),
     "chat": MessageLookupByLibrary.simpleMessage("Chat"),
     "chatCategories": MessageLookupByLibrary.simpleMessage("Available to chat"),
     "chats": MessageLookupByLibrary.simpleMessage("Chats"),
@@ -67,9 +71,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "closed": MessageLookupByLibrary.simpleMessage("Closed"),
     "community": MessageLookupByLibrary.simpleMessage("Community"),
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
+      "Confirm New Password",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "confirmPasswordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Confirm password is required",
+    ),
+    "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "Confirm New Password is required",
     ),
     "createYourAccount": MessageLookupByLibrary.simpleMessage(
       "Create your Account",
@@ -107,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "editMedication": MessageLookupByLibrary.simpleMessage("Edit Medication"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "editVisit": MessageLookupByLibrary.simpleMessage("Edit Visit"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -150,6 +162,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Login successfully",
     ),
+    "logout": MessageLookupByLibrary.simpleMessage("Log out"),
+    "logout_confirm": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to logout?",
+    ),
     "lowercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 lowercase letter",
     ),
@@ -170,8 +186,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "minLengthValidation": MessageLookupByLibrary.simpleMessage(
       "At least 8 characters long",
     ),
+    "myProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
     "navigate": MessageLookupByLibrary.simpleMessage("Navigate"),
     "nearestPharmacy": MessageLookupByLibrary.simpleMessage("Nearest Pharmacy"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+    "newPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "New Password is required",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "No fingers covering any part of the ID",
@@ -198,6 +219,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "notification": MessageLookupByLibrary.simpleMessage("Notification"),
     "numberValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 number",
+    ),
+    "oldPassword": MessageLookupByLibrary.simpleMessage("Old Password"),
+    "oldPasswordRequired": MessageLookupByLibrary.simpleMessage(
+      "Old Password is required",
     ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
       "Chat with doctors, psychiatrists, pharmacists, and volunteers anytime",
@@ -328,6 +353,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "At least 1 special character",
     ),
     "specificDays": MessageLookupByLibrary.simpleMessage("Specific Days"),
+    "switchToArabic": MessageLookupByLibrary.simpleMessage("Switch to Arabic"),
+    "switchToEnglish": MessageLookupByLibrary.simpleMessage(
+      "Switch to English",
+    ),
     "takePhoto": MessageLookupByLibrary.simpleMessage("Take a photo"),
     "tapToTakePhotoOfId": MessageLookupByLibrary.simpleMessage(
       "Tap to take a photo of your ID",
@@ -367,5 +396,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
       "Please enter Daily working hours",
     ),
+    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }
