@@ -5,6 +5,7 @@ import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/helpers/utils/app_assets.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -66,7 +67,9 @@ class ProfileView extends StatelessWidget {
         ProfileMenuTile(
           icon: IconlyLight.profile,
           title: S.of(context).editProfile,
-          onTap: () {},
+          onTap: () {
+            context.push(Routes.editProfileView);
+          },
         ),
         ProfileMenuTile(
           icon: IconlyLight.password,
@@ -76,7 +79,7 @@ class ProfileView extends StatelessWidget {
           },
         ),
         ProfileMenuTile(
-          icon: Icons.language,
+          svgPath: AppAssets.languageIcon,
           title: isArabic()
               ? S.of(context).switchToEnglish
               : S.of(context).switchToArabic,

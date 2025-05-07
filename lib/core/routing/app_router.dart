@@ -9,6 +9,7 @@ import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.da
 import 'package:canc_app/core/shared_feature/chat/presentation/views/chat_view.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/comment_view.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/create_post_view.dart';
+import 'package:canc_app/core/shared_feature/edit_profile/presentation/views/edit_profile_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/reset_password_view.dart';
 import 'package:canc_app/core/shared_feature/otp/presentation/view/otp_view.dart';
@@ -290,6 +291,14 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const ChangePasswordView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.editProfileView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const EditProfileView(),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

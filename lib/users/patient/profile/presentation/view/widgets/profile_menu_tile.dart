@@ -1,21 +1,24 @@
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ProfileMenuTile extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon;
   final String title;
   final VoidCallback onTap;
   final Color iconColor;
   final Color textColor;
+  final String? svgPath;
 
   const ProfileMenuTile({
     super.key,
-    required this.icon,
+    this.icon,
     required this.title,
     required this.onTap,
     this.iconColor = AppColors.primaryColor,
     this.textColor = AppColors.darkGray,
+    this.svgPath,
   });
 
   @override
@@ -28,11 +31,17 @@ class ProfileMenuTile extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),
         ),
-        leading: Icon(
-          icon,
-          size: 30,
-          color: iconColor,
-        ),
+        leading: svgPath != null
+            ? SvgPicture.asset(
+                svgPath!,
+                width: 32,
+                height: 32,
+              )
+            : Icon(
+                icon,
+                size: 30,
+                color: iconColor,
+              ),
         title: Text(
           title,
           style: AppTextStyle.font17Medium(context).copyWith(color: textColor),
