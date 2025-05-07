@@ -1,4 +1,4 @@
-import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -32,7 +32,7 @@ class WelcomeBanner extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(context.setMinSize(30)),
                   child: Image.asset(
-                    'assets/images/dummy_image/profile_img.png',
+                    'assets/images/dummy_image/img4.png',
                     width: context.setMinSize(60),
                     height: context.setMinSize(60),
                     fit: BoxFit.fill,
@@ -54,7 +54,7 @@ class WelcomeBanner extends StatelessWidget {
                   ),
                   const VerticalSpacer(2),
                   Text(
-                    isArabic() ? 'شرين فهمي' : 'Shereen Fahmy',
+                    UserCacheHelper.getUser()?.name ?? '',
                     style: AppTextStyle.font16SemiBoldWhite(context),
                     softWrap: true,
                     overflow: TextOverflow.clip,

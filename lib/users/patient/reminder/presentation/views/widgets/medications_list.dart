@@ -12,8 +12,8 @@ import 'package:redacted/redacted.dart';
 
 import '../../../data/models/frequency_details_model.dart';
 import '../../../data/models/medication_reminder_model.dart';
-import '../../manger/medication_reminder_cubit/medication_reminder_cubit.dart';
-import '../../manger/medication_reminder_cubit/medication_reminder_state.dart';
+import '../../manager/medication_reminder_cubit/medication_reminder_cubit.dart';
+import '../../manager/medication_reminder_cubit/medication_reminder_state.dart';
 import 'animated_list_item.dart';
 import 'medication_card.dart';
 

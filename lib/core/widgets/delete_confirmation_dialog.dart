@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 class DeleteConfirmationDialog extends StatelessWidget {
   final String content;
   final VoidCallback onConfirm;
+  final String? confirmText;
 
   const DeleteConfirmationDialog({
     super.key,
     required this.content,
     required this.onConfirm,
+    this.confirmText,
   });
 
   @override
@@ -75,7 +77,7 @@ class DeleteConfirmationDialog extends StatelessWidget {
             onConfirm();
           },
           child: Text(
-            S.of(context).delete,
+            confirmText ?? S.of(context).delete,
             style: AppTextStyle.font16RegularDarkGray(context).copyWith(
               color: Colors.red,
             ),
@@ -89,12 +91,14 @@ class DeleteConfirmationDialog extends StatelessWidget {
     BuildContext context, {
     required String content,
     required VoidCallback onConfirm,
+    String? confirmText,
   }) async {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => DeleteConfirmationDialog(
         content: content,
         onConfirm: onConfirm,
+        confirmText: confirmText,
       ),
     );
     return confirmed ?? false;

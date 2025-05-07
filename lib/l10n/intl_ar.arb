@@ -58,7 +58,14 @@
     "specialCharacterValidation": "على الأقل رمز خاص واحد",
     "numberValidation": "على الأقل رقم واحد",
     "minLengthValidation": "يجب أن يكون على الأقل 8 أحرف",
-
+    "oldPassword": "كلمة المرور القديمة",
+    "oldPasswordRequired": "كلمة المرور القديمة مطلوبة",
+    "newPassword": "كلمة المرور الجديدة",
+    "newPasswordRequired": "كلمة المرور الجديدة مطلوبة",
+    "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+    "confirmPasswordRequired": "تأكيد كلمة المرور الجديدة مطلوب",
+    "changePassword": "تغيير كلمة المرور",
+    "changePasswordSuccessfully": "تم تغيير كلمة المرور بنجاح",
     "home": "الرئيسية",
     "chats": "المحادثات",
     "chat": "المحادثة",
@@ -199,7 +206,15 @@
     "showTranslation": "عرض الترجمة",
     "seeMore": "عرض المزيد",
     "seeLess": "عرض الأقل",
-    "accountReviewMessage": "شكرًا لتسجيلك! نحن نقوم بالتحقق من هويتك. قد يستغرق ذلك ما يصل إلى ٤٨ ساعة. سيتم إعلامك عبر البريد الإلكتروني بمجرد الموافقة."
-
+    "accountReviewMessage": "شكرًا لتسجيلك! نحن نقوم بالتحقق من هويتك. قد يستغرق ذلك ما يصل إلى ٤٨ ساعة. سيتم إعلامك عبر البريد الإلكتروني بمجرد الموافقة.",
+    "myProfile": "ملفي الشخصي",
+    "editProfile": "تعديل الملف الشخصي",
+    "switchToArabic": "التبديل إلى العربية",
+    "switchToEnglish": "التبديل إلى الإنجليزية",
+    "logout": "تسجيل الخروج",
+    "logout_confirm": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "confirm": "تأكيد",
+    "yes": "نعم"
+ 
  
 }

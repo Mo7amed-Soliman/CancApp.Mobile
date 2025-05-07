@@ -2,7 +2,7 @@ import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../manger/chat_bot_cubit.dart';
+import '../../manager/chat_bot_cubit.dart';
 import 'animated_chatbot_welcome.dart';
 import 'chatbot_input_field.dart';
 import 'messages_list_view.dart';

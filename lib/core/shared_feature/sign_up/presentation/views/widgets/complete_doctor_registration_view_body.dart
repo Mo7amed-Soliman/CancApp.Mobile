@@ -15,8 +15,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../manger/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
-import '../../manger/complete_doctor_registration_cubit/complete_doctor_registration_state.dart';
+import '../../manager/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
+import '../../manager/complete_doctor_registration_cubit/complete_doctor_registration_state.dart';
 import 'complete_registration_header.dart';
 import 'upload_photo_section.dart';
 

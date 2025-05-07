@@ -1,7 +1,7 @@
 import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
-import 'package:canc_app/core/shared_feature/forgot_password/presentation/manger/forgot_password_cubit/forgot_password_cubit.dart';
+import 'package:canc_app/core/shared_feature/forgot_password/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/views/widgets/forgot_password_body.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';

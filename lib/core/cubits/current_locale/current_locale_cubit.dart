@@ -17,11 +17,13 @@ class CurrentLocaleCubit extends Cubit<CurrentLocaleState> {
       case LocaleType.en:
         locale = const Locale('en');
         AppTextStyle.fontFamily = FontFamily.poppins;
+        getIt<CacheHelper>().put(key: CacheKeys.language, value: 'en');
         emit(EnglishState());
         break;
       case LocaleType.ar:
         locale = const Locale('ar');
         AppTextStyle.fontFamily = FontFamily.almarai;
+        getIt<CacheHelper>().put(key: CacheKeys.language, value: 'ar');
         emit(ArabicState());
         break;
     }

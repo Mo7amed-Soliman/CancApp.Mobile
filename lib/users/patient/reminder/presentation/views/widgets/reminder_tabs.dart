@@ -8,8 +8,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../data/models/medication_reminder_model.dart';
 import '../../../data/models/visit_reminder_model.dart';
-import '../../manger/medication_reminder_cubit/medication_reminder_cubit.dart';
-import '../../manger/visit_reminder_cubit/visit_reminder_cubit.dart';
+import '../../manager/medication_reminder_cubit/medication_reminder_cubit.dart';
+import '../../manager/visit_reminder_cubit/visit_reminder_cubit.dart';
 import '../../../../../../core/widgets/delete_confirmation_dialog.dart';
 import 'medications_list.dart';
 import 'visits_list.dart';

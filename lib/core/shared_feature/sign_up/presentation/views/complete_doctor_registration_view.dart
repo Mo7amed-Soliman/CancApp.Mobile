@@ -2,7 +2,7 @@ import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
-import '../manger/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
+import '../manager/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
 import 'widgets/complete_doctor_registration_view_body.dart';
 
 class CompleteDoctorRegistrationView extends StatelessWidget {

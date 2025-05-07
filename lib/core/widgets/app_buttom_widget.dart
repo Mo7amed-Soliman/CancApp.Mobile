@@ -25,7 +25,7 @@ class AppButtonWidget extends StatelessWidget {
     this.borderRadius = 10,
     this.padding,
     this.textStyle,
-    this.loaderSize = 26,
+    this.loaderSize = 32,
     this.loaderColor = AppColors.primaryColor,
   });
 
@@ -61,7 +61,7 @@ class AppButtonWidget extends StatelessWidget {
         dimension: loaderSize,
         child: CircularProgressIndicator(
           color: loaderColor,
-          strokeWidth: 3,
+          strokeWidth: 4,
         ),
       );
     }

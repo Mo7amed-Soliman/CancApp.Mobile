@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/models/visit_reminder_model.dart';
-import '../../manger/visit_reminder_cubit/visit_reminder_cubit.dart';
+import '../../manager/visit_reminder_cubit/visit_reminder_cubit.dart';
 
 import 'reminder_actions.dart';
 import 'reminder_schedule_info.dart';

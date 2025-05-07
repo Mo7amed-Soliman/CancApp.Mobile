@@ -5,6 +5,7 @@ import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/chats_list_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/home_view.dart';
+import 'package:canc_app/users/patient/profile/presentation/view/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
@@ -30,7 +31,7 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
     const HomeView(),
     const ChatsListView(),
     const CommunityView(),
-    const ProfilePage(),
+    const ProfileView(),
   ];
 
   @override
@@ -130,19 +131,6 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
         duration: Duration(milliseconds: 300),
         screenTransitionAnimationType: ScreenTransitionAnimationType.slide,
       ),
-    );
-  }
-}
-
-/// page for the profile
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('🙍 ${S.of(context).profile}',
-          style: const TextStyle(fontSize: 24)),
     );
   }
 }

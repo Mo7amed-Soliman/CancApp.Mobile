@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../data/models/medication_reminder_model.dart';
-import '../../manger/medication_reminder_cubit/medication_reminder_cubit.dart';
+import '../../manager/medication_reminder_cubit/medication_reminder_cubit.dart';
 import 'reminder_actions.dart';
 import 'reminder_schedule_info.dart';
 

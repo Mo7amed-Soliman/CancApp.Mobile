@@ -18,5 +18,6 @@ class AppAssets {
       heartIcon = 'assets/icons/heart_icon.svg',
       commitIcon = 'assets/icons/commit_icon.svg',
       likeSound = 'sounds/like_sound.mp3',
-      noComments = 'assets/icons/no_comments.svg';
+      noComments = 'assets/icons/no_comments.svg',
+      languageIcon = 'assets/icons/language_icon.svg';
 }
