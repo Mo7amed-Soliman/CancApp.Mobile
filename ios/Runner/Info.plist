@@ -65,5 +65,8 @@
 		<string>location</string>
 		</array>
 
+		<key>NSFaceIDUsageDescription</key>
+		<string>We need your face to provide better services.</string>
+
 	</dict>
 </plist>

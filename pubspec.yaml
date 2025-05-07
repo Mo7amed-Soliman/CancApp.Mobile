@@ -96,6 +96,8 @@ dependencies:
   audioplayers: ^6.4.0
   # translator for text translation
   translator: ^1.0.3+1
+  # local_auth for secure authentication
+  local_auth: ^2.3.0
  
   
  
