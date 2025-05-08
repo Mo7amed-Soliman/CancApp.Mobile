@@ -38,6 +38,7 @@ import 'package:canc_app/users/volunteer/volunteer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../users/patient/record/presentation/views/mange_your_records_view.dart';
 import '../shared_feature/change_password/presentation/views/change_password.dart';
 import '../shared_feature/community/data/models/post_model.dart';
 
@@ -299,6 +300,14 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const EditProfileView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.manageYourRecordsView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const MangeYourRecordsView(),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

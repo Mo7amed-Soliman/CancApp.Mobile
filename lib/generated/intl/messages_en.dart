@@ -175,6 +175,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "makeSureTextVisible": MessageLookupByLibrary.simpleMessage(
       "Make sure all text is clearly visible",
     ),
+    "manageYourRecords": MessageLookupByLibrary.simpleMessage(
+      "Manage Your Records",
+    ),
     "medicalSyndicateLicense": MessageLookupByLibrary.simpleMessage(
       "Medical Syndicate License",
     ),

@@ -1639,6 +1639,16 @@ class S {
   String get yes {
     return Intl.message('Yes', name: 'yes', desc: '', args: []);
   }
+
+  /// `Manage Your Records`
+  String get manageYourRecords {
+    return Intl.message(
+      'Manage Your Records',
+      name: 'manageYourRecords',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
