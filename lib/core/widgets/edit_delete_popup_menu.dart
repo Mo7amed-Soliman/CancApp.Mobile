@@ -6,11 +6,11 @@ import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-class ReminderPopupMenu extends StatelessWidget {
+class EditDeletePopupMenu extends StatelessWidget {
   final VoidCallback onEdit;
   final VoidCallback onDelete;
 
-  const ReminderPopupMenu({
+  const EditDeletePopupMenu({
     super.key,
     required this.onEdit,
     required this.onDelete,

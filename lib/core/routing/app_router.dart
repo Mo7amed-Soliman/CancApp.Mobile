@@ -27,6 +27,8 @@ import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/nearest_pharmacy_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/patient_bottom_nav_bar.dart';
+import 'package:canc_app/users/patient/record/data/models/record_type.dart';
+import 'package:canc_app/users/patient/record/presentation/views/record_type_view.dart';
 import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_model.dart';
 import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
 import 'package:canc_app/users/patient/reminder/presentation/views/medication_reminder_view.dart';
@@ -308,6 +310,16 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const MangeYourRecordsView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.recordTypeView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: RecordTypeView(
+          recordType: state.extra as RecordType,
+        ),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

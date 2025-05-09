@@ -1,6 +1,6 @@
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'reminder_popup_menu.dart';
+import '../../../../../../core/widgets/edit_delete_popup_menu.dart';
 
 class ReminderActions extends StatelessWidget {
   final bool isEnabled;
@@ -27,7 +27,7 @@ class ReminderActions extends StatelessWidget {
           onChanged: (_) => onToggle(),
           activeColor: AppColors.primaryColor,
         ),
-        ReminderPopupMenu(
+        EditDeletePopupMenu(
           onEdit: onEdit,
           onDelete: onDelete,
         ),

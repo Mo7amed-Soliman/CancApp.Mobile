@@ -6,8 +6,11 @@ import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key, required this.title});
+  const CustomAppBar(
+      {super.key, required this.title, this.icon, this.onPressed});
   final String title;
+  final IconData? icon;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +31,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.white,
         ),
       ),
+      actions: icon == null
+          ? []
+          : [
+              IconButton(
+                icon: Icon(
+                  icon,
+                ),
+                onPressed: onPressed,
+              ),
+            ],
     );
   }
 

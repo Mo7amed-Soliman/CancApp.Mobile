@@ -33,4 +33,5 @@ class Routes {
   static const String changePassword = '/changePassword';
   static const String editProfileView = '/editProfileView';
   static const String manageYourRecordsView = '/manageYourRecordsView';
+  static const String recordTypeView = '/recordTypeView';
 }
