@@ -14,7 +14,7 @@ class RecordDetailItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = context.screenWidth;
     return SizedBox(
-      height: context.setHeight(140),
+      height: context.setHeight(130),
       child: Stack(
         children: [
           // Background container with image and note
@@ -24,7 +24,7 @@ class RecordDetailItem extends StatelessWidget {
               color: AppColors.primaryColor.withAlpha(15),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-            height: context.setHeight(140),
+            height: context.setHeight(130),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -35,6 +35,7 @@ class RecordDetailItem extends StatelessWidget {
                         child: Image(
                           image: AssetImage(record.image!.path),
                           fit: BoxFit.cover,
+                          height: context.setHeight(130),
                           width: width * 0.4,
                         ),
                       )
@@ -69,7 +70,7 @@ class RecordDetailItem extends StatelessWidget {
 
           // Date (bottom-right)
           Positioned(
-            bottom: 14,
+            bottom: 8,
             right: 10,
             child: Text(
               record.date,
