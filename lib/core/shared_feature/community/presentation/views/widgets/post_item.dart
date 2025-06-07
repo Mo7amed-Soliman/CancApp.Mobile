@@ -7,16 +7,17 @@ import 'post_content.dart';
 import 'post_header.dart';
 import 'post_image.dart';
 
-class Post extends StatefulWidget {
-  const Post({super.key, required this.post});
+class PostItem extends StatefulWidget {
+  const PostItem({super.key, required this.post, required this.onDelete});
 
   final PostModel post;
+  final VoidCallback onDelete;
 
   @override
-  State<Post> createState() => _PostState();
+  State<PostItem> createState() => _PostItemState();
 }
 
-class _PostState extends State<Post> {
+class _PostItemState extends State<PostItem> {
   bool isExpanded = false;
 
   @override
@@ -36,7 +37,7 @@ class _PostState extends State<Post> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PostHeader(post: widget.post),
+          PostHeader(post: widget.post, onDelete: widget.onDelete),
           PostContent(
             post: widget.post,
             isExpanded: isExpanded,

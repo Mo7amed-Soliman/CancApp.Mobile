@@ -1,4 +1,7 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +11,12 @@ class CommentInputField extends StatefulWidget {
     super.key,
     this.replyTo,
     required this.postId,
+    this.onCommentAdded,
   });
 
   final String? replyTo;
-  final String postId;
+  final int postId;
+  final VoidCallback? onCommentAdded;
 
   @override
   State<CommentInputField> createState() => _CommentInputFieldState();
@@ -20,6 +25,8 @@ class CommentInputField extends StatefulWidget {
 class _CommentInputFieldState extends State<CommentInputField> {
   final TextEditingController _commentController = TextEditingController();
   bool _canSubmit = false;
+  bool _isSubmitting = false;
+  final CommunityRepository _repository = getIt<CommunityRepository>();
 
   @override
   void initState() {
@@ -43,11 +50,47 @@ class _CommentInputFieldState extends State<CommentInputField> {
     }
   }
 
-  void _submitComment() {
-    if (_canSubmit) {
-      // TODO: Implement comment submission logic
-      // This would add a new comment to the comments list
-      _commentController.clear();
+  Future<void> _submitComment() async {
+    if (!_canSubmit || _isSubmitting) return;
+
+    setState(() {
+      _isSubmitting = true;
+    });
+
+    try {
+      final result = await _repository.addComment(
+        postId: widget.postId,
+        userId: UserCacheHelper.getUser()?.id ?? '',
+        content: _commentController.text.trim(),
+      );
+
+      result.fold(
+        (failure) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(failure.errorMessage)),
+            );
+          }
+        },
+        (_) {
+          if (mounted) {
+            _commentController.clear();
+            widget.onCommentAdded?.call();
+          }
+        },
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSubmitting = false;
+        });
+      }
     }
   }
 
@@ -73,34 +116,28 @@ class _CommentInputFieldState extends State<CommentInputField> {
           Expanded(
             child: TextField(
               controller: _commentController,
-              style: AppTextStyle.font14RegularDarkGray(context),
               decoration: InputDecoration(
-                hintText: widget.replyTo != null
-                    ? 'Reply to ${widget.replyTo}...'
-                    : 'add comment',
+                hintText: 'Write a comment...',
                 hintStyle: AppTextStyle.font14RegularDarkGray(context),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: AppColors.lightGray,
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: context.setWidth(16),
-                  vertical: context.setHeight(8),
-                ),
+                border: InputBorder.none,
               ),
-              textCapitalization: TextCapitalization.sentences,
+              maxLines: null,
             ),
           ),
-          SizedBox(width: context.setWidth(8)),
           IconButton(
-            onPressed: _canSubmit ? _submitComment : null,
-            icon: Icon(
-              Icons.send_rounded,
-              color: _canSubmit ? AppColors.primaryColor : AppColors.mediumGray,
-              size: context.setMinSize(24),
-            ),
+            onPressed: _isSubmitting ? null : _submitComment,
+            icon: _isSubmitting
+                ? SizedBox(
+                    width: context.setMinSize(20),
+                    height: context.setMinSize(20),
+                    child: const CircularProgressIndicator(
+                      strokeWidth: 2,
+                    ),
+                  )
+                : const Icon(
+                    Icons.send,
+                    color: AppColors.primaryColor,
+                  ),
           ),
         ],
       ),

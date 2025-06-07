@@ -17,11 +17,21 @@ class EndPoint {
   static const String registerOtpNewPassword =
       'auth/register-otp-for-new-password';
 
+  // community
+  static const String getPosts = 'post';
+  static const String addPost = 'post';
+  static const String deletePost = 'post';
+  static const String updatePost = 'post';
+  static const String getPost = 'post';
+  static const String getPostComments = 'Comments';
+  static const String addPostComment = 'Comments';
+  static const String updatePostComment = 'Comments';
+  static const String deletePostComment = 'Comments';
+  static const String addReaction = 'Reaction';
+  static const String deleteReaction = 'Reaction';
+  static const String getReaction = 'Reaction';
+
   static String chatbotBaseUrl = dotenv.get('CHAT_BOT_BASE_URL');
 
   static const String charbotAsk = '/ask';
-
-  static String getUserDataEndPoint(id) {
-    return 'user/get-user/$id';
-  }
 }

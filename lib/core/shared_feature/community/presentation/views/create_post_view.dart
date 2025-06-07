@@ -1,6 +1,9 @@
 import 'dart:io';
 
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +22,7 @@ class _CreatePostViewState extends State<CreatePostView> {
   File? _pickedImage;
   final TextEditingController _postController = TextEditingController();
   bool _isPosting = false;
+  final CommunityRepository _repository = getIt<CommunityRepository>();
 
   Future<void> _pickImage(ImageSource source) async {
     final ImagePicker picker = ImagePicker();
@@ -48,21 +52,30 @@ class _CreatePostViewState extends State<CreatePostView> {
     });
 
     try {
-      // TODO: Implement your post submission logic here
-      // You can access the content with _postController.text
-      // and the image with _pickedImage
+      final result = await _repository.addPost(
+        content: _postController.text.trim(),
+        userId: UserCacheHelper.getUser()?.id ?? '',
+        image: _pickedImage != null ? XFile(_pickedImage!.path) : null,
+      );
 
-      // Simulate network delay
-      await Future.delayed(const Duration(seconds: 2));
-
-      // After successful post, pop the screen
-      if (mounted) {
-        context.pop();
-      }
+      result.fold(
+        (failure) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(failure.errorMessage)),
+            );
+          }
+        },
+        (_) {
+          if (mounted) {
+            context.pop();
+          }
+        },
+      );
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to post: ${e.toString()}')),
+          SnackBar(content: Text(e.toString())),
         );
       }
     } finally {
@@ -82,6 +95,7 @@ class _CreatePostViewState extends State<CreatePostView> {
 
   @override
   Widget build(BuildContext context) {
+    final user = UserCacheHelper.getUser();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.offWhite,
@@ -141,15 +155,15 @@ class _CreatePostViewState extends State<CreatePostView> {
           children: [
             Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 24,
-                  backgroundImage: AssetImage(
-                    'assets/images/dummy_image/img2.png',
+                  backgroundImage: NetworkImage(
+                    user?.image ?? '',
                   ),
                 ),
                 const SizedBox(width: 10),
                 Text(
-                  'Dr.Basmala Yasser',
+                  user?.name ?? '',
                   style: AppTextStyle.font17Medium(context),
                 ),
               ],

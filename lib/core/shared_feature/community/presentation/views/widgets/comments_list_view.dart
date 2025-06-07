@@ -1,5 +1,6 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
+import 'package:canc_app/core/shared_feature/community/data/models/comment_model.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/comment_item.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -10,10 +11,12 @@ class CommentsListView extends StatelessWidget {
   const CommentsListView({
     super.key,
     required this.post,
+    required this.comments,
     this.scrollController,
   });
 
   final PostModel post;
+  final List<CommentModel> comments;
   final ScrollController? scrollController;
 
   @override
@@ -27,7 +30,7 @@ class CommentsListView extends StatelessWidget {
             vertical: context.setHeight(10),
           ),
           child: Text(
-            'Comments (${post.comments})',
+            'Comments (${comments.length})',
             style: AppTextStyle.font18SemiBoldDarkGray(context),
           ),
         ),
@@ -37,10 +40,10 @@ class CommentsListView extends StatelessWidget {
           child: ListView.builder(
             controller: scrollController,
             padding: EdgeInsets.symmetric(horizontal: context.setWidth(16)),
-            itemCount: post.commentsList!.length,
+            itemCount: comments.length,
             itemBuilder: (context, index) {
               return CommentItem(
-                comment: post.commentsList![index],
+                comment: comments[index],
               );
             },
           ),

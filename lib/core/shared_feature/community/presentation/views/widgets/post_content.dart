@@ -37,8 +37,8 @@ class _PostContentState extends State<PostContent> {
       _isCurrentTextArabic ? TextDirection.rtl : TextDirection.ltr;
 
   String get _displayText => _isTranslated
-      ? (_translatedText ?? widget.post.contentPost)
-      : widget.post.contentPost;
+      ? (_translatedText ?? widget.post.content)
+      : widget.post.content;
 
   bool _isArabicText(String text) => _arabicRegex.hasMatch(text);
 
@@ -54,9 +54,9 @@ class _PostContentState extends State<PostContent> {
     setState(() => _isLoading = true);
 
     try {
-      final isSourceArabic = _isArabicText(widget.post.contentPost);
+      final isSourceArabic = _isArabicText(widget.post.content);
       final translation = await _translator.translate(
-        widget.post.contentPost,
+        widget.post.content,
         from: isSourceArabic ? 'ar' : 'en',
         to: isSourceArabic ? 'en' : 'ar',
       );
