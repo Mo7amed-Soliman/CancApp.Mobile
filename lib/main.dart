@@ -21,29 +21,23 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  /// Initialize environment variables
-  await dotenv.load(fileName: '.env');
-
-  /// setup dependency injection
-  await initDependencies();
+  /// Initialize environment variables and core services in parallel
+  await Future.wait([
+    dotenv.load(fileName: '.env'),
+    initDependencies(),
+    HiveHelper.init(),
+  ]);
 
   /// Initialize cache helper
   await getIt<CacheHelper>().init();
 
-  /// Initialize Hive
-  await HiveHelper.init();
-
-  /// Initialize User Service to get user data from hive
-  await UserCacheHelper.init();
-
-  /// Initialize Local Notification Service
-  await LocalNotificationService.init();
-
-  /// Initalize Medication Reminder Notification Service
-  await MedicationNotificationService.initialize();
-
-  /// Initialize Visit Reminder Notification Service
-  await VisitNotificationService.initialize();
+  /// Initialize user data and notification services in parallel
+  await Future.wait([
+    UserCacheHelper.init(),
+    LocalNotificationService.init(),
+    MedicationNotificationService.initialize(),
+    VisitNotificationService.initialize(),
+  ]);
 
   /// Run the app
   runApp(

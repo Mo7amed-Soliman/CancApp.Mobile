@@ -47,132 +47,50 @@ import '../shared_feature/sign_up/presentation/manager/complete_doctor_registrat
 final getIt = GetIt.instance;
 
 Future<void> initDependencies() async {
-  //! Core
+  //! Core - Lazy singletons for core services
   getIt.registerLazySingleton<CacheHelper>(() => CacheHelper());
   getIt.registerLazySingleton<SecureCacheHelper>(() => SecureCacheHelper());
   getIt.registerLazySingleton<TokenService>(() => TokenService());
+  getIt.registerLazySingleton<Dio>(() => Dio());
+  getIt
+      .registerLazySingleton<ApiConsumer>(() => DioConsumer(dio: getIt<Dio>()));
   getIt.registerLazySingleton<RefreshTokenService>(() => RefreshTokenService(
         dio: getIt<Dio>(),
         tokenService: getIt<TokenService>(),
       ));
 
-  //! Dio
-  getIt.registerLazySingleton<Dio>(() => Dio());
-
-  //! login cubit
-  getIt.registerFactory<LoginCubit>(() => LoginCubit(
-        loginRepository: getIt<LoginRepository>(),
-      ));
-
+  //! Repositories - Lazy singletons for data access
   getIt.registerLazySingleton<LoginRepository>(() => LoginRepositoryImpl(
         loginDataSource: getIt<LoginRemoteDataSource>(),
-      ));
-  getIt
-      .registerLazySingleton<LoginRemoteDataSource>(() => LoginRemoteDataSource(
-            apiConsumer: getIt<ApiConsumer>(),
-          ));
-
-  getIt.registerFactory<ApiConsumer>(() => DioConsumer(
-        dio: getIt<Dio>(),
-      ));
-
-  //! sign up cubit
-  getIt.registerFactory<SignUpCubit>(() => SignUpCubit(
-        signUpRepository: getIt<SignUpRepository>(),
       ));
   getIt.registerLazySingleton<SignUpRepository>(() => SignUpRepositoryImpl(
         signUpDataSource: getIt<SignUpRemoteDataSource>(),
       ));
-  getIt.registerLazySingleton<SignUpRemoteDataSource>(
-      () => SignUpRemoteDataSource(
-            apiConsumer: getIt<ApiConsumer>(),
-          ));
-
-  //! complete doctor cubit
-  getIt.registerFactory<CompleteDoctorRegistrationCubit>(
-    () => CompleteDoctorRegistrationCubit(
-      signUpRepository: getIt<SignUpRepository>(),
-    ),
-  );
-  //! complete pharmacy cubit
-  getIt.registerFactory<CompletePharmacyRegistrationCubit>(
-    () => CompletePharmacyRegistrationCubit(
-      signUpRepository: getIt<SignUpRepository>(),
-    ),
-  );
-  //! otp Repository
   getIt.registerLazySingleton<OtpRepository>(() => OtpRepositoryImpl(
         otpRemoteDataSource: getIt<OtpRemoteDataSource>(),
-      ));
-  getIt.registerLazySingleton<OtpRemoteDataSource>(() => OtpRemoteDataSource(
-        apiConsumer: getIt<ApiConsumer>(),
-      ));
-
-  //! forgot password cubit
-  getIt.registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(
-        forgetPasswordRepository: getIt<ForgetPasswordRepository>(),
       ));
   getIt.registerLazySingleton<ForgetPasswordRepository>(
       () => ForgetPasswordRepositoryImpl(
             remoteDataSource: getIt<ForgetPasswordRemoteDataSource>(),
           ));
-  getIt.registerLazySingleton<ForgetPasswordRemoteDataSource>(
-      () => ForgetPasswordRemoteDataSource(
-            apiConsumer: getIt<ApiConsumer>(),
-          ));
-  //! reset password cubit
-  getIt.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(
-        forgetPasswordRepository: getIt<ForgetPasswordRepository>(),
-      ));
-  //! medication reminder cubit
-  getIt.registerFactory<MedicationReminderCubit>(() => MedicationReminderCubit(
-        getIt<MedicationReminderRepository>(),
-      ));
-
-  //! visit reminder cubit
-  getIt.registerFactory<VisitReminderCubit>(() => VisitReminderCubit(
-        getIt<VisitReminderRepository>(),
-      ));
-
   getIt.registerLazySingleton<MedicationReminderRepository>(
       () => MedicationReminderRepositoryImpl(
             MedicationReminderDataSourceImpl(),
           ));
-
-  //! visit reminder repository
   getIt.registerLazySingleton<VisitReminderRepository>(
       () => VisitReminderRepositoryImpl(
             VisitReminderDataSourceImpl(),
           ));
-
-  //! nearest pharmacy cubit
-  getIt.registerFactory<NearestPharmacyCubit>(() => NearestPharmacyCubit(
-        repository: getIt<NearestPharmacyRepository>(),
-      ));
-
-  //! nearest pharmacy repository
   getIt.registerLazySingleton<NearestPharmacyRepository>(
       () => NearestPharmacyRepositoryImpl(
             dataSource: NearestPharmacyDataSourceImpl(
               dio: getIt<Dio>(),
             ),
           ));
-
-  //! Chatbot cubit
-  getIt.registerFactory<ChatBotCubit>(() => ChatBotCubit(
-        chatbotRepository: getIt<ChatBotRepository>(),
-      ));
-
-  //! Chatbot repository
   getIt.registerLazySingleton<ChatBotRepository>(() => ChatbotRepositoryImpl(
         dataSource: ChatbotRemoteDataSource(
           dio: getIt<Dio>(),
         ),
-      ));
-
-  //! Community repository
-  getIt.registerFactory<CommunityCubit>(() => CommunityCubit(
-        getIt<CommunityRepository>(),
       ));
   getIt
       .registerLazySingleton<CommunityRepository>(() => CommunityRepositoryImpl(
@@ -180,4 +98,60 @@ Future<void> initDependencies() async {
               apiConsumer: getIt<ApiConsumer>(),
             ),
           ));
+
+  //! Data Sources - Lazy singletons for remote data
+  getIt
+      .registerLazySingleton<LoginRemoteDataSource>(() => LoginRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
+  getIt.registerLazySingleton<SignUpRemoteDataSource>(
+      () => SignUpRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
+  getIt.registerLazySingleton<OtpRemoteDataSource>(() => OtpRemoteDataSource(
+        apiConsumer: getIt<ApiConsumer>(),
+      ));
+  getIt.registerLazySingleton<ForgetPasswordRemoteDataSource>(
+      () => ForgetPasswordRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
+
+  //! Cubits - Factories for UI state management
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(
+        loginRepository: getIt<LoginRepository>(),
+      ));
+  getIt.registerFactory<SignUpCubit>(() => SignUpCubit(
+        signUpRepository: getIt<SignUpRepository>(),
+      ));
+  getIt.registerFactory<CompleteDoctorRegistrationCubit>(
+    () => CompleteDoctorRegistrationCubit(
+      signUpRepository: getIt<SignUpRepository>(),
+    ),
+  );
+  getIt.registerFactory<CompletePharmacyRegistrationCubit>(
+    () => CompletePharmacyRegistrationCubit(
+      signUpRepository: getIt<SignUpRepository>(),
+    ),
+  );
+  getIt.registerFactory<ForgotPasswordCubit>(() => ForgotPasswordCubit(
+        forgetPasswordRepository: getIt<ForgetPasswordRepository>(),
+      ));
+  getIt.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(
+        forgetPasswordRepository: getIt<ForgetPasswordRepository>(),
+      ));
+  getIt.registerFactory<MedicationReminderCubit>(() => MedicationReminderCubit(
+        getIt<MedicationReminderRepository>(),
+      ));
+  getIt.registerFactory<VisitReminderCubit>(() => VisitReminderCubit(
+        getIt<VisitReminderRepository>(),
+      ));
+  getIt.registerFactory<NearestPharmacyCubit>(() => NearestPharmacyCubit(
+        repository: getIt<NearestPharmacyRepository>(),
+      ));
+  getIt.registerFactory<ChatBotCubit>(() => ChatBotCubit(
+        chatbotRepository: getIt<ChatBotRepository>(),
+      ));
+  getIt.registerFactory<CommunityCubit>(() => CommunityCubit(
+        getIt<CommunityRepository>(),
+      ));
 }
