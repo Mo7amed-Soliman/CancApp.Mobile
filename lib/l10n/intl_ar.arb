@@ -214,7 +214,10 @@
     "logout": "تسجيل الخروج",
     "logout_confirm": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
     "confirm": "تأكيد",
-    "yes": "نعم"
+    "yes": "نعم",
+    "manageYourRecords": "إدارة سجلاتك",
+    "newRecord": "سجل جديد",
+    "editRecord": "تعديل السجل"
  
  
 }

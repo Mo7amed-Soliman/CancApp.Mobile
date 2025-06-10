@@ -27,6 +27,9 @@ import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/nearest_pharmacy_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/patient_bottom_nav_bar.dart';
+import 'package:canc_app/users/patient/record/data/models/record_type.dart';
+import 'package:canc_app/users/patient/record/presentation/views/new_record_detail.dart';
+import 'package:canc_app/users/patient/record/presentation/views/record_type_view.dart';
 import 'package:canc_app/users/patient/reminder/data/models/medication_reminder_model.dart';
 import 'package:canc_app/users/patient/reminder/data/models/visit_reminder_model.dart';
 import 'package:canc_app/users/patient/reminder/presentation/views/medication_reminder_view.dart';
@@ -38,6 +41,7 @@ import 'package:canc_app/users/volunteer/volunteer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../users/patient/record/presentation/views/mange_your_records_view.dart';
 import '../shared_feature/change_password/presentation/views/change_password.dart';
 import '../shared_feature/community/data/models/post_model.dart';
 
@@ -299,6 +303,32 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: const EditProfileView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.manageYourRecordsView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const MangeYourRecordsView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.recordTypeView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: RecordTypeView(
+          recordType: state.extra as RecordType,
+        ),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.newRecordDetail,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: NewRecordDetail(record: state.extra as List<dynamic>),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

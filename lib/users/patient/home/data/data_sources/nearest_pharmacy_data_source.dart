@@ -16,44 +16,44 @@ class NearestPharmacyDataSourceImpl implements NearestPharmacyDataSource {
 
     final pharmacies = [
       const Pharmacy(
-        name: 'Life Line Pharmacy',
+        name: 'Wiqaya Pharmacies',
+        imageUrl:
+            'https://public.readdy.ai/ai/img_res/1205ea3773666916aefa64a58ac9cadd.jpg',
+        isOpen: false,
+        openUntil: '12:00',
+        isDelivery: true,
+        address: 'Al-Firdaws, Fayoum, Egypt',
+        location: PharmacyLocation(latitude: 29.3100, longitude: 30.8400),
+      ),
+      const Pharmacy(
+        name: 'Abdel Motaal Pharmacy',
+        imageUrl:
+            'https://public.readdy.ai/ai/img_res/d4b60e6525801f9203d11a39627a94c1.jpg',
+        isOpen: true,
+        openUntil: '24h',
+        isDelivery: false,
+        address: 'Gonaidy Street, Fayoum',
+        location: PharmacyLocation(latitude: 29.3100, longitude: 30.8400),
+      ),
+      const Pharmacy(
+        name: 'Mohamed Samir Pharmacy',
         imageUrl:
             'https://public.readdy.ai/ai/img_res/1205ea3773666916aefa64a58ac9cadd.jpg',
         isOpen: true,
         openUntil: '24h',
         isDelivery: true,
-        address: '123 Main St, Anytown, USA',
-        location: PharmacyLocation(latitude: 37.7749, longitude: -122.4194),
+        address: 'Dar El-Ramad El-Gedid Street, Fayoum',
+        location: PharmacyLocation(latitude: 29.3100, longitude: 30.8400),
       ),
       const Pharmacy(
-        name: 'MedExpress Plus',
+        name: 'Ahmed Rahmy Pharmacy',
         imageUrl:
             'https://public.readdy.ai/ai/img_res/d4b60e6525801f9203d11a39627a94c1.jpg',
-        isOpen: false,
-        openUntil: '22:00',
-        isDelivery: true,
-        address: '123 Main St, Anytown, USA',
-        location: PharmacyLocation(latitude: 37.7749, longitude: -122.4194),
-      ),
-      const Pharmacy(
-        name: 'Life Line Pharmacy',
-        imageUrl:
-            'https://public.readdy.ai/ai/img_res/1205ea3773666916aefa64a58ac9cadd.jpg',
         isOpen: true,
-        openUntil: '22h',
-        isDelivery: false,
-        address: '123 Main St, Anytown, USA',
-        location: PharmacyLocation(latitude: 37.7749, longitude: -122.4194),
-      ),
-      const Pharmacy(
-        name: 'MedExpress Plus',
-        imageUrl:
-            'https://public.readdy.ai/ai/img_res/d4b60e6525801f9203d11a39627a94c1.jpg',
-        isOpen: false,
-        openUntil: '22:00',
-        isDelivery: false,
-        address: '123 Main St, Anytown, USA',
-        location: PharmacyLocation(latitude: 37.7749, longitude: -122.4194),
+        openUntil: '24h',
+        isDelivery: true,
+        address: 'El-Saidi District, Fayoum',
+        location: PharmacyLocation(latitude: 29.3100, longitude: 30.8400),
       ),
     ];
 

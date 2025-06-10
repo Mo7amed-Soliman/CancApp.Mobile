@@ -1639,6 +1639,26 @@ class S {
   String get yes {
     return Intl.message('Yes', name: 'yes', desc: '', args: []);
   }
+
+  /// `Manage Your Records`
+  String get manageYourRecords {
+    return Intl.message(
+      'Manage Your Records',
+      name: 'manageYourRecords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Record`
+  String get newRecord {
+    return Intl.message('New Record', name: 'newRecord', desc: '', args: []);
+  }
+
+  /// `Edit Record`
+  String get editRecord {
+    return Intl.message('Edit Record', name: 'editRecord', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

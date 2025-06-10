@@ -117,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "editMedication": MessageLookupByLibrary.simpleMessage("تعديل دواء"),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+    "editRecord": MessageLookupByLibrary.simpleMessage("تعديل السجل"),
     "editVisit": MessageLookupByLibrary.simpleMessage("تعديل زيارة"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -173,6 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "makeSureTextVisible": MessageLookupByLibrary.simpleMessage(
       "تأكد أن جميع النصوص واضحة",
     ),
+    "manageYourRecords": MessageLookupByLibrary.simpleMessage("إدارة سجلاتك"),
     "medicalSyndicateLicense": MessageLookupByLibrary.simpleMessage(
       "رخصة النقابة الطبية",
     ),
@@ -191,6 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "newPasswordRequired": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور الجديدة مطلوبة",
     ),
+    "newRecord": MessageLookupByLibrary.simpleMessage("سجل جديد"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "يُمنع تغطية أي جزء من الهوية بالأصابع",

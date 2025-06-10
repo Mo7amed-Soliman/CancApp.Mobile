@@ -1,56 +1,61 @@
-class CommentModel {
-  final String userName;
-  final String userImageUrl;
-  final String commentTime;
+import 'package:equatable/equatable.dart';
+
+class CommentModel extends Equatable {
+  final int id;
   final String content;
-  final int likes;
+  final int postId;
+  final DateTime time;
   final String userId;
-  final String commentId;
-  final String postId;
+  final String userImageUrl;
+  final String name;
+  final int reactionsCount;
 
-  CommentModel({
-    required this.userName,
-    required this.userImageUrl,
-    required this.commentTime,
+  const CommentModel({
+    required this.id,
     required this.content,
-    required this.likes,
-    required this.userId,
-    required this.commentId,
     required this.postId,
+    required this.time,
+    required this.userId,
+    required this.userImageUrl,
+    required this.name,
+    required this.reactionsCount,
   });
-}
 
-// Sample data for testing
-List<CommentModel> dummyComments = [
-  CommentModel(
-    userName: 'Ahmed Eid',
-    userImageUrl: 'assets/images/dummy_image/img3.png',
-    commentTime: '5 h',
-    content: 'Thank you for sharing this, its so inspiring',
-    likes: 3,
-    userId: '1',
-    commentId: '1',
-    postId: '1',
-  ),
-  CommentModel(
-    userName: 'Aliaa shady',
-    userImageUrl: 'assets/images/dummy_image/img2.png',
-    commentTime: '5 h',
-    content:
-        'Your strength is inspiring ! wishing you continued courage and positivity on your journey so thank you, I always prayer to you',
-    likes: 7,
-    userId: '3',
-    commentId: '3',
-    postId: '1',
-  ),
-  CommentModel(
-    userName: 'Youssef',
-    userImageUrl: 'assets/images/dummy_image/img4.png',
-    commentTime: '5 h',
-    content: 'Thank you for sharing this, its so inspiring',
-    likes: 3,
-    userId: '4',
-    commentId: '4',
-    postId: '1',
-  ),
-];
+  factory CommentModel.fromJson(Map<String, dynamic> json) {
+    return CommentModel(
+      id: json['id'],
+      content: json['content'],
+      postId: json['postId'],
+      time: DateTime.parse(json['time']),
+      userId: json['userId'],
+      userImageUrl: json['userImageUrl'],
+      name: json['name'],
+      reactionsCount: json['reactionsCount'] ?? 0,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'content': content,
+      'postId': postId,
+      'time': time.toIso8601String(),
+      'userId': userId,
+      'userImageUrl': userImageUrl,
+      'name': name,
+      'reactionsCount': reactionsCount,
+    };
+  }
+
+  @override
+  List<Object?> get props => [
+        id,
+        content,
+        postId,
+        time,
+        userId,
+        userImageUrl,
+        name,
+        reactionsCount,
+      ];
+}

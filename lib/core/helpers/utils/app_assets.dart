@@ -19,5 +19,9 @@ class AppAssets {
       commitIcon = 'assets/icons/commit_icon.svg',
       likeSound = 'sounds/like_sound.mp3',
       noComments = 'assets/icons/no_comments.svg',
-      languageIcon = 'assets/icons/language_icon.svg';
+      languageIcon = 'assets/icons/language_icon.svg',
+      documents = 'assets/images/record/documents.png',
+      labResult = 'assets/images/record/lab_result.png',
+      scan = 'assets/images/record/scan.png',
+      prescription = 'assets/images/record/prescription.png';
 }

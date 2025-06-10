@@ -1,5 +1,9 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
+import 'package:canc_app/core/helpers/extension/time_ago_extension.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/comment_model.dart';
+import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
@@ -22,19 +26,70 @@ class CommentItem extends StatefulWidget {
 
 class _CommentItemState extends State<CommentItem> {
   bool isLiked = false;
-  int currentLikes = 0;
+  final CommunityRepository _repository = getIt<CommunityRepository>();
+  int reactionsCount = 0;
 
   @override
   void initState() {
     super.initState();
-    currentLikes = widget.comment.likes;
+    reactionsCount = widget.comment.reactionsCount;
   }
 
-  void _handleLike() {
+  Future<void> _handleLike() async {
     setState(() {
       isLiked = !isLiked;
-      currentLikes = isLiked ? currentLikes + 1 : currentLikes - 1;
     });
+
+    try {
+      /// check if the user liked the comment
+      /// if the user liked the comment, add reaction
+      reactionsCount = isLiked ? reactionsCount + 1 : reactionsCount - 1;
+
+      final result = isLiked
+
+          /// add reaction
+          ? await _repository.addReaction(
+              postId: widget.comment.postId.toString(),
+              isComment: true,
+              commentId: widget.comment.id.toString(),
+              userId: UserCacheHelper.getUser()?.id ?? '',
+            )
+
+          /// delete reaction
+          : await _repository.deleteReaction(
+              postId: widget.comment.postId,
+              isComment: true,
+              commentId: widget.comment.id,
+              userId: UserCacheHelper.getUser()?.id ?? '',
+            );
+
+      result.fold(
+        (failure) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(failure.errorMessage)),
+            );
+            // Revert the UI state on failure
+            setState(() {
+              isLiked = !isLiked;
+            });
+          }
+        },
+        (_) {
+          // Success - UI state is already updated
+        },
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+        // Revert the UI state on error
+        setState(() {
+          isLiked = !isLiked;
+        });
+      }
+    }
   }
 
   @override
@@ -47,7 +102,7 @@ class _CommentItemState extends State<CommentItem> {
           children: [
             CircleAvatar(
               radius: context.setMinSize(22),
-              backgroundImage: AssetImage(widget.comment.userImageUrl),
+              backgroundImage: NetworkImage(widget.comment.userImageUrl),
             ),
             const HorizontalSpacer(10),
             Expanded(
@@ -68,14 +123,14 @@ class _CommentItemState extends State<CommentItem> {
                         Row(
                           children: [
                             Text(
-                              widget.comment.userName,
+                              widget.comment.name,
                               style: AppTextStyle.font15Bold(context).copyWith(
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                             const Spacer(),
                             Text(
-                              widget.comment.commentTime,
+                              widget.comment.time.timeAgo,
                               style: AppTextStyle.font12MediumDarkGray(context),
                             ),
                             const HorizontalSpacer(5),
@@ -124,7 +179,7 @@ class _CommentItemState extends State<CommentItem> {
                         ),
                         const HorizontalSpacer(5),
                         Text(
-                          currentLikes.toString(),
+                          reactionsCount.toString(),
                           style: AppTextStyle.font14RegularDarkGray(context),
                         ),
                       ],

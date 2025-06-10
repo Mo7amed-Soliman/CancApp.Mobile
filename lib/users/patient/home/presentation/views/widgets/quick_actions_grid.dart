@@ -48,7 +48,7 @@ class QuickActionsGrid extends StatelessWidget {
               case 0:
                 context.push(Routes.reminderView);
               case 1:
-              // context.pushNamed(AppRoutes.record);
+                context.push(Routes.manageYourRecordsView);
             }
           },
         );

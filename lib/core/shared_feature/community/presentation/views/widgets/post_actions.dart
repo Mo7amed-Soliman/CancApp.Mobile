@@ -1,8 +1,11 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/utils/app_assets.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
+import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
@@ -27,18 +30,28 @@ class _PostActionsState extends State<PostActions>
   bool isLiked = false;
   int currentLikes = 0;
   final AudioPlayer _audioPlayer = AudioPlayer();
-  late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
+  late final AnimationController _controller;
+  late final Animation<double> _scaleAnimation;
+  final CommunityRepository _repository = getIt<CommunityRepository>();
 
   @override
   void initState() {
     super.initState();
-    currentLikes = widget.post.likes;
+
+    /// check if the user liked the post
+    isLiked = widget.post.reactions.any(
+      (reaction) => reaction.userId == UserCacheHelper.getUser()?.id,
+    );
+
+    /// get the number of likes
+    currentLikes = widget.post.reactionsCount;
+
+    /// init the animation controller
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 350),
+      duration: const Duration(milliseconds: 200),
       vsync: this,
     );
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.6).animate(
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeInOut,
@@ -56,7 +69,7 @@ class _PostActionsState extends State<PostActions>
   Future<void> _playLikeSound() async {
     await _audioPlayer.play(
       AssetSource(AppAssets.likeSound),
-      volume: 0.1,
+      volume: 0.25,
     );
   }
 
@@ -70,6 +83,52 @@ class _PostActionsState extends State<PostActions>
     if (!wasLiked) {
       _controller.forward().then((_) => _controller.reverse());
       await _playLikeSound();
+    }
+
+    try {
+      final result = isLiked
+          ? await _repository.addReaction(
+              postId: widget.post.id.toString(),
+              isComment: false,
+              commentId: '',
+              userId: UserCacheHelper.getUser()?.id ?? '',
+            )
+          : await _repository.deleteReaction(
+              postId: widget.post.id,
+              isComment: false,
+              commentId: 0,
+              userId: UserCacheHelper.getUser()?.id ?? '',
+            );
+
+      result.fold(
+        (failure) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(failure.errorMessage)),
+            );
+            debugPrint(failure.errorMessage);
+            // Revert the UI state on failure
+            setState(() {
+              isLiked = !isLiked;
+              currentLikes = isLiked ? currentLikes + 1 : currentLikes - 1;
+            });
+          }
+        },
+        (_) {
+          // Success - UI state is already updated
+        },
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+        // Revert the UI state on error
+        setState(() {
+          isLiked = !isLiked;
+          currentLikes = isLiked ? currentLikes + 1 : currentLikes - 1;
+        });
+      }
     }
   }
 
@@ -127,7 +186,7 @@ class _PostActionsState extends State<PostActions>
               ),
               const HorizontalSpacer(6),
               Text(
-                widget.post.comments.toString(),
+                widget.post.commentsCount.toString(),
                 style: AppTextStyle.font16RegularDarkGray(context),
               ),
             ],

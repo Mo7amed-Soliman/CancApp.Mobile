@@ -32,4 +32,7 @@ class Routes {
   static const String createPostView = '/createPostView';
   static const String changePassword = '/changePassword';
   static const String editProfileView = '/editProfileView';
+  static const String manageYourRecordsView = '/manageYourRecordsView';
+  static const String recordTypeView = '/recordTypeView';
+  static const String newRecordDetail = '/newRecordDetail';
 }
