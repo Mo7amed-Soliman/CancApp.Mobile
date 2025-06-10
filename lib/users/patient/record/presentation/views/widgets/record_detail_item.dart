@@ -1,60 +1,69 @@
-import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
-import 'package:canc_app/core/theming/app_colors.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/edit_delete_popup_menu.dart';
 import 'package:canc_app/users/patient/record/data/models/recotd_model.dart';
+import 'package:canc_app/users/patient/record/presentation/manager/manage_record/managerecord_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class RecordDetailItem extends StatelessWidget {
   final RecordModel record;
-
-  const RecordDetailItem({super.key, required this.record});
+  final String type;
+  const RecordDetailItem({super.key, required this.record, required this.type});
 
   @override
   Widget build(BuildContext context) {
-    final width = context.screenWidth;
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return SizedBox(
-      height: context.setHeight(130),
+      height: height * 0.22,
       child: Stack(
         children: [
-          // Background container with image and note
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: AppColors.primaryColor.withAlpha(15),
+              color: Colors.white,
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-            height: context.setHeight(130),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Image
-                record.image != null
-                    ? ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image(
-                          image: AssetImage(record.image!.path),
-                          fit: BoxFit.cover,
-                          height: context.setHeight(130),
-                          width: width * 0.4,
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+              child: Row(
+                children: [
+                  record.image != null
+                      ? Container(
+                          height: height * 0.2,
+                          width: width * 0.38,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: _isImageFile(record.image)
+                                ? DecorationImage(
+                                    image: FileImage(record.image!),
+                                    fit: BoxFit.fill,
+                                  )
+                                : null,
+                          ),
+                        )
+                      : const SizedBox.shrink(),
+                  SizedBox(width: width * 0.05),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: SizedBox(
+                      width: width * 0.4,
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          record.note ,
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTextStyle.font12MediumDarkGray(context),
                         ),
-                      )
-                    : const SizedBox.shrink(),
-                const SizedBox(width: 8),
-                // Note text
-                Expanded(
-                  child: Container(
-                    height: context.setHeight(100),
-                    padding: const EdgeInsets.only(right: 8.0, top: 6),
-                    child: Text(
-                      record.note,
-                      maxLines: 5,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyle.font14RegularDarkGray(context),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
 
@@ -63,8 +72,14 @@ class RecordDetailItem extends StatelessWidget {
             top: 10,
             right: -12,
             child: EditDeletePopupMenu(
-              onEdit: () {},
-              onDelete: () {},
+              onEdit: () {
+                GoRouter.of(context)
+                    .push(Routes.newRecordDetail, extra: [record,type]);
+              },
+              onDelete: () {
+                BlocProvider.of<ManagerecordCubit>(context)
+                    .deleteRecord(record.id,type);
+              },
             ),
           ),
 
@@ -80,5 +95,24 @@ class RecordDetailItem extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+bool _isImageFile(dynamic file) {
+  if (file == null) return false;
+
+  // ignore: prefer_typing_uninitialized_variables
+  final path;
+
+  try {
+    path = file.path.toLowerCase();
+    return path.endsWith('.png') ||
+        path.endsWith('.jpg') ||
+        path.endsWith('.jpeg') ||
+        path.endsWith('.gif') ||
+        path.endsWith('.bmp') ||
+        path.endsWith('.webp');
+  } catch (e) {
+    return false;
   }
 }

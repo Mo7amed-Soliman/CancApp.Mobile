@@ -115,9 +115,13 @@ class _PharmacyCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        pharmacy.name,
-                        style: AppTextStyle.font17Medium(context),
+                      Flexible(
+                        child: Text(
+                          pharmacy.name,
+                          style: AppTextStyle.font17Medium(context),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       Row(
                         children: [

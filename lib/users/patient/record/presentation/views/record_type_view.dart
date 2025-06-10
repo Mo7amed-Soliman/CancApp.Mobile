@@ -1,7 +1,10 @@
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/widgets/custom_app_bar.dart';
 import 'package:canc_app/users/patient/record/data/models/record_type.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:iconly/iconly.dart';
 
 import 'widgets/record_type_body.dart';
@@ -20,9 +23,12 @@ class RecordTypeView extends StatelessWidget {
       appBar: CustomAppBar(
         title: title,
         icon: IconlyBold.plus,
-        onPressed: () {},
+        onPressed: () async {
+          await GoRouter.of(context)
+              .push(Routes.newRecordDetail, extra: [null, recordType.labelEn]);
+        },
       ),
-      body: const RecordTypeBody(),
+      body: RecordTypeBody(recordType: recordType),
     );
   }
 }

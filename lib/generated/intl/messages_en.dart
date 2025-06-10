@@ -119,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "editMedication": MessageLookupByLibrary.simpleMessage("Edit Medication"),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+    "editRecord": MessageLookupByLibrary.simpleMessage("Edit Record"),
     "editVisit": MessageLookupByLibrary.simpleMessage("Edit Visit"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -196,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "newPasswordRequired": MessageLookupByLibrary.simpleMessage(
       "New Password is required",
     ),
+    "newRecord": MessageLookupByLibrary.simpleMessage("New Record"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "No fingers covering any part of the ID",

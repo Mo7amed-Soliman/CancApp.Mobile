@@ -12,6 +12,9 @@ import 'package:canc_app/core/theming/app_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'users/patient/record/presentation/manager/manage_record/managerecord_cubit.dart';
+import 'users/patient/record/presentation/manager/manage_record_image/manage_upload_image_cubit.dart';
+
 class CancApp extends StatelessWidget {
   const CancApp({super.key});
 
@@ -21,6 +24,12 @@ class CancApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => CurrentLocaleCubit()..loadLocale(),
+        ),
+        BlocProvider(
+          create: (context) => ManageUploadImageCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ManagerecordCubit(),
         ),
       ],
       child: const CustomMaterialApp(),

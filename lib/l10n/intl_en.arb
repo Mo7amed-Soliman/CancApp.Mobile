@@ -208,6 +208,8 @@
    "logout_confirm": "Are you sure you want to logout?",
    "confirm": "Confirm",
    "yes": "Yes",
-   "manageYourRecords": "Manage Your Records"
+   "manageYourRecords": "Manage Your Records",
+   "newRecord": "New Record",
+   "editRecord": "Edit Record"
  
 }
