@@ -1,4 +1,5 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_item.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_shimmer.dart';
@@ -7,6 +8,7 @@ import 'package:canc_app/core/widgets/delete_confirmation_dialog.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class ListOfPosts extends StatefulWidget {
   const ListOfPosts({super.key});
@@ -56,9 +58,7 @@ class _ListOfPostsState extends State<ListOfPosts> {
                           key: ValueKey(post.id),
                           post: post,
                           onDelete: () => _handleDeletePost(index),
-                          onEdit: () {
-                            // TODO: Implement edit functionality
-                          },
+                          onEdit: () => _handleEditPost(index),
                           onReport: () {
                             context.read<CommunityCubit>().reportPost(post.id);
                           },
@@ -137,6 +137,24 @@ class _ListOfPostsState extends State<ListOfPosts> {
         },
       ),
     );
+  }
+
+  void _handleEditPost(int index) {
+    final post = context.read<CommunityCubit>().listOfPosts[index];
+    final cubit = context.read<CommunityCubit>();
+
+    context
+        .push(
+      Routes.createPostView,
+      extra: post,
+    )
+        .then((value) {
+      if (!mounted) return;
+
+      if (value != null) {
+        cubit.getPostById(post.id, index);
+      }
+    });
   }
 
   void _scrollListener() {

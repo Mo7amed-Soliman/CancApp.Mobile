@@ -46,12 +46,14 @@ class CommunityCubit extends Cubit<CommunityState> {
     );
   }
 
-  Future<void> getPostById(int postId) async {
-    emit(CommunityPostLoading());
+  Future<void> getPostById(int postId, int index) async {
     final result = await repository.getPostById(postId: postId);
     result.fold(
       (failure) => emit(CommunityPostsError(failure.errorMessage)),
-      (post) => emit(CommunityPostSuccess(post)),
+      (post) {
+        listOfPosts[index] = post;
+        emit(CommunityPostSuccess(listOfPosts[index]));
+      },
     );
   }
 

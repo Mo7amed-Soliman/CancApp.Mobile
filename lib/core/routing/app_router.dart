@@ -286,7 +286,7 @@ final appRouter = GoRouter(
       path: Routes.createPostView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
-        child: const CreatePostView(),
+        child: CreatePostView(post: state.extra as PostModel?),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),
