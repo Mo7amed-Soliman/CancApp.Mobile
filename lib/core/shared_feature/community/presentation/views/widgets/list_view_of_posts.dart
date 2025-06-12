@@ -52,29 +52,40 @@ class _ListOfPostsState extends State<ListOfPosts> {
         if (state is CommunityPostsSuccess ||
             state is CommunityPostsPaginationSuccess ||
             state is CommunityPostsPaginationError ||
-            state is CommunityPostsPaginationLoading) {
+            state is CommunityPostsPaginationLoading ||
+            state is CommunityPostsRefreshLoading) {
           return Expanded(
-            child: CustomScrollView(
-              controller: _scrollController,
-              slivers: [
-                SliverList.builder(
-                  itemBuilder: (context, index) {
-                    if (index < _posts.length) {
-                      return PostItem(
-                        post: _posts[index],
-                        onDelete: () {
-                          context
-                              .read<CommunityCubit>()
-                              .deletePost(_posts[index].id);
-                        },
-                      );
-                    } else {
-                      return const PostShimmer();
-                    }
-                  },
-                  itemCount: _posts.length + (isLoading ? 2 : 0),
-                ),
-              ],
+            child: RefreshIndicator(
+              onRefresh: () async {
+                await context.read<CommunityCubit>().getPosts(
+                      pageNumber: 1,
+                      isRefresh: true,
+                    );
+                _currentPage = 2;
+                _posts.clear();
+              },
+              child: CustomScrollView(
+                controller: _scrollController,
+                slivers: [
+                  SliverList.builder(
+                    itemBuilder: (context, index) {
+                      if (index < _posts.length) {
+                        return PostItem(
+                          post: _posts[index],
+                          onDelete: () {
+                            context
+                                .read<CommunityCubit>()
+                                .deletePost(_posts[index].id);
+                          },
+                        );
+                      } else {
+                        return const PostShimmer();
+                      }
+                    },
+                    itemCount: _posts.length + (isLoading ? 2 : 0),
+                  ),
+                ],
+              ),
             ),
           );
         } else if (state is CommunityPostsError) {

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
@@ -12,8 +14,14 @@ class CommunityCubit extends Cubit<CommunityState> {
   CommunityCubit(this.repository) : super(CommunityInitial());
 
   // POSTS
-  Future<void> getPosts({int pageNumber = 1}) async {
-    if (pageNumber == 1) {
+  Future<void> getPosts({
+    int pageNumber = 1,
+    bool isRefresh = false,
+  }) async {
+    if (isRefresh) {
+      log('isRefresh: $isRefresh');
+      emit(CommunityPostsRefreshLoading());
+    } else if (pageNumber == 1) {
       emit(CommunityPostLoading());
     } else {
       emit(CommunityPostsPaginationLoading());

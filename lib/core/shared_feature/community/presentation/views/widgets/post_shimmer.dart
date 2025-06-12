@@ -11,8 +11,6 @@ class PostShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: context.setWidth(16),
-        right: context.setWidth(16),
         bottom: context.setHeight(4),
         top: context.setHeight(8),
       ),

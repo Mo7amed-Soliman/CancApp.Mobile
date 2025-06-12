@@ -31,6 +31,8 @@ class CommunityPostSuccess extends CommunityState {
 
 class CommunityPostLoading extends CommunityState {}
 
+class CommunityPostsRefreshLoading extends CommunityState {}
+
 class CommunityPostsError extends CommunityState {
   final String message;
   CommunityPostsError(this.message);
