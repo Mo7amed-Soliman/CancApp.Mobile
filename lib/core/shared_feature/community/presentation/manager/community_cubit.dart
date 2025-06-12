@@ -14,43 +14,30 @@ class CommunityCubit extends Cubit<CommunityState> {
   // POSTS
   Future<void> getPosts({int pageNumber = 1}) async {
     if (pageNumber == 1) {
-      emit(CommunityLoading());
+      emit(CommunityPostLoading());
     } else {
-      emit(CommunityPaginationLoading());
+      emit(CommunityPostsPaginationLoading());
     }
-
-    final result = await repository.getPosts(
-      pageNumber: pageNumber,
-      pageSize: 10,
-    );
+    final result = await repository.getPosts(pageNumber: pageNumber);
 
     result.fold(
       (failure) {
         if (pageNumber == 1) {
-          emit(CommunityError(failure.errorMessage));
+          emit(CommunityPostsError(failure.errorMessage));
         } else {
-          emit(CommunityPaginationError(failure.errorMessage));
+          emit(CommunityPostsPaginationError(failure.errorMessage));
         }
       },
-      (newPosts) {
-        if (pageNumber == 1) {
-          emit(CommunityPostsLoaded(newPosts));
-        } else {
-          final currentState = state;
-          if (currentState is CommunityPostsLoaded) {
-            emit(CommunityPostsLoaded([...currentState.posts, ...newPosts]));
-          }
-        }
-      },
+      (posts) => emit(CommunityPostsSuccess(posts)),
     );
   }
 
   Future<void> getPostById(int postId) async {
-    emit(CommunityLoading());
+    emit(CommunityPostLoading());
     final result = await repository.getPostById(postId: postId);
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
-      (post) => emit(CommunityPostLoaded(post)),
+      (failure) => emit(CommunityPostsError(failure.errorMessage)),
+      (post) => emit(CommunityPostSuccess(post)),
     );
   }
 
@@ -59,23 +46,23 @@ class CommunityCubit extends Cubit<CommunityState> {
     required String userId,
     XFile? image,
   }) async {
-    emit(CommunityLoading());
+    emit(CommunityPostLoading());
     final result = await repository.addPost(
       content: content,
       userId: userId,
       image: image,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityPostsError(failure.errorMessage)),
       (_) => emit(CommunityPostAdded()),
     );
   }
 
   Future<void> deletePost(int postId) async {
-    emit(CommunityLoading());
+    emit(CommunityPostLoading());
     final result = await repository.deletePost(postId: postId);
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityPostsError(failure.errorMessage)),
       (_) => emit(CommunityPostDeleted(postId)),
     );
   }
@@ -86,7 +73,7 @@ class CommunityCubit extends Cubit<CommunityState> {
     required String userId,
     XFile? image,
   }) async {
-    emit(CommunityLoading());
+    emit(CommunityPostLoading());
     final result = await repository.updatePost(
       id: id,
       content: content,
@@ -94,38 +81,38 @@ class CommunityCubit extends Cubit<CommunityState> {
       image: image,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityPostsError(failure.errorMessage)),
       (_) => emit(CommunityPostUpdated()),
     );
   }
 
   Future<void> reportPost(int postId) async {
-    emit(CommunityLoading());
+    emit(CommunityPostLoading());
     final result = await repository.reportPost(postId: postId);
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityPostsError(failure.errorMessage)),
       (_) => emit(CommunityPostReported(postId)),
     );
   }
 
   // COMMENTS
   Future<void> getCommentsPerPost(int postId) async {
-    emit(CommunityLoading());
+    emit(CommunityCommentLoading());
     final result = await repository.getCommentsPerPost(postId: postId);
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
-      (comments) => emit(CommunityCommentsLoaded(comments)),
+      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
+      (comments) => emit(CommunityCommentsSuccess(comments)),
     );
   }
 
   Future<void> getCommentById(
       {required int postId, required int commentId}) async {
-    emit(CommunityLoading());
+    emit(CommunityCommentLoading());
     final result =
         await repository.getCommentById(postId: postId, commentId: commentId);
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
-      (comment) => emit(CommunityCommentLoaded(comment)),
+      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
+      (comment) => emit(CommunityCommentSuccess(comment)),
     );
   }
 
@@ -134,14 +121,14 @@ class CommunityCubit extends Cubit<CommunityState> {
     required String userId,
     required String content,
   }) async {
-    emit(CommunityLoading());
+    emit(CommunityCommentLoading());
     final result = await repository.addComment(
       postId: postId,
       userId: userId,
       content: content,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
       (_) => emit(CommunityCommentAdded()),
     );
   }
@@ -150,13 +137,13 @@ class CommunityCubit extends Cubit<CommunityState> {
     required int postId,
     required int commentId,
   }) async {
-    emit(CommunityLoading());
+    emit(CommunityCommentLoading());
     final result = await repository.deleteComment(
       postId: postId,
       commentId: commentId,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
       (_) => emit(CommunityCommentDeleted(commentId)),
     );
   }
@@ -166,14 +153,14 @@ class CommunityCubit extends Cubit<CommunityState> {
     required int commentId,
     required String content,
   }) async {
-    emit(CommunityLoading());
+    emit(CommunityCommentLoading());
     final result = await repository.updateComment(
       postId: postId,
       commentId: commentId,
       content: content,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
       (_) => emit(CommunityCommentUpdated()),
     );
   }
@@ -182,13 +169,13 @@ class CommunityCubit extends Cubit<CommunityState> {
     required int postId,
     required int commentId,
   }) async {
-    emit(CommunityLoading());
+    emit(CommunityCommentLoading());
     final result = await repository.reportComment(
       postId: postId,
       commentId: commentId,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
       (_) => emit(CommunityCommentReported(commentId)),
     );
   }
@@ -200,7 +187,6 @@ class CommunityCubit extends Cubit<CommunityState> {
     required String commentId,
     required String userId,
   }) async {
-    emit(CommunityLoading());
     final result = await repository.addReaction(
       postId: postId,
       isComment: isComment,
@@ -208,7 +194,7 @@ class CommunityCubit extends Cubit<CommunityState> {
       userId: userId,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityReactionsError(failure.errorMessage)),
       (_) => emit(CommunityReactionAdded()),
     );
   }
@@ -219,7 +205,6 @@ class CommunityCubit extends Cubit<CommunityState> {
     required int commentId,
     required String userId,
   }) async {
-    emit(CommunityLoading());
     final result = await repository.deleteReaction(
       postId: postId,
       isComment: isComment,
@@ -227,7 +212,7 @@ class CommunityCubit extends Cubit<CommunityState> {
       userId: userId,
     );
     result.fold(
-      (failure) => emit(CommunityError(failure.errorMessage)),
+      (failure) => emit(CommunityReactionsError(failure.errorMessage)),
       (_) => emit(CommunityReactionDeleted()),
     );
   }
