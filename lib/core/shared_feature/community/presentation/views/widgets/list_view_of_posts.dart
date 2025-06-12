@@ -1,5 +1,4 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
-import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_item.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_shimmer.dart';
@@ -19,12 +18,13 @@ class ListOfPosts extends StatefulWidget {
 class _ListOfPostsState extends State<ListOfPosts> {
   late ScrollController _scrollController;
   int _currentPage = 2;
-  final List<PostModel> _posts = [];
+
   bool isLoading = false;
 
   @override
   void initState() {
     super.initState();
+    context.read<CommunityCubit>().getPosts();
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
   }
@@ -34,6 +34,7 @@ class _ListOfPostsState extends State<ListOfPosts> {
     return BlocConsumer<CommunityCubit, CommunityState>(
       listener: (context, state) => _handleStateChanges(state),
       builder: (context, state) {
+        final posts = context.read<CommunityCubit>().listOfPosts;
         if (_shouldShowPostsList(state)) {
           return Expanded(
             child: RefreshIndicator(
@@ -43,15 +44,14 @@ class _ListOfPostsState extends State<ListOfPosts> {
                       isRefresh: true,
                     );
                 _currentPage = 2;
-                _posts.clear();
               },
               child: CustomScrollView(
                 controller: _scrollController,
                 slivers: [
                   SliverList.builder(
                     itemBuilder: (context, index) {
-                      if (index < _posts.length) {
-                        final post = _posts[index];
+                      if (index < posts.length) {
+                        final post = posts[index];
                         return PostItem(
                           key: ValueKey(post.id),
                           post: post,
@@ -67,7 +67,7 @@ class _ListOfPostsState extends State<ListOfPosts> {
                         return const PostShimmer();
                       }
                     },
-                    itemCount: _posts.length + (isLoading ? 2 : 0),
+                    itemCount: posts.length + (isLoading ? 2 : 0),
                   ),
                 ],
               ),
@@ -89,9 +89,6 @@ class _ListOfPostsState extends State<ListOfPosts> {
   }
 
   void _handleStateChanges(CommunityState state) {
-    if (state is CommunityPostsSuccess) {
-      _posts.addAll(state.posts);
-    }
     if (state is CommunityPostsError) {
       botTextToast(state.message);
     }
@@ -113,6 +110,7 @@ class _ListOfPostsState extends State<ListOfPosts> {
         color: AppColors.primaryColor,
       );
     }
+
     if (state is CommunityPostReported) {
       botTextToast(
         S.of(context).postReportedSuccessfully,
@@ -133,8 +131,9 @@ class _ListOfPostsState extends State<ListOfPosts> {
       builder: (BuildContext dialogContext) => DeleteConfirmationDialog(
         content: S.of(context).areYouSureYouWantToDeleteThisPost,
         onConfirm: () async {
-          await context.read<CommunityCubit>().deletePost(_posts[index].id);
-          _posts.removeAt(index);
+          await context.read<CommunityCubit>().deletePost(
+                context.read<CommunityCubit>().listOfPosts[index].id,
+              );
         },
       ),
     );

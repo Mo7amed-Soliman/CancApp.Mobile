@@ -1,10 +1,12 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:canc_app/core/cubits/current_locale/current_locale_cubit.dart';
 import 'package:canc_app/core/cubits/current_locale/current_locale_state.dart';
+import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_provider.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/app_router.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:canc_app/generated/l10n.dart';
@@ -30,6 +32,9 @@ class CancApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ManagerecordCubit(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<CommunityCubit>(),
         ),
       ],
       child: const CustomMaterialApp(),

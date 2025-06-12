@@ -10,7 +10,7 @@ class CommunityCubit extends Cubit<CommunityState> {
   final CommunityRepository repository;
 
   CommunityCubit(this.repository) : super(CommunityInitial());
-
+  List<PostModel> listOfPosts = [];
   // POSTS
   Future<void> getPosts({
     int pageNumber = 1,
@@ -33,7 +33,16 @@ class CommunityCubit extends Cubit<CommunityState> {
           emit(CommunityPostsPaginationError(failure.errorMessage));
         }
       },
-      (posts) => emit(CommunityPostsSuccess(posts)),
+      (posts) {
+        if (isRefresh) {
+          listOfPosts.clear();
+          listOfPosts.addAll(posts);
+          emit(CommunityPostsSuccess(listOfPosts));
+        } else {
+          listOfPosts.addAll(posts);
+          emit(CommunityPostsSuccess(listOfPosts));
+        }
+      },
     );
   }
 
@@ -66,7 +75,10 @@ class CommunityCubit extends Cubit<CommunityState> {
     final result = await repository.deletePost(postId: postId);
     result.fold(
       (failure) => emit(CommunityPostsError(failure.errorMessage)),
-      (_) => emit(CommunityPostDeleted(postId)),
+      (_) {
+        listOfPosts.removeWhere((post) => post.id == postId);
+        emit(CommunityPostDeleted(postId));
+      },
     );
   }
 

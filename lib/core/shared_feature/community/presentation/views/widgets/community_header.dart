@@ -1,10 +1,12 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 
@@ -35,8 +37,18 @@ class CommunityHeader extends StatelessWidget {
           Row(
             children: [
               InkWell(
-                onTap: () {
-                  context.push(Routes.createPostView);
+                onTap: () async {
+                  await context.push(Routes.createPostView).then(
+                    (value) async {
+                      await Future.delayed(const Duration(seconds: 1));
+
+                      if (context.mounted) {
+                        context
+                            .read<CommunityCubit>()
+                            .getPosts(isRefresh: true);
+                      }
+                    },
+                  );
                 },
                 child: CircleAvatar(
                   radius: context.setMinSize(20),
