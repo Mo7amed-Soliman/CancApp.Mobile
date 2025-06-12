@@ -4,6 +4,7 @@ import 'package:canc_app/core/shared_feature/community/data/models/post_model.da
 import 'package:canc_app/core/shared_feature/community/data/models/comment_model.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/comment_input_field.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/comment_shimmer.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/comments_list_view.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/widgets/in_empty_list.dart';
@@ -46,7 +47,8 @@ class _CommentViewState extends State<CommentView> {
             _isLoading = false;
           });
         },
-        (comments) {
+        (comments) async {
+          await Future.delayed(const Duration(seconds: 100));
           setState(() {
             _comments = comments;
             _isLoading = false;
@@ -74,9 +76,7 @@ class _CommentViewState extends State<CommentView> {
           children: [
             if (_isLoading)
               const Expanded(
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
+                child: CommentsShimmerLoading(),
               )
             else if (_error != null)
               Expanded(
