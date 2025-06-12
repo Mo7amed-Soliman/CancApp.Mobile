@@ -52,6 +52,26 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already have an account?",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "areYouSureYouWantToDeleteThisComment":
+        MessageLookupByLibrary.simpleMessage(
+          "Are you sure you want to delete this comment?",
+        ),
+    "areYouSureYouWantToDeleteThisPost": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this post?",
+    ),
+    "areYouSureYouWantToEditThisComment": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to edit this comment?",
+    ),
+    "areYouSureYouWantToEditThisPost": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to edit this post?",
+    ),
+    "areYouSureYouWantToReportThisComment":
+        MessageLookupByLibrary.simpleMessage(
+          "Are you sure you want to report this comment?",
+        ),
+    "areYouSureYouWantToReportThisPost": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to report this post?",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "bothFrontAndBackSidesRequired": MessageLookupByLibrary.simpleMessage(
       "Both front and back sides are required",
@@ -301,6 +321,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseVerifyYourEmail": MessageLookupByLibrary.simpleMessage(
       "Please verify your email",
+    ),
+    "postDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Post deleted successfully",
+    ),
+    "postReportedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Report sent successfully",
+    ),
+    "postUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Post updated successfully",
     ),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),

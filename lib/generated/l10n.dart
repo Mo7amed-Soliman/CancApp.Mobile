@@ -1659,6 +1659,96 @@ class S {
   String get editRecord {
     return Intl.message('Edit Record', name: 'editRecord', desc: '', args: []);
   }
+
+  /// `Are you sure you want to delete this post?`
+  String get areYouSureYouWantToDeleteThisPost {
+    return Intl.message(
+      'Are you sure you want to delete this post?',
+      name: 'areYouSureYouWantToDeleteThisPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to report this post?`
+  String get areYouSureYouWantToReportThisPost {
+    return Intl.message(
+      'Are you sure you want to report this post?',
+      name: 'areYouSureYouWantToReportThisPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to edit this post?`
+  String get areYouSureYouWantToEditThisPost {
+    return Intl.message(
+      'Are you sure you want to edit this post?',
+      name: 'areYouSureYouWantToEditThisPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this comment?`
+  String get areYouSureYouWantToDeleteThisComment {
+    return Intl.message(
+      'Are you sure you want to delete this comment?',
+      name: 'areYouSureYouWantToDeleteThisComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to report this comment?`
+  String get areYouSureYouWantToReportThisComment {
+    return Intl.message(
+      'Are you sure you want to report this comment?',
+      name: 'areYouSureYouWantToReportThisComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to edit this comment?`
+  String get areYouSureYouWantToEditThisComment {
+    return Intl.message(
+      'Are you sure you want to edit this comment?',
+      name: 'areYouSureYouWantToEditThisComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Post deleted successfully`
+  String get postDeletedSuccessfully {
+    return Intl.message(
+      'Post deleted successfully',
+      name: 'postDeletedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Post updated successfully`
+  String get postUpdatedSuccessfully {
+    return Intl.message(
+      'Post updated successfully',
+      name: 'postUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report sent successfully`
+  String get postReportedSuccessfully {
+    return Intl.message(
+      'Report sent successfully',
+      name: 'postReportedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

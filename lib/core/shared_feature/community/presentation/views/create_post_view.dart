@@ -155,12 +155,12 @@ class _CreatePostViewState extends State<CreatePostView> {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  radius: 24,
-                  backgroundImage: NetworkImage(
-                    user?.image ?? '',
-                  ),
-                ),
+                // CircleAvatar(
+                //   radius: 24,
+                //   backgroundImage: NetworkImage(
+                //     user?.image ?? '',
+                //   ),
+                // ),
                 const SizedBox(width: 10),
                 Text(
                   user?.name ?? '',

@@ -52,6 +52,26 @@ class MessageLookup extends MessageLookupByLibrary {
       "لديك حساب بالفعل",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("عربي"),
+    "areYouSureYouWantToDeleteThisComment":
+        MessageLookupByLibrary.simpleMessage(
+          "هل أنت متأكد أنك تريد حذف هذا التعليق؟",
+        ),
+    "areYouSureYouWantToDeleteThisPost": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد حذف هذا المنشور؟",
+    ),
+    "areYouSureYouWantToEditThisComment": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد تعديل هذا التعليق؟",
+    ),
+    "areYouSureYouWantToEditThisPost": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد تعديل هذا المنشور؟",
+    ),
+    "areYouSureYouWantToReportThisComment":
+        MessageLookupByLibrary.simpleMessage(
+          "هل أنت متأكد أنك تريد تقرير هذا التعليق؟",
+        ),
+    "areYouSureYouWantToReportThisPost": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد تقرير هذا المنشور؟",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("عودة"),
     "bothFrontAndBackSidesRequired": MessageLookupByLibrary.simpleMessage(
       "مطلوب تصوير الجهتين الأمامية والخلفية",
@@ -297,6 +317,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseVerifyYourEmail": MessageLookupByLibrary.simpleMessage(
       "الرجاء التحقق من بريدك الإلكتروني",
+    ),
+    "postDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم حذف المنشور بنجاح",
+    ),
+    "postReportedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال التقرير بنجاح",
+    ),
+    "postUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم تعديل المنشور بنجاح",
     ),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),

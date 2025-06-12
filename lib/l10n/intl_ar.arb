@@ -217,7 +217,16 @@
     "yes": "نعم",
     "manageYourRecords": "إدارة سجلاتك",
     "newRecord": "سجل جديد",
-    "editRecord": "تعديل السجل"
+    "editRecord": "تعديل السجل",
+    "areYouSureYouWantToDeleteThisPost": "هل أنت متأكد أنك تريد حذف هذا المنشور؟",
+    "areYouSureYouWantToReportThisPost": "هل أنت متأكد أنك تريد تقرير هذا المنشور؟",
+    "areYouSureYouWantToEditThisPost": "هل أنت متأكد أنك تريد تعديل هذا المنشور؟",
+    "areYouSureYouWantToDeleteThisComment": "هل أنت متأكد أنك تريد حذف هذا التعليق؟",
+    "areYouSureYouWantToReportThisComment": "هل أنت متأكد أنك تريد تقرير هذا التعليق؟",
+    "areYouSureYouWantToEditThisComment": "هل أنت متأكد أنك تريد تعديل هذا التعليق؟",
+    "postDeletedSuccessfully": "تم حذف المنشور بنجاح",
+    "postUpdatedSuccessfully": "تم تعديل المنشور بنجاح",
+    "postReportedSuccessfully": "تم إرسال التقرير بنجاح"
  
  
 }

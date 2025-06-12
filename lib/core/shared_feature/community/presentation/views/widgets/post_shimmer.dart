@@ -99,3 +99,17 @@ class PostShimmer extends StatelessWidget {
     );
   }
 }
+
+class PostsShimmerLoadingList extends StatelessWidget {
+  const PostsShimmerLoadingList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView.builder(
+        itemBuilder: (context, index) => const PostShimmer(),
+        itemCount: 5,
+      ),
+    );
+  }
+}

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
@@ -19,7 +17,6 @@ class CommunityCubit extends Cubit<CommunityState> {
     bool isRefresh = false,
   }) async {
     if (isRefresh) {
-      log('isRefresh: $isRefresh');
       emit(CommunityPostsRefreshLoading());
     } else if (pageNumber == 1) {
       emit(CommunityPostLoading());
@@ -54,7 +51,6 @@ class CommunityCubit extends Cubit<CommunityState> {
     required String userId,
     XFile? image,
   }) async {
-    emit(CommunityPostLoading());
     final result = await repository.addPost(
       content: content,
       userId: userId,
@@ -67,7 +63,6 @@ class CommunityCubit extends Cubit<CommunityState> {
   }
 
   Future<void> deletePost(int postId) async {
-    emit(CommunityPostLoading());
     final result = await repository.deletePost(postId: postId);
     result.fold(
       (failure) => emit(CommunityPostsError(failure.errorMessage)),
@@ -81,7 +76,6 @@ class CommunityCubit extends Cubit<CommunityState> {
     required String userId,
     XFile? image,
   }) async {
-    emit(CommunityPostLoading());
     final result = await repository.updatePost(
       id: id,
       content: content,
@@ -95,7 +89,6 @@ class CommunityCubit extends Cubit<CommunityState> {
   }
 
   Future<void> reportPost(int postId) async {
-    emit(CommunityPostLoading());
     final result = await repository.reportPost(postId: postId);
     result.fold(
       (failure) => emit(CommunityPostsError(failure.errorMessage)),
