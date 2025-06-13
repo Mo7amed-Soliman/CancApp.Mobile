@@ -40,7 +40,7 @@ class ProfileView extends StatelessWidget {
                 style: AppTextStyle.font20MediumWhite(context),
               ),
             ),
-            const Positioned(
+            Positioned(
               bottom: -60,
               left: 0,
               right: 0,
@@ -51,7 +51,7 @@ class ProfileView extends StatelessWidget {
                   child: CircleAvatar(
                     radius: 52,
                     backgroundImage:
-                        AssetImage('assets/images/dummy_image/img4.png'),
+                        NetworkImage(UserCacheHelper.getUser()?.image ?? ''),
                   ),
                 ),
               ),

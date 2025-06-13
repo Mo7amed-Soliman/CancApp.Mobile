@@ -91,6 +91,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Choose from gallery",
     ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "closeHourLabel": MessageLookupByLibrary.simpleMessage("Closing Hour"),
+    "closeHourValidationError": MessageLookupByLibrary.simpleMessage(
+      "Please select closing hour",
+    ),
     "closed": MessageLookupByLibrary.simpleMessage("Closed"),
     "commentAddedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Comment added successfully",
@@ -330,6 +334,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboarding_title4": MessageLookupByLibrary.simpleMessage(
       "Never miss a remainder",
+    ),
+    "openHourLabel": MessageLookupByLibrary.simpleMessage("Opening Hour"),
+    "openHourValidationError": MessageLookupByLibrary.simpleMessage(
+      "Please select opening hour",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(

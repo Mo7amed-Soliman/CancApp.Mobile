@@ -23,4 +23,8 @@ class ApiConstantForm {
   static const String pharmacyLicensePhoto = 'ImagePharmacyLicense';
   static const String numberOfWorkingHours = 'NumberOfWorkingHours';
   static const String isDeliveryEnabled = 'IsDeliveryEnabled';
+  static const String latitude = 'Latitude';
+  static const String longitude = 'Longitude';
+  static const String clouseHour = 'CloseHour';
+  static const String openHour = 'OpenHour';
 }

@@ -7,6 +7,8 @@ class CompletePharmacyModel {
   LatLng location;
   XFile idPhoto;
   XFile pharmacyLicensePhoto;
+  String closeHour;
+  String openHour;
 
   CompletePharmacyModel({
     required this.numberOfWorkingHours,
@@ -14,5 +16,7 @@ class CompletePharmacyModel {
     required this.location,
     required this.idPhoto,
     required this.pharmacyLicensePhoto,
+    required this.closeHour,
+    required this.openHour,
   });
 }

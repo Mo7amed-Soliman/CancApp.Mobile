@@ -44,19 +44,22 @@ class _CompletePharmacyRegistrationViewBodyState
   Widget build(BuildContext context) {
     return BlocConsumer<CompletePharmacyRegistrationCubit,
         CompletePharmacyRegistrationState>(
-      listener: (context, state) async {
+      listener: (BuildContext context, state) async {
         if (state.uploadSuccess) {
+          if (!context.mounted) return;
           context.go(Routes.loginView);
+
+          if (!context.mounted) return;
           botTextToast(
             S.of(context).accountReviewMessage,
             color: AppColors.darkTeal,
           );
         } else if (state.errorMessage != null) {
-          // Show error message
+          if (!context.mounted) return;
           botTextToast(state.errorMessage!);
         }
       },
-      builder: (context, state) {
+      builder: (BuildContext context, state) {
         final cubit = context.read<CompletePharmacyRegistrationCubit>();
         return Form(
           key: _formKey,
@@ -133,6 +136,68 @@ class _CompletePharmacyRegistrationViewBodyState
 
                     const VerticalSpacer(24),
 
+                    /// Open Hours
+                    GestureDetector(
+                      onTap: () async {
+                        final TimeOfDay? pickedTime = await showTimePicker(
+                          context: context,
+                          initialTime: TimeOfDay.now(),
+                        );
+                        if (pickedTime != null && context.mounted) {
+                          cubit.setOpenHour(pickedTime.format(context));
+                        }
+                      },
+                      child: AbsorbPointer(
+                        child: AppTextFormField(
+                          label: S.of(context).openHourLabel,
+                          filled: true,
+                          fillColor: AppColors.lightGray,
+                          controller: TextEditingController(
+                            text: state.openHour,
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return S.of(context).openHourValidationError;
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                    ),
+
+                    const VerticalSpacer(24),
+
+                    /// Close Hours
+                    GestureDetector(
+                      onTap: () async {
+                        final TimeOfDay? pickedTime = await showTimePicker(
+                          context: context,
+                          initialTime: TimeOfDay.now(),
+                        );
+                        if (pickedTime != null && context.mounted) {
+                          cubit.setCloseHour(pickedTime.format(context));
+                        }
+                      },
+                      child: AbsorbPointer(
+                        child: AppTextFormField(
+                          label: S.of(context).closeHourLabel,
+                          filled: true,
+                          fillColor: AppColors.lightGray,
+                          controller: TextEditingController(
+                            text: state.closeHour,
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return S.of(context).closeHourValidationError;
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                    ),
+
+                    const VerticalSpacer(24),
+
                     /// Location
                     GestureDetector(
                       onTap: () => _pickLocation(context),
@@ -186,7 +251,6 @@ class _CompletePharmacyRegistrationViewBodyState
     );
   }
 
-  /// Show image source picker (camera/gallery)
   void _handleImagePicker(BuildContext context, bool isLicense) {
     final cubit = context.read<CompletePharmacyRegistrationCubit>();
 
@@ -196,7 +260,7 @@ class _CompletePharmacyRegistrationViewBodyState
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (context) {
+      builder: (BuildContext context) {
         return ImageSourcePicker(
           onImageSourceSelected: (source) {
             cubit.pickImage(source: source, isLicense: isLicense);
@@ -206,13 +270,14 @@ class _CompletePharmacyRegistrationViewBodyState
     );
   }
 
-  /// Pick map location
   Future<void> _pickLocation(BuildContext context) async {
     final cubit = context.read<CompletePharmacyRegistrationCubit>();
     final LatLng? result = await showDialog<LatLng>(
       context: context,
       builder: (_) => const MapDialog(),
     );
+
+    if (!context.mounted) return;
 
     if (result != null) {
       _locationController.text = '${result.latitude}, ${result.longitude}';

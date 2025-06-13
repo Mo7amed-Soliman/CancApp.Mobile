@@ -254,5 +254,9 @@
    "postReportedSuccessfully": "Post reported successfully",
    "areYouSureYouWantToDeleteThisPost": "Are you sure you want to delete this post?",
    "writeAComment": "Write a comment...",
-   "postCannotBeEmpty": "Post cannot be empty"
+   "postCannotBeEmpty": "Post cannot be empty",
+   "openHourLabel": "Opening Hour",
+   "openHourValidationError": "Please select opening hour",
+   "closeHourLabel": "Closing Hour",
+   "closeHourValidationError": "Please select closing hour"
 }

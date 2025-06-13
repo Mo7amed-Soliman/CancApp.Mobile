@@ -58,9 +58,7 @@ class CommentCubit extends Cubit<CommentState> {
           postId: postId,
           time: DateTime.now(),
           userId: userId,
-          // TODO: add user image
-          userImageUrl:
-              'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
+          userImageUrl: UserCacheHelper.getUser()?.image ?? '',
           name: UserCacheHelper.getUser()?.name ?? '',
           reactionsCount: 0,
         ));

@@ -28,11 +28,10 @@ class WelcomeBanner extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: context.setMinSize(30),
-                backgroundColor: Colors.white,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(context.setMinSize(30)),
-                  child: Image.asset(
-                    'assets/images/dummy_image/img4.png',
+                  child: Image.network(
+                    UserCacheHelper.getUser()?.image ?? '',
                     width: context.setMinSize(60),
                     height: context.setMinSize(60),
                     fit: BoxFit.fill,

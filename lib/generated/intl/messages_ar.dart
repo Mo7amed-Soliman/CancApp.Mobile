@@ -89,6 +89,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "chats": MessageLookupByLibrary.simpleMessage("المحادثات"),
     "chooseFromGallery": MessageLookupByLibrary.simpleMessage("اختر من المعرض"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
+    "closeHourLabel": MessageLookupByLibrary.simpleMessage("ساعة الإغلاق"),
+    "closeHourValidationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى تحديد ساعة الإغلاق",
+    ),
     "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
     "commentAddedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تمت إضافة التعليق بنجاح",
@@ -324,6 +328,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "onboarding_title4": MessageLookupByLibrary.simpleMessage(
       "تذكيرات طبية في وقتها",
+    ),
+    "openHourLabel": MessageLookupByLibrary.simpleMessage("ساعة الفتح"),
+    "openHourValidationError": MessageLookupByLibrary.simpleMessage(
+      "يرجى تحديد ساعة الفتح",
     ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/widgets/image_source_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,8 +63,8 @@ class EditProfileImage extends StatelessWidget {
                           radius: 63,
                           backgroundImage: image != null
                               ? FileImage(image)
-                              : const AssetImage(
-                                  'assets/images/dummy_image/img4.png',
+                              : NetworkImage(
+                                  UserCacheHelper.getUser()?.image ?? '',
                                 ) as ImageProvider,
                         ),
                       ),

@@ -2064,6 +2064,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Opening Hour`
+  String get openHourLabel {
+    return Intl.message(
+      'Opening Hour',
+      name: 'openHourLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select opening hour`
+  String get openHourValidationError {
+    return Intl.message(
+      'Please select opening hour',
+      name: 'openHourValidationError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Closing Hour`
+  String get closeHourLabel {
+    return Intl.message(
+      'Closing Hour',
+      name: 'closeHourLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select closing hour`
+  String get closeHourValidationError {
+    return Intl.message(
+      'Please select closing hour',
+      name: 'closeHourValidationError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -261,7 +261,11 @@
     "postReportedSuccessfully": "تم الإبلاغ عن المنشور بنجاح",
     "areYouSureYouWantToDeleteThisPost": "هل أنت متأكد أنك تريد حذف هذا المنشور؟",
     "writeAComment": "اكتب تعليقاً...",
-    "postCannotBeEmpty": "لا يمكن أن يكون المنشور فارغاً"
+    "postCannotBeEmpty": "لا يمكن أن يكون المنشور فارغاً",
+    "openHourLabel": "ساعة الفتح",
+    "openHourValidationError": "يرجى تحديد ساعة الفتح",
+    "closeHourLabel": "ساعة الإغلاق",
+    "closeHourValidationError": "يرجى تحديد ساعة الإغلاق"
  
  
 }

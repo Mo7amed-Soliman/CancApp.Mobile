@@ -63,7 +63,10 @@ class SignUpRemoteDataSource {
         ApiConstantForm.isDeliveryEnabled: pharmacyModel.isDeliveryEnabled,
         ApiConstantForm.numberOfWorkingHours:
             pharmacyModel.numberOfWorkingHours,
-        //TODO: ApiConstantForm.latLog : pharmacyModel.location,
+        ApiConstantForm.latitude: pharmacyModel.location.latitude,
+        ApiConstantForm.longitude: pharmacyModel.location.longitude,
+        ApiConstantForm.clouseHour: pharmacyModel.closeHour.toString(),
+        ApiConstantForm.openHour: pharmacyModel.openHour.toString(),
       },
     );
   }

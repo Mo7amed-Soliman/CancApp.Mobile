@@ -116,11 +116,10 @@ class CreatePostViewContent extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  // TODO: change to user image
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 24,
                     backgroundImage: NetworkImage(
-                      'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
+                      user?.image ?? '',
                     ),
                   ),
                   const SizedBox(width: 10),
