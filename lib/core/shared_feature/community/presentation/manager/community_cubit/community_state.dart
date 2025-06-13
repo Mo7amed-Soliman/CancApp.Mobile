@@ -51,38 +51,6 @@ class CommunityPostsPaginationError extends CommunityState {
   CommunityPostsPaginationError(this.message);
 }
 
-// Comment states
-class CommunityCommentLoading extends CommunityState {}
-
-class CommunityCommentsError extends CommunityState {
-  final String message;
-  CommunityCommentsError(this.message);
-}
-
-class CommunityCommentAdded extends CommunityState {}
-
-class CommunityCommentDeleted extends CommunityState {
-  final int commentId;
-  CommunityCommentDeleted(this.commentId);
-}
-
-class CommunityCommentUpdated extends CommunityState {}
-
-class CommunityCommentReported extends CommunityState {
-  final int commentId;
-  CommunityCommentReported(this.commentId);
-}
-
-class CommunityCommentsSuccess extends CommunityState {
-  final List<CommentModel> comments;
-  CommunityCommentsSuccess(this.comments);
-}
-
-class CommunityCommentSuccess extends CommunityState {
-  final CommentModel comment;
-  CommunityCommentSuccess(this.comment);
-}
-
 // Reaction states
 class CommunityReactionAdded extends CommunityState {}
 

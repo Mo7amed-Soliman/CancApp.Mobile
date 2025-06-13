@@ -6,7 +6,8 @@ import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.d
 import 'package:canc_app/core/helpers/responsive_helpers/size_provider.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/routing/app_router.dart';
-import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/comment_cubit/comment_cubit.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit/community_cubit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:canc_app/generated/l10n.dart';
@@ -35,6 +36,9 @@ class CancApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<CommunityCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<CommentCubit>(),
         ),
       ],
       child: const CustomMaterialApp(),

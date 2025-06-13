@@ -12,7 +12,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../manager/community_cubit.dart';
+import '../../manager/community_cubit/community_cubit.dart';
 
 class CreatePostViewContent extends StatelessWidget {
   final PostModel? post;

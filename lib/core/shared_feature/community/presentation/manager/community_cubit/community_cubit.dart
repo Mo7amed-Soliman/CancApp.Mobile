@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
-import 'package:canc_app/core/shared_feature/community/data/models/comment_model.dart';
 import 'package:image_picker/image_picker.dart';
 
 part 'community_state.dart';
@@ -107,91 +106,6 @@ class CommunityCubit extends Cubit<CommunityState> {
     result.fold(
       (failure) => emit(CommunityPostsError(failure.errorMessage)),
       (_) => emit(CommunityPostReported(postId)),
-    );
-  }
-
-  // COMMENTS
-  Future<void> getCommentsPerPost(int postId) async {
-    emit(CommunityCommentLoading());
-    final result = await repository.getCommentsPerPost(postId: postId);
-    result.fold(
-      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
-      (comments) => emit(CommunityCommentsSuccess(comments)),
-    );
-  }
-
-  Future<void> getCommentById(
-      {required int postId, required int commentId}) async {
-    emit(CommunityCommentLoading());
-    final result =
-        await repository.getCommentById(postId: postId, commentId: commentId);
-    result.fold(
-      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
-      (comment) => emit(CommunityCommentSuccess(comment)),
-    );
-  }
-
-  Future<void> addComment({
-    required int postId,
-    required String userId,
-    required String content,
-  }) async {
-    emit(CommunityCommentLoading());
-    final result = await repository.addComment(
-      postId: postId,
-      userId: userId,
-      content: content,
-    );
-    result.fold(
-      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
-      (_) => emit(CommunityCommentAdded()),
-    );
-  }
-
-  Future<void> deleteComment({
-    required int postId,
-    required int commentId,
-  }) async {
-    emit(CommunityCommentLoading());
-    final result = await repository.deleteComment(
-      postId: postId,
-      commentId: commentId,
-    );
-    result.fold(
-      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
-      (_) => emit(CommunityCommentDeleted(commentId)),
-    );
-  }
-
-  Future<void> updateComment({
-    required int postId,
-    required int commentId,
-    required String content,
-  }) async {
-    emit(CommunityCommentLoading());
-    final result = await repository.updateComment(
-      postId: postId,
-      commentId: commentId,
-      content: content,
-    );
-    result.fold(
-      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
-      (_) => emit(CommunityCommentUpdated()),
-    );
-  }
-
-  Future<void> reportComment({
-    required int postId,
-    required int commentId,
-  }) async {
-    emit(CommunityCommentLoading());
-    final result = await repository.reportComment(
-      postId: postId,
-      commentId: commentId,
-    );
-    result.fold(
-      (failure) => emit(CommunityCommentsError(failure.errorMessage)),
-      (_) => emit(CommunityCommentReported(commentId)),
     );
   }
 

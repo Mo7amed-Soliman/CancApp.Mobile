@@ -1,6 +1,6 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/routing/routes.dart';
-import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit/community_cubit.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';

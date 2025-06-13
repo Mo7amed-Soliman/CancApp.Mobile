@@ -4,7 +4,7 @@ import 'package:canc_app/core/networking/api_consumer.dart';
 import 'package:canc_app/core/networking/dio_consumer.dart';
 import 'package:canc_app/core/services/refresh_token_service.dart';
 import 'package:canc_app/core/services/token_service.dart';
-import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit/community_cubit.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/data/data_sources/forget_password_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/data/repositories/forget_password_repository.dart';
 import 'package:canc_app/core/shared_feature/forgot_password/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
@@ -39,6 +39,7 @@ import 'package:get_it/get_it.dart';
 import 'package:canc_app/core/shared_feature/community/data/data_sources/community_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository_impl.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/comment_cubit/comment_cubit.dart';
 
 import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
 import '../../users/patient/chatbot/presentation/manager/chat_bot_cubit.dart';
@@ -152,6 +153,9 @@ Future<void> initDependencies() async {
         chatbotRepository: getIt<ChatBotRepository>(),
       ));
   getIt.registerFactory<CommunityCubit>(() => CommunityCubit(
+        getIt<CommunityRepository>(),
+      ));
+  getIt.registerFactory<CommentCubit>(() => CommentCubit(
         getIt<CommunityRepository>(),
       ));
 }

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
-import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit/community_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';

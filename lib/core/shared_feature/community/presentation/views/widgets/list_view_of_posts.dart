@@ -1,6 +1,6 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/routing/routes.dart';
-import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/manager/community_cubit/community_cubit.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_item.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/post_shimmer.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -83,9 +83,7 @@ class _ListOfPostsState extends State<ListOfPosts> {
   }
 
   bool _shouldShowPostsList(CommunityState state) {
-    return state is! CommunityPostLoading &&
-        state is! CommunityPostsPaginationLoading &&
-        state is! CommunityPostsError;
+    return state is! CommunityPostLoading && state is! CommunityPostsError;
   }
 
   void _handleStateChanges(CommunityState state) {

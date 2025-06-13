@@ -12,12 +12,10 @@ class CommentsListView extends StatelessWidget {
     super.key,
     required this.post,
     required this.comments,
-    this.scrollController,
   });
 
   final PostModel post;
   final List<CommentModel> comments;
-  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,6 @@ class CommentsListView extends StatelessWidget {
         const VerticalSpacer(5),
         Expanded(
           child: ListView.builder(
-            controller: scrollController,
             padding: EdgeInsets.symmetric(horizontal: context.setWidth(16)),
             itemCount: comments.length,
             itemBuilder: (context, index) {
