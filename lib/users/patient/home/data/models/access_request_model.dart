@@ -1,5 +1,5 @@
- class AccessRequestModel {
-  final String id;  
+class AccessRequestModel {
+  final String id;
   final String doctorImage;
   final String doctorName;
   final DateTime requestedAt;

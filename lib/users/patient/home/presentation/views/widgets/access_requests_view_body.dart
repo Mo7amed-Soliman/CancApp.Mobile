@@ -1,7 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
-import 'package:canc_app/users/patient/home/data/models/access_request_model';
+import 'package:canc_app/users/patient/home/data/models/access_request_model.dart';
 import 'package:canc_app/users/patient/home/presentation/manager/access_request_cubit/access_request_cubit.dart';
 import 'package:canc_app/users/patient/home/presentation/manager/access_request_cubit/access_request_state.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/animated_slide_request_item.dart';

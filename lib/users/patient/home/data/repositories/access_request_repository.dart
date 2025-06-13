@@ -1,5 +1,5 @@
 import 'package:canc_app/core/networking/api_faliure.dart';
-import 'package:canc_app/users/patient/home/data/models/access_request_model';
+import 'package:canc_app/users/patient/home/data/models/access_request_model.dart';
 import 'package:dartz/dartz.dart';
 
 import '../data_sources/access_request_data_source.dart';

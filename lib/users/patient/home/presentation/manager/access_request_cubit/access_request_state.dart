@@ -1,4 +1,4 @@
-import 'package:canc_app/users/patient/home/data/models/access_request_model';
+import 'package:canc_app/users/patient/home/data/models/access_request_model.dart';
 import 'package:equatable/equatable.dart';
 
 class AccessRequestState extends Equatable {

@@ -23,7 +23,7 @@ import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_
 import 'package:canc_app/users/doctor/doctor_view.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/available_to_chat_view.dart';
 import 'package:canc_app/users/patient/chatbot/presentation/views/chatbot_view.dart';
-import 'package:canc_app/users/patient/home/data/models/access_request_model';
+import 'package:canc_app/users/patient/home/data/models/access_request_model.dart';
 import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/nearest_pharmacy_view.dart';
