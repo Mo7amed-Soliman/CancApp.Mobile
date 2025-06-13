@@ -492,6 +492,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "today": MessageLookupByLibrary.simpleMessage("اليوم"),
     "update": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "updatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم التحديث بنجاح",
+    ),
     "upload": MessageLookupByLibrary.simpleMessage("رفع"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف كبير واحد",

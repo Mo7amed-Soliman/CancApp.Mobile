@@ -8,8 +8,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../manager/edit_profile_cubit.dart';
 import '../../manager/edit_profile_state.dart';
 
-class EditProfileImage extends StatelessWidget {
+class EditProfileImage extends StatefulWidget {
   const EditProfileImage({super.key});
+
+  @override
+  State<EditProfileImage> createState() => _EditProfileImageState();
+}
+
+class _EditProfileImageState extends State<EditProfileImage> {
+  File? image;
 
   void _showImageSourceSelector(BuildContext context) {
     showModalBottomSheet(
@@ -46,12 +53,11 @@ class EditProfileImage extends StatelessWidget {
               children: [
                 BlocBuilder<EditProfileCubit, EditProfileState>(
                   builder: (context, state) {
-                    File? image;
                     if (state is EditProfileImageChanged) {
-                      image = state.image;
+                      image = File(state.image.path);
                     } else if (state is EditProfileInitial &&
                         state.image != null) {
-                      image = state.image;
+                      image = File(state.image!.path);
                     }
 
                     return GestureDetector(
@@ -62,7 +68,7 @@ class EditProfileImage extends StatelessWidget {
                         child: CircleAvatar(
                           radius: 63,
                           backgroundImage: image != null
-                              ? FileImage(image)
+                              ? FileImage(image!)
                               : NetworkImage(
                                   UserCacheHelper.getUser()?.image ?? '',
                                 ) as ImageProvider,

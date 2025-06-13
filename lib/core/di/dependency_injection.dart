@@ -43,6 +43,8 @@ import 'package:canc_app/core/shared_feature/community/presentation/manager/comm
 import 'package:canc_app/core/shared_feature/change_password/data/datasources/change_password_remote_data_source.dart';
 import 'package:canc_app/core/shared_feature/change_password/data/repositories/change_password_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/change_password/presentation/manager/change_password_cubit.dart';
+import 'package:canc_app/core/shared_feature/edit_profile/data/repositories/edit_profile_repository_impl.dart';
+import 'package:canc_app/core/shared_feature/edit_profile/data/datasources/edit_profile_remote_data_source.dart';
 
 import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
 import '../../users/patient/chatbot/presentation/manager/chat_bot_cubit.dart';
@@ -106,6 +108,10 @@ Future<void> initDependencies() async {
       () => ChangePasswordRepository(
             remoteDataSource: getIt<ChangePasswordRemoteDataSource>(),
           ));
+  getIt.registerLazySingleton<EditProfileRepository>(
+      () => EditProfileRepositoryImpl(
+            remoteDataSource: getIt<EditProfileRemoteDataSource>(),
+          ));
 
   //! Data Sources - Lazy singletons for remote data
   getIt
@@ -125,6 +131,10 @@ Future<void> initDependencies() async {
           ));
   getIt.registerLazySingleton<ChangePasswordRemoteDataSource>(
       () => ChangePasswordRemoteDataSourceImpl(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
+  getIt.registerLazySingleton<EditProfileRemoteDataSource>(
+      () => EditProfileRemoteDataSourceImpl(
             apiConsumer: getIt<ApiConsumer>(),
           ));
 

@@ -494,6 +494,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "today": MessageLookupByLibrary.simpleMessage("Today"),
     "update": MessageLookupByLibrary.simpleMessage("Update"),
+    "updatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Updated successfully",
+    ),
     "upload": MessageLookupByLibrary.simpleMessage("Upload"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 uppercase letter",

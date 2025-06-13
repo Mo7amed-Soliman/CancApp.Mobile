@@ -1,9 +1,9 @@
-import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 abstract class EditProfileState {}
 
 class EditProfileInitial extends EditProfileState {
-  final File? image;
+  final XFile? image;
 
   EditProfileInitial({this.image});
 }
@@ -18,6 +18,6 @@ class EditProfileFailure extends EditProfileState {
 }
 
 class EditProfileImageChanged extends EditProfileState {
-  final File image;
+  final XFile image;
   EditProfileImageChanged(this.image);
 }

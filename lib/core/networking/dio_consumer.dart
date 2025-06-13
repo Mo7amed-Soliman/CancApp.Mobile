@@ -72,8 +72,8 @@ class DioConsumer extends ApiConsumer {
       final response = await _dio.put(
         path,
         data: isFromData ? FormData.fromMap(data) : data,
-        queryParameters: queryParameters,
       );
+
       return response.data;
     } on DioException catch (e) {
       throw ServerFailure.fromDioError(e);
