@@ -12,21 +12,51 @@ class ChangePasswordInitial extends ChangePasswordState {}
 class ChangePasswordLoading extends ChangePasswordState {}
 
 class ChangePasswordSuccess extends ChangePasswordState {
-  final String message;
-
-  const ChangePasswordSuccess(this.message);
+  const ChangePasswordSuccess();
 
   @override
-  List<Object?> get props => [message];
+  List<Object?> get props => [];
 }
 
 class ChangePasswordError extends ChangePasswordState {
   final String message;
+  final bool isAuthError;
 
-  const ChangePasswordError(this.message);
+  const ChangePasswordError(this.message, {this.isAuthError = false});
 
   @override
-  List<Object?> get props => [message];
+  List<Object?> get props => [message, isAuthError];
+}
+
+class AuthenticationRequired extends ChangePasswordState {
+  final String message;
+  final bool isBiometricAvailable;
+  final bool isDeviceLockAvailable;
+
+  const AuthenticationRequired({
+    required this.message,
+    this.isBiometricAvailable = false,
+    this.isDeviceLockAvailable = false,
+  });
+
+  @override
+  List<Object?> get props =>
+      [message, isBiometricAvailable, isDeviceLockAvailable];
+}
+
+class AuthenticationError extends ChangePasswordState {
+  final String message;
+  final bool isBiometricError;
+  final bool isDeviceLockError;
+
+  const AuthenticationError({
+    required this.message,
+    this.isBiometricError = false,
+    this.isDeviceLockError = false,
+  });
+
+  @override
+  List<Object?> get props => [message, isBiometricError, isDeviceLockError];
 }
 
 final class FormValidationState extends ChangePasswordState {

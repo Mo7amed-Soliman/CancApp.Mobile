@@ -40,6 +40,9 @@ import 'package:canc_app/core/shared_feature/community/data/data_sources/communi
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository.dart';
 import 'package:canc_app/core/shared_feature/community/data/repositories/community_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/community/presentation/manager/comment_cubit/comment_cubit.dart';
+import 'package:canc_app/core/shared_feature/change_password/data/datasources/change_password_remote_data_source.dart';
+import 'package:canc_app/core/shared_feature/change_password/data/repositories/change_password_repository_impl.dart';
+import 'package:canc_app/core/shared_feature/change_password/presentation/manager/change_password_cubit.dart';
 
 import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
 import '../../users/patient/chatbot/presentation/manager/chat_bot_cubit.dart';
@@ -99,6 +102,10 @@ Future<void> initDependencies() async {
               apiConsumer: getIt<ApiConsumer>(),
             ),
           ));
+  getIt.registerLazySingleton<ChangePasswordRepository>(
+      () => ChangePasswordRepository(
+            remoteDataSource: getIt<ChangePasswordRemoteDataSource>(),
+          ));
 
   //! Data Sources - Lazy singletons for remote data
   getIt
@@ -114,6 +121,10 @@ Future<void> initDependencies() async {
       ));
   getIt.registerLazySingleton<ForgetPasswordRemoteDataSource>(
       () => ForgetPasswordRemoteDataSource(
+            apiConsumer: getIt<ApiConsumer>(),
+          ));
+  getIt.registerLazySingleton<ChangePasswordRemoteDataSource>(
+      () => ChangePasswordRemoteDataSourceImpl(
             apiConsumer: getIt<ApiConsumer>(),
           ));
 
@@ -157,5 +168,8 @@ Future<void> initDependencies() async {
       ));
   getIt.registerFactory<CommentCubit>(() => CommentCubit(
         getIt<CommunityRepository>(),
+      ));
+  getIt.registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(
+        changePasswordRepository: getIt<ChangePasswordRepository>(),
       ));
 }

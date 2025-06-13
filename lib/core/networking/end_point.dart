@@ -16,6 +16,7 @@ class EndPoint {
   static const String resetPassword = 'auth/reset-password';
   static const String registerOtpNewPassword =
       'auth/register-otp-for-new-password';
+  static const String changePassword = '/User/ChangePassword';
 
   // community
   static const String getPosts = 'post';
