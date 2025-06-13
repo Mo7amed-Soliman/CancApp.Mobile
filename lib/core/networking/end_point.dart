@@ -18,7 +18,7 @@ class EndPoint {
       'auth/register-otp-for-new-password';
   static const String changePassword = 'User/ChangePassword';
   static const String updateProfile = 'User/EditUserProfile';
-
+  static const String getNearestPharmacies = 'User/pharmacists';
   // community
   static const String getPosts = 'post';
   static const String addPost = 'post';

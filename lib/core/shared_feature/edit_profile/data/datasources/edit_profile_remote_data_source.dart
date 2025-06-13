@@ -17,7 +17,9 @@ class EditProfileRemoteDataSourceImpl implements EditProfileRemoteDataSource {
 
   @override
   Future<void> updateProfile(EditProfileModel profile) async {
-    log('Sending profile update to: ${profile.name} ${profile.address} ${profile.image?.path}');
+    log('${profile.name} ${profile.address}');
+    // TODO: add image ,name ,address to local storage
+
     await apiConsumer.put(
       EndPoint.updateProfile,
       isFromData: true,
@@ -25,7 +27,7 @@ class EditProfileRemoteDataSourceImpl implements EditProfileRemoteDataSource {
         ApiConstantForm.name: profile.name,
         ApiConstantForm.address: profile.address,
         if (profile.image != null)
-          ApiConstantForm.image: await uploadImageToAPI(profile.image!),
+          ApiConstantForm.imageFile: await uploadImageToAPI(profile.image!),
       },
     );
   }

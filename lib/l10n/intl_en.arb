@@ -259,5 +259,6 @@
    "openHourValidationError": "Please select opening hour",
    "closeHourLabel": "Closing Hour",
    "closeHourValidationError": "Please select closing hour",
-   "updatedSuccessfully": "Updated successfully"
+   "updatedSuccessfully": "Updated successfully",
+   "openNow": "Open Now"
 }

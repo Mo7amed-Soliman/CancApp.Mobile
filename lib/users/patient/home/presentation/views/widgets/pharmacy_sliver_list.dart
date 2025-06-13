@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 
 class PharmacySliverList extends StatelessWidget {
   final FilterState filterState;
-  final List<Pharmacy> pharmacies;
+  final List<NearestPharmacyModel> pharmacies;
 
   const PharmacySliverList({
     super.key,
@@ -34,7 +34,7 @@ class PharmacySliverList extends StatelessWidget {
             // If both "Open Now" and "Delivery" are selected, only show open pharmacies
             if (filterState.selectedFilters.contains(PharmacyFilter.openNow) &&
                 filterState.selectedFilters.contains(PharmacyFilter.delivery)) {
-              if (!pharmacy.isOpen) {
+              if (!pharmacy.isOpeningNow) {
                 return false;
               }
             }
@@ -42,9 +42,9 @@ class PharmacySliverList extends StatelessWidget {
             return filterState.selectedFilters.any((filter) {
               switch (filter) {
                 case PharmacyFilter.delivery:
-                  return pharmacy.isDelivery;
+                  return pharmacy.isDeliveryEnabled;
                 case PharmacyFilter.openNow:
-                  return pharmacy.isOpen;
+                  return pharmacy.isOpeningNow;
                 default:
                   return true;
               }
@@ -73,7 +73,7 @@ class PharmacySliverList extends StatelessWidget {
 }
 
 class _PharmacyCard extends StatelessWidget {
-  final Pharmacy pharmacy;
+  final NearestPharmacyModel pharmacy;
 
   const _PharmacyCard({
     required this.pharmacy,
@@ -101,7 +101,7 @@ class _PharmacyCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.network(
-                pharmacy.imageUrl,
+                pharmacy.image,
                 width: context.setMinSize(82),
                 height: context.setMinSize(90),
                 fit: BoxFit.cover,
@@ -128,18 +128,18 @@ class _PharmacyCard extends StatelessWidget {
                           Icon(
                             Icons.access_time,
                             size: context.setMinSize(16),
-                            color: pharmacy.isOpen
+                            color: pharmacy.isOpeningNow
                                 ? AppColors.mintGreen
                                 : AppColors.red,
                           ),
                           const HorizontalSpacer(4),
                           Text(
-                            pharmacy.isOpen
-                                ? pharmacy.openUntil
+                            pharmacy.isOpeningNow
+                                ? S.of(context).openNow
                                 : S.of(context).closed,
                             style: AppTextStyle.font12MediumDarkGray(context)
                                 .copyWith(
-                              color: pharmacy.isOpen
+                              color: pharmacy.isOpeningNow
                                   ? AppColors.mintGreen
                                   : AppColors.red,
                             ),
@@ -160,13 +160,13 @@ class _PharmacyCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       OutlinedButton(
-                        onPressed: pharmacy.isOpen ? () {} : null,
+                        onPressed: pharmacy.isOpeningNow ? () {} : null,
                         style: OutlinedButton.styleFrom(
-                          foregroundColor: pharmacy.isOpen
+                          foregroundColor: pharmacy.isOpeningNow
                               ? AppColors.primaryColor
                               : AppColors.grayish,
                           side: BorderSide(
-                            color: pharmacy.isOpen
+                            color: pharmacy.isOpeningNow
                                 ? AppColors.primaryColor
                                 : AppColors.grayish,
                           ),
@@ -178,7 +178,7 @@ class _PharmacyCard extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on,
-                              color: pharmacy.isOpen
+                              color: pharmacy.isOpeningNow
                                   ? AppColors.primaryColor
                                   : AppColors.grayish,
                             ),
@@ -187,7 +187,7 @@ class _PharmacyCard extends StatelessWidget {
                               S.of(context).navigate,
                               style: AppTextStyle.font14RegularDarkGray(context)
                                   .copyWith(
-                                color: pharmacy.isOpen
+                                color: pharmacy.isOpeningNow
                                     ? AppColors.primaryColor
                                     : AppColors.grayish,
                                 fontWeight: FontWeight.w500,

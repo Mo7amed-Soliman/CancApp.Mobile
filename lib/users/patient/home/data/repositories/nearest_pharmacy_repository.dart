@@ -1,9 +1,13 @@
+import 'package:canc_app/core/networking/api_faliure.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/nearest_pharmacy_data_source.dart';
 import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class NearestPharmacyRepository {
-  Future<Either<Exception, List<Pharmacy>>> getNearestPharmacies();
+  Future<Either<Failure, List<NearestPharmacyModel>>> getNearestPharmacies({
+    required double latitude,
+    required double longitude,
+  });
 }
 
 class NearestPharmacyRepositoryImpl implements NearestPharmacyRepository {
@@ -12,12 +16,22 @@ class NearestPharmacyRepositoryImpl implements NearestPharmacyRepository {
   NearestPharmacyRepositoryImpl({required this.dataSource});
 
   @override
-  Future<Either<Exception, List<Pharmacy>>> getNearestPharmacies() async {
+  Future<Either<Failure, List<NearestPharmacyModel>>> getNearestPharmacies({
+    required double latitude,
+    required double longitude,
+  }) async {
     try {
-      final pharmacies = await dataSource.getNearestPharmacies();
+      final pharmacies = await dataSource.getNearestPharmacies(
+        latitude: latitude,
+        longitude: longitude,
+      );
       return Right(pharmacies);
+    } on ServerFailure catch (e) {
+      return Left(e);
+    } on Exception catch (e) {
+      return Left(Failure(e.toString()));
     } catch (e) {
-      return Left(Exception('Failed to fetch pharmacies: $e'));
+      return Left(Failure('An unexpected error occurred'));
     }
   }
 }

@@ -2114,6 +2114,11 @@ class S {
       args: [],
     );
   }
+
+  /// `Open Now`
+  String get openNow {
+    return Intl.message('Open Now', name: 'openNow', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

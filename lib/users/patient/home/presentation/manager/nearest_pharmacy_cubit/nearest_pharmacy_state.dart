@@ -13,7 +13,7 @@ class NearestPharmacyInitial extends NearestPharmacyState {}
 class NearestPharmacyLoading extends NearestPharmacyState {}
 
 class NearestPharmacySuccess extends NearestPharmacyState {
-  final List<Pharmacy> pharmacies;
+  final List<NearestPharmacyModel> pharmacies;
 
   const NearestPharmacySuccess(this.pharmacies);
 

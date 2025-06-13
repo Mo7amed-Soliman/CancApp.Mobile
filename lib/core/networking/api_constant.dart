@@ -15,9 +15,11 @@ class ApiConstant {
 class ApiConstantForm {
   static const String email = 'Email';
   static const String password = 'Password';
-  static const String name = 'FullName';
+  static const String fullName = 'FullName';
+  static const String name = 'Name';
   static const String address = 'Address';
   static const String image = 'Image';
+  static const String imageFile = 'ImageFile';
   static const String userType = 'UserType';
   static const String medicalSyndicatePhoto = 'MedicalSyndicatePhoto';
   static const String imageId = 'ImageId';

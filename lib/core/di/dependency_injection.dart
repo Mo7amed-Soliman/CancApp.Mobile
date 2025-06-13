@@ -90,7 +90,7 @@ Future<void> initDependencies() async {
   getIt.registerLazySingleton<NearestPharmacyRepository>(
       () => NearestPharmacyRepositoryImpl(
             dataSource: NearestPharmacyDataSourceImpl(
-              dio: getIt<Dio>(),
+              apiConsumer: getIt<ApiConsumer>(),
             ),
           ));
   getIt.registerLazySingleton<ChatBotRepository>(() => ChatbotRepositoryImpl(

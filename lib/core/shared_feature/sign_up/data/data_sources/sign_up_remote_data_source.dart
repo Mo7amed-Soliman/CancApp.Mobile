@@ -25,7 +25,7 @@ class SignUpRemoteDataSource {
       data: {
         ApiConstantForm.email: signUpModel.email,
         ApiConstantForm.password: signUpModel.password,
-        ApiConstantForm.name: signUpModel.name,
+        ApiConstantForm.fullName: signUpModel.name,
         ApiConstantForm.address: signUpModel.address,
         ApiConstantForm.image: signUpModel.image,
         ApiConstantForm.userType: signUpModel.userType,

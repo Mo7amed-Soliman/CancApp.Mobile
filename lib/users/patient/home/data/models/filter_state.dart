@@ -48,15 +48,15 @@ class FilterState extends ChangeNotifier {
     return _selectedFilters.contains(filter);
   }
 
-  bool shouldShowPharmacy(Pharmacy pharmacy) {
+  bool shouldShowPharmacy(NearestPharmacyModel pharmacy) {
     if (_selectedFilters.contains(PharmacyFilter.all)) return true;
 
     return _selectedFilters.every((filter) {
       switch (filter) {
         case PharmacyFilter.delivery:
-          return pharmacy.isDelivery;
+          return pharmacy.isDeliveryEnabled;
         case PharmacyFilter.openNow:
-          return pharmacy.isOpen;
+          return pharmacy.isOpeningNow;
         case PharmacyFilter.all:
           return true;
       }

@@ -339,6 +339,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "openHourValidationError": MessageLookupByLibrary.simpleMessage(
       "Please select opening hour",
     ),
+    "openNow": MessageLookupByLibrary.simpleMessage("Open Now"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Password is required",

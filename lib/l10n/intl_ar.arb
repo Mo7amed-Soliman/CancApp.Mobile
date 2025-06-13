@@ -266,6 +266,7 @@
     "openHourValidationError": "يرجى تحديد ساعة الفتح",
     "closeHourLabel": "ساعة الإغلاق",
     "closeHourValidationError": "يرجى تحديد ساعة الإغلاق",
-    "updatedSuccessfully": "تم التحديث بنجاح"
+    "updatedSuccessfully": "تم التحديث بنجاح",
+    "openNow": "مفتوح الآن"
  
 }

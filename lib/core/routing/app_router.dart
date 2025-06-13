@@ -185,7 +185,7 @@ final appRouter = GoRouter(
     GoRoute(
       path: Routes.nearestPharmacyView,
       pageBuilder: (context, state) {
-        final pharmacies = state.extra as List<Pharmacy>;
+        final pharmacies = state.extra as List<NearestPharmacyModel>;
         return CustomTransitionPage(
           key: state.pageKey,
           child: NearestPharmacyView(

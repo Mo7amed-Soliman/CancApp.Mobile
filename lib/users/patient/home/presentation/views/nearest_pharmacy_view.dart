@@ -11,7 +11,7 @@ import 'widgets/pharmacy_sliver_list.dart';
 import 'widgets/search_bar.dart';
 
 class NearestPharmacyView extends StatefulWidget {
-  final List<Pharmacy> pharmacies;
+  final List<NearestPharmacyModel> pharmacies;
   const NearestPharmacyView({super.key, required this.pharmacies});
 
   @override
