@@ -1540,34 +1540,34 @@ class S {
     return Intl.message('Report', name: 'report', desc: '', args: []);
   }
 
-  /// `Show original`
+  /// `Show Original`
   String get showOriginal {
     return Intl.message(
-      'Show original',
+      'Show Original',
       name: 'showOriginal',
       desc: '',
       args: [],
     );
   }
 
-  /// `Show translation`
+  /// `Show Translation`
   String get showTranslation {
     return Intl.message(
-      'Show translation',
+      'Show Translation',
       name: 'showTranslation',
       desc: '',
       args: [],
     );
   }
 
-  /// `See more`
+  /// `See More`
   String get seeMore {
-    return Intl.message('See more', name: 'seeMore', desc: '', args: []);
+    return Intl.message('See More', name: 'seeMore', desc: '', args: []);
   }
 
-  /// `See less`
+  /// `See Less`
   String get seeLess {
-    return Intl.message('See less', name: 'seeLess', desc: '', args: []);
+    return Intl.message('See Less', name: 'seeLess', desc: '', args: []);
   }
 
   /// `Thanks for signing up! We're verifying your identity. This may take up to 48 hours. You'll be notified by email once approved.`
@@ -1660,16 +1660,6 @@ class S {
     return Intl.message('Edit Record', name: 'editRecord', desc: '', args: []);
   }
 
-  /// `Are you sure you want to delete this post?`
-  String get areYouSureYouWantToDeleteThisPost {
-    return Intl.message(
-      'Are you sure you want to delete this post?',
-      name: 'areYouSureYouWantToDeleteThisPost',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Are you sure you want to report this post?`
   String get areYouSureYouWantToReportThisPost {
     return Intl.message(
@@ -1720,6 +1710,301 @@ class S {
     );
   }
 
+  /// `Create Post`
+  String get createPost {
+    return Intl.message('Create Post', name: 'createPost', desc: '', args: []);
+  }
+
+  /// `Edit Post`
+  String get editPost {
+    return Intl.message('Edit Post', name: 'editPost', desc: '', args: []);
+  }
+
+  /// `No comments yet`
+  String get noComments {
+    return Intl.message(
+      'No comments yet',
+      name: 'noComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a comment...`
+  String get addComment {
+    return Intl.message(
+      'Add a comment...',
+      name: 'addComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What's on your mind?`
+  String get postContent {
+    return Intl.message(
+      'What\'s on your mind?',
+      name: 'postContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Image`
+  String get postImage {
+    return Intl.message('Add Image', name: 'postImage', desc: '', args: []);
+  }
+
+  /// `Image removed`
+  String get postImageRemoved {
+    return Intl.message(
+      'Image removed',
+      name: 'postImageRemoved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error loading image`
+  String get postImageError {
+    return Intl.message(
+      'Error loading image',
+      name: 'postImageError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Post created successfully`
+  String get postCreatedSuccessfully {
+    return Intl.message(
+      'Post created successfully',
+      name: 'postCreatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment added successfully`
+  String get commentAddedSuccessfully {
+    return Intl.message(
+      'Comment added successfully',
+      name: 'commentAddedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment updated successfully`
+  String get commentUpdatedSuccessfully {
+    return Intl.message(
+      'Comment updated successfully',
+      name: 'commentUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment deleted successfully`
+  String get commentDeletedSuccessfully {
+    return Intl.message(
+      'Comment deleted successfully',
+      name: 'commentDeletedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading comments...`
+  String get loadingComments {
+    return Intl.message(
+      'Loading comments...',
+      name: 'loadingComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error loading comments`
+  String get errorLoadingComments {
+    return Intl.message(
+      'Error loading comments',
+      name: 'errorLoadingComments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error loading posts`
+  String get errorLoadingPosts {
+    return Intl.message(
+      'Error loading posts',
+      name: 'errorLoadingPosts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error creating post`
+  String get errorCreatingPost {
+    return Intl.message(
+      'Error creating post',
+      name: 'errorCreatingPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error updating post`
+  String get errorUpdatingPost {
+    return Intl.message(
+      'Error updating post',
+      name: 'errorUpdatingPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error deleting post`
+  String get errorDeletingPost {
+    return Intl.message(
+      'Error deleting post',
+      name: 'errorDeletingPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error reporting post`
+  String get errorReportingPost {
+    return Intl.message(
+      'Error reporting post',
+      name: 'errorReportingPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error adding comment`
+  String get errorAddingComment {
+    return Intl.message(
+      'Error adding comment',
+      name: 'errorAddingComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message('Update', name: 'update', desc: '', args: []);
+  }
+
+  /// `Post`
+  String get post {
+    return Intl.message('Post', name: 'post', desc: '', args: []);
+  }
+
+  /// `Anything on your mind?\nLet it out here.`
+  String get postHint {
+    return Intl.message(
+      'Anything on your mind?\nLet it out here.',
+      name: 'postHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Image`
+  String get addImage {
+    return Intl.message('Add Image', name: 'addImage', desc: '', args: []);
+  }
+
+  /// `Remove Image`
+  String get removeImage {
+    return Intl.message(
+      'Remove Image',
+      name: 'removeImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comments`
+  String get comments {
+    return Intl.message('Comments', name: 'comments', desc: '', args: []);
+  }
+
+  /// `Error updating comment`
+  String get errorUpdatingComment {
+    return Intl.message(
+      'Error updating comment',
+      name: 'errorUpdatingComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error deleting comment`
+  String get errorDeletingComment {
+    return Intl.message(
+      'Error deleting comment',
+      name: 'errorDeletingComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error reporting comment`
+  String get errorReportingComment {
+    return Intl.message(
+      'Error reporting comment',
+      name: 'errorReportingComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Comment`
+  String get editComment {
+    return Intl.message(
+      'Edit Comment',
+      name: 'editComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your comment`
+  String get editCommentHint {
+    return Intl.message(
+      'Edit your comment',
+      name: 'editCommentHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment cannot be empty`
+  String get commentCannotBeEmpty {
+    return Intl.message(
+      'Comment cannot be empty',
+      name: 'commentCannotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment reported successfully`
+  String get commentReportedSuccessfully {
+    return Intl.message(
+      'Comment reported successfully',
+      name: 'commentReportedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Post deleted successfully`
   String get postDeletedSuccessfully {
     return Intl.message(
@@ -1740,11 +2025,41 @@ class S {
     );
   }
 
-  /// `Report sent successfully`
+  /// `Post reported successfully`
   String get postReportedSuccessfully {
     return Intl.message(
-      'Report sent successfully',
+      'Post reported successfully',
       name: 'postReportedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this post?`
+  String get areYouSureYouWantToDeleteThisPost {
+    return Intl.message(
+      'Are you sure you want to delete this post?',
+      name: 'areYouSureYouWantToDeleteThisPost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write a comment...`
+  String get writeAComment {
+    return Intl.message(
+      'Write a comment...',
+      name: 'writeAComment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Post cannot be empty`
+  String get postCannotBeEmpty {
+    return Intl.message(
+      'Post cannot be empty',
+      name: 'postCannotBeEmpty',
       desc: '',
       args: [],
     );

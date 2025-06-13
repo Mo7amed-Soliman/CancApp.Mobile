@@ -8,6 +8,7 @@ import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -89,7 +90,7 @@ class _CommentItemState extends State<CommentItem> {
                     Row(
                       children: [
                         Text(
-                          'Edit Comment',
+                          S.of(context).editComment,
                           style: AppTextStyle.font18SemiBoldDarkGray(context),
                         ),
                         const Spacer(),
@@ -106,7 +107,7 @@ class _CommentItemState extends State<CommentItem> {
                       controller: _editController,
                       autofocus: false,
                       decoration: InputDecoration(
-                        hintText: 'Edit your comment',
+                        hintText: S.of(context).editCommentHint,
                         hintStyle: AppTextStyle.font14RegularDarkGray(context),
                         filled: true,
                         fillColor: AppColors.lightGray,
@@ -120,7 +121,7 @@ class _CommentItemState extends State<CommentItem> {
                       maxLines: 3,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Comment cannot be empty';
+                          return S.of(context).commentCannotBeEmpty;
                         }
                         return null;
                       },
@@ -132,7 +133,7 @@ class _CommentItemState extends State<CommentItem> {
                         TextButton(
                           onPressed: () => Navigator.pop(context),
                           child: Text(
-                            'Cancel',
+                            S.of(context).cancel,
                             style: AppTextStyle.font14RegularDarkGray(context),
                           ),
                         ),
@@ -159,7 +160,7 @@ class _CommentItemState extends State<CommentItem> {
                             ),
                           ),
                           child: Text(
-                            'Save',
+                            S.of(context).save,
                             style: AppTextStyle.font16SemiBoldWhite(context),
                           ),
                         ),
@@ -180,14 +181,13 @@ class _CommentItemState extends State<CommentItem> {
     return BlocListener<CommentCubit, CommentState>(
       listener: (context, state) {
         if (state is CommentError) {
-          // Revert the UI state on error
           setState(() {
             isLiked = !isLiked;
             reactionsCount = isLiked ? reactionsCount + 1 : reactionsCount - 1;
           });
           botTextToast(state.errorMessage);
         } else if (state is CommentReported) {
-          botTextToast('Comment reported successfully');
+          botTextToast(S.of(context).commentReportedSuccessfully);
         }
       },
       child: Column(

@@ -5,6 +5,7 @@ import 'package:canc_app/core/shared_feature/community/presentation/views/widget
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CommentsListView extends StatelessWidget {
@@ -28,7 +29,7 @@ class CommentsListView extends StatelessWidget {
             vertical: context.setHeight(10),
           ),
           child: Text(
-            'Comments (${comments.length})',
+            '${S.of(context).comments} (${comments.length})',
             style: AppTextStyle.font18SemiBoldDarkGray(context),
           ),
         ),

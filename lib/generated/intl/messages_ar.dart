@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "شكرًا لتسجيلك! نحن نقوم بالتحقق من هويتك. قد يستغرق ذلك ما يصل إلى ٤٨ ساعة. سيتم إعلامك عبر البريد الإلكتروني بمجرد الموافقة.",
     ),
     "add": MessageLookupByLibrary.simpleMessage("إضافة"),
+    "addComment": MessageLookupByLibrary.simpleMessage("أضف تعليقاً..."),
+    "addImage": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
     "addMedication": MessageLookupByLibrary.simpleMessage("إضافة دواء"),
     "addVisit": MessageLookupByLibrary.simpleMessage("إضافة زيارة"),
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
@@ -88,6 +90,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "chooseFromGallery": MessageLookupByLibrary.simpleMessage("اختر من المعرض"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
+    "commentAddedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تمت إضافة التعليق بنجاح",
+    ),
+    "commentCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "لا يمكن أن يكون التعليق فارغاً",
+    ),
+    "commentDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم حذف التعليق بنجاح",
+    ),
+    "commentReportedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم الإبلاغ عن التعليق بنجاح",
+    ),
+    "commentUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث التعليق بنجاح",
+    ),
+    "comments": MessageLookupByLibrary.simpleMessage("التعليقات"),
     "community": MessageLookupByLibrary.simpleMessage("المجتمع"),
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
@@ -102,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور الجديدة مطلوب",
     ),
+    "createPost": MessageLookupByLibrary.simpleMessage("إنشاء منشور"),
     "createYourAccount": MessageLookupByLibrary.simpleMessage("أنشئ حسابك"),
     "dailyWorkingHoursLabel": MessageLookupByLibrary.simpleMessage(
       "ساعات العمل اليومية",
@@ -135,7 +154,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "يرجى تقديم صور واضحة لرخصة مزاولة المهنة والهوية الحكومية لإكمال عملية التحقق.",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+    "editComment": MessageLookupByLibrary.simpleMessage("تعديل التعليق"),
+    "editCommentHint": MessageLookupByLibrary.simpleMessage("قم بتعديل تعليقك"),
     "editMedication": MessageLookupByLibrary.simpleMessage("تعديل دواء"),
+    "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "editRecord": MessageLookupByLibrary.simpleMessage("تعديل السجل"),
     "editVisit": MessageLookupByLibrary.simpleMessage("تعديل زيارة"),
@@ -149,6 +171,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "أدخل رمز التحقق الذي أرسلناه إلى بريدك الإلكتروني",
+    ),
+    "errorAddingComment": MessageLookupByLibrary.simpleMessage(
+      "خطأ في إضافة التعليق",
+    ),
+    "errorCreatingPost": MessageLookupByLibrary.simpleMessage(
+      "خطأ في إنشاء المنشور",
+    ),
+    "errorDeletingComment": MessageLookupByLibrary.simpleMessage(
+      "خطأ في حذف التعليق",
+    ),
+    "errorDeletingPost": MessageLookupByLibrary.simpleMessage(
+      "خطأ في حذف المنشور",
+    ),
+    "errorLoadingComments": MessageLookupByLibrary.simpleMessage(
+      "خطأ في تحميل التعليقات",
+    ),
+    "errorLoadingPosts": MessageLookupByLibrary.simpleMessage(
+      "خطأ في تحميل المنشورات",
+    ),
+    "errorReportingComment": MessageLookupByLibrary.simpleMessage(
+      "خطأ في الإبلاغ عن التعليق",
+    ),
+    "errorReportingPost": MessageLookupByLibrary.simpleMessage(
+      "خطأ في الإبلاغ عن المنشور",
+    ),
+    "errorUpdatingComment": MessageLookupByLibrary.simpleMessage(
+      "خطأ في تحديث التعليق",
+    ),
+    "errorUpdatingPost": MessageLookupByLibrary.simpleMessage(
+      "خطأ في تحديث المنشور",
     ),
     "every": MessageLookupByLibrary.simpleMessage("كل"),
     "everyDay": MessageLookupByLibrary.simpleMessage("كل يوم"),
@@ -174,6 +226,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "يجب أن تكون الرخصة سارية وغير منتهية",
     ),
     "liquid": MessageLookupByLibrary.simpleMessage("سائل"),
+    "loadingComments": MessageLookupByLibrary.simpleMessage(
+      "جاري تحميل التعليقات...",
+    ),
     "locationPermissionError": MessageLookupByLibrary.simpleMessage(
       "خدمة الموقع أو الإذن غير متاح. يرجى تمكين خدمات الموقع ومنح الإذن في إعدادات جهازك للمتابعة.",
     ),
@@ -215,6 +270,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "newRecord": MessageLookupByLibrary.simpleMessage("سجل جديد"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noComments": MessageLookupByLibrary.simpleMessage("لا توجد تعليقات بعد"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "يُمنع تغطية أي جزء من الهوية بالأصابع",
     ),
@@ -318,14 +374,34 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseVerifyYourEmail": MessageLookupByLibrary.simpleMessage(
       "الرجاء التحقق من بريدك الإلكتروني",
     ),
+    "post": MessageLookupByLibrary.simpleMessage("نشر"),
+    "postCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "لا يمكن أن يكون المنشور فارغاً",
+    ),
+    "postContent": MessageLookupByLibrary.simpleMessage(
+      "ما الذي يدور في ذهنك؟",
+    ),
+    "postCreatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء المنشور بنجاح",
+    ),
     "postDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم حذف المنشور بنجاح",
     ),
+    "postHint": MessageLookupByLibrary.simpleMessage(
+      "هل لديك ما يدور في ذهنك؟\nشاركه هنا.",
+    ),
+    "postImage": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
+    "postImageError": MessageLookupByLibrary.simpleMessage(
+      "خطأ في تحميل الصورة",
+    ),
+    "postImageRemoved": MessageLookupByLibrary.simpleMessage(
+      "تمت إزالة الصورة",
+    ),
     "postReportedSuccessfully": MessageLookupByLibrary.simpleMessage(
-      "تم إرسال التقرير بنجاح",
+      "تم الإبلاغ عن المنشور بنجاح",
     ),
     "postUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
-      "تم تعديل المنشور بنجاح",
+      "تم تحديث المنشور بنجاح",
     ),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
@@ -334,6 +410,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("إشعاع"),
     "record": MessageLookupByLibrary.simpleMessage("سجل"),
     "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
+    "removeImage": MessageLookupByLibrary.simpleMessage("إزالة الصورة"),
     "report": MessageLookupByLibrary.simpleMessage("تقرير"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
@@ -406,6 +483,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "هذا الوقت موجود بالفعل",
     ),
     "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "update": MessageLookupByLibrary.simpleMessage("تحديث"),
     "upload": MessageLookupByLibrary.simpleMessage("رفع"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "على الأقل حرف كبير واحد",
@@ -426,6 +504,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال ساعات العمل اليومية",
     ),
+    "writeAComment": MessageLookupByLibrary.simpleMessage("اكتب تعليقاً..."),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
   };
 }

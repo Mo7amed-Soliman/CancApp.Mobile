@@ -1,12 +1,14 @@
 import 'dart:io';
 
+import 'package:canc_app/generated/l10n.dart';
+import 'package:flutter/material.dart';
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
 import 'package:canc_app/core/shared_feature/community/data/models/post_model.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
@@ -59,7 +61,7 @@ class CreatePostViewContent extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: AppColors.offWhite,
           title: Text(
-            isEditMode ? 'Edit Post' : 'Create Post',
+            isEditMode ? S.of(context).editPost : S.of(context).createPost,
             style: AppTextStyle.font19MediumDarkGray(context).copyWith(
               color: AppColors.darkGray,
             ),
@@ -96,7 +98,7 @@ class CreatePostViewContent extends StatelessWidget {
                         ),
                       )
                     : Text(
-                        isEditMode ? 'Update' : 'Post',
+                        isEditMode ? S.of(context).update : S.of(context).post,
                         style: AppTextStyle.font15Bold(context).copyWith(
                           color: isPostValid
                               ? AppColors.offWhite
@@ -136,8 +138,8 @@ class CreatePostViewContent extends StatelessWidget {
                       TextField(
                         controller: postController,
                         maxLines: null,
-                        decoration: const InputDecoration(
-                          hintText: 'Anything on your mind ?\nLet it out here.',
+                        decoration: InputDecoration(
+                          hintText: S.of(context).postHint,
                           border: InputBorder.none,
                         ),
                         style: const TextStyle(fontSize: 18),

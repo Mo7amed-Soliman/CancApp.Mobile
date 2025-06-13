@@ -11,6 +11,7 @@ import 'package:canc_app/core/widgets/in_empty_list.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:canc_app/generated/l10n.dart';
 
 class CommentView extends StatefulWidget {
   const CommentView({
@@ -63,7 +64,7 @@ class _CommentViewState extends State<CommentView> {
                               vertical: context.setHeight(10),
                             ),
                             child: Text(
-                              'Comments (${widget.post.commentsCount})',
+                              '${S.of(context).comments} (${widget.post.commentsCount})',
                               style:
                                   AppTextStyle.font18SemiBoldDarkGray(context),
                             ),
@@ -81,10 +82,9 @@ class _CommentViewState extends State<CommentView> {
                         ),
                       ),
                     CommentSuccess(comments: final comments) => comments.isEmpty
-                        ? const Center(
+                        ? Center(
                             child: InEmptyList(
-                              title:
-                                  'No comments yet \n Be the first to comment',
+                              title: S.of(context).noComments,
                               image: AppAssets.noComments,
                             ),
                           )
@@ -92,9 +92,9 @@ class _CommentViewState extends State<CommentView> {
                             post: widget.post,
                             comments: commentCubit.listOfComments,
                           ),
-                    _ => const Center(
+                    _ => Center(
                         child: InEmptyList(
-                          title: 'No comments yet \n Be the first to comment',
+                          title: S.of(context).noComments,
                           image: AppAssets.noComments,
                         ),
                       ),
