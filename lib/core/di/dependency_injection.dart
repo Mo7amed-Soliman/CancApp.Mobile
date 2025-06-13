@@ -23,8 +23,11 @@ import 'package:canc_app/core/shared_feature/sign_up/presentation/manager/comple
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:canc_app/users/patient/chatbot/data/data_sources/chatbot_remote_data_source.dart';
 import 'package:canc_app/users/patient/chatbot/data/repositories/chatbot_repository.dart';
+import 'package:canc_app/users/patient/home/data/data_sources/access_request_data_source.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/nearest_pharmacy_data_source.dart';
+import 'package:canc_app/users/patient/home/data/repositories/access_request_repository.dart';
 import 'package:canc_app/users/patient/home/data/repositories/nearest_pharmacy_repository.dart';
+import 'package:canc_app/users/patient/home/presentation/manager/access_request_cubit/access_request_cubit.dart';
 import 'package:canc_app/users/patient/home/presentation/manager/nearest_pharmacy_cubit/nearest_pharmacy_cubit.dart';
 import 'package:canc_app/users/patient/reminder/data/data_sources/medication_reminder_data_source_impl.dart';
 import 'package:canc_app/users/patient/reminder/data/data_sources/visit_reminder_data_source_impl.dart';
@@ -182,4 +185,14 @@ Future<void> initDependencies() async {
   getIt.registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(
         changePasswordRepository: getIt<ChangePasswordRepository>(),
       ));
+
+  getIt.registerFactory<AccessRequestCubit>(() => AccessRequestCubit(
+        getIt<AccessRequestRepository>(),
+      ));
+  getIt.registerLazySingleton<AccessRequestRepository>(
+      () => AccessRequestRepository(
+            AccessRequestDataSource(
+              getIt<ApiConsumer>(),
+            ),
+          ));
 }
