@@ -1,6 +1,8 @@
 import 'package:canc_app/core/cubits/current_locale/current_locale_cubit.dart';
 import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/database/cache_helper.dart';
+import 'package:canc_app/core/helpers/database/hive_helper.dart';
+import 'package:canc_app/core/helpers/database/secure_cache_helper.dart';
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/functions/is_arabic.dart';
@@ -17,11 +19,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
+import 'package:hive/hive.dart';
 
 import 'widgets/profile_menu_tile.dart';
 
-class ProfileView extends StatelessWidget {
+class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
+
+  @override
+  State<ProfileView> createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+  Future<void> _clearAllUserData() async {
+    // Clear Hive data
+    await Hive.deleteBoxFromDisk(HiveHelper.userBox);
+    await Hive.deleteBoxFromDisk(HiveHelper.medicationRemindersBox);
+    await Hive.deleteBoxFromDisk(HiveHelper.frequencyBox);
+    await Hive.deleteBoxFromDisk(HiveHelper.frequencyDetailsBox);
+    await Hive.deleteBoxFromDisk(HiveHelper.visitRemindersBox);
+
+    // Clear SharedPreferences data
+    await getIt<CacheHelper>().put(
+      key: CacheKeys.isLoggedIn,
+      value: false,
+    );
+
+    // Clear SecureStorage data
+    await getIt<SecureCacheHelper>().clearAll();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,12 +131,16 @@ class ProfileView extends StatelessWidget {
               context,
               content: S.of(context).logout_confirm,
               confirmText: S.of(context).confirm,
-              onConfirm: () {
-                getIt<CacheHelper>().put(
+              onConfirm: () async {
+                await getIt<CacheHelper>().put(
                   key: CacheKeys.isLoggedIn,
                   value: false,
                 );
-                context.go(Routes.whoAreYou);
+
+                await _clearAllUserData();
+                if (context.mounted) {
+                  context.go(Routes.whoAreYou);
+                }
               },
             );
           },

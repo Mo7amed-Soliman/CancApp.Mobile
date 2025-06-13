@@ -63,4 +63,8 @@ class CacheHelper {
       return await sharedPreferences.setInt(key, value);
     }
   }
+
+  Future<bool> clearAll() async {
+    return await sharedPreferences.clear();
+  }
 }
