@@ -38,6 +38,8 @@ class EndPoint {
   static const String getReaction = 'Reaction';
 
   static String chatbotBaseUrl = dotenv.get('CHAT_BOT_BASE_URL');
+  static String cancerRiskPredictionUrl =
+      dotenv.get('Cancer_Risk_Prediction_URL');
 
   static const String charbotAsk = '/ask';
 }

@@ -6,9 +6,96 @@ import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import '../../data/models/health_input_model.dart';
+import '../../data/services/ai_service.dart';
+import 'widgets/health_question_row.dart';
 
-class AiView extends StatelessWidget {
+class AiView extends StatefulWidget {
   const AiView({super.key});
+
+  @override
+  State<AiView> createState() => _AiViewState();
+}
+
+class _AiViewState extends State<AiView> {
+  final _formKey = GlobalKey<FormState>();
+  final _ageController = TextEditingController();
+  int _selectedGender = 1; // 1 for Male, 2 for Female
+  final Map<String, int> _responses = {};
+  final _aiService = AiService();
+  bool _isLoading = false;
+  String? _predictionResult;
+
+  @override
+  void dispose() {
+    _ageController.dispose();
+    super.dispose();
+  }
+
+  void _handleResponse(String question, int value) {
+    setState(() {
+      _responses[question] = value;
+    });
+  }
+
+  void _resetForm() {
+    setState(() {
+      _ageController.clear();
+      _selectedGender = 1;
+      _responses.clear();
+      _predictionResult = null;
+    });
+  }
+
+  Future<void> _submitForm() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    setState(() {
+      _isLoading = true;
+      _predictionResult = null;
+    });
+
+    try {
+      final input = HealthInputModel(
+        age: int.parse(_ageController.text),
+        gender: _selectedGender,
+        airPollution: _responses['Air Pollution'] ?? 0,
+        alcoholUse: _responses['Alcohol use'] ?? 0,
+        dustAllergy: _responses['Dust Allergy'] ?? 0,
+        occupationalHazards: _responses['Occupational Hazards'] ?? 0,
+        geneticRisk: _responses['Genetic Risk'] ?? 0,
+        chronicLungDisease: _responses['Chronic Lung Disease'] ?? 0,
+        balancedDiet: _responses['Balanced Diet'] ?? 0,
+        obesity: _responses['Obesity'] ?? 0,
+        smoking: _responses['Smoking'] ?? 0,
+        passiveSmoker: _responses['Passive Smoker'] ?? 0,
+        chestPain: _responses['Chest Pain'] ?? 0,
+        coughingOfBlood: _responses['Coughing of Blood'] ?? 0,
+        fatigue: _responses['Fatigue'] ?? 0,
+        weightLoss: _responses['Weight Loss'] ?? 0,
+        shortnessOfBreath: _responses['Shortness of Breath'] ?? 0,
+        wheezing: _responses['Wheezing'] ?? 0,
+        swallowingDifficulty: _responses['Swallowing Difficulty'] ?? 0,
+        clubbingOfFingerNails: _responses['Clubbing of Finger Nails'] ?? 0,
+        frequentCold: _responses['Frequent Cold'] ?? 0,
+        dryCough: _responses['Dry Cough'] ?? 0,
+        snoring: _responses['Snoring'] ?? 0,
+      );
+
+      final result = await _aiService.predictHealth(input);
+      setState(() {
+        _predictionResult = result;
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: ${e.toString()}')),
+      );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,168 +120,205 @@ class AiView extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: context.setMinSize(16),
-            ),
-            child: ListView(
-              children: [
-                const VerticalSpacer(16),
-                Text(
-                  'What is the patient\'s age?',
-                  style: AppTextStyle.font17Medium(context),
-                ),
-                const VerticalSpacer(8),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Enter Age',
-                    filled: true,
-                    fillColor: const Color(0xFFF5F5F5),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: BorderSide.none,
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(
-                        vertical: 18, horizontal: 16),
+          child: Form(
+            key: _formKey,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: context.setMinSize(16),
+              ),
+              child: ListView(
+                children: [
+                  const VerticalSpacer(16),
+                  Text(
+                    'What is the patient\'s age?',
+                    style: AppTextStyle.font17Medium(context),
                   ),
-                  style: const TextStyle(color: Colors.black54),
-                ),
-                const VerticalSpacer(16),
-                Text(
-                  'What is the patient\'s gender?',
-                  style: AppTextStyle.font17Medium(context),
-                ),
-                const VerticalSpacer(8),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: null,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[200],
-                          foregroundColor: Colors.black54,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          elevation: 0,
-                          padding: const EdgeInsets.symmetric(vertical: 18),
+                  const VerticalSpacer(8),
+                  TextFormField(
+                    controller: _ageController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintText: 'Enter Age',
+                      filled: true,
+                      fillColor: const Color(0xFFF5F5F5),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 18, horizontal: 16),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter age';
+                      }
+                      if (int.tryParse(value) == null) {
+                        return 'Please enter a valid number';
+                      }
+                      return null;
+                    },
+                  ),
+                  const VerticalSpacer(16),
+                  Text(
+                    'What is the patient\'s gender?',
+                    style: AppTextStyle.font17Medium(context),
+                  ),
+                  const VerticalSpacer(8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _ResponseButton(
+                          text: 'Male',
+                          isSelected: _selectedGender == 1,
+                          onPressed: () {
+                            setState(() {
+                              _selectedGender = 1;
+                            });
+                          },
                         ),
-                        child: Text(
-                          'Male',
-                          style: AppTextStyle.font16MediumDarkGray(context)
-                              .copyWith(
-                            color: AppColors.grayish,
-                          ),
+                      ),
+                      const HorizontalSpacer(16),
+                      Expanded(
+                        child: _ResponseButton(
+                          text: 'Female',
+                          isSelected: _selectedGender == 2,
+                          onPressed: () {
+                            setState(() {
+                              _selectedGender = 2;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  const VerticalSpacer(16),
+                  ..._buildQuestionRows(),
+                  if (_predictionResult != null) ...[
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: _predictionResult == 'Positive'
+                            ? Colors.red.withOpacity(0.1)
+                            : Colors.green.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Text(
+                        'Prediction: $_predictionResult',
+                        style: AppTextStyle.font17Medium(context).copyWith(
+                          color: _predictionResult == 'Positive'
+                              ? Colors.red
+                              : Colors.green,
                         ),
                       ),
                     ),
-                    const HorizontalSpacer(16),
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: null,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFF5F5F5),
-                          foregroundColor: AppColors.grayish,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          elevation: 0,
-                          padding: const EdgeInsets.symmetric(vertical: 18),
-                        ),
-                        child: Text(
-                          'Female',
-                          style: AppTextStyle.font16MediumDarkGray(context)
-                              .copyWith(
-                            color: AppColors.grayish,
-                          ),
-                        ),
-                      ),
-                    ),
+                    const VerticalSpacer(16),
                   ],
-                ),
-                const VerticalSpacer(16),
-                _questionRow('Does the patient smoke?', context),
-                const VerticalSpacer(16),
-                _questionRow(
-                    'Does the patient consume alcohol regularly?', context),
-                const VerticalSpacer(16),
-                _questionRow(
-                    'Does the patient experience chest pain?', context),
-                const VerticalSpacer(16),
-                _questionRow('Has the patient coughed up blood?', context),
-                const VerticalSpacer(16),
-                _questionRow(
-                    'Does the patient suffer from shortness of breath?',
-                    context),
-                const VerticalSpacer(16),
-                AppButtonWidget(
-                  onPressed: () {},
-                  text: 'Submit',
-                ),
-                const VerticalSpacer(20),
-              ],
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AppButtonWidget(
+                          onPressed: _isLoading ? null : _submitForm,
+                          text: _isLoading ? 'Processing...' : 'Submit',
+                        ),
+                      ),
+                      const HorizontalSpacer(16),
+                      Expanded(
+                        child: AppButtonWidget(
+                          onPressed: _isLoading ? null : _resetForm,
+                          text: 'Reset',
+                          backgroundColor: Colors.grey[300]!,
+                          textStyle: AppTextStyle.font16MediumDarkGray(context)
+                              .copyWith(
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const VerticalSpacer(20),
+                ],
+              ),
             ),
           ),
         ),
       ],
     );
   }
+
+  List<Widget> _buildQuestionRows() {
+    final questions = [
+      'Air Pollution',
+      'Alcohol use',
+      'Dust Allergy',
+      'Occupational Hazards',
+      'Genetic Risk',
+      'Chronic Lung Disease',
+      'Balanced Diet',
+      'Obesity',
+      'Smoking',
+      'Passive Smoker',
+      'Chest Pain',
+      'Coughing of Blood',
+      'Fatigue',
+      'Weight Loss',
+      'Shortness of Breath',
+      'Wheezing',
+      'Swallowing Difficulty',
+      'Clubbing of Finger Nails',
+      'Frequent Cold',
+      'Dry Cough',
+      'Snoring',
+    ];
+
+    return questions.map((question) {
+      return Column(
+        children: [
+          HealthQuestionRow(
+            question: question,
+            selectedValue: _responses[question],
+            onResponse: (value) => _handleResponse(question, value),
+          ),
+          const VerticalSpacer(16),
+        ],
+      );
+    }).toList();
+  }
 }
 
-Widget _questionRow(String question, BuildContext context) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        question,
-        style: AppTextStyle.font17Medium(context),
-      ),
-      const VerticalSpacer(8),
-      Row(
-        children: [
-          Expanded(
-            child: ElevatedButton(
-              onPressed: null,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.grey[200],
-                foregroundColor: Colors.black54,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                elevation: 0,
-                padding: const EdgeInsets.symmetric(vertical: 18),
-              ),
-              child: Text(
-                'Yes',
-                style: AppTextStyle.font16MediumDarkGray(context).copyWith(
-                  color: AppColors.grayish,
-                ),
-              ),
-            ),
+class _ResponseButton extends StatelessWidget {
+  final String text;
+  final bool isSelected;
+  final VoidCallback onPressed;
+
+  const _ResponseButton({
+    required this.text,
+    required this.isSelected,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor:
+              isSelected ? AppColors.primaryColor : Colors.grey[200],
+          foregroundColor: isSelected ? AppColors.offWhite : Colors.black54,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
           ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: null,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.grey[200],
-                foregroundColor: Colors.black54,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                elevation: 0,
-                padding: const EdgeInsets.symmetric(vertical: 18),
-              ),
-              child: Text(
-                'NO',
-                style: AppTextStyle.font16MediumDarkGray(context).copyWith(
-                  color: AppColors.grayish,
-                ),
-              ),
-            ),
+          elevation: 0,
+          padding: const EdgeInsets.symmetric(vertical: 18),
+        ),
+        child: Text(
+          text,
+          style: AppTextStyle.font16MediumDarkGray(context).copyWith(
+            color: isSelected ? AppColors.offWhite : AppColors.grayish,
           ),
-        ],
+        ),
       ),
-    ],
-  );
+    );
+  }
 }
