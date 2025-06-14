@@ -1,14 +1,17 @@
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/routing/routes.dart';
+import 'package:canc_app/core/shared_feature/community/presentation/views/widgets/notification_badge.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/users/patient/home/presentation/manager/access_request_cubit/access_request_cubit.dart';
+import 'package:canc_app/users/patient/home/presentation/manager/access_request_cubit/access_request_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iconly/iconly.dart';
 
 class WelcomeBanner extends StatelessWidget {
   const WelcomeBanner({super.key});
@@ -28,14 +31,13 @@ class WelcomeBanner extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: context.setMinSize(30),
-                backgroundColor: Colors.white,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(context.setMinSize(30)),
-                  child: Image.asset(
-                    'assets/images/dummy_image/img4.png',
+                  child: Image.network(
+                    UserCacheHelper.getUser()?.image ?? '',
                     width: context.setMinSize(60),
                     height: context.setMinSize(60),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -64,20 +66,19 @@ class WelcomeBanner extends StatelessWidget {
               ),
             ],
           ),
-          InkWell(
-            onTap: () {
-              /// Navigate to access request view
-              context.push(Routes.accessRequestView);
+          BlocBuilder<AccessRequestCubit, AccessRequestState>(
+            builder: (context, state) {
+              return NotificationBadge(
+                count: state.pendingRequests.length,
+                onTap: () async {
+                  await context.push(Routes.accessRequestView,
+                      extra: state.pendingRequests);
+                  if (context.mounted) {
+                    context.read<AccessRequestCubit>().loadPendingRequests();
+                  }
+                },
+              );
             },
-            child: CircleAvatar(
-              radius: context.setMinSize(20),
-              backgroundColor: Colors.white.withValues(alpha: 0.2),
-              child: Icon(
-                IconlyLight.notification,
-                color: Colors.white,
-                size: context.setMinSize(25),
-              ),
-            ),
           ),
         ],
       ),

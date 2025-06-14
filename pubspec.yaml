@@ -104,6 +104,8 @@ dependencies:
   font_awesome_icon_class: ^0.0.6
   # file_picker for file management
   file_picker: ^10.1.9
+  shimmer: ^3.0.0
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:

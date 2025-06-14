@@ -12,10 +12,14 @@ class PostHeader extends StatelessWidget {
     super.key,
     required this.post,
     required this.onDelete,
+    required this.onEdit,
+    required this.onReport,
   });
 
   final PostModel post;
   final VoidCallback onDelete;
+  final VoidCallback onEdit;
+  final VoidCallback onReport;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,12 @@ class PostHeader extends StatelessWidget {
               ],
             ),
           ),
-          PostPopupMenu(post: post, onDelete: onDelete),
+          PostPopupMenu(
+            userId: post.userId,
+            onDelete: onDelete,
+            onEdit: onEdit,
+            onReport: onReport,
+          ),
         ],
       ),
     );

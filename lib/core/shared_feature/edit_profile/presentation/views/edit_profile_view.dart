@@ -1,3 +1,5 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/shared_feature/edit_profile/data/repositories/edit_profile_repository_impl.dart';
 import 'package:canc_app/core/widgets/custom_app_bar.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,9 @@ class EditProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EditProfileCubit(),
+      create: (context) => EditProfileCubit(
+        editProfileRepository: getIt<EditProfileRepository>(),
+      ),
       child: Scaffold(
         appBar: CustomAppBar(
           title: S.of(context).editProfile,

@@ -51,6 +51,14 @@ class CompletePharmacyRegistrationCubit
     emit(state.copyWith(workingHours: hours));
   }
 
+  void setOpenHour(String hour) {
+    emit(state.copyWith(openHour: hour));
+  }
+
+  void setCloseHour(String hour) {
+    emit(state.copyWith(closeHour: hour));
+  }
+
   Future<void> uploadDocuments() async {
     if (!state.canContinue) {
       emit(state.copyWith(errorMessage: 'Please fill all required fields'));
@@ -66,6 +74,8 @@ class CompletePharmacyRegistrationCubit
       location: state.location!,
       numberOfWorkingHours: state.workingHours!,
       isDeliveryEnabled: state.deliveryEnabled,
+      closeHour: state.closeHour!,
+      openHour: state.openHour!,
     ));
 
     emit(

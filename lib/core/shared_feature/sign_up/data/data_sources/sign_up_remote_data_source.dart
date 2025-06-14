@@ -25,7 +25,7 @@ class SignUpRemoteDataSource {
       data: {
         ApiConstantForm.email: signUpModel.email,
         ApiConstantForm.password: signUpModel.password,
-        ApiConstantForm.name: signUpModel.name,
+        ApiConstantForm.fullName: signUpModel.name,
         ApiConstantForm.address: signUpModel.address,
         ApiConstantForm.image: signUpModel.image,
         ApiConstantForm.userType: signUpModel.userType,
@@ -63,7 +63,10 @@ class SignUpRemoteDataSource {
         ApiConstantForm.isDeliveryEnabled: pharmacyModel.isDeliveryEnabled,
         ApiConstantForm.numberOfWorkingHours:
             pharmacyModel.numberOfWorkingHours,
-        //TODO: ApiConstantForm.latLog : pharmacyModel.location,
+        ApiConstantForm.latitude: pharmacyModel.location.latitude,
+        ApiConstantForm.longitude: pharmacyModel.location.longitude,
+        ApiConstantForm.clouseHour: pharmacyModel.closeHour.toString(),
+        ApiConstantForm.openHour: pharmacyModel.openHour.toString(),
       },
     );
   }

@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
     this.autofocus = false,
     this.suffixIcon,
     this.focusNode,
+    this.onChanged,
   });
   final TextEditingController? controller;
   final Widget? prefixIcon;
@@ -27,6 +28,7 @@ class CustomTextField extends StatelessWidget {
   final bool autofocus;
   final FocusNode? focusNode;
   final Widget? suffixIcon;
+  final ValueChanged<String>? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -35,6 +37,7 @@ class CustomTextField extends StatelessWidget {
       autofocus: autofocus,
       minLines: 1,
       maxLines: 5,
+      onChanged: onChanged,
       style: AppTextStyle.font16RegularDarkGray(context).copyWith(
         color: textColor ?? AppColors.offWhite,
       ),

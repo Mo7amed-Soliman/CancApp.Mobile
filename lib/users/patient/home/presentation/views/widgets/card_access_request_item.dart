@@ -1,22 +1,12 @@
+import 'package:canc_app/core/helpers/extension/time_ago_extension.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
+import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/users/patient/home/data/models/access_request_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/widgets/buttom_request_item.dart';
 import 'package:flutter/material.dart';
-
-class AccessRequestItem {
-  final String id;
-  final String image;
-  final String name;
-  final String message;
-
-  const AccessRequestItem({
-    required this.id,
-    required this.image,
-    required this.name,
-    required this.message,
-  });
-}
 
 class CardAccessRequestItem extends StatelessWidget {
   const CardAccessRequestItem({
@@ -26,7 +16,7 @@ class CardAccessRequestItem extends StatelessWidget {
     required this.onDeny,
   });
 
-  final AccessRequestItem item;
+  final AccessRequestModel item;
   final VoidCallback onAllow;
   final VoidCallback onDeny;
 
@@ -55,11 +45,17 @@ class CardAccessRequestItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset(
-              item.image,
-              height: context.setMinSize(75),
-              width: context.setMinSize(75),
-              fit: BoxFit.fill,
+            CircleAvatar(
+              radius: context.setMinSize(30),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(context.setMinSize(30)),
+                child: Image.network(
+                  item.doctorImage,
+                  width: context.setMinSize(80),
+                  height: context.setMinSize(80),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             const HorizontalSpacer(18),
             SizedBox(
@@ -68,24 +64,14 @@ class CardAccessRequestItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    item.name,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                    item.doctorName,
+                    style: AppTextStyle.font18SemiBoldDarkGray(context),
                   ),
-                  SizedBox(
-                    height: context.screenHeight * 0.01,
-                  ),
+                  const VerticalSpacer(5),
                   Text(
-                    item.message,
+                    item.requestedAt.timeAgo,
                     maxLines: 2,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                    ),
+                    style: AppTextStyle.font16RegularBlack(context),
                   ),
                 ],
               ),

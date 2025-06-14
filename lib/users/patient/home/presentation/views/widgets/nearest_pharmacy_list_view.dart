@@ -5,7 +5,7 @@ import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/theming/font_weight_helper.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
-import 'package:canc_app/users/patient/home/data/models/models.dart';
+import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/manager/nearest_pharmacy_cubit/nearest_pharmacy_cubit.dart';
 import 'package:canc_app/users/patient/home/presentation/manager/nearest_pharmacy_cubit/nearest_pharmacy_state.dart';
 import 'package:flutter/material.dart';
@@ -17,14 +17,14 @@ class NearestPharmacyListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pharmacy = const Pharmacy(
+    final pharmacy = NearestPharmacyModel(
       name: '',
-      imageUrl: '',
-      isOpen: false,
-      openUntil: '',
-      isDelivery: false,
+      image: '',
+      isDeliveryEnabled: false,
+      isOpeningNow: false,
+      latitude: 0,
+      longitude: 0,
       address: '',
-      location: PharmacyLocation(latitude: 0, longitude: 0),
     );
 
     return BlocBuilder<NearestPharmacyCubit, NearestPharmacyState>(
@@ -82,7 +82,7 @@ class NearestPharmacyListView extends StatelessWidget {
 class _NearestPharmacyItem extends StatelessWidget {
   const _NearestPharmacyItem({required this.item});
 
-  final Pharmacy item;
+  final NearestPharmacyModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -104,13 +104,32 @@ class _NearestPharmacyItem extends StatelessWidget {
             height: context.sizeProvider.height * 0.7,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                image: NetworkImage(
-                  item.imageUrl,
-                ),
-                fit: BoxFit.cover,
-              ),
+              color: Colors.grey[200],
             ),
+            child: item.image.isNotEmpty
+                ? ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      item.image,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Center(
+                          child: Icon(
+                            Icons.local_pharmacy_outlined,
+                            size: 40,
+                            color: Colors.grey,
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                : const Center(
+                    child: Icon(
+                      Icons.local_pharmacy_outlined,
+                      size: 40,
+                      color: Colors.grey,
+                    ),
+                  ),
           ),
           const VerticalSpacer(6),
           Padding(

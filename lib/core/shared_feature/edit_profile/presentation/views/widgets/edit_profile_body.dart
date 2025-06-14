@@ -1,7 +1,9 @@
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/shared_feature/edit_profile/presentation/manager/edit_profile_cubit.dart';
 import 'package:canc_app/core/shared_feature/edit_profile/presentation/views/widgets/edit_profile_image.dart';
+import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/core/widgets/app_text_form_field.dart';
@@ -39,9 +41,10 @@ class _EditProfileBodyState extends State<EditProfileBody> {
     return BlocConsumer<EditProfileCubit, EditProfileState>(
       listener: (context, state) {
         if (state is EditProfileSuccess) {
-          // botTextToast(S.of(context).profileUpdatedSuccessfully);
+          botTextToast(S.of(context).updatedSuccessfully,
+              color: AppColors.primaryColor);
         } else if (state is EditProfileFailure) {
-          // botTextToast(S.of(context).profileUpdatedFailed);
+          botTextToast(state.error);
         }
       },
       builder: (context, state) {

@@ -16,9 +16,9 @@ class NotificationBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Badge(
-      label: Text(count.toString()),
+      label: count > 0 ? Text(count.toString()) : null,
       offset: const Offset(-2, 1),
-      backgroundColor: Colors.red,
+      backgroundColor: count > 0 ? Colors.red : Colors.transparent,
       padding: const EdgeInsets.all(1),
       child: InkWell(
         onTap: onTap,

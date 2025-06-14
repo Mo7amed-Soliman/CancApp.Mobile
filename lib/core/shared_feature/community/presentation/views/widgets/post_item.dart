@@ -8,10 +8,18 @@ import 'post_header.dart';
 import 'post_image.dart';
 
 class PostItem extends StatefulWidget {
-  const PostItem({super.key, required this.post, required this.onDelete});
+  const PostItem({
+    super.key,
+    required this.post,
+    required this.onDelete,
+    required this.onEdit,
+    required this.onReport,
+  });
 
   final PostModel post;
   final VoidCallback onDelete;
+  final VoidCallback onEdit;
+  final VoidCallback onReport;
 
   @override
   State<PostItem> createState() => _PostItemState();
@@ -37,7 +45,12 @@ class _PostItemState extends State<PostItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PostHeader(post: widget.post, onDelete: widget.onDelete),
+          PostHeader(
+            post: widget.post,
+            onDelete: widget.onDelete,
+            onEdit: widget.onEdit,
+            onReport: widget.onReport,
+          ),
           PostContent(
             post: widget.post,
             isExpanded: isExpanded,

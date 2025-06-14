@@ -1,3 +1,4 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/widgets/custom_app_bar.dart';
 import 'package:canc_app/generated/l10n.dart';
@@ -13,7 +14,7 @@ class ChangePasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ChangePasswordCubit(),
+      create: (context) => getIt<ChangePasswordCubit>(),
       child: Scaffold(
         appBar: CustomAppBar(
           title: S.of(context).changePassword,

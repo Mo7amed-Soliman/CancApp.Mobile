@@ -39,7 +39,7 @@ class MainContent extends StatelessWidget {
               title: S.of(context).nearestPharmacy,
               onSeeAll: () async {
                 /// Navigate to pharmacy list screen
-                context.push<List<Pharmacy>>(
+                context.push<List<NearestPharmacyModel>>(
                   Routes.nearestPharmacyView,
                   extra: context.read<NearestPharmacyCubit>().pharmacies,
                 );

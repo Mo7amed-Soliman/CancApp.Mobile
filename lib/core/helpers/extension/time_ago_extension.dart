@@ -1,7 +1,8 @@
 extension DateTimeExtension on DateTime {
   String get timeAgo {
     final now = DateTime.now();
-    final difference = now.difference(this);
+    DateTime twoHoursAgo = now.subtract(const Duration(hours: 3));
+    Duration difference = twoHoursAgo.difference(this);
 
     if (difference.inDays > 365) {
       return '${(difference.inDays / 365).floor()} years ago';

@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Thanks for signing up! We\'re verifying your identity. This may take up to 48 hours. You\'ll be notified by email once approved.",
     ),
     "add": MessageLookupByLibrary.simpleMessage("Add"),
+    "addComment": MessageLookupByLibrary.simpleMessage("Add a comment..."),
+    "addImage": MessageLookupByLibrary.simpleMessage("Add Image"),
     "addMedication": MessageLookupByLibrary.simpleMessage("Add Medication"),
     "addVisit": MessageLookupByLibrary.simpleMessage("Add Visit"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
@@ -52,6 +54,26 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already have an account?",
     ),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+    "areYouSureYouWantToDeleteThisComment":
+        MessageLookupByLibrary.simpleMessage(
+          "Are you sure you want to delete this comment?",
+        ),
+    "areYouSureYouWantToDeleteThisPost": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this post?",
+    ),
+    "areYouSureYouWantToEditThisComment": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to edit this comment?",
+    ),
+    "areYouSureYouWantToEditThisPost": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to edit this post?",
+    ),
+    "areYouSureYouWantToReportThisComment":
+        MessageLookupByLibrary.simpleMessage(
+          "Are you sure you want to report this comment?",
+        ),
+    "areYouSureYouWantToReportThisPost": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to report this post?",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "bothFrontAndBackSidesRequired": MessageLookupByLibrary.simpleMessage(
       "Both front and back sides are required",
@@ -69,7 +91,27 @@ class MessageLookup extends MessageLookupByLibrary {
       "Choose from gallery",
     ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "closeHourLabel": MessageLookupByLibrary.simpleMessage("Closing Hour"),
+    "closeHourValidationError": MessageLookupByLibrary.simpleMessage(
+      "Please select closing hour",
+    ),
     "closed": MessageLookupByLibrary.simpleMessage("Closed"),
+    "commentAddedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Comment added successfully",
+    ),
+    "commentCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "Comment cannot be empty",
+    ),
+    "commentDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Comment deleted successfully",
+    ),
+    "commentReportedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Comment reported successfully",
+    ),
+    "commentUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Comment updated successfully",
+    ),
+    "comments": MessageLookupByLibrary.simpleMessage("Comments"),
     "community": MessageLookupByLibrary.simpleMessage("Community"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
@@ -82,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPasswordRequired": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password is required",
     ),
+    "createPost": MessageLookupByLibrary.simpleMessage("Create Post"),
     "createYourAccount": MessageLookupByLibrary.simpleMessage(
       "Create your Account",
     ),
@@ -117,7 +160,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please provide clear photos of your medical license and government ID to complete the verification process.",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "editComment": MessageLookupByLibrary.simpleMessage("Edit Comment"),
+    "editCommentHint": MessageLookupByLibrary.simpleMessage(
+      "Edit your comment",
+    ),
     "editMedication": MessageLookupByLibrary.simpleMessage("Edit Medication"),
+    "editPost": MessageLookupByLibrary.simpleMessage("Edit Post"),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "editRecord": MessageLookupByLibrary.simpleMessage("Edit Record"),
     "editVisit": MessageLookupByLibrary.simpleMessage("Edit Visit"),
@@ -131,6 +179,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "Enter the verification code we just sent to your email address",
+    ),
+    "errorAddingComment": MessageLookupByLibrary.simpleMessage(
+      "Error adding comment",
+    ),
+    "errorCreatingPost": MessageLookupByLibrary.simpleMessage(
+      "Error creating post",
+    ),
+    "errorDeletingComment": MessageLookupByLibrary.simpleMessage(
+      "Error deleting comment",
+    ),
+    "errorDeletingPost": MessageLookupByLibrary.simpleMessage(
+      "Error deleting post",
+    ),
+    "errorLoadingComments": MessageLookupByLibrary.simpleMessage(
+      "Error loading comments",
+    ),
+    "errorLoadingPosts": MessageLookupByLibrary.simpleMessage(
+      "Error loading posts",
+    ),
+    "errorReportingComment": MessageLookupByLibrary.simpleMessage(
+      "Error reporting comment",
+    ),
+    "errorReportingPost": MessageLookupByLibrary.simpleMessage(
+      "Error reporting post",
+    ),
+    "errorUpdatingComment": MessageLookupByLibrary.simpleMessage(
+      "Error updating comment",
+    ),
+    "errorUpdatingPost": MessageLookupByLibrary.simpleMessage(
+      "Error updating post",
     ),
     "every": MessageLookupByLibrary.simpleMessage("Every"),
     "everyDay": MessageLookupByLibrary.simpleMessage("Every Day"),
@@ -156,6 +234,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "The license must be valid and not expired",
     ),
     "liquid": MessageLookupByLibrary.simpleMessage("Liquid"),
+    "loadingComments": MessageLookupByLibrary.simpleMessage(
+      "Loading comments...",
+    ),
     "locationPermissionError": MessageLookupByLibrary.simpleMessage(
       "Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.",
     ),
@@ -199,6 +280,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "newRecord": MessageLookupByLibrary.simpleMessage("New Record"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "noComments": MessageLookupByLibrary.simpleMessage("No comments yet"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "No fingers covering any part of the ID",
     ),
@@ -253,6 +335,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboarding_title4": MessageLookupByLibrary.simpleMessage(
       "Never miss a remainder",
     ),
+    "openHourLabel": MessageLookupByLibrary.simpleMessage("Opening Hour"),
+    "openHourValidationError": MessageLookupByLibrary.simpleMessage(
+      "Please select opening hour",
+    ),
+    "openNow": MessageLookupByLibrary.simpleMessage("Open Now"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Password is required",
@@ -302,6 +389,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseVerifyYourEmail": MessageLookupByLibrary.simpleMessage(
       "Please verify your email",
     ),
+    "post": MessageLookupByLibrary.simpleMessage("Post"),
+    "postCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "Post cannot be empty",
+    ),
+    "postContent": MessageLookupByLibrary.simpleMessage(
+      "What\'s on your mind?",
+    ),
+    "postCreatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Post created successfully",
+    ),
+    "postDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Post deleted successfully",
+    ),
+    "postHint": MessageLookupByLibrary.simpleMessage(
+      "Anything on your mind?\nLet it out here.",
+    ),
+    "postImage": MessageLookupByLibrary.simpleMessage("Add Image"),
+    "postImageError": MessageLookupByLibrary.simpleMessage(
+      "Error loading image",
+    ),
+    "postImageRemoved": MessageLookupByLibrary.simpleMessage("Image removed"),
+    "postReportedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Post reported successfully",
+    ),
+    "postUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Post updated successfully",
+    ),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
     "psychiatrists": MessageLookupByLibrary.simpleMessage("Psychiatrists"),
@@ -309,6 +423,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "radiation": MessageLookupByLibrary.simpleMessage("Radiation"),
     "record": MessageLookupByLibrary.simpleMessage("Record"),
     "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
+    "removeImage": MessageLookupByLibrary.simpleMessage("Remove Image"),
     "report": MessageLookupByLibrary.simpleMessage("Report"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
@@ -324,8 +439,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
-    "seeLess": MessageLookupByLibrary.simpleMessage("See less"),
-    "seeMore": MessageLookupByLibrary.simpleMessage("See more"),
+    "seeLess": MessageLookupByLibrary.simpleMessage("See Less"),
+    "seeMore": MessageLookupByLibrary.simpleMessage("See More"),
     "selectDaysOfWeek": MessageLookupByLibrary.simpleMessage(
       "Select days of week",
     ),
@@ -347,8 +462,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Sent code successfully",
     ),
-    "showOriginal": MessageLookupByLibrary.simpleMessage("Show original"),
-    "showTranslation": MessageLookupByLibrary.simpleMessage("Show translation"),
+    "showOriginal": MessageLookupByLibrary.simpleMessage("Show Original"),
+    "showTranslation": MessageLookupByLibrary.simpleMessage("Show Translation"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "signUpSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Sign up successfully",
@@ -379,6 +494,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "This time is already added.",
     ),
     "today": MessageLookupByLibrary.simpleMessage("Today"),
+    "update": MessageLookupByLibrary.simpleMessage("Update"),
+    "updatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Updated successfully",
+    ),
     "upload": MessageLookupByLibrary.simpleMessage("Upload"),
     "uppercaseValidation": MessageLookupByLibrary.simpleMessage(
       "At least 1 uppercase letter",
@@ -401,6 +520,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
       "Please enter Daily working hours",
     ),
+    "writeAComment": MessageLookupByLibrary.simpleMessage("Write a comment..."),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }
