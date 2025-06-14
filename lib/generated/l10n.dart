@@ -2154,6 +2154,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Lung Cancer Diagnosis`
+  String get aiDiagnosisAssistantLungCancer {
+    return Intl.message(
+      'Lung Cancer Diagnosis',
+      name: 'aiDiagnosisAssistantLungCancer',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

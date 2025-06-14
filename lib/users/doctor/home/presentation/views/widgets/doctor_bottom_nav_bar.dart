@@ -3,6 +3,7 @@ import 'package:canc_app/core/shared_feature/community/presentation/views/commun
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/users/doctor/ai/presentation/views/ai_view.dart';
 import 'package:canc_app/users/doctor/chat/presentation/views/doctor_chat_view.dart';
 import 'package:canc_app/users/doctor/profile/presentation/views/profile_doctor_view.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class _DoctorBottomNavBarState extends State<DoctorBottomNavBar> {
 
   // Pages to display in the navigation bar
   final List<Widget> _pages = [
-    Container(),
+    const AiView(),
     const DoctorChatView(),
     const CommunityView(),
     const ProfileDoctorView(),

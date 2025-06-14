@@ -264,5 +264,6 @@
    "ai": "AI",
    "sendRequest": "Send Request",
    "acceptedRequests": "Accepted Requests",
-   "patientAccessRequests": "Patient Access Requests"
+   "patientAccessRequests": "Patient Access Requests",
+   "aiDiagnosisAssistantLungCancer": "Lung Cancer Diagnosis"
 }

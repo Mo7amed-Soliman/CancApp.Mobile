@@ -42,6 +42,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "addVisit": MessageLookupByLibrary.simpleMessage("إضافة زيارة"),
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "ai": MessageLookupByLibrary.simpleMessage("الذكاء الاصطناعي"),
+    "aiDiagnosisAssistantLungCancer": MessageLookupByLibrary.simpleMessage(
+      "تشخيص سرطان الرئة",
+    ),
     "alarmTime": MessageLookupByLibrary.simpleMessage("وقت التنبيه"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("أوقات التنبيه"),
     "allPersonalDetailsMustBeVisible": MessageLookupByLibrary.simpleMessage(
