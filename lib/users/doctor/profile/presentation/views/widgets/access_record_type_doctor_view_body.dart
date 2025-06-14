@@ -1,5 +1,5 @@
 import 'package:canc_app/users/doctor/profile/data/model/record_doctor_model.dart';
-import 'package:canc_app/users/doctor/profile/presentation/widgets/access_record_doctor_item.dart';
+import 'package:canc_app/users/doctor/profile/presentation/views/widgets/access_record_doctor_item.dart';
 import 'package:flutter/material.dart';
 
 /// Body widget for the record type view
