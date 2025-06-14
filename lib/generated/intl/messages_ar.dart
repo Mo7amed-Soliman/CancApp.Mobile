@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "acceptedRequests": MessageLookupByLibrary.simpleMessage(
+      "الطلبات المقبولة",
+    ),
     "accessRequestAllowed": MessageLookupByLibrary.simpleMessage(
       "تم السماح بطلب الوصول بنجاح",
     ),
@@ -38,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addMedication": MessageLookupByLibrary.simpleMessage("إضافة دواء"),
     "addVisit": MessageLookupByLibrary.simpleMessage("إضافة زيارة"),
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "ai": MessageLookupByLibrary.simpleMessage("الذكاء الاصطناعي"),
     "alarmTime": MessageLookupByLibrary.simpleMessage("وقت التنبيه"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("أوقات التنبيه"),
     "allPersonalDetailsMustBeVisible": MessageLookupByLibrary.simpleMessage(
@@ -342,6 +346,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "كلمات المرور لا تتطابق",
     ),
     "patient": MessageLookupByLibrary.simpleMessage("مريض"),
+    "patientAccessRequests": MessageLookupByLibrary.simpleMessage(
+      "طلبات الوصول للمرضى",
+    ),
     "patients": MessageLookupByLibrary.simpleMessage("المرضى"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
@@ -455,6 +462,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectWhoAreYou": MessageLookupByLibrary.simpleMessage("حدد من أنت"),
     "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
     "sendCode": MessageLookupByLibrary.simpleMessage("ارسل الكود"),
+    "sendRequest": MessageLookupByLibrary.simpleMessage("إرسال طلب"),
     "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الكود بنجاح",
     ),

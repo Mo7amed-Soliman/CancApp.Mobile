@@ -27,14 +27,14 @@ import 'package:hive/hive.dart';
 
 import 'widgets/profile_menu_tile.dart';
 
-class ProfileView extends StatefulWidget {
-  const ProfileView({super.key});
+class ProfilePatientView extends StatefulWidget {
+  const ProfilePatientView({super.key});
 
   @override
-  State<ProfileView> createState() => _ProfileViewState();
+  State<ProfilePatientView> createState() => _ProfilePatientViewState();
 }
 
-class _ProfileViewState extends State<ProfileView> {
+class _ProfilePatientViewState extends State<ProfilePatientView> {
   Future<void> _clearAllUserData() async {
     try {
       // Clear Hive data

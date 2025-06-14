@@ -267,6 +267,10 @@
     "closeHourLabel": "ساعة الإغلاق",
     "closeHourValidationError": "يرجى تحديد ساعة الإغلاق",
     "updatedSuccessfully": "تم التحديث بنجاح",
-    "openNow": "مفتوح الآن"
+    "openNow": "مفتوح الآن",
+    "ai": "الذكاء الاصطناعي",
+    "sendRequest": "إرسال طلب",
+    "acceptedRequests": "الطلبات المقبولة",
+    "patientAccessRequests": "طلبات الوصول للمرضى"
  
 }

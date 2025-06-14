@@ -37,7 +37,7 @@ class RecordDetailItem extends StatelessWidget {
                           width: width * 0.38,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            image: _isImageFile(record.image)
+                            image: record.image != null
                                 ? DecorationImage(
                                     image: FileImage(record.image!),
                                     fit: BoxFit.fill,
@@ -54,7 +54,7 @@ class RecordDetailItem extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
-                          record.note ,
+                          record.note,
                           maxLines: 4,
                           overflow: TextOverflow.ellipsis,
                           style: AppTextStyle.font12MediumDarkGray(context),
@@ -74,11 +74,11 @@ class RecordDetailItem extends StatelessWidget {
             child: EditDeletePopupMenu(
               onEdit: () {
                 GoRouter.of(context)
-                    .push(Routes.newRecordDetail, extra: [record,type]);
+                    .push(Routes.newRecordDetail, extra: [record, type]);
               },
               onDelete: () {
                 BlocProvider.of<ManagerecordCubit>(context)
-                    .deleteRecord(record.id,type);
+                    .deleteRecord(record.id, type);
               },
             ),
           ),
@@ -95,24 +95,5 @@ class RecordDetailItem extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-bool _isImageFile(dynamic file) {
-  if (file == null) return false;
-
-  // ignore: prefer_typing_uninitialized_variables
-  final path;
-
-  try {
-    path = file.path.toLowerCase();
-    return path.endsWith('.png') ||
-        path.endsWith('.jpg') ||
-        path.endsWith('.jpeg') ||
-        path.endsWith('.gif') ||
-        path.endsWith('.bmp') ||
-        path.endsWith('.webp');
-  } catch (e) {
-    return false;
   }
 }

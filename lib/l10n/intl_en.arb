@@ -260,5 +260,9 @@
    "closeHourLabel": "Closing Hour",
    "closeHourValidationError": "Please select closing hour",
    "updatedSuccessfully": "Updated successfully",
-   "openNow": "Open Now"
+   "openNow": "Open Now",
+   "ai": "AI",
+   "sendRequest": "Send Request",
+   "acceptedRequests": "Accepted Requests",
+   "patientAccessRequests": "Patient Access Requests"
 }

@@ -20,7 +20,11 @@ import 'package:canc_app/core/shared_feature/sign_up/presentation/views/complete
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/complete_pharmacy_registration_view.dart';
 import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
-import 'package:canc_app/users/doctor/doctor_view.dart';
+import 'package:canc_app/users/doctor/home/presentation/views/widgets/doctor_bottom_nav_bar.dart';
+import 'package:canc_app/users/doctor/profile/data/model/access_record_model.dart';
+import 'package:canc_app/users/doctor/profile/presentation/views/acces_record_type_doctor_view.dart';
+import 'package:canc_app/users/doctor/profile/presentation/views/access_record_view.dart';
+import 'package:canc_app/users/doctor/profile/presentation/views/access_requests_doctor_view.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/available_to_chat_view.dart';
 import 'package:canc_app/users/patient/chatbot/presentation/views/chatbot_view.dart';
 import 'package:canc_app/users/patient/home/data/models/access_request_model.dart';
@@ -28,6 +32,7 @@ import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:canc_app/users/patient/home/presentation/views/access_request_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/nearest_pharmacy_view.dart';
 import 'package:canc_app/users/patient/home/presentation/views/patient_bottom_nav_bar.dart';
+import 'package:canc_app/users/patient/home/presentation/views/pharmacy_navigation_view.dart';
 import 'package:canc_app/users/patient/record/data/models/record_type.dart';
 import 'package:canc_app/users/patient/record/presentation/views/new_record_detail.dart';
 import 'package:canc_app/users/patient/record/presentation/views/record_type_view.dart';
@@ -48,7 +53,7 @@ import '../shared_feature/community/data/models/post_model.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: _getFirstView(),
+  initialLocation: Routes.doctorView, //_getFirstView(),
   debugLogDiagnostics: true,
   routes: [
     GoRoute(
@@ -249,7 +254,7 @@ final appRouter = GoRouter(
       path: Routes.doctorView,
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
-        child: const DoctorView(),
+        child: const DoctorBottomNavBar(),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),
@@ -332,6 +337,40 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => CustomTransitionPage(
         key: state.pageKey,
         child: NewRecordDetail(record: state.extra as List<dynamic>),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.pharmacyNavigationView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: PharmacyNavigationView(
+            pharmacy: state.extra as NearestPharmacyModel),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.accessRequestsDoctorView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: const AccessRequestsDoctorView(),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.accessRecordView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: AccessRecordDoctorView(
+            accessRecord: state.extra as AccessRecordModel),
+        transitionsBuilder: _transitionsBuilder,
+      ),
+    ),
+    GoRoute(
+      path: Routes.accessRecordTypeDoctorView,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        key: state.pageKey,
+        child: AccessRecordTypeDoctorView(recordType: state.extra as String),
         transitionsBuilder: _transitionsBuilder,
       ),
     ),

@@ -1,4 +1,5 @@
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
@@ -8,6 +9,7 @@ import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/home/data/models/filter_state.dart';
 import 'package:canc_app/users/patient/home/data/models/pharmacy_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PharmacySliverList extends StatelessWidget {
   final FilterState filterState;
@@ -160,7 +162,10 @@ class _PharmacyCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       OutlinedButton(
-                        onPressed: pharmacy.isOpeningNow ? () {} : null,
+                        onPressed: () {
+                          context.push(Routes.pharmacyNavigationView,
+                              extra: pharmacy);
+                        },
                         style: OutlinedButton.styleFrom(
                           foregroundColor: pharmacy.isOpeningNow
                               ? AppColors.primaryColor

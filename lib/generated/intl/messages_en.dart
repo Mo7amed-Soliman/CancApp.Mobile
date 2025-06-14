@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "acceptedRequests": MessageLookupByLibrary.simpleMessage(
+      "Accepted Requests",
+    ),
     "accessRequestAllowed": MessageLookupByLibrary.simpleMessage(
       "Access request allowed successfully",
     ),
@@ -38,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addMedication": MessageLookupByLibrary.simpleMessage("Add Medication"),
     "addVisit": MessageLookupByLibrary.simpleMessage("Add Visit"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
+    "ai": MessageLookupByLibrary.simpleMessage("AI"),
     "alarmTime": MessageLookupByLibrary.simpleMessage("Alarm Time"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("Alarm Times"),
     "allPersonalDetailsMustBeVisible": MessageLookupByLibrary.simpleMessage(
@@ -348,6 +352,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Passwords do not match",
     ),
     "patient": MessageLookupByLibrary.simpleMessage("Patient"),
+    "patientAccessRequests": MessageLookupByLibrary.simpleMessage(
+      "Patient Access Requests",
+    ),
     "patients": MessageLookupByLibrary.simpleMessage("Patients"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
@@ -459,6 +466,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sendAgain": MessageLookupByLibrary.simpleMessage("Send again"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send Code"),
+    "sendRequest": MessageLookupByLibrary.simpleMessage("Send Request"),
     "sentCodeSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Sent code successfully",
     ),

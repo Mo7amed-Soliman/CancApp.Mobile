@@ -21,6 +21,7 @@ class EndPoint {
   static const String getNearestPharmacies = 'User/pharmacists';
   static const String getAccessRequests = 'RequestAccess/pending-requests';
   static const String acceptAccessRequest = 'RequestAccess/approve-access';
+  static const String requestAccess = 'RequestAccess/request';
   // community
   static const String getPosts = 'post';
   static const String addPost = 'post';

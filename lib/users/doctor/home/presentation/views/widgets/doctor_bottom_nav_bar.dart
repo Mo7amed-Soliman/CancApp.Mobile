@@ -3,21 +3,19 @@ import 'package:canc_app/core/shared_feature/community/presentation/views/commun
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/generated/l10n.dart';
-import 'package:canc_app/users/patient/chat/presentation/views/chats_list_view.dart';
-import 'package:canc_app/users/patient/home/presentation/views/home_view.dart';
-import 'package:canc_app/users/patient/profile/presentation/view/profile_patient_view.dart';
+import 'package:canc_app/users/doctor/profile/presentation/views/profile_doctor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
-class PatientBottomNavBar extends StatefulWidget {
-  const PatientBottomNavBar({super.key});
+class DoctorBottomNavBar extends StatefulWidget {
+  const DoctorBottomNavBar({super.key});
 
   @override
-  State<PatientBottomNavBar> createState() => _PatientBottomNavBarState();
+  State<DoctorBottomNavBar> createState() => _DoctorBottomNavBarState();
 }
 
-class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
+class _DoctorBottomNavBarState extends State<DoctorBottomNavBar> {
   late PersistentTabController _controller;
 
   // Constants
@@ -28,10 +26,10 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
 
   // Pages to display in the navigation bar
   final List<Widget> _pages = [
-    const HomeView(),
-    const ChatsListView(),
+    Container(),
+    Container(),
     const CommunityView(),
-    const ProfilePatientView(),
+    const ProfileDoctorView(),
   ];
 
   @override
@@ -80,9 +78,9 @@ class _PatientBottomNavBarState extends State<PatientBottomNavBar> {
   List<PersistentBottomNavBarItem> _buildNavBarItems() {
     return [
       _buildNavBarItem(
-        activeIcon: IconlyBold.home,
-        inactiveIcon: IconlyLight.home,
-        title: S.of(context).home,
+        activeIcon: Icons.auto_awesome,
+        inactiveIcon: Icons.auto_awesome_outlined,
+        title: S.of(context).ai,
       ),
       _buildNavBarItem(
         activeIcon: IconlyBold.chat,

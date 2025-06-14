@@ -2119,6 +2119,41 @@ class S {
   String get openNow {
     return Intl.message('Open Now', name: 'openNow', desc: '', args: []);
   }
+
+  /// `AI`
+  String get ai {
+    return Intl.message('AI', name: 'ai', desc: '', args: []);
+  }
+
+  /// `Send Request`
+  String get sendRequest {
+    return Intl.message(
+      'Send Request',
+      name: 'sendRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Accepted Requests`
+  String get acceptedRequests {
+    return Intl.message(
+      'Accepted Requests',
+      name: 'acceptedRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Patient Access Requests`
+  String get patientAccessRequests {
+    return Intl.message(
+      'Patient Access Requests',
+      name: 'patientAccessRequests',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -35,4 +35,9 @@ class Routes {
   static const String manageYourRecordsView = '/manageYourRecordsView';
   static const String recordTypeView = '/recordTypeView';
   static const String newRecordDetail = '/newRecordDetail';
+  static const String accessRequestsDoctorView = '/accessRequestsDoctorView';
+  static const String pharmacyNavigationView = '/pharmacyNavigationView';
+  static const String accessRecordView = '/accessRecordView';
+  static const String accessRecordTypeDoctorView =
+      '/accessRecordTypeDoctorView';
 }

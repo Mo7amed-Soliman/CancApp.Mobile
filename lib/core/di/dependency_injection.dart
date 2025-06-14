@@ -21,6 +21,8 @@ import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_r
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manager/complete_pharmacy_registration_cubit/complete_pharmacy_registration_cubit.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:canc_app/users/doctor/profile/data/data_sources/request_access_data_source.dart';
+import 'package:canc_app/users/doctor/profile/data/repositories/request_access_repository.dart';
 import 'package:canc_app/users/patient/chatbot/data/data_sources/chatbot_remote_data_source.dart';
 import 'package:canc_app/users/patient/chatbot/data/repositories/chatbot_repository.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/access_request_data_source.dart';
@@ -52,6 +54,7 @@ import 'package:canc_app/core/shared_feature/edit_profile/data/datasources/edit_
 import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
 import '../../users/patient/chatbot/presentation/manager/chat_bot_cubit.dart';
 import '../shared_feature/sign_up/presentation/manager/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
+import 'package:canc_app/users/doctor/profile/presentation/manager/access_requests_doctor_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -186,6 +189,7 @@ Future<void> initDependencies() async {
         changePasswordRepository: getIt<ChangePasswordRepository>(),
       ));
 
+  //! Access Requests patient
   getIt.registerFactory<AccessRequestCubit>(() => AccessRequestCubit(
         getIt<AccessRequestRepository>(),
       ));
@@ -195,4 +199,15 @@ Future<void> initDependencies() async {
               getIt<ApiConsumer>(),
             ),
           ));
+
+  //! Access Requests Doctor
+  getIt.registerFactory<AccessRequestsDoctorCubit>(
+    () => AccessRequestsDoctorCubit(getIt<RequestAccessRepository>()),
+  );
+  getIt.registerLazySingleton<RequestAccessRepository>(
+    () => RequestAccessRepository(getIt<RequestAccessDataSource>()),
+  );
+  getIt.registerLazySingleton<RequestAccessDataSource>(
+    () => RequestAccessDataSource(getIt<ApiConsumer>()),
+  );
 }
