@@ -61,6 +61,7 @@ class _CategoryListAndUsersListState extends State<CategoryListAndUsersList> {
 
   void _onCategorySelected(int index) {
     _selectedCategoryIndex = index;
+    setState(() {});
     context.read<GetAvailableUsersCubit>().getUsers(index);
   }
 
@@ -76,7 +77,7 @@ class _CategoryListAndUsersListState extends State<CategoryListAndUsersList> {
                 onCategorySelected: _onCategorySelected,
               ),
               const VerticalSpacer(16),
-              const ChatListShimmer(),
+              const Expanded(child: ChatListShimmer()),
             ],
           );
         }
