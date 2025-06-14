@@ -7,6 +7,7 @@ import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,7 +23,7 @@ class ChatsListItem extends StatelessWidget {
     return UserChatModel(
       name: user.name,
       imagePath: user.image!,
-      lastMessage: 'Hey, how are you holding up today?',
+      lastMessage: S.current.heyHowAreYouHoldingUp,
       id: user.id,
       idFrom: UserCacheHelper.getUser()?.id ?? '',
     );
@@ -56,7 +57,7 @@ class ChatsListItem extends StatelessWidget {
                   ),
                   const VerticalSpacer(4),
                   Text(
-                    'Hey, how are you holding up today?',
+                    S.of(context).heyHowAreYouHoldingUp,
                     style: AppTextStyle.font12MediumDarkGray(context).copyWith(
                       color: AppColors.grayish,
                       overflow: TextOverflow.ellipsis,

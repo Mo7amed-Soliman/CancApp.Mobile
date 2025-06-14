@@ -17,7 +17,7 @@ class AccessRecordTypeDoctorView extends StatelessWidget {
       appBar: CustomAppBar(
         title: recordType,
       ),
-      body: const AccessRecordTypeDoctorViewBody(),
+      body: AccessRecordTypeDoctorViewBody(),
     );
   }
 }

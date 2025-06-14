@@ -49,7 +49,7 @@ class AvailableUsersList extends StatelessWidget {
                           .read<GetAvailableUsersCubit>()
                           .getUsers(categoryIndex);
                     },
-                    child: const Text('Retry'),
+                    child: Text(S.of(context).retry),
                   ),
                 ],
               ),

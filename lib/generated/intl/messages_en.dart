@@ -20,6 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(error) => "Failed to pick image: ${error}";
+
+  static String m1(result) => "Prediction: ${result}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "acceptedRequests": MessageLookupByLibrary.simpleMessage(
@@ -37,13 +41,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "add": MessageLookupByLibrary.simpleMessage("Add"),
     "addComment": MessageLookupByLibrary.simpleMessage("Add a comment..."),
+    "addDate": MessageLookupByLibrary.simpleMessage("Add date"),
     "addImage": MessageLookupByLibrary.simpleMessage("Add Image"),
     "addMedication": MessageLookupByLibrary.simpleMessage("Add Medication"),
+    "addNote": MessageLookupByLibrary.simpleMessage("Add Note"),
+    "addNotes": MessageLookupByLibrary.simpleMessage("Add notes"),
     "addVisit": MessageLookupByLibrary.simpleMessage("Add Visit"),
     "address": MessageLookupByLibrary.simpleMessage("Address"),
     "ai": MessageLookupByLibrary.simpleMessage("AI"),
     "aiDiagnosisAssistantLungCancer": MessageLookupByLibrary.simpleMessage(
-      "Lung Cancer Diagnosis",
+      "AI Diagnosis Assistant - Lung Cancer",
     ),
     "alarmTime": MessageLookupByLibrary.simpleMessage("Alarm Time"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("Alarm Times"),
@@ -180,10 +187,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Email verified successfully",
     ),
+    "emptyList": MessageLookupByLibrary.simpleMessage("Empty list"),
     "enableDeliveryService": MessageLookupByLibrary.simpleMessage(
       "Enable Delivery Service",
     ),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "enterAge": MessageLookupByLibrary.simpleMessage("Enter Age"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "Enter the verification code we just sent to your email address",
     ),
@@ -221,6 +230,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "everyDay": MessageLookupByLibrary.simpleMessage("Every Day"),
     "everyXDays": MessageLookupByLibrary.simpleMessage("Every X Days"),
     "examinationType": MessageLookupByLibrary.simpleMessage("Examination Type"),
+    "failedToPickImage": m0,
+    "female": MessageLookupByLibrary.simpleMessage("Female"),
+    "fieldIsRequired": MessageLookupByLibrary.simpleMessage(
+      "Field is required",
+    ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password"),
     "forgotPasswordIntr": MessageLookupByLibrary.simpleMessage(
       "Forgot Password?",
@@ -229,6 +243,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
     "governmentId": MessageLookupByLibrary.simpleMessage("Government ID"),
     "helloWelcome": MessageLookupByLibrary.simpleMessage("Hello, Welcome"),
+    "heyHowAreYouHoldingUp": MessageLookupByLibrary.simpleMessage(
+      "Hey, how are you holding up today?",
+    ),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "idMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
       "ID must be valid and not expired",
@@ -264,6 +281,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "makeSureTextVisible": MessageLookupByLibrary.simpleMessage(
       "Make sure all text is clearly visible",
     ),
+    "male": MessageLookupByLibrary.simpleMessage("Male"),
     "manageYourRecords": MessageLookupByLibrary.simpleMessage(
       "Manage Your Records",
     ),
@@ -303,6 +321,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
       "No pharmacies found matching the selected filter.",
     ),
+    "noUsersFound": MessageLookupByLibrary.simpleMessage("No users found"),
     "noVisits": MessageLookupByLibrary.simpleMessage("No visit reminders"),
     "noVisitsForDate": MessageLookupByLibrary.simpleMessage(
       "No visits for this date",
@@ -360,6 +379,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "patients": MessageLookupByLibrary.simpleMessage("Patients"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
+    "pharmacistView": MessageLookupByLibrary.simpleMessage("Pharmacist View"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("Pharmacists"),
     "pharmacy": MessageLookupByLibrary.simpleMessage("Pharmacy"),
     "pharmacyDetailsDescription": MessageLookupByLibrary.simpleMessage(
@@ -371,6 +391,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pharmacyLicenseTitle": MessageLookupByLibrary.simpleMessage(
       "Pharmacy License",
     ),
+    "pharmacyNamePlaceholder": MessageLookupByLibrary.simpleMessage(
+      "Pharmacy Name",
+    ),
     "photoRequirements": MessageLookupByLibrary.simpleMessage(
       "Photo requirements:",
     ),
@@ -381,6 +404,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
       "Please add at least one alarm time",
     ),
+    "pleaseEnterAge": MessageLookupByLibrary.simpleMessage("Please enter age"),
     "pleaseEnterDoctorName": MessageLookupByLibrary.simpleMessage(
       "Please enter doctor name",
     ),
@@ -389,6 +413,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnterMedicationName": MessageLookupByLibrary.simpleMessage(
       "Please enter medication name",
+    ),
+    "pleaseEnterValidNumber": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid number",
     ),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter a strong password",
@@ -426,8 +453,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "postUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Post updated successfully",
     ),
+    "prediction": m1,
+    "processing": MessageLookupByLibrary.simpleMessage("Processing..."),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("Psychiatrist"),
+    "psychiatristView": MessageLookupByLibrary.simpleMessage(
+      "Psychiatrist View",
+    ),
     "psychiatrists": MessageLookupByLibrary.simpleMessage("Psychiatrists"),
     "quickActions": MessageLookupByLibrary.simpleMessage("Quick actions"),
     "radiation": MessageLookupByLibrary.simpleMessage("Radiation"),
@@ -435,6 +467,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
     "removeImage": MessageLookupByLibrary.simpleMessage("Remove Image"),
     "report": MessageLookupByLibrary.simpleMessage("Report"),
+    "reset": MessageLookupByLibrary.simpleMessage("Reset"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "resetPasswordInstructions": MessageLookupByLibrary.simpleMessage(
       "Enter your email address and we will send you a code to reset your password",
@@ -446,6 +479,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Your password has been successfully reset",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
@@ -484,6 +518,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "At least 1 special character",
     ),
     "specificDays": MessageLookupByLibrary.simpleMessage("Specific Days"),
+    "submit": MessageLookupByLibrary.simpleMessage("Submit"),
     "switchToArabic": MessageLookupByLibrary.simpleMessage("Switch to Arabic"),
     "switchToEnglish": MessageLookupByLibrary.simpleMessage(
       "Switch to English",
@@ -525,9 +560,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "visitTime": MessageLookupByLibrary.simpleMessage("Visit Time"),
     "visits": MessageLookupByLibrary.simpleMessage("Visits"),
     "volunteer": MessageLookupByLibrary.simpleMessage("Volunteer"),
+    "volunteerView": MessageLookupByLibrary.simpleMessage("Volunteer View"),
     "volunteers": MessageLookupByLibrary.simpleMessage("Volunteers"),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
+    "whatIsPatientAge": MessageLookupByLibrary.simpleMessage(
+      "What is the patient\'s age?",
+    ),
+    "whatIsPatientGender": MessageLookupByLibrary.simpleMessage(
+      "What is the patient\'s gender?",
+    ),
     "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
       "Please enter Daily working hours",
     ),

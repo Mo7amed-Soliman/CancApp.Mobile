@@ -1,5 +1,6 @@
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/widgets/in_empty_list.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/record/data/models/record_type.dart';
 import 'package:canc_app/users/patient/record/data/models/recotd_model.dart';
 import 'package:canc_app/users/patient/record/presentation/manager/manage_record/managerecord_cubit.dart';
@@ -54,7 +55,7 @@ class _RecordTypeBodyState extends State<RecordTypeBody> {
           );
         } else {
           return InEmptyList(
-            title: 'empty list',
+            title: S.of(context).emptyList,
             onPressed: () {
               GoRouter.of(context).push(Routes.newRecordDetail,
                   extra: [null, widget.recordType.labelEn]);

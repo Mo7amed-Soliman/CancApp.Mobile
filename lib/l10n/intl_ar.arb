@@ -253,8 +253,8 @@
     "errorDeletingComment": "خطأ في حذف التعليق",
     "errorReportingComment": "خطأ في الإبلاغ عن التعليق",
     "editComment": "تعديل التعليق",
-    "editCommentHint": "قم بتعديل تعليقك",
-    "commentCannotBeEmpty": "لا يمكن أن يكون التعليق فارغاً",
+    "editCommentHint": "تعديل تعليقك",
+    "commentCannotBeEmpty": "لا يمكن أن يكون التعليق فارغًا",
     "commentReportedSuccessfully": "تم الإبلاغ عن التعليق بنجاح",
     "postDeletedSuccessfully": "تم حذف المنشور بنجاح",
     "postUpdatedSuccessfully": "تم تحديث المنشور بنجاح",
@@ -272,6 +272,37 @@
     "sendRequest": "إرسال طلب",
     "acceptedRequests": "الطلبات المقبولة",
     "patientAccessRequests": "طلبات الوصول للمرضى",
-    "aiDiagnosisAssistantLungCancer": "تشخيص سرطان الرئة"
- 
+    "aiDiagnosisAssistantLungCancer": "مساعد التشخيص بالذكاء الاصطناعي - سرطان الرئة",
+    "pharmacyNamePlaceholder": "اسم الصيدلية",
+    "addNotes": "أضف ملاحظات",
+    "addNote": "أضف ملاحظة",
+    "fieldIsRequired": "الحقل مطلوب",
+    "addDate": "أضف التاريخ",
+    "failedToPickImage": "فشل في اختيار الصورة: {error}",
+    "emptyList": "القائمة فارغة",
+    "retry": "إعادة المحاولة",
+    "noUsersFound": "لم يتم العثور على مستخدمين",
+    "chatGreeting": "مرحبًا، كيف حالك اليوم؟",
+    "whatIsPatientAge": "ما هو عمر المريض؟",
+    "enterAge": "أدخل العمر",
+    "pleaseEnterAge": "الرجاء إدخال العمر",
+    "pleaseEnterValidNumber": "الرجاء إدخال رقم صالح",
+    "whatIsPatientGender": "ما هو جنس المريض؟",
+    "male": "ذكر",
+    "female": "أنثى",
+    "processing": "جاري المعالجة...",
+    "submit": "إرسال",
+    "reset": "إعادة تعيين",
+    "prediction": "التنبؤ: {result}",
+    "@prediction": {
+        "placeholders": {
+            "result": {
+                "type": "String"
+            }
+        }
+    },
+    "heyHowAreYouHoldingUp": "مرحباً، كيف حالك اليوم؟",
+    "volunteerView": "واجهة المتطوع",
+    "psychiatristView": "واجهة الطبيب النفسي",
+    "pharmacistView": "واجهة الصيدلي"
 }

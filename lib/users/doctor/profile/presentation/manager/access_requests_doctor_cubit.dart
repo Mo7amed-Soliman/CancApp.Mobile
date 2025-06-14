@@ -1,6 +1,7 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
-import 'package:canc_app/users/doctor/profile/data/repositories/request_access_repository.dart';
+import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/users/doctor/profile/data/model/access_request_doctor_model.dart';
+import 'package:canc_app/users/doctor/profile/data/repositories/request_access_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'access_requests_doctor_state.dart';
@@ -8,58 +9,45 @@ import 'access_requests_doctor_state.dart';
 class AccessRequestsDoctorCubit extends Cubit<AccessRequestsDoctorState> {
   final RequestAccessRepository _repository;
 
+  List<AccessRequestDoctorModel> sendRequests = [];
+  List<AccessRequestDoctorModel> acceptedRequests = [];
+
   AccessRequestsDoctorCubit(this._repository)
       : super(AccessRequestsDoctorInitial());
 
   Future<void> loadAccessRequests() async {
     emit(AccessRequestsDoctorLoading());
-    try {
-      // TODO: Implement API call to get requests
-      // For now using mock data
-      final sendRequests = [
-        AccessRequestDoctorModel(
-          name: 'Omar Ahmed',
-          address: '7529 E. Zhraa Almaadi 125 St.',
-          image: 'https://randomuser.me/api/portraits/men/1.jpg',
-          userId: '1',
-        ),
-        AccessRequestDoctorModel(
-          name: 'Omar Ahmed',
-          address: '7529 E. Zhraa Almaadi 125 St.',
-          image: 'https://randomuser.me/api/portraits/men/2.jpg',
-          userId: '2',
-        ),
-      ];
 
-      final acceptedRequests = [
-        AccessRequestDoctorModel(
-          name: 'Omar Ahmed',
-          address: '7529 E. Zhraa Almaadi 125 St.',
-          image: 'https://randomuser.me/api/portraits/men/3.jpg',
-          userId: '3',
-        ),
-        AccessRequestDoctorModel(
-          name: 'Omar Ahmed',
-          address: '7529 E. Zhraa Almaadi 125 St.',
-          image: 'https://randomuser.me/api/portraits/men/4.jpg',
-          userId: '4',
-        ),
-      ];
+    final sendRequestsResult = await _repository.getAllPatient();
+    sendRequestsResult.fold(
+      (failure) {
+        emit(AccessRequestsDoctorError(failure.errorMessage));
+      },
+      (users) {
+        sendRequests = users;
+        emit(const AccessRequestsDoctorLoaded());
+      },
+    );
 
-      emit(AccessRequestsDoctorLoaded(
-        sendRequests: sendRequests,
-        acceptedRequests: acceptedRequests,
-      ));
-    } catch (e) {
-      emit(AccessRequestsDoctorError(e.toString()));
-    }
+    // final acceptedRequests = await _repository.getAllAcceptedRequests();
+    // acceptedRequests.fold(
+    //   (failure) {
+    //     emit(AccessRequestsDoctorError(failure.errorMessage));
+    //   },
+    //   (response) {
+    //     emit(AccessRequestsDoctorLoaded(
+    //       sendRequests: [],
+    //       acceptedRequests: response,
+    //     ));
+    //   },
+    // );
   }
 
-  Future<void> requestAccess({
+  Future<void> sendAccess({
     required String patientId,
     required String doctorId,
   }) async {
-    final result = await _repository.requestAccess(
+    final result = await _repository.sendAccess(
       patientId: patientId,
       doctorId: doctorId,
     );
@@ -69,8 +57,8 @@ class AccessRequestsDoctorCubit extends Cubit<AccessRequestsDoctorState> {
         emit(AccessRequestsDoctorError(failure.errorMessage));
       },
       (_) {
-        showSuccessToast('Request sent successfully');
-        // loadAccessRequests(); // Reload the requests after sending
+        botTextToast('Request sent successfully',
+            color: AppColors.primaryColor);
       },
     );
   }

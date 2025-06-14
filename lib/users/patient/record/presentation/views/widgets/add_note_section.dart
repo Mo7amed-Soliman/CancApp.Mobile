@@ -1,4 +1,5 @@
 import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class AddNoteSection extends StatefulWidget {
@@ -41,7 +42,7 @@ class _AddNoteSectionState extends State<AddNoteSection> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 20),
             child: Text(
-              'Add notes',
+              S.of(context).addNotes,
               style: AppTextStyle.font14RegularDarkGray(context).copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -54,7 +55,7 @@ class _AddNoteSectionState extends State<AddNoteSection> {
               controller: _controller,
               validator: (data) {
                 if (data == null || data.isEmpty) {
-                  return 'Field is required';
+                  return S.of(context).fieldIsRequired;
                 }
                 return null;
               },
@@ -62,7 +63,7 @@ class _AddNoteSectionState extends State<AddNoteSection> {
               maxLines: 7,
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Add Note',
+                hintText: S.of(context).addNote,
                 hintStyle: AppTextStyle.font14RegularDarkGray(context),
               ),
             ),

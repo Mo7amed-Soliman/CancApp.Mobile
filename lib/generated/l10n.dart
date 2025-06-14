@@ -28,9 +28,10 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -2154,14 +2155,69 @@ class S {
     );
   }
 
-  /// `Lung Cancer Diagnosis`
+  /// `AI Diagnosis Assistant - Lung Cancer`
   String get aiDiagnosisAssistantLungCancer {
     return Intl.message(
-      'Lung Cancer Diagnosis',
+      'AI Diagnosis Assistant - Lung Cancer',
       name: 'aiDiagnosisAssistantLungCancer',
       desc: '',
       args: [],
     );
+  }
+
+  /// `Pharmacy Name`
+  String get pharmacyNamePlaceholder {
+    return Intl.message(
+      'Pharmacy Name',
+      name: 'pharmacyNamePlaceholder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add notes`
+  String get addNotes {
+    return Intl.message('Add notes', name: 'addNotes', desc: '', args: []);
+  }
+
+  /// `Add Note`
+  String get addNote {
+    return Intl.message('Add Note', name: 'addNote', desc: '', args: []);
+  }
+
+  /// `Field is required`
+  String get fieldIsRequired {
+    return Intl.message(
+      'Field is required',
+      name: 'fieldIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add date`
+  String get addDate {
+    return Intl.message('Add date', name: 'addDate', desc: '', args: []);
+  }
+
+  /// `Failed to pick image: {error}`
+  String failedToPickImage(Object error) {
+    return Intl.message(
+      'Failed to pick image: $error',
+      name: 'failedToPickImage',
+      desc: '',
+      args: [error],
+    );
+  }
+
+  /// `Empty list`
+  String get emptyList {
+    return Intl.message('Empty list', name: 'emptyList', desc: '', args: []);
+  }
+
+  /// `Retry`
+  String get retry {
+    return Intl.message('Retry', name: 'retry', desc: '', args: []);
   }
 
   /// `No users found`
@@ -2174,11 +2230,126 @@ class S {
     );
   }
 
-  /// `No users found`
-  String get noMessagesFound {
+  /// `Hey, how are you holding up today?`
+  String get heyHowAreYouHoldingUp {
     return Intl.message(
-      'No messages found',
-      name: 'noMessagesFound',
+      'Hey, how are you holding up today?',
+      name: 'heyHowAreYouHoldingUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What is the patient's age?`
+  String get whatIsPatientAge {
+    return Intl.message(
+      'What is the patient\'s age?',
+      name: 'whatIsPatientAge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Age`
+  String get enterAge {
+    return Intl.message('Enter Age', name: 'enterAge', desc: '', args: []);
+  }
+
+  /// `Please enter age`
+  String get pleaseEnterAge {
+    return Intl.message(
+      'Please enter age',
+      name: 'pleaseEnterAge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid number`
+  String get pleaseEnterValidNumber {
+    return Intl.message(
+      'Please enter a valid number',
+      name: 'pleaseEnterValidNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What is the patient's gender?`
+  String get whatIsPatientGender {
+    return Intl.message(
+      'What is the patient\'s gender?',
+      name: 'whatIsPatientGender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message('Male', name: 'male', desc: '', args: []);
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message('Female', name: 'female', desc: '', args: []);
+  }
+
+  /// `Processing...`
+  String get processing {
+    return Intl.message(
+      'Processing...',
+      name: 'processing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message('Submit', name: 'submit', desc: '', args: []);
+  }
+
+  /// `Reset`
+  String get reset {
+    return Intl.message('Reset', name: 'reset', desc: '', args: []);
+  }
+
+  /// `Prediction: {result}`
+  String prediction(String result) {
+    return Intl.message(
+      'Prediction: $result',
+      name: 'prediction',
+      desc: '',
+      args: [result],
+    );
+  }
+
+  /// `Volunteer View`
+  String get volunteerView {
+    return Intl.message(
+      'Volunteer View',
+      name: 'volunteerView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Psychiatrist View`
+  String get psychiatristView {
+    return Intl.message(
+      'Psychiatrist View',
+      name: 'psychiatristView',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pharmacist View`
+  String get pharmacistView {
+    return Intl.message(
+      'Pharmacist View',
+      name: 'pharmacistView',
       desc: '',
       args: [],
     );

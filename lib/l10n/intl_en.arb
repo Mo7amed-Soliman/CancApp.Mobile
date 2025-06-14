@@ -265,5 +265,36 @@
    "sendRequest": "Send Request",
    "acceptedRequests": "Accepted Requests",
    "patientAccessRequests": "Patient Access Requests",
-   "aiDiagnosisAssistantLungCancer": "Lung Cancer Diagnosis"
+   "aiDiagnosisAssistantLungCancer": "AI Diagnosis Assistant - Lung Cancer",
+   "pharmacyNamePlaceholder": "Pharmacy Name",
+   "addNotes": "Add notes",
+   "addNote": "Add Note",
+   "fieldIsRequired": "Field is required",
+   "addDate": "Add date",
+   "failedToPickImage": "Failed to pick image: {error}",
+   "emptyList": "Empty list",
+   "retry": "Retry",
+   "noUsersFound": "No users found",
+   "heyHowAreYouHoldingUp": "Hey, how are you holding up today?",
+   "whatIsPatientAge": "What is the patient's age?",
+   "enterAge": "Enter Age",
+   "pleaseEnterAge": "Please enter age",
+   "pleaseEnterValidNumber": "Please enter a valid number",
+   "whatIsPatientGender": "What is the patient's gender?",
+   "male": "Male",
+   "female": "Female",
+   "processing": "Processing...",
+   "submit": "Submit",
+   "reset": "Reset",
+   "prediction": "Prediction: {result}",
+   "@prediction": {
+       "placeholders": {
+           "result": {
+               "type": "String"
+           }
+       }
+   },
+   "volunteerView": "Volunteer View",
+   "psychiatristView": "Psychiatrist View",
+   "pharmacistView": "Pharmacist View"
 }

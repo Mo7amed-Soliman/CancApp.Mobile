@@ -11,6 +11,7 @@ import 'package:canc_app/users/patient/home/presentation/manager/nearest_pharmac
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:redacted/redacted.dart';
+import 'package:canc_app/generated/l10n.dart';
 
 class NearestPharmacyListView extends StatelessWidget {
   const NearestPharmacyListView({super.key});
@@ -65,7 +66,8 @@ class NearestPharmacyListView extends StatelessWidget {
                             context: context,
                             redact: state is NearestPharmacyLoading,
                             configuration: RedactedConfiguration(
-                              autoFillText: 'Pharmacy Name',
+                              autoFillText:
+                                  S.of(context).pharmacyNamePlaceholder,
                             ),
                           ),
                   );

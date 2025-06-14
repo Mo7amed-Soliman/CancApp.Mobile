@@ -130,7 +130,7 @@ class _AiViewState extends State<AiView> {
                 children: [
                   const VerticalSpacer(16),
                   Text(
-                    'What is the patient\'s age?',
+                    S.of(context).whatIsPatientAge,
                     style: AppTextStyle.font17Medium(context),
                   ),
                   const VerticalSpacer(8),
@@ -138,7 +138,7 @@ class _AiViewState extends State<AiView> {
                     controller: _ageController,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: 'Enter Age',
+                      hintText: S.of(context).enterAge,
                       filled: true,
                       fillColor: const Color(0xFFF5F5F5),
                       border: OutlineInputBorder(
@@ -150,17 +150,17 @@ class _AiViewState extends State<AiView> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter age';
+                        return S.of(context).pleaseEnterAge;
                       }
                       if (int.tryParse(value) == null) {
-                        return 'Please enter a valid number';
+                        return S.of(context).pleaseEnterValidNumber;
                       }
                       return null;
                     },
                   ),
                   const VerticalSpacer(16),
                   Text(
-                    'What is the patient\'s gender?',
+                    S.of(context).whatIsPatientGender,
                     style: AppTextStyle.font17Medium(context),
                   ),
                   const VerticalSpacer(8),
@@ -168,7 +168,7 @@ class _AiViewState extends State<AiView> {
                     children: [
                       Expanded(
                         child: _ResponseButton(
-                          text: 'Male',
+                          text: S.of(context).male,
                           isSelected: _selectedGender == 1,
                           onPressed: () {
                             setState(() {
@@ -180,7 +180,7 @@ class _AiViewState extends State<AiView> {
                       const HorizontalSpacer(16),
                       Expanded(
                         child: _ResponseButton(
-                          text: 'Female',
+                          text: S.of(context).female,
                           isSelected: _selectedGender == 2,
                           onPressed: () {
                             setState(() {
@@ -203,7 +203,7 @@ class _AiViewState extends State<AiView> {
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Text(
-                        'Prediction: $_predictionResult',
+                        S.of(context).prediction(_predictionResult!),
                         style: AppTextStyle.font17Medium(context).copyWith(
                           color: _predictionResult == 'Positive'
                               ? Colors.red
@@ -218,14 +218,16 @@ class _AiViewState extends State<AiView> {
                       Expanded(
                         child: AppButtonWidget(
                           onPressed: _isLoading ? null : _submitForm,
-                          text: _isLoading ? 'Processing...' : 'Submit',
+                          text: _isLoading
+                              ? S.of(context).processing
+                              : S.of(context).submit,
                         ),
                       ),
                       const HorizontalSpacer(16),
                       Expanded(
                         child: AppButtonWidget(
                           onPressed: _isLoading ? null : _resetForm,
-                          text: 'Reset',
+                          text: S.of(context).reset,
                           backgroundColor: Colors.grey[300]!,
                           textStyle: AppTextStyle.font16MediumDarkGray(context)
                               .copyWith(

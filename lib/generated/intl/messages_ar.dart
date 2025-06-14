@@ -20,6 +20,10 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(error) => "فشل في اختيار الصورة: ${error}";
+
+  static String m1(result) => "التنبؤ: ${result}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "acceptedRequests": MessageLookupByLibrary.simpleMessage(
@@ -37,13 +41,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "add": MessageLookupByLibrary.simpleMessage("إضافة"),
     "addComment": MessageLookupByLibrary.simpleMessage("أضف تعليقاً..."),
+    "addDate": MessageLookupByLibrary.simpleMessage("أضف التاريخ"),
     "addImage": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
     "addMedication": MessageLookupByLibrary.simpleMessage("إضافة دواء"),
+    "addNote": MessageLookupByLibrary.simpleMessage("أضف ملاحظة"),
+    "addNotes": MessageLookupByLibrary.simpleMessage("أضف ملاحظات"),
     "addVisit": MessageLookupByLibrary.simpleMessage("إضافة زيارة"),
     "address": MessageLookupByLibrary.simpleMessage("العنوان"),
     "ai": MessageLookupByLibrary.simpleMessage("الذكاء الاصطناعي"),
     "aiDiagnosisAssistantLungCancer": MessageLookupByLibrary.simpleMessage(
-      "تشخيص سرطان الرئة",
+      "مساعد التشخيص بالذكاء الاصطناعي - سرطان الرئة",
     ),
     "alarmTime": MessageLookupByLibrary.simpleMessage("وقت التنبيه"),
     "alarmTimes": MessageLookupByLibrary.simpleMessage("أوقات التنبيه"),
@@ -105,7 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تمت إضافة التعليق بنجاح",
     ),
     "commentCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
-      "لا يمكن أن يكون التعليق فارغاً",
+      "لا يمكن أن يكون التعليق فارغًا",
     ),
     "commentDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم حذف التعليق بنجاح",
@@ -166,7 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "editComment": MessageLookupByLibrary.simpleMessage("تعديل التعليق"),
-    "editCommentHint": MessageLookupByLibrary.simpleMessage("قم بتعديل تعليقك"),
+    "editCommentHint": MessageLookupByLibrary.simpleMessage("تعديل تعليقك"),
     "editMedication": MessageLookupByLibrary.simpleMessage("تعديل دواء"),
     "editPost": MessageLookupByLibrary.simpleMessage("تعديل المنشور"),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
@@ -176,10 +183,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerifiedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم التحقق من البريد الإلكتروني بنجاح",
     ),
+    "emptyList": MessageLookupByLibrary.simpleMessage("القائمة فارغة"),
     "enableDeliveryService": MessageLookupByLibrary.simpleMessage(
       "تمكين خدمة التوصيل",
     ),
     "english": MessageLookupByLibrary.simpleMessage("إنجليزي"),
+    "enterAge": MessageLookupByLibrary.simpleMessage("أدخل العمر"),
     "enterVerificationCode": MessageLookupByLibrary.simpleMessage(
       "أدخل رمز التحقق الذي أرسلناه إلى بريدك الإلكتروني",
     ),
@@ -217,6 +226,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "everyDay": MessageLookupByLibrary.simpleMessage("كل يوم"),
     "everyXDays": MessageLookupByLibrary.simpleMessage("كل X يوم"),
     "examinationType": MessageLookupByLibrary.simpleMessage("نوع الفحص"),
+    "failedToPickImage": m0,
+    "female": MessageLookupByLibrary.simpleMessage("أنثى"),
+    "fieldIsRequired": MessageLookupByLibrary.simpleMessage("الحقل مطلوب"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
     "forgotPasswordIntr": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
@@ -225,6 +237,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
     "governmentId": MessageLookupByLibrary.simpleMessage("الهوية الحكومية"),
     "helloWelcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك"),
+    "heyHowAreYouHoldingUp": MessageLookupByLibrary.simpleMessage(
+      "مرحباً، كيف حالك اليوم؟",
+    ),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "idMustBeValidAndNotExpired": MessageLookupByLibrary.simpleMessage(
       "يجب أن تكون الهوية سارية وغير منتهية",
@@ -260,6 +275,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "makeSureTextVisible": MessageLookupByLibrary.simpleMessage(
       "تأكد أن جميع النصوص واضحة",
     ),
+    "male": MessageLookupByLibrary.simpleMessage("ذكر"),
     "manageYourRecords": MessageLookupByLibrary.simpleMessage("إدارة سجلاتك"),
     "medicalSyndicateLicense": MessageLookupByLibrary.simpleMessage(
       "رخصة النقابة الطبية",
@@ -296,6 +312,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
+    ),
+    "noUsersFound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على مستخدمين",
     ),
     "noVisits": MessageLookupByLibrary.simpleMessage(
       "لا توجد تذكيرات بالزيارات ",
@@ -354,6 +373,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "patients": MessageLookupByLibrary.simpleMessage("المرضى"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),
+    "pharmacistView": MessageLookupByLibrary.simpleMessage("واجهة الصيدلي"),
     "pharmacists": MessageLookupByLibrary.simpleMessage("الصيادلة"),
     "pharmacy": MessageLookupByLibrary.simpleMessage("صيدلية"),
     "pharmacyDetailsDescription": MessageLookupByLibrary.simpleMessage(
@@ -365,6 +385,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pharmacyLicenseTitle": MessageLookupByLibrary.simpleMessage(
       "رخصة الصيدلية",
     ),
+    "pharmacyNamePlaceholder": MessageLookupByLibrary.simpleMessage(
+      "اسم الصيدلية",
+    ),
     "photoRequirements": MessageLookupByLibrary.simpleMessage(
       "متطلبات الصورة:",
     ),
@@ -375,6 +398,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseAddAtLeastOneAlarmTime": MessageLookupByLibrary.simpleMessage(
       "الرجاء إضافة وقت تنبيه واحد على الأقل",
     ),
+    "pleaseEnterAge": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال العمر",
+    ),
     "pleaseEnterDoctorName": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال اسم الطبيب",
     ),
@@ -383,6 +409,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnterMedicationName": MessageLookupByLibrary.simpleMessage(
       "الرجاء إدخال اسم الدواء",
+    ),
+    "pleaseEnterValidNumber": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال رقم صالح",
     ),
     "pleaseEnteraStrongPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال كلمة مرور قوية",
@@ -422,8 +451,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "postUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم تحديث المنشور بنجاح",
     ),
+    "prediction": m1,
+    "processing": MessageLookupByLibrary.simpleMessage("جاري المعالجة..."),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "psychiatrist": MessageLookupByLibrary.simpleMessage("طبيب نفسي"),
+    "psychiatristView": MessageLookupByLibrary.simpleMessage(
+      "واجهة الطبيب النفسي",
+    ),
     "psychiatrists": MessageLookupByLibrary.simpleMessage("الأطباء النفسيين"),
     "quickActions": MessageLookupByLibrary.simpleMessage("إجراءات سريعة"),
     "radiation": MessageLookupByLibrary.simpleMessage("إشعاع"),
@@ -431,6 +465,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
     "removeImage": MessageLookupByLibrary.simpleMessage("إزالة الصورة"),
     "report": MessageLookupByLibrary.simpleMessage("تقرير"),
+    "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
@@ -444,6 +479,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم إعادة تعيين كلمة المرور بنجاح",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
@@ -480,6 +516,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "على الأقل رمز خاص واحد",
     ),
     "specificDays": MessageLookupByLibrary.simpleMessage("أيام محددة"),
+    "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
     "switchToArabic": MessageLookupByLibrary.simpleMessage(
       "التبديل إلى العربية",
     ),
@@ -521,9 +558,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "visitTime": MessageLookupByLibrary.simpleMessage("وقت الزيارة"),
     "visits": MessageLookupByLibrary.simpleMessage("الزيارات"),
     "volunteer": MessageLookupByLibrary.simpleMessage("متطوع"),
+    "volunteerView": MessageLookupByLibrary.simpleMessage("واجهة المتطوع"),
     "volunteers": MessageLookupByLibrary.simpleMessage("المتطوعين"),
     "welcome": MessageLookupByLibrary.simpleMessage("مرحبًا"),
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك"),
+    "whatIsPatientAge": MessageLookupByLibrary.simpleMessage(
+      "ما هو عمر المريض؟",
+    ),
+    "whatIsPatientGender": MessageLookupByLibrary.simpleMessage(
+      "ما هو جنس المريض؟",
+    ),
     "workingHoursValidationError": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال ساعات العمل اليومية",
     ),

@@ -4,22 +4,19 @@ import 'package:flutter/material.dart';
 
 /// Body widget for the record type view
 class AccessRecordTypeDoctorViewBody extends StatelessWidget {
-  const AccessRecordTypeDoctorViewBody({super.key});
+  AccessRecordTypeDoctorViewBody({
+    super.key,
+  });
+  //TODO load records from cubit
+  final List<RecordDoctorModel> records = [];
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 1, // TODO: Replace with actual data count
+      itemCount: records.length,
       itemBuilder: (context, index) {
-        return const AccessRecordDoctorItem(
-          record: RecordDoctorModel(
-            id: '1',
-            name: 'John Doe',
-            imageUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
-            date: '2021-01-01',
-            note: 'Note',
-            type: 'Type',
-          ),
+        return AccessRecordDoctorItem(
+          record: records[index],
         );
       },
     );
