@@ -1,5 +1,9 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:dio/dio.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -58,5 +62,36 @@ class LocalNotificationService {
   /// Check Notification Permission
   static Future<bool> checkNotificationPermission() async {
     return await Permission.notification.isGranted;
+  }
+
+  //basic Notification
+  static void showBasicNotification(RemoteMessage message) async {
+    final Response image = await getIt<Dio>().get(
+      message.notification?.android?.imageUrl ?? '',
+    );
+    BigPictureStyleInformation bigPictureStyleInformation =
+        BigPictureStyleInformation(
+      ByteArrayAndroidBitmap.fromBase64String(
+        base64Encode(image.data),
+      ),
+      largeIcon: ByteArrayAndroidBitmap.fromBase64String(
+        base64Encode(image.data),
+      ),
+    );
+    AndroidNotificationDetails android = AndroidNotificationDetails(
+      '2002',
+      'canc_app_push_notification',
+      importance: Importance.max,
+      priority: Priority.high,
+      styleInformation: bigPictureStyleInformation,
+      playSound: true,
+    );
+    NotificationDetails details = NotificationDetails(android: android);
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      message.notification?.title,
+      message.notification?.body,
+      details,
+    );
   }
 }

@@ -11,6 +11,7 @@ abstract class CacheKeys {
   static const onBoarding = 'onBoarding';
   static const whoAreYou = 'who';
   static const isLoggedIn = 'isLoggedIn';
+  static const fcmToken = 'fcmToken';
 }
 
 abstract class UsersKey {

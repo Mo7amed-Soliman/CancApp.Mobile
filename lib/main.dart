@@ -5,6 +5,7 @@ import 'package:canc_app/core/helpers/database/cache_helper.dart';
 import 'package:canc_app/core/helpers/database/hive_helper.dart';
 import 'package:canc_app/core/services/local_notifications_service.dart';
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
+import 'package:canc_app/core/services/push_notifications_service.dart';
 import 'package:canc_app/core/services/visit_notification_service.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
@@ -44,9 +45,12 @@ void main() async {
   await Future.wait([
     UserCacheHelper.init(),
     LocalNotificationService.init(),
+    PushNotificationsService.init(),
     MedicationNotificationService.initialize(),
     VisitNotificationService.initialize(),
   ]);
+
+  /// Initialize bloc observer
   Bloc.observer = AppBlocObservers();
 
   /// Run the app
