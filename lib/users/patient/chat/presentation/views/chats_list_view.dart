@@ -2,7 +2,6 @@ import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/chats_header.dart';
-import 'widgets/chats_list.dart';
 import 'widgets/category_list.dart';
 
 class ChatsListView extends StatelessWidget {
@@ -16,9 +15,9 @@ class ChatsListView extends StatelessWidget {
         VerticalSpacer(16),
         CategoryList(),
         VerticalSpacer(8),
-        Expanded(
-          child: ChatsList(),
-        ),
+        // Expanded(
+        //   child: ChatsList(userType: UsersKey.doctor),
+        // ),
       ],
     );
   }

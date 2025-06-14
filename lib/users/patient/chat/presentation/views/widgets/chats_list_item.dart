@@ -1,4 +1,6 @@
+import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
+import 'package:canc_app/core/models/user_model.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
@@ -9,24 +11,20 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class ChatsListItem extends StatelessWidget {
-  final String name;
-  final String message;
-  final String imageUrl;
+  final UserModel user;
 
   const ChatsListItem({
     super.key,
-    required this.name,
-    required this.message,
-    required this.imageUrl,
+    required this.user,
   });
 
   UserChatModel _createUserModel() {
     return UserChatModel(
-      name: name,
-      imagePath: imageUrl,
-      lastMessage: message,
-      lastMessageTime: '12:00 PM',
-      status: 'Online',
+      name: user.name,
+      imagePath: user.image!,
+      lastMessage: 'Hey, how are you holding up today?',
+      id: user.id,
+      idFrom: UserCacheHelper.getUser()?.id ?? '',
     );
   }
 
@@ -43,7 +41,7 @@ class ChatsListItem extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: context.setMinSize(28),
-              backgroundImage: AssetImage(imageUrl),
+              backgroundImage: NetworkImage(user.image!),
             ),
             const HorizontalSpacer(16),
             Expanded(
@@ -51,14 +49,14 @@ class ChatsListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    user.name,
                     style: AppTextStyle.font16MediumDarkGray(context).copyWith(
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const VerticalSpacer(4),
                   Text(
-                    message,
+                    'Hey, how are you holding up today?',
                     style: AppTextStyle.font12MediumDarkGray(context).copyWith(
                       color: AppColors.grayish,
                       overflow: TextOverflow.ellipsis,

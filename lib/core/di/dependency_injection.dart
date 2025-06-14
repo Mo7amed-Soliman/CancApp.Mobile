@@ -21,6 +21,9 @@ import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_r
 import 'package:canc_app/core/shared_feature/sign_up/data/repositories/sign_up_repository_impl.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manager/complete_pharmacy_registration_cubit/complete_pharmacy_registration_cubit.dart';
 import 'package:canc_app/core/shared_feature/sign_up/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:canc_app/users/doctor/chat/data/datasources/get_users_data_sources.dart';
+import 'package:canc_app/users/doctor/chat/data/repositories/get_users_repository.dart';
+import 'package:canc_app/users/doctor/chat/presentation/manager/get_patients_cubit/get_patients_cubit.dart';
 import 'package:canc_app/users/doctor/profile/data/data_sources/request_access_data_source.dart';
 import 'package:canc_app/users/doctor/profile/data/repositories/request_access_repository.dart';
 import 'package:canc_app/users/patient/chatbot/data/data_sources/chatbot_remote_data_source.dart';
@@ -209,5 +212,16 @@ Future<void> initDependencies() async {
   );
   getIt.registerLazySingleton<RequestAccessDataSource>(
     () => RequestAccessDataSource(getIt<ApiConsumer>()),
+  );
+
+  //! Doctor Chat
+  getIt.registerFactory<GetPatientsCubit>(
+    () => GetPatientsCubit(getIt<GetUsersRepository>()),
+  );
+  getIt.registerLazySingleton<GetUsersRepository>(
+    () => GetUsersRepository(getIt<GetUsersDataSource>()),
+  );
+  getIt.registerLazySingleton<GetUsersDataSource>(
+    () => GetUsersDataSource(getIt<ApiConsumer>()),
   );
 }

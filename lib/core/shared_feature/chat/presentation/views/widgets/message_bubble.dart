@@ -33,7 +33,18 @@ class MessageBubble extends StatelessWidget {
           color: chatMessageModel.isMe
               ? AppColors.paleTealTransparent
               : AppColors.lightGray,
-          borderRadius: BorderRadius.circular(context.setMinSize(16)),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(context.setMinSize(16)),
+            topRight: Radius.circular(context.setMinSize(16)),
+            bottomLeft: chatMessageModel.isMe
+                ? Radius.circular(context.setMinSize(16))
+                : Radius.zero,
+            bottomRight: chatMessageModel.isMe
+                ? Radius.zero
+                : Radius.circular(
+                    context.setMinSize(16),
+                  ),
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,

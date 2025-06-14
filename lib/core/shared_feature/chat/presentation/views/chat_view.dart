@@ -24,7 +24,7 @@ class _ChatViewState extends State<ChatView> {
   final ImagePicker _imagePicker = ImagePicker();
   final FocusNode _focusNode = FocusNode();
 
-  final List<ChatMessageModel> _messages = ChatMessageModel.getMessages();
+  final List<ChatMessageModel> _messages = [];
 
   @override
   void initState() {
@@ -63,8 +63,8 @@ class _ChatViewState extends State<ChatView> {
           isMe: true,
           timestamp: '${DateTime.now().hour}:${DateTime.now().minute} AM',
           type: TypeMessage.text,
-          idTo: '1',
-          idFrom: '2',
+          idTo: widget.user.id,
+          idFrom: widget.user.idFrom,
         ),
       );
     });
@@ -115,8 +115,8 @@ class _ChatViewState extends State<ChatView> {
               isMe: true,
               timestamp: '${DateTime.now().hour}:${DateTime.now().minute} AM',
               type: TypeMessage.image,
-              idTo: '1',
-              idFrom: '2',
+              idTo: widget.user.id,
+              idFrom: widget.user.idFrom,
             ),
           );
         });
@@ -135,7 +135,7 @@ class _ChatViewState extends State<ChatView> {
     return Scaffold(
       appBar: CustomAppBarChat(
         title: widget.user.name,
-        subtitle: widget.user.status,
+        subtitle: 'Hey, how are you holding up today?',
         imagePath: widget.user.imagePath,
       ),
       body: Column(

@@ -3,7 +3,7 @@ import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/available_users_list.dart';
+// import 'widgets/available_users_list.dart';
 import 'widgets/category_list.dart';
 import 'widgets/search_field_availble_to_chat.dart';
 
@@ -24,9 +24,9 @@ class AvailableToChatView extends StatelessWidget {
           const VerticalSpacer(16),
           CategoryList(item: item),
           const VerticalSpacer(16),
-          const Expanded(
-            child: AvailableUsersList(),
-          ),
+          // const Expanded(
+          //   child: AvailableUsersList(),
+          // ),
         ],
       ),
     );

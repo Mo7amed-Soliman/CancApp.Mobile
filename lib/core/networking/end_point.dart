@@ -22,6 +22,7 @@ class EndPoint {
   static const String getAccessRequests = 'RequestAccess/pending-requests';
   static const String acceptAccessRequest = 'RequestAccess/approve-access';
   static const String requestAccess = 'RequestAccess/request';
+  static const String getUsers = 'User/GetUsers';
   // community
   static const String getPosts = 'post';
   static const String addPost = 'post';

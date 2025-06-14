@@ -12,6 +12,7 @@ class ApiConstant {
   static const String oldPassword = 'oldPassword';
   static const String requestId = 'requestId';
   static const String approve = 'approve';
+  static const String userType = 'userType';
 }
 
 class ApiConstantForm {

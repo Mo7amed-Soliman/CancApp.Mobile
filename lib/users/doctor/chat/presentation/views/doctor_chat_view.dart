@@ -1,12 +1,17 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/horizontal_spacer.dart';
 import 'package:canc_app/core/widgets/vertical_spacer.dart';
 import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/users/doctor/chat/presentation/manager/get_patients_cubit/get_patients_cubit.dart';
+import 'package:canc_app/users/doctor/chat/presentation/manager/get_patients_cubit/get_patients_state.dart';
+import 'package:canc_app/users/doctor/chat/presentation/views/widgets/chat_list_shimmer.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/widgets/chats_list.dart';
 import 'package:canc_app/users/patient/chat/presentation/views/widgets/search_chats_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../patient/chat/presentation/views/widgets/search_field_chats.dart';
 
@@ -15,14 +20,42 @@ class DoctorChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        DoctorChatHeader(),
-        VerticalSpacer(8),
-        Expanded(
-          child: ChatsList(),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => getIt<GetPatientsCubit>()..getPatients(),
+      child: const Column(
+        children: [
+          DoctorChatHeader(),
+          VerticalSpacer(8),
+          Expanded(
+            child: _PatientsList(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PatientsList extends StatelessWidget {
+  const _PatientsList();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<GetPatientsCubit, GetPatientsState>(
+      builder: (context, state) {
+        if (state is GetPatientsInitial) {
+          return const SizedBox();
+        }
+        if (state is GetPatientsLoading) {
+          return const ChatListShimmer();
+        }
+        if (state is GetPatientsError) {
+          return Center(child: Text(state.errorMessage));
+        }
+        if (state is GetPatientsSuccess) {
+          return ChatsList(users: state.patients);
+        }
+        return const SizedBox();
+      },
     );
   }
 }

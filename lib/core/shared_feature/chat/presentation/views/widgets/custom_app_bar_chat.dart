@@ -35,7 +35,7 @@ class CustomAppBarChat extends StatelessWidget implements PreferredSizeWidget {
         children: [
           CircleAvatar(
             radius: context.setMinSize(20),
-            backgroundImage: AssetImage(imagePath),
+            backgroundImage: NetworkImage(imagePath),
           ),
           const HorizontalSpacer(12),
           Column(
@@ -46,12 +46,6 @@ class CustomAppBarChat extends StatelessWidget implements PreferredSizeWidget {
                 title,
                 style: AppTextStyle.font16MediumDarkGray(context).copyWith(
                   color: AppColors.offWhite,
-                ),
-              ),
-              Text(
-                subtitle,
-                style: AppTextStyle.font12MediumDarkGray(context).copyWith(
-                  color: AppColors.offWhite.withValues(alpha: 0.9),
                 ),
               ),
             ],
