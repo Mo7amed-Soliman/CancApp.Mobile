@@ -12,10 +12,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'core/services/medication_notification_service.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:canc_app/firebase_options.dart';
 
 void main() async {
   /// Initialize the Flutter framework
   WidgetsFlutterBinding.ensureInitialized();
+
+  /// Initialize Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   /// Set app orientation to portrait mode only
   SystemChrome.setPreferredOrientations([

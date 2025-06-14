@@ -53,7 +53,7 @@ import '../shared_feature/community/data/models/post_model.dart';
 
 //? GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: Routes.doctorView, //_getFirstView(),
+  initialLocation: _getFirstView(),
   debugLogDiagnostics: true,
   routes: [
     GoRoute(

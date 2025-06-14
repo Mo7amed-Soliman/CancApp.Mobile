@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "82339487154",
+    "project_id": "canc-app",
+    "storage_bucket": "canc-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82339487154:android:446897f5ed940e3dc1d8ab",
+        "android_client_info": {
+          "package_name": "com.cancer.cancapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAywZWFwSbRuLhNscsKXFlkbnHdf1zSOj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

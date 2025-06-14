@@ -108,6 +108,12 @@ dependencies:
   cached_network_image: ^3.4.1
   # flutter_polyline_points for getting actual route directions
   flutter_polyline_points: ^2.1.0
+  # firebase_messaging for push notifications
+  firebase_messaging: ^15.2.7
+  # firebase_core for firebase services
+  firebase_core: ^3.10.0
+
+
 
 dev_dependencies:
   flutter_test:
