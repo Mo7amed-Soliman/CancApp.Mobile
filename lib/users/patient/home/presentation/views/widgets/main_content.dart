@@ -28,7 +28,7 @@ class MainContent extends StatelessWidget {
               title: S.of(context).chatCategories,
               onSeeAll: () {
                 /// Navigate to chat screen
-                context.push(Routes.availableToChatView);
+                context.push(Routes.availableToChatView, extra: 0);
               },
             ),
             // Available to chat section

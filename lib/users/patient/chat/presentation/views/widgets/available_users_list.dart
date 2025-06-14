@@ -1,38 +1,71 @@
-// import 'package:canc_app/core/models/user_model.dart';
-// import 'package:canc_app/core/routing/routes.dart';
-// import 'package:canc_app/core/shared_feature/chat/data/models/user_chat_model.dart';
-// import 'package:canc_app/users/patient/chat/presentation/views/widgets/chat_user_card.dart';
-// import 'package:flutter/material.dart';
-// import 'package:go_router/go_router.dart';
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/theming/app_styles.dart';
+import 'package:canc_app/core/widgets/vertical_spacer.dart';
+import 'package:canc_app/core/widgets/in_empty_list.dart';
+import 'package:canc_app/generated/l10n.dart';
+import 'package:canc_app/users/doctor/chat/presentation/views/widgets/chat_list_shimmer.dart';
+import 'package:canc_app/users/patient/chat/presentation/manager/get_available_users_cubit/get_available_users_cubit.dart';
+import 'package:canc_app/users/patient/chat/presentation/manager/get_available_users_cubit/get_available_users_state.dart';
+import 'package:canc_app/users/patient/chat/presentation/views/widgets/chats_list.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-// class AvailableUsersList extends StatelessWidget {
-//   const AvailableUsersList({super.key, required this.users});
-//   final List<UserModel> users;
+class AvailableUsersList extends StatelessWidget {
+  final int categoryIndex;
 
-//   // UserChatModel _convertToUserModel(ChatUserCardModel cardModel) {
-//   //   return UserChatModel(
-//   //     name: cardModel.name,
-//   //     imagePath: cardModel.imagePath,
-//   //     lastMessage: 'Hey, how are you holding up today?',
-//   //     id: cardModel.id,
-//   //     idFrom: UserCacheHelper.getUser()?.id ?? '',
-//   //   );
-//   // }
+  const AvailableUsersList({
+    super.key,
+    required this.categoryIndex,
+  });
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       itemCount: users.length,
-//       itemBuilder: (context, index) {
-//         final cardModel = users[index];
-//         return ChatUserCard(
-//           model: cardModel,
-//           onChatPressed: () {
-//             final user = _convertToUserModel(cardModel);
-//             context.push(Routes.chatView, extra: user);
-//           },
-//         );
-//       },
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) =>
+          getIt<GetAvailableUsersCubit>()..getUsers(categoryIndex),
+      child: BlocBuilder<GetAvailableUsersCubit, GetAvailableUsersState>(
+        builder: (context, state) {
+          if (state is GetAvailableUsersInitial) {
+            context.read<GetAvailableUsersCubit>().getUsers(categoryIndex);
+            return const SizedBox();
+          }
+          if (state is GetAvailableUsersLoading) {
+            return const ChatListShimmer();
+          }
+          if (state is GetAvailableUsersError) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    state.errorMessage,
+                    style: AppTextStyle.font16RegularDarkGray(context),
+                    textAlign: TextAlign.center,
+                  ),
+                  const VerticalSpacer(16),
+                  ElevatedButton(
+                    onPressed: () {
+                      context
+                          .read<GetAvailableUsersCubit>()
+                          .getUsers(categoryIndex);
+                    },
+                    child: const Text('Retry'),
+                  ),
+                ],
+              ),
+            );
+          }
+          if (state is GetAvailableUsersSuccess) {
+            if (state.users.isEmpty) {
+              return InEmptyList(
+                title: S.of(context).noUsersFound,
+              );
+            }
+            return ChatsList(users: state.users);
+          }
+          return const SizedBox();
+        },
+      ),
+    );
+  }
+}

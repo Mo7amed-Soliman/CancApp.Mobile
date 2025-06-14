@@ -28,10 +28,9 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name =
-        (locale.countryCode?.isEmpty ?? false)
-            ? locale.languageCode
-            : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -2160,6 +2159,26 @@ class S {
     return Intl.message(
       'Lung Cancer Diagnosis',
       name: 'aiDiagnosisAssistantLungCancer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No users found`
+  String get noUsersFound {
+    return Intl.message(
+      'No users found',
+      name: 'noUsersFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No users found`
+  String get noMessagesFound {
+    return Intl.message(
+      'No messages found',
+      name: 'noMessagesFound',
       desc: '',
       args: [],
     );

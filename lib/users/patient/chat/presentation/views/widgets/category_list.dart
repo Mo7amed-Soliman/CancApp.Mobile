@@ -6,8 +6,13 @@ import 'package:canc_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatefulWidget {
-  const CategoryList({super.key, this.item});
+  const CategoryList({
+    super.key,
+    this.item,
+    this.onCategorySelected,
+  });
   final int? item;
+  final void Function(int)? onCategorySelected;
 
   @override
   State<CategoryList> createState() => _CategoryListState();
@@ -19,7 +24,17 @@ class _CategoryListState extends State<CategoryList> {
   @override
   void initState() {
     super.initState();
-    _selectedIndex = widget.item ?? 0; // Default to no selection
+    _selectedIndex = widget.item ?? 0;
+  }
+
+  @override
+  void didUpdateWidget(CategoryList oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.item != oldWidget.item) {
+      setState(() {
+        _selectedIndex = widget.item ?? 0;
+      });
+    }
   }
 
   List<String> _getCategories(BuildContext context) {
@@ -51,9 +66,12 @@ class _CategoryListState extends State<CategoryList> {
             title: categories[index],
             isSelected: _selectedIndex == index,
             onTap: () {
-              setState(() {
-                _selectedIndex = index;
-              });
+              if (_selectedIndex != index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+                widget.onCategorySelected?.call(index);
+              }
             },
             isRTL: isRTL,
           );

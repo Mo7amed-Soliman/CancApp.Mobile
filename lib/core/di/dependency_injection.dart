@@ -58,6 +58,9 @@ import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.da
 import '../../users/patient/chatbot/presentation/manager/chat_bot_cubit.dart';
 import '../shared_feature/sign_up/presentation/manager/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
 import 'package:canc_app/users/doctor/profile/presentation/manager/access_requests_doctor_cubit.dart';
+import 'package:canc_app/users/patient/chat/data/datasources/get_available_users_data_source.dart';
+import 'package:canc_app/users/patient/chat/data/repositories/get_available_users_repository.dart';
+import 'package:canc_app/users/patient/chat/presentation/manager/get_available_users_cubit/get_available_users_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -223,5 +226,16 @@ Future<void> initDependencies() async {
   );
   getIt.registerLazySingleton<GetUsersDataSource>(
     () => GetUsersDataSource(getIt<ApiConsumer>()),
+  );
+
+  //! Patient Chat
+  getIt.registerFactory<GetAvailableUsersCubit>(
+    () => GetAvailableUsersCubit(getIt<GetAvailableUsersRepository>()),
+  );
+  getIt.registerLazySingleton<GetAvailableUsersRepository>(
+    () => GetAvailableUsersRepository(getIt<GetAvailableUsersDataSource>()),
+  );
+  getIt.registerLazySingleton<GetAvailableUsersDataSource>(
+    () => GetAvailableUsersDataSource(getIt<ApiConsumer>()),
   );
 }
