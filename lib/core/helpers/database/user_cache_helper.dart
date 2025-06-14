@@ -25,4 +25,9 @@ class UserCacheHelper {
     final box = openUserBox();
     await box.delete(HiveHelper.userBox);
   }
+
+  static Future<void> updateUser(UserModel user) async {
+    final box = openUserBox();
+    await box.put(HiveHelper.userBox, user);
+  }
 }

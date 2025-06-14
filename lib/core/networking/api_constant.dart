@@ -10,6 +10,8 @@ class ApiConstant {
   static const String userId = 'userId';
   static const String newPassword = 'newPassword';
   static const String oldPassword = 'oldPassword';
+  static const String requestId = 'requestId';
+  static const String approve = 'approve';
 }
 
 class ApiConstantForm {

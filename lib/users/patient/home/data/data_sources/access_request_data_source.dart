@@ -1,4 +1,6 @@
+import 'package:canc_app/core/networking/api_constant.dart';
 import 'package:canc_app/core/networking/api_consumer.dart';
+import 'package:canc_app/core/networking/end_point.dart';
 import 'package:canc_app/users/patient/home/data/models/access_request_model.dart';
 
 class AccessRequestDataSource {
@@ -7,7 +9,9 @@ class AccessRequestDataSource {
   AccessRequestDataSource(this._apiConsumer);
 
   Future<List<AccessRequestModel>> getPendingRequests() async {
-    final response = await _apiConsumer.get('RequestAccess/pending-requests');
+    final response = await _apiConsumer.get(
+      EndPoint.getAccessRequests,
+    );
 
     final List<dynamic> requestsJson = response['value'] as List<dynamic>;
     return requestsJson
@@ -20,10 +24,10 @@ class AccessRequestDataSource {
     required bool approve,
   }) async {
     await _apiConsumer.post(
-      'RequestAccess/approve-access',
+      EndPoint.acceptAccessRequest,
       data: {
-        'requestId': requestId,
-        'approve': approve,
+        ApiConstant.requestId: requestId,
+        ApiConstant.approve: approve,
       },
     );
   }

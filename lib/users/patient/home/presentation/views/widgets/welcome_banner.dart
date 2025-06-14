@@ -37,7 +37,7 @@ class WelcomeBanner extends StatelessWidget {
                     UserCacheHelper.getUser()?.image ?? '',
                     width: context.setMinSize(60),
                     height: context.setMinSize(60),
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

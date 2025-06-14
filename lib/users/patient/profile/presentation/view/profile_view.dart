@@ -112,8 +112,12 @@ class _ProfileViewState extends State<ProfileView> {
         ProfileMenuTile(
           icon: IconlyLight.profile,
           title: S.of(context).editProfile,
-          onTap: () {
-            context.push(Routes.editProfileView);
+          onTap: () async {
+            await context.push(Routes.editProfileView).then((value) {
+              if (context.mounted) {
+                setState(() {});
+              }
+            });
           },
         ),
         ProfileMenuTile(
