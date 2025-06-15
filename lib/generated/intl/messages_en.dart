@@ -251,6 +251,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ID must be valid and not expired",
     ),
     "injection": MessageLookupByLibrary.simpleMessage("Injection"),
+    "km": MessageLookupByLibrary.simpleMessage("km"),
     "licenseMustBeIssuedByAuthority": MessageLookupByLibrary.simpleMessage(
       "The license must be issued by the official\n   Medical Syndicate authority",
     ),
@@ -261,8 +262,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingComments": MessageLookupByLibrary.simpleMessage(
       "Loading comments...",
     ),
+    "locationAccessRequired": MessageLookupByLibrary.simpleMessage(
+      "Location Access Required",
+    ),
     "locationPermissionError": MessageLookupByLibrary.simpleMessage(
       "Location permission or service is not available. Please enable location services and grant permission in your device settings to proceed.",
+    ),
+    "locationPermissionMessage": MessageLookupByLibrary.simpleMessage(
+      "We need access to your location to show you the route to the pharmacy.",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -366,6 +373,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please select opening hour",
     ),
     "openNow": MessageLookupByLibrary.simpleMessage("Open Now"),
+    "openSettings": MessageLookupByLibrary.simpleMessage("Open Settings"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "Password is required",
@@ -575,5 +583,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "writeAComment": MessageLookupByLibrary.simpleMessage("Write a comment..."),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "yourLocation": MessageLookupByLibrary.simpleMessage("Your Location"),
   };
 }

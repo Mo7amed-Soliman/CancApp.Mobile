@@ -245,6 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يجب أن تكون الهوية سارية وغير منتهية",
     ),
     "injection": MessageLookupByLibrary.simpleMessage("حقنة"),
+    "km": MessageLookupByLibrary.simpleMessage("كم"),
     "licenseMustBeIssuedByAuthority": MessageLookupByLibrary.simpleMessage(
       "يجب أن تصدر الرخصة من قبل الجهة الرسمية للنقابة الطبية",
     ),
@@ -255,8 +256,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "loadingComments": MessageLookupByLibrary.simpleMessage(
       "جاري تحميل التعليقات...",
     ),
+    "locationAccessRequired": MessageLookupByLibrary.simpleMessage(
+      "مطلوب الوصول إلى الموقع",
+    ),
     "locationPermissionError": MessageLookupByLibrary.simpleMessage(
       "خدمة الموقع أو الإذن غير متاح. يرجى تمكين خدمات الموقع ومنح الإذن في إعدادات جهازك للمتابعة.",
+    ),
+    "locationPermissionMessage": MessageLookupByLibrary.simpleMessage(
+      "نحتاج إلى الوصول إلى موقعك لإظهار المسار إلى الصيدلية.",
     ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -360,6 +367,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يرجى تحديد ساعة الفتح",
     ),
     "openNow": MessageLookupByLibrary.simpleMessage("مفتوح الآن"),
+    "openSettings": MessageLookupByLibrary.simpleMessage("فتح الإعدادات"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور مطلوبة",
@@ -573,5 +581,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "writeAComment": MessageLookupByLibrary.simpleMessage("اكتب تعليقاً..."),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
+    "yourLocation": MessageLookupByLibrary.simpleMessage("موقعك الحالي"),
   };
 }

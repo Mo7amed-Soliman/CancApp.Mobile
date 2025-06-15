@@ -280,7 +280,6 @@
     "addDate": "أضف التاريخ",
     "failedToPickImage": "فشل في اختيار الصورة: {error}",
     "emptyList": "القائمة فارغة",
-    "retry": "إعادة المحاولة",
     "noUsersFound": "لم يتم العثور على مستخدمين",
     "chatGreeting": "مرحبًا، كيف حالك اليوم؟",
     "whatIsPatientAge": "ما هو عمر المريض؟",
@@ -304,5 +303,11 @@
     "heyHowAreYouHoldingUp": "مرحباً، كيف حالك اليوم؟",
     "volunteerView": "واجهة المتطوع",
     "psychiatristView": "واجهة الطبيب النفسي",
-    "pharmacistView": "واجهة الصيدلي"
+    "pharmacistView": "واجهة الصيدلي",
+    "locationAccessRequired": "مطلوب الوصول إلى الموقع",
+    "locationPermissionMessage": "نحتاج إلى الوصول إلى موقعك لإظهار المسار إلى الصيدلية.",
+    "retry": "إعادة المحاولة",
+    "openSettings": "فتح الإعدادات",
+    "km": "كم",
+    "yourLocation": "موقعك الحالي"
 }

@@ -110,7 +110,7 @@ class _AiViewState extends State<AiView> {
           child: Row(
             children: [
               Text(
-                S.of(context).aiDiagnosisAssistantLungCancer,
+                'Lung Cancer Diagnosis',
                 style: AppTextStyle.font24SemiBoldDarkGray(context).copyWith(
                   color: AppColors.offWhite,
                   height: 1.86,

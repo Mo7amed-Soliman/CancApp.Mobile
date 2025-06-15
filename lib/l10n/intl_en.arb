@@ -296,5 +296,10 @@
    },
    "volunteerView": "Volunteer View",
    "psychiatristView": "Psychiatrist View",
-   "pharmacistView": "Pharmacist View"
+   "pharmacistView": "Pharmacist View",
+   "locationAccessRequired": "Location Access Required",
+   "locationPermissionMessage": "We need access to your location to show you the route to the pharmacy.",
+   "openSettings": "Open Settings",
+   "km": "km",
+   "yourLocation": "Your Location"
 }

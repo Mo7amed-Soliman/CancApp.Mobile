@@ -2354,6 +2354,51 @@ class S {
       args: [],
     );
   }
+
+  /// `Location Access Required`
+  String get locationAccessRequired {
+    return Intl.message(
+      'Location Access Required',
+      name: 'locationAccessRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We need access to your location to show you the route to the pharmacy.`
+  String get locationPermissionMessage {
+    return Intl.message(
+      'We need access to your location to show you the route to the pharmacy.',
+      name: 'locationPermissionMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open Settings`
+  String get openSettings {
+    return Intl.message(
+      'Open Settings',
+      name: 'openSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `km`
+  String get km {
+    return Intl.message('km', name: 'km', desc: '', args: []);
+  }
+
+  /// `Your Location`
+  String get yourLocation {
+    return Intl.message(
+      'Your Location',
+      name: 'yourLocation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
