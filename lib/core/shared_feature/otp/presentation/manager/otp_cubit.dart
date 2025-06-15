@@ -1,3 +1,6 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/secure_cache_helper.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/models/otp_model.dart';
 import 'package:canc_app/core/shared_feature/otp/data/repositories/otp_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +33,19 @@ class OtpCubit extends Cubit<OtpState> {
       (failure) {
         emit(FailedVerifyCodeState(errorMessage: failure.errorMessage));
       },
-      (success) => emit(SuccessVerifyCodeState()),
+      (success) async {
+        final result = await _otpRepository.saveFcmToken(
+          token: await getIt<SecureCacheHelper>()
+                  .getData(key: CacheKeys.fcmToken) ??
+              '',
+        );
+
+        result.fold(
+          (failure) =>
+              emit(FailedVerifyCodeState(errorMessage: failure.errorMessage)),
+          (success) => emit(SuccessVerifyCodeState()),
+        );
+      },
     );
   }
 

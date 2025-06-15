@@ -40,4 +40,12 @@ class LoginRemoteDataSource {
 
     return userModel;
   }
+
+  Future<void> saveFcmToken({
+    required String token,
+  }) async {
+    await _apiConsumer.post(EndPoint.fcmToken, data: {
+      ApiConstant.token: token,
+    });
+  }
 }

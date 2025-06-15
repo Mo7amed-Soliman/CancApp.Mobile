@@ -71,7 +71,7 @@ class _DisplayRecordIconsState extends State<DisplayRecordIcons> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color:const Color.fromARGB(255, 216, 233, 226),
+                    color: const Color.fromARGB(255, 216, 233, 226),
                   ),
                   child: const Icon(
                     color: Color.fromARGB(255, 55, 128, 99),
@@ -80,23 +80,23 @@ class _DisplayRecordIconsState extends State<DisplayRecordIcons> {
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  pickImage(2);
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromARGB(255, 227, 210, 187),
-                  ),
-                  child: const Icon(
-                    color: Color.fromARGB(255, 219, 173, 112),
-                    size: 50,
-                    IconlyLight.paper,
-                  ),
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     pickImage(2);
+              //   },
+              //   child: Container(
+              //     padding: const EdgeInsets.all(12),
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(10),
+              //       color: const Color.fromARGB(255, 227, 210, 187),
+              //     ),
+              //     child: const Icon(
+              //       color: Color.fromARGB(255, 219, 173, 112),
+              //       size: 50,
+              //       IconlyLight.paper,
+              //     ),
+              //   ),
+              // ),
               GestureDetector(
                 onTap: () {
                   pickImage(3);
@@ -105,9 +105,9 @@ class _DisplayRecordIconsState extends State<DisplayRecordIcons> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color:const Color.fromARGB(255, 225, 203, 203),
+                    color: const Color.fromARGB(255, 225, 203, 203),
                   ),
-                  child:const Icon(
+                  child: const Icon(
                       color: Color.fromARGB(255, 160, 65, 65),
                       size: 50,
                       IconlyLight.camera),

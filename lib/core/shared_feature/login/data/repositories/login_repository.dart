@@ -8,4 +8,7 @@ abstract class LoginRepository {
   Future<Either<Failure, UserModel>> login({
     required LoginModel loginModel,
   });
+  Future<Either<Failure, void>> saveFcmToken({
+    required String token,
+  });
 }

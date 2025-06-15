@@ -1,3 +1,6 @@
+import 'package:canc_app/core/di/dependency_injection.dart';
+import 'package:canc_app/core/helpers/database/secure_cache_helper.dart';
+import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/shared_feature/login/data/models/login_model.dart';
 import 'package:canc_app/core/models/user_model.dart';
 import 'package:canc_app/core/shared_feature/login/data/repositories/login_repository.dart';
@@ -45,7 +48,14 @@ class LoginCubit extends Cubit<LoginState> {
     );
     result.fold(
       (failure) => emit(LoginFailed(errMessage: failure.errorMessage)),
-      (userModel) => emit(LoginSuccess(userModel: userModel)),
+      (userModel) async {
+        await _loginRepository.saveFcmToken(
+          token: await getIt<SecureCacheHelper>()
+                  .getData(key: CacheKeys.fcmToken) ??
+              '',
+        );
+        emit(LoginSuccess(userModel: userModel));
+      },
     );
   }
 

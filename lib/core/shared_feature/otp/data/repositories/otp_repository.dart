@@ -15,4 +15,8 @@ abstract class OtpRepository {
     required String email,
     required String code,
   });
+
+  Future<Either<Failure, void>> saveFcmToken({
+    required String token,
+  });
 }

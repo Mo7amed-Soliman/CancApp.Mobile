@@ -62,4 +62,18 @@ class OtpRepositoryImpl implements OtpRepository {
       return Left(Failure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> saveFcmToken({
+    required String token,
+  }) async {
+    try {
+      await _otpRemoteDataSource.saveFcmToken(token: token);
+      return const Right(null);
+    } on ServerFailure catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(Failure(e.toString()));
+    }
+  }
 }

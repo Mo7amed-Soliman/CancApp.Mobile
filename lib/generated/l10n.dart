@@ -100,10 +100,10 @@ class S {
     );
   }
 
-  /// `Chat with doctors, psychiatrists, pharmacists, and volunteers anytime`
+  /// `Use our smart chatbot or talk directly with doctors, psychiatrists, pharmacists, and volunteers anytime.`
   String get onboarding_description1 {
     return Intl.message(
-      'Chat with doctors, psychiatrists, pharmacists, and volunteers anytime',
+      'Use our smart chatbot or talk directly with doctors, psychiatrists, pharmacists, and volunteers anytime.',
       name: 'onboarding_description1',
       desc: '',
       args: [],

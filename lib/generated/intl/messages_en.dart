@@ -352,7 +352,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Old Password is required",
     ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
-      "Chat with doctors, psychiatrists, pharmacists, and volunteers anytime",
+      "Use our smart chatbot or talk directly with doctors, psychiatrists, pharmacists, and volunteers anytime.",
     ),
     "onboarding_description2": MessageLookupByLibrary.simpleMessage(
       "Connect with patients and doctors and share your experiences, and get support just like on social media",

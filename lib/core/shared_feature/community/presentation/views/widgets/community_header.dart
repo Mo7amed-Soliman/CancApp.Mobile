@@ -62,7 +62,7 @@ class CommunityHeader extends StatelessWidget {
               ),
               const HorizontalSpacer(8),
               NotificationBadge(
-                count: 10,
+                count: 0,
                 onTap: () {},
               ),
             ],

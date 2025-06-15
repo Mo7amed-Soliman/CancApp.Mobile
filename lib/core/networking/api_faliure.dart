@@ -47,13 +47,20 @@ class ServerFailure extends Failure {
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
           statuscode: dioError.response!.statusCode ?? 500,
-          response: ApiErrorModel.fromJson(dioError.response!.data),
+          response: dioError.response!.statusCode == 500
+              ? ApiErrorModel(
+                  statusCode: 500,
+                  errorMessage: 'Server error , Please try later',
+                )
+              : ApiErrorModel.fromJson(dioError.response!.data),
         );
     }
   }
 
-  factory ServerFailure.fromResponse(
-      {required int statuscode, required ApiErrorModel response}) {
+  factory ServerFailure.fromResponse({
+    required int statuscode,
+    required ApiErrorModel response,
+  }) {
     if (statuscode == 400 ||
         statuscode == 401 ||
         statuscode == 403 ||

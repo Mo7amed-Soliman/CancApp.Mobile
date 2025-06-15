@@ -346,7 +346,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "كلمة المرور القديمة مطلوبة",
     ),
     "onboarding_description1": MessageLookupByLibrary.simpleMessage(
-      "تحدث مع أطباء، أخصائيين نفسيين، صيادلة ومتطوعين في أي وقت",
+      "استخدم روبوت المحادثة الذكي الخاص بنا أو تحدث مباشرة مع الأطباء والأطباء النفسيين والصيادلة والمتطوعين في أي وقت.",
     ),
     "onboarding_description2": MessageLookupByLibrary.simpleMessage(
       "انضم إلى مجتمع يضم مرضى وأطباء، تبادل الخبرات، وكن جزءًا من الدعم المتبادل",

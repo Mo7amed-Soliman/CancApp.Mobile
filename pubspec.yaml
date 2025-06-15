@@ -30,16 +30,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
   # This Library defines the DateFormat and NumberFormat
   intl: ^0.19.0
   # This Library used to support multiple languages
   flutter_localizations:
     sdk: flutter
-  # flutter_native_splash for splash screen management
-  flutter_native_splash: ^2.4.4
+
   # device_preview for responsive design testing
   device_preview: ^1.2.0
   # go_router for navigation management
@@ -77,8 +73,6 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   # flutter_dotenv for environment variables (API_URL, API_KEY, etc.)
   flutter_dotenv: ^5.2.1
-  # path_provider for accessing device file system
-  path_provider: ^2.1.2
   # local notifications 
   flutter_local_notifications: ^19.1.0
   # timezone for timezone management
@@ -130,7 +124,8 @@ dev_dependencies:
   # Hive generator for type adapters
   build_runner: ^2.4.8
   hive_generator: ^2.0.1
-
+  # flutter_native_splash for splash screen management
+  flutter_native_splash: ^2.4.4
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -144,10 +139,9 @@ flutter:
   assets:
     - assets/images/on_boarding/
     - assets/icons/
-    - assets/images/dummy_image/
-    - .env
     - assets/sounds/
     - assets/images/record/
+    - .env
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

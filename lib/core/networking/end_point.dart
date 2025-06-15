@@ -26,6 +26,7 @@ class EndPoint {
   static const String sendAccess = 'RequestAccess';
   static const String recordsForPatient = 'RequestAccess/records-for-patient';
   static const String getAcceptedPatients = 'RequestAccess/accepted-patients';
+  static const String fcmToken = 'User/save-token';
   // community
   static const String getPosts = 'post';
   static const String addPost = 'post';
