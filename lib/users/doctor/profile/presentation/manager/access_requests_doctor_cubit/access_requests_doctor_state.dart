@@ -11,9 +11,9 @@ class AccessRequestsDoctorInitial extends AccessRequestsDoctorState {}
 
 class AccessRequestsDoctorLoading extends AccessRequestsDoctorState {}
 
-class AccessRequestsDoctorLoaded extends AccessRequestsDoctorState {
-  const AccessRequestsDoctorLoaded();
-}
+class SendRequestsDoctorLoaded extends AccessRequestsDoctorState {}
+
+class AcceptedRequestsDoctorLoaded extends AccessRequestsDoctorState {}
 
 class AccessRequestsDoctorError extends AccessRequestsDoctorState {
   final String message;

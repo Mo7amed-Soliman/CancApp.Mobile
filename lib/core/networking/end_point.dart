@@ -24,6 +24,8 @@ class EndPoint {
   static const String requestAccess = 'RequestAccess/request';
   static const String getUsers = 'User/GetUsers';
   static const String sendAccess = 'RequestAccess';
+  static const String recordsForPatient = 'RequestAccess/records-for-patient';
+  static const String getAcceptedPatients = 'RequestAccess/accepted-patients';
   // community
   static const String getPosts = 'post';
   static const String addPost = 'post';

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:platform_file/platform_file.dart';
+// import 'package:platform_file/platform_file.dart';
 import 'package:uuid/uuid.dart';
 
 class RecordModel {
@@ -8,12 +8,12 @@ class RecordModel {
   File? image;
   String note;
   String date;
-  PlatformFile? file;
+  // PlatformFile? file;
 
   RecordModel({
     required this.date,
     required this.note,
-    this.file,
+    // this.file,
     this.image,
   });
 }

@@ -26,6 +26,7 @@ import 'package:canc_app/users/doctor/chat/data/repositories/get_users_repositor
 import 'package:canc_app/users/doctor/chat/presentation/manager/get_patients_cubit/get_patients_cubit.dart';
 import 'package:canc_app/users/doctor/profile/data/data_sources/request_access_data_source.dart';
 import 'package:canc_app/users/doctor/profile/data/repositories/request_access_repository.dart';
+import 'package:canc_app/users/doctor/profile/presentation/manager/access_record_type_doctor_cubit/access_record_type_doctor_cubit.dart';
 import 'package:canc_app/users/patient/chatbot/data/data_sources/chatbot_remote_data_source.dart';
 import 'package:canc_app/users/patient/chatbot/data/repositories/chatbot_repository.dart';
 import 'package:canc_app/users/patient/home/data/data_sources/access_request_data_source.dart';
@@ -57,7 +58,7 @@ import 'package:canc_app/core/shared_feature/edit_profile/data/datasources/edit_
 import '../../users/patient/chatbot/data/repositories/chatbot_repository_impl.dart';
 import '../../users/patient/chatbot/presentation/manager/chat_bot_cubit.dart';
 import '../shared_feature/sign_up/presentation/manager/complete_doctor_registration_cubit/complete_doctor_registration_cubit.dart';
-import 'package:canc_app/users/doctor/profile/presentation/manager/access_requests_doctor_cubit.dart';
+import 'package:canc_app/users/doctor/profile/presentation/manager/access_requests_doctor_cubit/access_requests_doctor_cubit.dart';
 import 'package:canc_app/users/patient/chat/data/datasources/get_available_users_data_source.dart';
 import 'package:canc_app/users/patient/chat/data/repositories/get_available_users_repository.dart';
 import 'package:canc_app/users/patient/chat/presentation/manager/get_available_users_cubit/get_available_users_cubit.dart';
@@ -237,5 +238,12 @@ Future<void> initDependencies() async {
   );
   getIt.registerLazySingleton<GetAvailableUsersDataSource>(
     () => GetAvailableUsersDataSource(getIt<ApiConsumer>()),
+  );
+
+  //! Access Record Type Doctor
+  getIt.registerFactory<AccessRecordTypeDoctorCubit>(
+    () => AccessRecordTypeDoctorCubit(
+      repository: getIt<RequestAccessRepository>(),
+    ),
   );
 }

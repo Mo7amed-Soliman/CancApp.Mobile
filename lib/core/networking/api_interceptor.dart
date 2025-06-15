@@ -37,7 +37,7 @@ class RefreshTokenInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (err.response?.statusCode == 401) {
+    if (err.response?.statusCode == 401 || err.response?.statusCode == 400) {
       final isRefreshed = await _refreshTokenService.refreshToken();
 
       if (isRefreshed) {

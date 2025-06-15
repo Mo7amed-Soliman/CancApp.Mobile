@@ -1,6 +1,7 @@
 import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/users/doctor/profile/data/model/access_request_doctor_model.dart';
+import 'package:canc_app/users/doctor/profile/data/model/record_doctor_model.dart';
 import 'package:canc_app/users/doctor/profile/data/repositories/request_access_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,11 +12,12 @@ class AccessRequestsDoctorCubit extends Cubit<AccessRequestsDoctorState> {
 
   List<AccessRequestDoctorModel> sendRequests = [];
   List<AccessRequestDoctorModel> acceptedRequests = [];
+  List<RecordDoctorModel> recordsForPatient = [];
 
   AccessRequestsDoctorCubit(this._repository)
       : super(AccessRequestsDoctorInitial());
 
-  Future<void> loadAccessRequests() async {
+  Future<void> loadSendRequests() async {
     emit(AccessRequestsDoctorLoading());
 
     final sendRequestsResult = await _repository.getAllPatient();
@@ -25,22 +27,23 @@ class AccessRequestsDoctorCubit extends Cubit<AccessRequestsDoctorState> {
       },
       (users) {
         sendRequests = users;
-        emit(const AccessRequestsDoctorLoaded());
       },
     );
+  }
 
-    // final acceptedRequests = await _repository.getAllAcceptedRequests();
-    // acceptedRequests.fold(
-    //   (failure) {
-    //     emit(AccessRequestsDoctorError(failure.errorMessage));
-    //   },
-    //   (response) {
-    //     emit(AccessRequestsDoctorLoaded(
-    //       sendRequests: [],
-    //       acceptedRequests: response,
-    //     ));
-    //   },
-    // );
+  Future<void> loadAcceptedRequests() async {
+    emit(AccessRequestsDoctorLoading());
+
+    final acceptedRequestsResult = await _repository.getAcceptedPatients();
+    acceptedRequestsResult.fold(
+      (failure) {
+        emit(AccessRequestsDoctorError(failure.errorMessage));
+      },
+      (patients) {
+        acceptedRequests = patients;
+        emit(AcceptedRequestsDoctorLoaded());
+      },
+    );
   }
 
   Future<void> sendAccess({

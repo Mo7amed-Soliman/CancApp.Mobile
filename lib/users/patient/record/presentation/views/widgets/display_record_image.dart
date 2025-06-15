@@ -35,7 +35,7 @@ class DisplayRecordImage extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               record.image = null;
-              record.file = null;
+              // record.file = null;
               BlocProvider.of<ManageUploadImageCubit>(context).deleteImage();
             },
             child: Container(

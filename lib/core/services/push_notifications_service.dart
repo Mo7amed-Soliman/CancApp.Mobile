@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:canc_app/core/helpers/database/secure_cache_helper.dart';
 import 'package:canc_app/core/helpers/utils/constants.dart';
 import 'package:canc_app/core/services/local_notifications_service.dart';
@@ -7,9 +9,9 @@ class PushNotificationsService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   static Future init() async {
-    // await messaging.requestPermission();
-
+    //* fcm token
     await messaging.getToken().then((value) async {
+      log('fcm token: $value');
       // save the token in secure storage
       await SecureCacheHelper().saveData(
         key: CacheKeys.fcmToken,
@@ -17,24 +19,33 @@ class PushNotificationsService {
       );
     });
 
-    // foreground only
+    //* background and killed
+    FirebaseMessaging.onBackgroundMessage(handlebackgroundMessage);
+
+    //* foreground
     handleForegroundMessage();
 
-    // background only
-    handleBackgroundMessage();
+    //* if the user is logged in
+    //* subscribe to topic
+    await messaging.subscribeToTopic('all_users');
+
+    //* if the user is logged out
+    //* unsubscribe from topic
+    //! await messaging.unsubscribeFromTopic('all_users');
+  }
+
+  static Future<void> handlebackgroundMessage(RemoteMessage message) async {
+    //* show local notification
+    LocalNotificationService.showBasicNotification(message);
   }
 
   static void handleForegroundMessage() {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      LocalNotificationService.showBasicNotification(message);
-    });
-  }
-
-  // this will be called when the app is in background or terminated
-  // and the user taps on the notification
-  static void handleBackgroundMessage() {
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      LocalNotificationService.showBasicNotification(message);
-    });
+    //* on message listen for notification when app is in foreground
+    FirebaseMessaging.onMessage.listen(
+      (RemoteMessage message) async {
+        //* show local notification
+        LocalNotificationService.showBasicNotification(message);
+      },
+    );
   }
 }

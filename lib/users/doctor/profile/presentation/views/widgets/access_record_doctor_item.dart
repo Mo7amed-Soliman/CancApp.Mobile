@@ -39,7 +39,7 @@ class AccessRecordDoctorItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
         child: Row(
           children: [
-            if (record.imageUrl.isNotEmpty) _buildImageContainer(height, width),
+            if (record.imageUrl != null) _buildImageContainer(height, width),
             SizedBox(width: width * 0.05),
             _buildNoteText(context),
           ],
@@ -49,17 +49,19 @@ class AccessRecordDoctorItem extends StatelessWidget {
   }
 
   Widget _buildImageContainer(double height, double width) {
-    return Container(
-      height: height * 0.2,
-      width: width * 0.38,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: NetworkImage(record.imageUrl),
-          fit: BoxFit.fill,
-        ),
-      ),
-    );
+    return record.imageUrl != null
+        ? Container(
+            height: height * 0.2,
+            width: width * 0.38,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              image: DecorationImage(
+                image: NetworkImage(record.imageUrl!),
+                fit: BoxFit.fill,
+              ),
+            ),
+          )
+        : const SizedBox();
   }
 
   Widget _buildNoteText(BuildContext context) {

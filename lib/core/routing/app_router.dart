@@ -22,6 +22,7 @@ import 'package:canc_app/core/shared_feature/who/presentation/views/who_are_you.
 import 'package:canc_app/core/shared_feature/sign_up/presentation/views/sign_up_view.dart';
 import 'package:canc_app/users/doctor/home/presentation/views/widgets/doctor_bottom_nav_bar.dart';
 import 'package:canc_app/users/doctor/profile/data/model/access_record_model.dart';
+import 'package:canc_app/users/doctor/profile/data/model/record_type_data.dart';
 import 'package:canc_app/users/doctor/profile/presentation/views/acces_record_type_doctor_view.dart';
 import 'package:canc_app/users/doctor/profile/presentation/views/access_record_view.dart';
 import 'package:canc_app/users/doctor/profile/presentation/views/access_requests_doctor_view.dart';
@@ -359,20 +360,32 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: Routes.accessRecordView,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: AccessRecordDoctorView(
-            accessRecord: state.extra as AccessRecordModel),
-        transitionsBuilder: _transitionsBuilder,
-      ),
+      pageBuilder: (context, state) {
+        final extra = state.extra as Map<String, dynamic>;
+        final accessRecord = AccessRecordModel.fromJson(extra);
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: AccessRecordDoctorView(accessRecord: accessRecord),
+          transitionsBuilder: _transitionsBuilder,
+        );
+      },
     ),
     GoRoute(
       path: Routes.accessRecordTypeDoctorView,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        key: state.pageKey,
-        child: AccessRecordTypeDoctorView(recordType: state.extra as String),
-        transitionsBuilder: _transitionsBuilder,
-      ),
+      pageBuilder: (context, state) {
+        final extra = state.extra as Map<String, dynamic>;
+        final recordTypeData = RecordTypeData.fromJson(extra);
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: AccessRecordTypeDoctorView(
+            recordTypeAndIndex: (
+              index: recordTypeData.index,
+              recordType: recordTypeData.recordType,
+            ),
+          ),
+          transitionsBuilder: _transitionsBuilder,
+        );
+      },
     ),
   ],
 );

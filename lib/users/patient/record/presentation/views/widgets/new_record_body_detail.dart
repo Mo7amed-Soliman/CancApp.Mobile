@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:canc_app/core/widgets/app_buttom_widget.dart';
 import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/patient/record/data/models/recotd_model.dart';
@@ -26,8 +24,7 @@ class _NewRecordBodyDetailState extends State<NewRecordBodyDetail> {
   GlobalKey<FormState> formState = GlobalKey();
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  RecordModel recordModel =
-      RecordModel(file: null, image: null, date: '', note: '');
+  RecordModel recordModel = RecordModel(image: null, date: '', note: '');
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +45,9 @@ class _NewRecordBodyDetailState extends State<NewRecordBodyDetail> {
                   BlocBuilder<ManageUploadImageCubit, ManageUploadImageState>(
                       builder: (context, state) {
                     if (state is FoundedImage &&
-                        (recordModel.image != null ||
-                            recordModel.file != null)) {
-                      log('Image selected: ${recordModel.image}');
-                      log('State: $state');
+                        (recordModel.image != null
+                        // recordModel.file != null)) {
+                        )) {
                       return DisplayRecordImage(
                           record: widget.record[0] ?? recordModel);
                     } else if (widget.record[0]?.image != null ||
@@ -63,9 +59,9 @@ class _NewRecordBodyDetailState extends State<NewRecordBodyDetail> {
                           if (image != null) {
                             widget.record[0]?.image = image;
                             recordModel.image = image;
-                          } else {
-                            widget.record[0]?.file = file;
-                            recordModel.file = file;
+                            // } else {
+                            //   widget.record[0]?.file = file;
+                            //   recordModel.file = file;
                           }
                           BlocProvider.of<ManageUploadImageCubit>(context)
                               .addGallery(image ?? file);
