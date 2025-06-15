@@ -271,7 +271,7 @@
     "ai": "الذكاء الاصطناعي",
     "sendRequest": "إرسال طلب",
     "acceptedRequests": "الطلبات المقبولة",
-    "patientAccessRequests": "طلبات الوصول للمرضى",
+    "patientAccessRequests": "طلبات وصول المرضى",
     "aiDiagnosisAssistantLungCancer": "مساعد التشخيص بالذكاء الاصطناعي - سرطان الرئة",
     "pharmacyNamePlaceholder": "اسم الصيدلية",
     "addNotes": "أضف ملاحظات",
@@ -309,5 +309,8 @@
     "retry": "إعادة المحاولة",
     "openSettings": "فتح الإعدادات",
     "km": "كم",
-    "yourLocation": "موقعك الحالي"
+    "yourLocation": "موقعك الحالي",
+    "noAcceptedRequests": "لا توجد طلبات مقبولة",
+    "noPatientAvailable": "لا يوجد مرضى متاحين",
+    "noRecordsFound": "لا توجد سجلات"
 }

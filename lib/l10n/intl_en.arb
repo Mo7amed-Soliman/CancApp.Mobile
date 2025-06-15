@@ -301,5 +301,8 @@
    "locationPermissionMessage": "We need access to your location to show you the route to the pharmacy.",
    "openSettings": "Open Settings",
    "km": "km",
-   "yourLocation": "Your Location"
+   "yourLocation": "Your Location",
+   "noAcceptedRequests": "No accepted requests",
+   "noPatientAvailable": "No patients available",
+   "noRecordsFound": "No records found"
 }

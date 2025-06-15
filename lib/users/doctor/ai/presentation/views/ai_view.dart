@@ -1,3 +1,4 @@
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/helpers/responsive_helpers/size_helper_extension.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
@@ -87,9 +88,7 @@ class _AiViewState extends State<AiView> {
         _predictionResult = result;
       });
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: ${e.toString()}')),
-      );
+      botTextToast('Error: ${e.toString()}');
     } finally {
       setState(() {
         _isLoading = false;
@@ -198,8 +197,8 @@ class _AiViewState extends State<AiView> {
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: _predictionResult == 'Positive'
-                            ? Colors.red.withOpacity(0.1)
-                            : Colors.green.withOpacity(0.1),
+                            ? Colors.red.withValues(alpha: 0.1)
+                            : Colors.green.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Text(

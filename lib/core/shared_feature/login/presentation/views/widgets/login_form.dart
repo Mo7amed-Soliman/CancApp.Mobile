@@ -71,7 +71,6 @@ class LoginForm extends StatelessWidget {
     } else if (userType == UsersKey.psychiatrist) {
       context.go(Routes.psychiatristView);
     } else if (userType == UsersKey.admin) {
-      // TODO : navigate to admin view
       context.go(Routes.homeView);
     }
   }

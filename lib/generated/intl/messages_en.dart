@@ -312,6 +312,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "newRecord": MessageLookupByLibrary.simpleMessage("New Record"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "noAcceptedRequests": MessageLookupByLibrary.simpleMessage(
+      "No accepted requests",
+    ),
     "noComments": MessageLookupByLibrary.simpleMessage("No comments yet"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "No fingers covering any part of the ID",
@@ -322,12 +325,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "noMedicationsForDate": MessageLookupByLibrary.simpleMessage(
       "No medications for this date",
     ),
+    "noPatientAvailable": MessageLookupByLibrary.simpleMessage(
+      "No patients available",
+    ),
     "noPendingRequests": MessageLookupByLibrary.simpleMessage(
       "No pending requests",
     ),
     "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
       "No pharmacies found matching the selected filter.",
     ),
+    "noRecordsFound": MessageLookupByLibrary.simpleMessage("No records found"),
     "noUsersFound": MessageLookupByLibrary.simpleMessage("No users found"),
     "noVisits": MessageLookupByLibrary.simpleMessage("No visit reminders"),
     "noVisitsForDate": MessageLookupByLibrary.simpleMessage(

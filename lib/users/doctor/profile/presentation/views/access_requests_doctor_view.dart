@@ -79,8 +79,8 @@ class _AccessRequestsDoctorViewBodyState
           child: TabBarView(
             controller: _tabController,
             children: [
-              const AcceptedRequestList(),
-              const SendRequestList(),
+              const BlocConsumerAcceptedRequestList(),
+              const BlocConsumerSendRequestList(),
             ],
           ),
         ),

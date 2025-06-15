@@ -304,6 +304,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "newRecord": MessageLookupByLibrary.simpleMessage("سجل جديد"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noAcceptedRequests": MessageLookupByLibrary.simpleMessage(
+      "لا توجد طلبات مقبولة",
+    ),
     "noComments": MessageLookupByLibrary.simpleMessage("لا توجد تعليقات بعد"),
     "noFingersCoveringId": MessageLookupByLibrary.simpleMessage(
       "يُمنع تغطية أي جزء من الهوية بالأصابع",
@@ -314,12 +317,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "noMedicationsForDate": MessageLookupByLibrary.simpleMessage(
       "لا توجد أدوية لهذا التاريخ",
     ),
+    "noPatientAvailable": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد مرضى متاحين",
+    ),
     "noPendingRequests": MessageLookupByLibrary.simpleMessage(
       "لا توجد طلبات معلقة",
     ),
     "noPharmaciesFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على صيدليات تطابق الفلتر المحدد.",
     ),
+    "noRecordsFound": MessageLookupByLibrary.simpleMessage("لا توجد سجلات"),
     "noUsersFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على مستخدمين",
     ),
@@ -377,7 +384,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "patient": MessageLookupByLibrary.simpleMessage("مريض"),
     "patientAccessRequests": MessageLookupByLibrary.simpleMessage(
-      "طلبات الوصول للمرضى",
+      "طلبات وصول المرضى",
     ),
     "patients": MessageLookupByLibrary.simpleMessage("المرضى"),
     "pharmacist": MessageLookupByLibrary.simpleMessage("صيدلية"),

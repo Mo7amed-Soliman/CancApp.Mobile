@@ -1,4 +1,5 @@
 import 'package:canc_app/core/widgets/in_empty_list.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/doctor/chat/presentation/views/widgets/chat_list_shimmer.dart';
 import 'package:canc_app/users/doctor/profile/presentation/manager/access_record_type_doctor_cubit/access_record_type_doctor_cubit.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class AccessRecordTypeDoctorViewBody extends StatelessWidget {
         }
         if (state is AccessRecordTypeDoctorSuccess) {
           return state.records.isEmpty
-              ? const InEmptyList(title: 'No records found')
+              ? InEmptyList(title: S.of(context).noRecordsFound)
               : ListView.builder(
                   itemCount: state.records.length,
                   itemBuilder: (context, index) {
@@ -38,7 +39,7 @@ class AccessRecordTypeDoctorViewBody extends StatelessWidget {
                   },
                 );
         }
-        return const SizedBox.shrink();
+        return InEmptyList(title: S.of(context).noRecordsFound);
       },
     );
   }

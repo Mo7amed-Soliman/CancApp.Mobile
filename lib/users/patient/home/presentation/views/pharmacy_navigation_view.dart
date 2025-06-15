@@ -159,12 +159,10 @@ class _PharmacyNavigationViewState extends State<PharmacyNavigationView> {
         ),
         Marker(
           markerId: const MarkerId('pharmacy'),
-          position: const LatLng(
-              //TODO: remove this after testing
-              // widget.pharmacy.latitude,
-              // widget.pharmacy.longitude,
-              29.406887492361705,
-              30.769541024454313),
+          position: LatLng(
+            widget.pharmacy.latitude,
+            widget.pharmacy.longitude,
+          ),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           infoWindow: InfoWindow(title: widget.pharmacy.name),
         ),
@@ -178,12 +176,9 @@ class _PharmacyNavigationViewState extends State<PharmacyNavigationView> {
             _currentLocation!.latitude!,
             _currentLocation!.longitude!,
           ),
-          destination: const PointLatLng(
-            //TODO: remove this after testing
-            // widget.pharmacy.latitude,
-            // widget.pharmacy.longitude,
-            29.406887492361705,
-            30.769541024454313,
+          destination: PointLatLng(
+            widget.pharmacy.latitude,
+            widget.pharmacy.longitude,
           ),
           mode: TravelMode.driving,
         ),

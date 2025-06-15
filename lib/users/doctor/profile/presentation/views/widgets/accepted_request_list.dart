@@ -1,6 +1,8 @@
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/routing/routes.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/in_empty_list.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/doctor/chat/presentation/views/widgets/chat_list_shimmer.dart';
 import 'package:canc_app/users/doctor/profile/data/model/access_record_model.dart';
 import 'package:canc_app/users/doctor/profile/data/model/access_request_doctor_model.dart';
@@ -10,36 +12,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class AcceptedRequestList extends StatelessWidget {
-  const AcceptedRequestList({super.key});
+class BlocConsumerAcceptedRequestList extends StatelessWidget {
+  const BlocConsumerAcceptedRequestList({super.key});
 
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<AccessRequestsDoctorCubit>(context);
-    return BlocBuilder<AccessRequestsDoctorCubit, AccessRequestsDoctorState>(
+    return BlocConsumer<AccessRequestsDoctorCubit, AccessRequestsDoctorState>(
+      listener: (context, state) {
+        if (state is AccessRequestsDoctorError) {
+          botTextToast(state.message);
+        }
+      },
       builder: (context, state) {
         if (state is AccessRequestsDoctorLoading) {
           return const ChatListShimmer();
         }
-        if (state is AccessRequestsDoctorError) {
-          return Center(
-            child: Text(state.message),
-          );
-        }
+
         if (state is AcceptedRequestsDoctorLoaded ||
             state is SendRequestsDoctorLoaded) {
           return cubit.acceptedRequests.isEmpty
-              ? const InEmptyList(title: 'No accepted requests')
-              : NewWidget(acceptedRequests: cubit.acceptedRequests);
+              ? InEmptyList(title: S.of(context).noAcceptedRequests)
+              : AcceptedRequestList(acceptedRequests: cubit.acceptedRequests);
         }
-        return const SizedBox.shrink();
+        return InEmptyList(title: S.of(context).noAcceptedRequests);
       },
     );
   }
 }
 
-class NewWidget extends StatelessWidget {
-  const NewWidget({
+class AcceptedRequestList extends StatelessWidget {
+  const AcceptedRequestList({
     super.key,
     required this.acceptedRequests,
   });

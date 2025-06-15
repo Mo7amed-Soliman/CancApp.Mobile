@@ -2399,6 +2399,36 @@ class S {
       args: [],
     );
   }
+
+  /// `No accepted requests`
+  String get noAcceptedRequests {
+    return Intl.message(
+      'No accepted requests',
+      name: 'noAcceptedRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No patients available`
+  String get noPatientAvailable {
+    return Intl.message(
+      'No patients available',
+      name: 'noPatientAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No records found`
+  String get noRecordsFound {
+    return Intl.message(
+      'No records found',
+      name: 'noRecordsFound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,7 +1,9 @@
 import 'package:canc_app/core/helpers/database/user_cache_helper.dart';
+import 'package:canc_app/core/helpers/functions/bot_toast.dart';
 import 'package:canc_app/core/theming/app_colors.dart';
 import 'package:canc_app/core/theming/app_styles.dart';
 import 'package:canc_app/core/widgets/in_empty_list.dart';
+import 'package:canc_app/generated/l10n.dart';
 import 'package:canc_app/users/doctor/chat/presentation/views/widgets/chat_list_shimmer.dart';
 import 'package:canc_app/users/doctor/profile/data/model/access_request_doctor_model.dart';
 import 'package:canc_app/users/doctor/profile/presentation/manager/access_requests_doctor_cubit/access_requests_doctor_cubit.dart';
@@ -10,38 +12,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
-class SendRequestList extends StatelessWidget {
-  const SendRequestList({
+class BlocConsumerSendRequestList extends StatelessWidget {
+  const BlocConsumerSendRequestList({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AccessRequestsDoctorCubit, AccessRequestsDoctorState>(
+    return BlocConsumer<AccessRequestsDoctorCubit, AccessRequestsDoctorState>(
+      listener: (context, state) {
+        if (state is AccessRequestsDoctorError) {
+          botTextToast(state.message);
+        }
+      },
       builder: (context, state) {
         if (state is AccessRequestsDoctorLoading) {
           return const ChatListShimmer();
-        }
-        if (state is AccessRequestsDoctorError) {
-          return Center(
-            child: Text(state.message),
-          );
         }
         if (state is SendRequestsDoctorLoaded ||
             state is AcceptedRequestsDoctorLoaded) {
           final cubit = context.read<AccessRequestsDoctorCubit>();
           return cubit.sendRequests.isEmpty
-              ? const InEmptyList(title: 'No Patient Available')
-              : NewWidget(sendRequests: cubit.sendRequests);
+              ? InEmptyList(title: S.of(context).noPatientAvailable)
+              : SendRequestList(sendRequests: cubit.sendRequests);
         }
-        return const SizedBox.shrink();
+        return InEmptyList(title: S.of(context).noPatientAvailable);
       },
     );
   }
 }
 
-class NewWidget extends StatelessWidget {
-  const NewWidget({
+class SendRequestList extends StatelessWidget {
+  const SendRequestList({
     super.key,
     required this.sendRequests,
   });
