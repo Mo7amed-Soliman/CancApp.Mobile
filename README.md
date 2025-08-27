@@ -21,7 +21,6 @@ The application is built using a modern and scalable tech stack, following Clean
 
 -   **Architecture:** The project is structured by feature, separating the codebase into three main layers:
     -   **Data:** Handles data retrieval from local (Hive, SharedPreferences) and remote (Dio) sources.
-    -   **Domain (Repositories):** Abstracts the data layer and contains business logic.
     -   **Presentation (UI):** Consists of Widgets and state management (Bloc/Cubit) to display data and handle user interactions.
 
 -   **Core Technologies:**
