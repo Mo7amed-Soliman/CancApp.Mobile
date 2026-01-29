@@ -30,7 +30,6 @@ The application is built using a modern and scalable tech stack, following Clean
     -   **Networking:** `dio` for HTTP requests with interceptors for authentication and token refresh.
     -   **Dependency Injection:** `get_it` for service locator pattern.
     -   **Local Storage:** `hive` for structured data, `shared_preferences` for simple key-value data, and `flutter_secure_storage` for sensitive credentials.
-    -   **Asynchronous Programming:** `dartz` for functional programming constructs (Either).
     -   **Services:** `google_maps_flutter`, `location`, `flutter_local_notifications`.
 
 ## ⚙️ Getting Started
